@@ -3,4 +3,5 @@
 #'
 #' @docType package
 #' @name seer
+#' @import magrittr
 NULL

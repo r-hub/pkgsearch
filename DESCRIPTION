@@ -7,3 +7,8 @@ License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/metacran/seer
 BugReports: https://github.com/metacran/seer/issues
+Imports:
+    magrittr,
+    httr,
+    falsy,
+    jsonlite
