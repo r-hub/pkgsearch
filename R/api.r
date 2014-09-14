@@ -23,7 +23,7 @@
 #' seer("google")
 #' }
 
-seer <- function(query, from = 0, size = 20,
+seer <- function(query, from = 0, size = 10,
                  server = "seer.r-pkg.org", port = 9200) {
 
   index <- "cran-devel"

@@ -3,7 +3,7 @@
 \alias{seer}
 \title{Search CRAN packages}
 \usage{
-seer(query, from = 0, size = 20, server = "seer.r-pkg.org", port = 9200)
+seer(query, from = 0, size = 10, server = "seer.r-pkg.org", port = 9200)
 }
 \arguments{
 \item{query}{Search query string.}
