@@ -27,3 +27,10 @@ add_class <- function(x, class_name) {
 pluck <- function(list, field) {
   sapply(list, "[[", field)
 }
+
+`%s%` <- function(lhs, rhs) {
+  check_string(lhs)
+  list(lhs) %>%
+    c(as.list(rhs)) %>%
+    do.call(what = sprintf)
+}

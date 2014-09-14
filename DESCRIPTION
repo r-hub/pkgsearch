@@ -11,4 +11,6 @@ Imports:
     magrittr,
     httr,
     falsy,
-    jsonlite
+    jsonlite,
+    parsedate,
+    lubridate
