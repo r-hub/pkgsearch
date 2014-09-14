@@ -1,0 +1,43 @@
+
+```{r, setup, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  tidy = FALSE,
+  error = FALSE,
+  fig.width = 8,
+  fig.height = 8)
+options(width = 90)
+options(max.print = 200)
+```
+
+# CRAN package search
+
+The `seer` package searches all CRAN packages. It uses a web service,
+and a careful weighting that ranks popular packages before less
+frequently used ones.
+
+## Installation
+
+Install the package from github, using `devtools`:
+
+```{r result = "hide", message = FALSE}
+devtools::install_github("metacran/seer")
+```
+
+## Usage
+
+The current API is very minimal, there is a single `seer()` function
+that can be used to search. Here are some example searches.
+
+```{r}
+library(seer)
+seer("C++")
+```
+
+```{r}
+seer("survival")
+```
+
+```{r}
+seer("google")
+```
