@@ -2,7 +2,7 @@
 
 S3method(print,seer_result)
 S3method(summary,seer_result)
-export(seer)
+export(see)
 import(magrittr)
 importFrom(falsy,"%&&%")
 importFrom(falsy,"%||%")

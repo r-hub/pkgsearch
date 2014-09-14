@@ -17,14 +17,14 @@
 #' @examples
 #' \donttest{
 #' ## Some example searches
-#' seer("networks")
-#' seer("survival")
-#' seer("graphics")
-#' seer("google")
+#' see("networks")
+#' see("survival")
+#' see("graphics")
+#' see("google")
 #' }
 
-seer <- function(query, from = 0, size = 10,
-                 server = "seer.r-pkg.org", port = 9200) {
+see <- function(query, from = 0, size = 10,
+                server = "seer.r-pkg.org", port = 9200) {
 
   index <- "cran-devel"
   type <- "package"

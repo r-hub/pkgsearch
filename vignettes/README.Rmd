@@ -29,18 +29,18 @@ devtools::install_github("metacran/seer")
 
 ## Usage
 
-The current API is very minimal, there is a single `seer()` function
+The current API is very minimal, there is a single `see()` function
 that can be used to search. Here are some example searches.
 
 ```{r}
 library(seer)
-seer("C++")
+see("C++")
 ```
 
 ```{r}
-seer("survival")
+see("survival")
 ```
 
 ```{r}
-seer("google")
+see("google")
 ```
