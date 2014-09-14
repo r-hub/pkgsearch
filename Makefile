@@ -1,7 +1,7 @@
 
 all: README.md
 
-README.md: README.Rmd
-	Rscript -e "library(methods); library(knitr); knit('README.Rmd', quiet = TRUE)"
+README.md: vignettes/README.Rmd
+	Rscript -e "library(methods); library(knitr); knit('$<', output = '$@', quiet = TRUE)"
 
 
