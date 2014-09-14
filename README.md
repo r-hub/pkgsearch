@@ -3,6 +3,9 @@
 
 # CRAN package search
 
+[![Linux Build Status](https://travis-ci.org/metacran/seer.png?branch=master)](https://travis-ci.org/metacran/seer)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/2tdve2yyct7ix1u8)](https://ci.appveyor.com/project/gaborcsardi/seer)
+
 The `seer` package searches all CRAN packages. It uses a web service,
 and a careful weighting that ranks popular packages before less
 frequently used ones.

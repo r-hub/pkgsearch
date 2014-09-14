@@ -2,3 +2,4 @@
 ^tags$
 ^README.Rmd$
 ^Makefile$
+^appveyor.yml$
