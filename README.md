@@ -31,8 +31,7 @@ see("C++")
 ```
 
 ```
-#> SEER: C++ -------------------------------------------------------------------------------
-#>  + 1022 packages in 0.197 seconds
+#> SAW "C++" -------------------------------------------- 1022 packages in 0.19 seconds --- 
 #> 
 #> Rcpp @ 0.11.2                                            Dirk Eddelbuettel, 3 months ago 
 #> -------------
@@ -81,7 +80,7 @@ see("C++")
 #>   http://dirk.eddelbuettel.com/code/rcpp.html
 #>   https://github.com/RcppCore/Rcpp
 #> 
-#> BH @ 1.54.0-4                                             Dirk Eddelbuettel, 15 days ago 
+#> BH @ 1.54.0-4                                             Dirk Eddelbuettel, 16 days ago 
 #> -------------
 #>   # Boost C++ header files
 #>   Boost provides free peer-reviewed portable C++ source libraries.  A large part of
@@ -147,7 +146,7 @@ see("C++")
 #>   # BASIX: An efficient C/C++ toolset for R.
 #>   BASIX provides some efficient C/C++ implementations to speed up calculations in R.
 #> 
-#> e1071 @ 1.6-4                                                   David Meyer, 12 days ago 
+#> e1071 @ 1.6-4                                                   David Meyer, 13 days ago 
 #> -------------
 #>   # Misc Functions of the Department of Statistics (e1071), TU Wien
 #>   Functions for latent class analysis, short time Fourier transform, fuzzy clustering,
@@ -161,8 +160,7 @@ see("survival")
 ```
 
 ```
-#> SEER: survival --------------------------------------------------------------------------
-#>  + 307 packages in 0.089 seconds
+#> SAW "survival" --------------------------------------- 307 packages in 0.089 seconds --- 
 #> 
 #> survival @ 2.37-7                                         Terry M Therneau, 7 months ago 
 #> -----------------
@@ -206,14 +204,14 @@ see("survival")
 #>   implementation of most of the functionality of the 1984 book by Breiman, Friedman,
 #>   Olshen and Stone.
 #> 
-#> prodlim @ 1.4.5                                             Thomas A. Gerds, 11 days ago 
+#> prodlim @ 1.4.5                                             Thomas A. Gerds, 12 days ago 
 #> ---------------
 #>   # Product-limit estimation. Kaplan-Meier and Aalen-Johansson method for censored
 #>     event history (survival) analysis
 #>   Fast and user friendly implementation of nonparametric estimators for censored event
 #>   history (survival) analysis.
 #> 
-#> pec @ 2.3.7                                                  Thomas A. Gerds, 8 days ago 
+#> pec @ 2.3.7                                                  Thomas A. Gerds, 9 days ago 
 #> -----------
 #>   # Prediction Error Curves for Survival Models
 #>   Validation of predicted survival probabilities using inverse weighting and
@@ -226,7 +224,7 @@ see("survival")
 #>   This package provides routines for fitting Cox models by likelihood based boosting
 #>   for a single endpoint or in presence of competing risks
 #> 
-#> randomForestSRC @ 1.5.5                                    Udaya B. Kogalur, 18 days ago 
+#> randomForestSRC @ 1.5.5                                    Udaya B. Kogalur, 19 days ago 
 #> -----------------------
 #>   # Random Forests for Survival, Regression and Classification (RF-SRC)
 #>   A unified treatment of Breiman's random forests for survival, regression and
@@ -242,10 +240,9 @@ see("google")
 ```
 
 ```
-#> SEER: google ----------------------------------------------------------------------------
-#>  + 24 packages in 0.036 seconds
+#> SAW "google" ------------------------------------------ 24 packages in 0.043 seconds --- 
 #> 
-#> googleVis @ 0.5.5                                            Markus Gesmann, 28 days ago 
+#> googleVis @ 0.5.5                                            Markus Gesmann, 29 days ago 
 #> -----------------
 #>   # Interface between R and Google Charts
 #>   The googleVis package provides an interface between R and the Google Charts API. It
@@ -268,21 +265,21 @@ see("google")
 #>   ggmap allows for the easy visualization of spatial data and models on top of Google
 #>   Maps, OpenStreetMaps, Stamen Maps, or CloudMade Maps using ggplot2.
 #> 
-#> plotKML @ 0.4-5                                        Tomislav Hengl, about a month ago 
+#> plotKML @ 0.4-5                                             Tomislav Hengl, 1 months ago 
 #> ---------------
 #>   # Visualization of spatial and spatio-temporal objects in Google Earth
 #>   Writes sp-class, spacetime-class, raster-class and similar spatial and
 #>   spatio-temporal objects to KML following some basic cartographic rules.
 #>   http://plotkml.r-forge.r-project.org/
 #> 
-#> scholar @ 0.1.2                                             James Keirstead, 22 days ago 
+#> scholar @ 0.1.2                                             James Keirstead, 23 days ago 
 #> ---------------
 #>   # Analyse citation data from Google Scholar
 #>   scholar provides functions to extract citation data from Google Scholar.  Convenience
 #>   functions are also provided for comparing multiple scholars and predicting future
 #>   h-index values.
 #> 
-#> RGA @ 0.1.2                                                  Artem Klevtsov, 12 days ago 
+#> RGA @ 0.1.2                                                  Artem Klevtsov, 13 days ago 
 #> -----------
 #>   # A Google Analytics API client for R
 #>   Provides functions for accessing and retrieving data from the Google Analytics APIs
