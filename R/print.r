@@ -1,15 +1,19 @@
 
 
 header <- function(result) {
-  cat(" +", result$hits$total, "packages in", round(result$took / 1000, 3),
-      "seconds\n")
+  left <- 'SAW "' %+% result$query %+% '" '
+  pkg <- if (result$hits$total == 1) "package" else "packages"
+  right <- " " %+% as.character(result$hits$total) %+% " " %+% pkg %+%
+    " in " %+% as.character(round(result$took / 1000, 3)) %+%
+    " seconds " %+% "---"
+  left_right(left, right, fill = "-") %>%
+    cat("\n")
 }
 
 #' @method summary seer_result
 #' @export
 
 summary.seer_result <- function(object, ...) {
-  cat_fill("SEER: " %+% object$query %+% " ")
   header(object)
 
   if (object$hits$total > 0) {
@@ -24,11 +28,12 @@ summary.seer_result <- function(object, ...) {
     )
 
     tw <- getOption("width") - 7 -
-      max(nchar("Package"), max(nchar(pkgs$Package)))
+      max(nchar("Package") + 2, max(nchar(pkgs$Package)))
     pkgs$Title <- substring(pkgs$RTitle, 1, tw)
     pkgs$Title <- ifelse(pkgs$Title == pkgs$RTitle, pkgs$Title,
                          paste0(pkgs$Title, "..."))
     pkgs$RTitle <- NULL
+    names(pkgs) <- c("# Title", "# Package")
 
     print.data.frame(pkgs, row.names = FALSE, right = FALSE)
 
@@ -41,7 +46,6 @@ summary.seer_result <- function(object, ...) {
 #' @export
 
 print.seer_result <- function(x, ...) {
-  cat_fill("SEER: " %+% x$query %+% " ")
   header(x)
   for (i in seq_along(x$hits$hits)) { cat_hit(i, x$hits$hits[[i]]) }
   invisible(x)
@@ -136,22 +140,22 @@ time_ago <- function(date) {
   "%d years ago" %s% trunc(years)
 }
 
-right_align <- function(str, width = default_width()) {
+right_align <- function(str, width = default_width(), fill = " ") {
 
   nc <- nchar(str)
   no_sp <- max(width - nc, 0)
-  rep(" ", no_sp) %>%
+  rep(fill, no_sp) %>%
     paste0(collapse = "") %>%
     paste0(str)
 }
 
-left_right <- function(left, right, width = default_width()) {
+left_right <- function(left, right, width = default_width(), fill = " ") {
 
   nc <- nchar(right)
   left_width <- width - nc
   if (left_width <= 20) {
     ## They do not fit in one line
-    right_align(right, width = width) %>%
+    right_align(right, width = width, fill = fill) %>%
       paste0("\n") %>%
       paste0(strwrap(left, width = width))
   } else {
@@ -159,7 +163,8 @@ left_right <- function(left, right, width = default_width()) {
     left <- paste(left, collapse = " ") %>%
       strwrap(width = left_width - 1, simplify = FALSE) %>%
       extract2(1)
-    right <- right_align(right, width = width - nchar(left[1]) - 1)
+    right <- right_align(right, width = width - nchar(left[1]) - 1,
+                         fill = fill)
     left[1] <- left[1] %>%
       paste(right)
     paste(left, collapse = "\n")
