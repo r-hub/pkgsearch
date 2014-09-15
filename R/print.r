@@ -22,18 +22,19 @@ summary.seer_result <- function(object, ...) {
 
     pkgs <- data.frame(
       stringsAsFactors = FALSE,
+      N = as.character(seq_along(sources) + object$from - 1),
       Package = pluck(sources, "Package"),
       RTitle = pluck(sources, "Title") %>%
         gsub(pattern = "\\s+", replacement = " ")
     )
 
-    tw <- getOption("width") - 7 -
+    tw <- getOption("width") - 7 - max(nchar(pkgs$N)) -
       max(nchar("Package") + 2, max(nchar(pkgs$Package)))
     pkgs$Title <- substring(pkgs$RTitle, 1, tw)
     pkgs$Title <- ifelse(pkgs$Title == pkgs$RTitle, pkgs$Title,
                          paste0(pkgs$Title, "..."))
     pkgs$RTitle <- NULL
-    names(pkgs) <- c("# Title", "# Package")
+    names(pkgs) <- c("#", "# Title", "# Package")
 
     print.data.frame(pkgs, row.names = FALSE, right = FALSE)
 
@@ -46,8 +47,11 @@ summary.seer_result <- function(object, ...) {
 #' @export
 
 print.seer_result <- function(x, ...) {
+  if (x$format == "short") { return(summary(x, ...)) }
   header(x)
-  for (i in seq_along(x$hits$hits)) { cat_hit(i, x$hits$hits[[i]]) }
+  for (i in seq_along(x$hits$hits)) {
+    cat_hit(i + x$from - 1, x$hits$hits[[i]])
+  }
   invisible(x)
 }
 
@@ -65,8 +69,8 @@ cat_hit <- function(no, pkg) {
     parse_iso_8601() %>%
     time_ago()
 
-  pkg_ver <- pkg[["_source"]]$Package %+% " @ " %+%
-    pkg[["_source"]]$Version
+  pkg_ver <- as.character(no) %+% " " %+% pkg[["_source"]]$Package %+%
+    " @ " %+% pkg[["_source"]]$Version
 
   left_right(pkg_ver, mtn %+% ", " %+% ago) %>%
     cat("\n")

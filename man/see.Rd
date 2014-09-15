@@ -3,10 +3,22 @@
 \alias{see}
 \title{Search CRAN packages}
 \usage{
-see(query, from = 0, size = 10, server = "seer.r-pkg.org", port = 9200)
+see(query, format = c("short", "long"), from = 1, size = 10,
+  server = "seer.r-pkg.org", port = 9200)
 }
 \arguments{
-\item{query}{Search query string.}
+\item{query}{Search query string. If this argument is missing
+then the results of the last query are printed, in \sQuote{short}
+and \sQuote{long} formats, in turns for successive \code{see()}
+calls. If this argument is missing, then all other arguments
+are ignored.}
+
+\item{format}{Default formatting of the results. \sQuote{short} only
+outputs the name and title of the packages, \sQuote{long} also
+prints the author, last version, full description and URLs.
+Note that this only affects the default printing, and you can
+still inspect the full results, even if you specify \sQuote{short}
+here.}
 
 \item{from}{Where to start listing the results, for pagination.}
 
@@ -33,5 +45,8 @@ see("survival")
 see("graphics")
 see("google")
 }
+}
+\seealso{
+Other seer: \code{\link{more}}
 }
 
