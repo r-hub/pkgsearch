@@ -4,12 +4,14 @@
 prev_q <- NULL
 
 .onLoad <- function(libname, pkgname) {
-  unlockBinding("prev_q", asNamespace(pkgname))
+  ub <- unlockBinding
+  ub("prev_q", asNamespace(pkgname))
   invisible()
 }
 
 .onAttach <- function(libname, pkgname) {
-  unlockBinding("prev_q", asNamespace(pkgname))
+  ub <- unlockBinding
+  ub("prev_q", asNamespace(pkgname))
   invisible()
 }
 
