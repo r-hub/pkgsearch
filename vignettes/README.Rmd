@@ -29,18 +29,34 @@ devtools::install_github("metacran/seer")
 
 ## Usage
 
-The current API is very minimal, there is a single `see()` function
-that can be used to search. Here are some example searches.
+The current API is very minimal, the most important is the `see()` function,
+that does the search:
 
 ```{r}
 library(seer)
 see("C++")
 ```
 
+By default it returns a short summary of the ten best search hits. Their
+details can be printed by using the `format = "long"` option of `see()`,
+or just calling `see()` again, without any arguments, after a search:
+
+
 ```{r}
-see("survival")
+see()
 ```
+
+The `more()` function can be used to display the next batch of search hits,
+batches contain ten packages by default:
 
 ```{r}
 see("google")
+```
+
+```{r}
+more()
+```
+
+```{r}
+more()
 ```
