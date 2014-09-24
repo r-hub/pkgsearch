@@ -56,6 +56,7 @@ print.seer_result <- function(x, ...) {
 }
 
 #' @importFrom parsedate parse_iso_8601
+#' @importFrom pretty time_ago
 
 cat_hit <- function(no, pkg) {
 
@@ -111,37 +112,6 @@ cat_line <- function(length, ...) {
     paste(collapse = "") %>%
     cat()
   cat(...)
-}
-
-#' @importFrom lubridate now as.duration
-#' @importFrom falsy "%&&%"
-
-time_ago <- function(date) {
-
-  if (length(date) > 1) return(sapply(date, time_ago))
-
-  seconds <- now() %>%
-    subtract(date) %>%
-    as.duration() %>%
-    unclass()
-
-  minutes <- seconds / 60
-  hours <- minutes / 60
-  days <- hours / 24
-  years <- days / 365.25
-
-  (seconds < 10)  %&&% return("moments ago")
-  (seconds < 45)  %&&% return("less than a minute ago")
-  (seconds < 90)  %&&% return("about a minute ago")
-  (minutes < 45)  %&&% return("%d minutes ago" %s% trunc(minutes))
-  (minutes < 90)  %&&% return("about an hour ago")
-  (hours   < 24)  %&&% return("%d hours ago" %s% trunc(hours))
-  (hours   < 42)  %&&% return("a day ago")
-  (days    < 30)  %&&% return("%d days ago" %s% trunc(days))
-  (days    < 45)  %&&% return("about a month ago")
-  (days    < 365) %&&% return("%d months ago" %s% trunc(days / 30))
-  (years   < 1.5) %&&% return("about a year ago")
-  "%d years ago" %s% trunc(years)
 }
 
 right_align <- function(str, width = default_width(), fill = " ") {
