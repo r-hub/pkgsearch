@@ -56,7 +56,7 @@ print.seer_result <- function(x, ...) {
 }
 
 #' @importFrom parsedate parse_iso_8601
-#' @importFrom pretty time_ago
+#' @importFrom prettyunits time_ago
 
 cat_hit <- function(no, pkg) {
 

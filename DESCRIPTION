@@ -13,4 +13,4 @@ Imports:
     falsy,
     jsonlite,
     parsedate,
-    pretty
+    prettyunits
