@@ -23,7 +23,7 @@ frequently used ones.
 
 Install the package from github, using `devtools`:
 
-```{r result = "hide", message = FALSE}
+```r
 devtools::install_github("metacran/seer")
 ```
 
