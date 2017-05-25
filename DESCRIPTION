@@ -1,7 +1,7 @@
 Package: seer
 Title: Search CRAN R packages
 Version: 1.0.0.9000
-Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
+Authors@R: "Gábor Csárdi <csardi.gabor@gmail.com> [aut, cre]"
 Description: Search CRAN R packages
 License: MIT + file LICENSE
 LazyData: true
@@ -13,3 +13,4 @@ Imports:
     jsonlite,
     parsedate,
     prettyunits
+Encoding: UTF-8
