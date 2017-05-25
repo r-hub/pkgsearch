@@ -1,8 +1,6 @@
 
-#' @importFrom falsy "%||%"
-
 config <- function(var, default = "") {
-  Sys.getenv(var) %||% default
+  Sys.getenv(var, default)
 }
 
 config_hostname <- function() {

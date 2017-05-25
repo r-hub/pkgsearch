@@ -10,8 +10,6 @@ BugReports: https://github.com/metacran/seer/issues
 Imports:
     magrittr,
     httr,
-    falsy,
     jsonlite,
     parsedate,
     prettyunits
-Remotes: gaborcsardi/falsy
