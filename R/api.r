@@ -1,19 +1,7 @@
 
 ## ----------------------------------------------------------------------
 
-prev_q <- NULL
-
-.onLoad <- function(libname, pkgname) {
-  ub <- unlockBinding
-  ub("prev_q", asNamespace(pkgname))
-  invisible()
-}
-
-.onAttach <- function(libname, pkgname) {
-  ub <- unlockBinding
-  ub("prev_q", asNamespace(pkgname))
-  invisible()
-}
+s_data <- new.env()
 
 #' Search CRAN packages
 #'
@@ -63,7 +51,7 @@ see <- function(query, format = c("short", "long"), from = 1, size = 10,
     format_result(query = query, format = format, from = from,
                   size = size, server = server, port = port)
 
-  prev_q <<- result
+  s_data$prev_q <- result
 
   result
 }
@@ -75,20 +63,20 @@ see <- function(query, format = c("short", "long"), from = 1, size = 10,
 #' @export
 
 more <- function(format = c("short", "long"), size) {
-  if (is.null(prev_q)) { stop("No query, start with 'see'") }
+  if (is.null(s_data$prev_q)) { stop("No query, start with 'see'") }
   if (missing(format)) {
-    format <-prev_q$format
+    format <-s_data$prev_q$format
   } else {
     format <- match.arg(format)
   }
   if (missing(size)) {
-    size <- prev_q$size
+    size <- s_data$prev_q$size
   } else {
     check_count(size)
   }
-  see(query = prev_q$query, format = format,
-      from = prev_q$from + prev_q$size, size = size,
-      server = prev_q$server, port = prev_q$port)
+  see(query = s_data$prev_q$query, format = format,
+      from = s_data$prev_q$from + s_data$prev_q$size, size = size,
+      server = s_data$prev_q$server, port = s_data$prev_q$port)
 }
 
 #' @importFrom jsonlite toJSON
@@ -146,8 +134,8 @@ format_result <- function(result, ...) {
 }
 
 see_again <- function() {
-  if (is.null(prev_q)) { stop("No query given, and no previous query") }
-  format <- prev_q[["format"]]
-  prev_q[["format"]] <<- if (format == "short") "long" else "short"
-  prev_q
+  if (is.null(s_data$prev_q)) { stop("No query given, and no previous query") }
+  format <- s_data$prev_q[["format"]]
+  s_data$prev_q[["format"]] <- if (format == "short") "long" else "short"
+  s_data$prev_q
 }
