@@ -85,14 +85,38 @@ make_query <- function(query) {
 
   check_string(query)
 
+  fields <- c("Package^10", "Title^5", "Description^2",
+              "Author^3", "Maintainer^4", "_all")
+
   query_object <- list(
     query = list(
       function_score = list(
         query = list(
-          multi_match = list(
-            fields = c("Package^10", "Title^5", "Description^2",
-              "Author^3", "Maintainer^4", "_all"),
-            query = query
+          bool = list(
+            ## This is simply word by work match, scores add up for fields
+            must = list(
+              list(multi_match = list(
+                     query = query,
+                     fields = fields,
+                     type = "most_fields"
+                   ))
+            ),
+            should = list(
+              ## This is matching the complete phrase, so it takes priority
+              list(multi_match = list(
+                     query = query,
+                     fields = fields,
+                     type = "phrase",
+                     boost = 10
+                   )),
+              ## This is if all words match (but not as a phrase)
+              list(multi_match = list(
+                     query = query,
+                     fields = fields,
+                     operator = "and",
+                     boost = 5
+                   ))
+            )
           )
         ),
         functions = list(
