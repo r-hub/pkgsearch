@@ -21,8 +21,6 @@ s_data <- new.env()
 #'   here.
 #' @param from Where to start listing the results, for pagination.
 #' @param size The number of results to list.
-#' @param server The server to use.
-#' @param port Port to use.
 #' @return A list of packages, in a special object.
 #'
 #' @export
@@ -36,17 +34,17 @@ s_data <- new.env()
 #' see("google")
 #' }
 
-see <- function(query, format = c("short", "long"), from = 1, size = 10,
-                server = "seer.r-pkg.org", port = 9200) {
+see <- function(query, format = c("short", "long"), from = 1, size = 10) {
 
   if (missing(query)) { return(see_again()) }
   format <- match.arg(format)
+  server <- Sys.getenv("R_PKG_SEARCH_SERVER", "search.r-pkg.org")
+  port <- as.integer(Sys.getenv("R_PKG_SEARCH_PORT", "9200"))
 
-  index <- "cran-devel"
-  type <- "package"
+  index <- "package"
 
   result <- make_query(query = query) %>%
-    do_query(server = server, port = port, index = index, type = type,
+    do_query(server = server, port = port, index = index,
              from = from, size = size) %>%
     format_result(query = query, format = format, from = from,
                   size = size, server = server, port = port)
@@ -75,8 +73,7 @@ more <- function(format = c("short", "long"), size) {
     check_count(size)
   }
   see(query = s_data$prev_q$query, format = format,
-      from = s_data$prev_q$from + s_data$prev_q$size, size = size,
-      server = s_data$prev_q$server, port = s_data$prev_q$port)
+      from = s_data$prev_q$from + s_data$prev_q$size, size = size)
 }
 
 #' @importFrom jsonlite toJSON
@@ -85,19 +82,27 @@ make_query <- function(query) {
 
   check_string(query)
 
-  fields <- c("Package^10", "Title^5", "Description^2",
-              "Author^3", "Maintainer^4", "_all")
+  fields <- c("Package^20", "Title^10", "Description^4",
+              "Author^5", "Maintainer^6", "_all")
 
   query_object <- list(
     query = list(
       function_score = list(
+        functions = list(
+          list(
+            field_value_factor = list(
+              field = "revdeps",
+              modifier = "log",
+              factor = 1)
+          )
+        ),
+
         query = list(
           bool = list(
             ## This is simply word by work match, scores add up for fields
             must = list(
               list(multi_match = list(
                      query = query,
-                     fields = fields,
                      type = "most_fields"
                    ))
             ),
@@ -105,8 +110,9 @@ make_query <- function(query) {
               ## This is matching the complete phrase, so it takes priority
               list(multi_match = list(
                      query = query,
-                     fields = fields,
+                     fields = c("Title^10", "Description^4", "_all"),
                      type = "phrase",
+                     analyzer = "english_and_synonyms",
                      boost = 10
                    )),
               ## This is if all words match (but not as a phrase)
@@ -114,15 +120,9 @@ make_query <- function(query) {
                      query = query,
                      fields = fields,
                      operator = "and",
+                     analyzer = "english_and_synonyms",
                      boost = 5
                    ))
-            )
-          )
-        ),
-        functions = list(
-          list(
-            script_score = list(
-              script = "cran_search_score"
             )
           )
         )
@@ -133,18 +133,20 @@ make_query <- function(query) {
   toJSON(query_object, auto_unbox = TRUE, pretty = TRUE)
 }
 
-#' @importFrom httr POST stop_for_status
+#' @importFrom httr POST add_headers stop_for_status
 #' @importFrom jsonlite fromJSON
 
-do_query <- function(query, server, port, index, type, from, size) {
+do_query <- function(query, server, port, index, from, size) {
 
   check_count(from)
   check_count(size)
 
   url <- "http://" %+% server %+% ":" %+% as.character(port) %+%
-    "/" %+% index %+% "/" %+% type %+% "/_search?from=" %+%
+    "/" %+% index %+% "/_search?from=" %+%
     as.character(from - 1) %+% "&size=" %+% as.character(size)
-  result <- POST(url, body = query)
+  result <- POST(
+    url, body = query,
+    add_headers("Content-Type" = "application/json"))
   stop_for_status(result)
 
   content(result, as = "text")
