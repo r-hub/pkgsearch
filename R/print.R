@@ -1,40 +1,42 @@
 
 
 header <- function(result) {
-  left <- 'SAW "' %+% result$query %+% '" '
+  left <- "-" %+% ' "' %+% result$query %+% '" '
   pkg <- if (result$hits$total == 1) "package" else "packages"
   right <- " " %+% as.character(result$hits$total) %+% " " %+% pkg %+%
     " in " %+% as.character(round(result$took / 1000, 3)) %+%
-    " seconds " %+% "---"
+    " seconds " %+% "-"
   left_right(left, right, fill = "-") %>%
     cat("\n")
 }
 
-#' @method summary seer_result
+#' @method summary pkg_search_result
 #' @export
 
-summary.seer_result <- function(object, ...) {
+summary.pkg_search_result <- function(object, ...) {
   header(object)
 
   if (object$hits$total > 0) {
 
     sources <- lapply(object$hits$hits, "[[", "_source")
+    scores <- vapply(object$hits$hits, "[[", double(1), "_score")
 
     pkgs <- data.frame(
       stringsAsFactors = FALSE,
       N = as.character(seq_along(sources) + object$from - 1),
+      S = round(scores / scores[1] * 100),
       Package = pluck(sources, "Package"),
       RTitle = pluck(sources, "Title") %>%
         gsub(pattern = "\\s+", replacement = " ")
     )
 
-    tw <- getOption("width") - 7 - max(nchar(pkgs$N)) -
+    tw <- getOption("width") - 12 - max(nchar(pkgs$N)) -
       max(nchar("Package") + 2, max(nchar(pkgs$Package)))
     pkgs$Title <- substring(pkgs$RTitle, 1, tw)
     pkgs$Title <- ifelse(pkgs$Title == pkgs$RTitle, pkgs$Title,
                          paste0(pkgs$Title, "..."))
     pkgs$RTitle <- NULL
-    names(pkgs) <- c("#", "# Title", "# Package")
+    names(pkgs) <- c("#", "S", "# Title", "# Package")
 
     print.data.frame(pkgs, row.names = FALSE, right = FALSE)
 
@@ -43,10 +45,10 @@ summary.seer_result <- function(object, ...) {
   invisible(object)
 }
 
-#' @method print seer_result
+#' @method print pkg_search_result
 #' @export
 
-print.seer_result <- function(x, ...) {
+print.pkg_search_result <- function(x, ...) {
   if (x$format == "short") { return(summary(x, ...)) }
   header(x)
   for (i in seq_along(x$hits$hits)) {

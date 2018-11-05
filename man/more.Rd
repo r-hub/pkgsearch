@@ -2,7 +2,7 @@
 % Please edit documentation in R/api.R
 \name{more}
 \alias{more}
-\title{Next page after a seer search}
+\title{Next page after a search}
 \usage{
 more(format = c("short", "long"), size)
 }
@@ -17,9 +17,5 @@ here.}
 \item{size}{The number of results to list.}
 }
 \description{
-Next page after a seer search
+Next page after a search
 }
-\seealso{
-Other seer: \code{\link{see}}
-}
-\concept{seer}

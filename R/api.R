@@ -10,7 +10,7 @@ s_data <- new.env()
 #'
 #' @param query Search query string. If this argument is missing
 #'   then the results of the last query are printed, in \sQuote{short}
-#'   and \sQuote{long} formats, in turns for successive \code{see()}
+#'   and \sQuote{long} formats, in turns for successive \code{pkg_search()}
 #'   calls. If this argument is missing, then all other arguments
 #'   are ignored.
 #' @param format Default formatting of the results. \sQuote{short} only
@@ -24,22 +24,22 @@ s_data <- new.env()
 #' @return A list of packages, in a special object.
 #'
 #' @export
-#' @family seer
+#' @importFrom magrittr %>% extract2
 #' @examples
 #' \donttest{
 #' ## Some example searches
-#' see("networks")
-#' see("survival")
-#' see("graphics")
-#' see("google")
+#' pkg_search("networks")
+#' pkg_search("survival")
+#' pkg_search("graphics")
+#' pkg_search("google")
 #' }
 
-see <- function(query, format = c("short", "long"), from = 1, size = 10) {
+pkg_search <- function(query, format = c("short", "long"), from = 1, size = 10) {
 
-  if (missing(query)) { return(see_again()) }
+  if (missing(query)) { return(pkg_search_again()) }
   format <- match.arg(format)
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "search.r-pkg.org")
-  port <- as.integer(Sys.getenv("R_PKG_SEARCH_PORT", "9200"))
+  port <- as.integer(Sys.getenv("R_PKG_SEARCH_PORT", "80"))
 
   index <- "package"
 
@@ -54,14 +54,13 @@ see <- function(query, format = c("short", "long"), from = 1, size = 10) {
   result
 }
 
-#' Next page after a seer search
+#' Next page after a search
 #'
-#' @inheritParams see
-#' @family seer
+#' @inheritParams pkg_search
 #' @export
 
 more <- function(format = c("short", "long"), size) {
-  if (is.null(s_data$prev_q)) { stop("No query, start with 'see'") }
+  if (is.null(s_data$prev_q)) { stop("No query, start with 'pkg_search'") }
   if (missing(format)) {
     format <-s_data$prev_q$format
   } else {
@@ -72,7 +71,7 @@ more <- function(format = c("short", "long"), size) {
   } else {
     check_count(size)
   }
-  see(query = s_data$prev_q$query, format = format,
+  pkg_search(query = s_data$prev_q$query, format = format,
       from = s_data$prev_q$from + s_data$prev_q$size, size = size)
 }
 
@@ -82,7 +81,7 @@ make_query <- function(query) {
 
   check_string(query)
 
-  fields <- c("Package^20", "Title^10", "Description^4",
+  fields <- c("Package^10", "Title^5", "Description^4",
               "Author^5", "Maintainer^6", "_all")
 
   query_object <- list(
@@ -92,7 +91,7 @@ make_query <- function(query) {
           list(
             field_value_factor = list(
               field = "revdeps",
-              modifier = "log",
+              modifier = "sqrt",
               factor = 1)
           )
         ),
@@ -110,7 +109,7 @@ make_query <- function(query) {
               ## This is matching the complete phrase, so it takes priority
               list(multi_match = list(
                      query = query,
-                     fields = c("Title^10", "Description^4", "_all"),
+                     fields = c("Title^5", "Description^4", "_all"),
                      type = "phrase",
                      analyzer = "english_and_synonyms",
                      boost = 10
@@ -133,7 +132,7 @@ make_query <- function(query) {
   toJSON(query_object, auto_unbox = TRUE, pretty = TRUE)
 }
 
-#' @importFrom httr POST add_headers stop_for_status
+#' @importFrom httr POST add_headers stop_for_status content
 #' @importFrom jsonlite fromJSON
 
 do_query <- function(query, server, port, index, from, size) {
@@ -156,10 +155,10 @@ format_result <- function(result, ...) {
   result %>%
     fromJSON(simplifyVector = FALSE) %>%
     replace(names(list(...)), list(...)) %>%
-    add_class("seer_result")
+    add_class("pkg_search_result")
 }
 
-see_again <- function() {
+pkg_search_again <- function() {
   if (is.null(s_data$prev_q)) { stop("No query given, and no previous query") }
   format <- s_data$prev_q[["format"]]
   s_data$prev_q[["format"]] <- if (format == "short") "long" else "short"

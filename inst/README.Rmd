@@ -12,10 +12,10 @@ options(max.print = 200)
 
 # CRAN package search
 
-[![Linux Build Status](https://travis-ci.org/metacran/seer.svg?branch=master)](https://travis-ci.org/metacran/seer)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/metacran/seer?svg=true)](https://ci.appveyor.com/project/gaborcsardi/seer)
+[![Linux Build Status](https://travis-ci.org/metacran/pkgsearch.svg?branch=master)](https://travis-ci.org/metacran/pkgsearch)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/metacran/pkgsearch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgsearch)
 
-The `seer` package searches all CRAN packages. It uses a web service,
+The `pkgsearch` package searches all CRAN packages. It uses a web service,
 and a careful weighting that ranks popular packages before less
 frequently used ones.
 
@@ -24,33 +24,33 @@ frequently used ones.
 Install the package from github, using `devtools`:
 
 ```r
-devtools::install_github("metacran/seer")
+devtools::install_github("metacran/pkgsearch")
 ```
 
 ## Usage
 
-The current API is very minimal, the most important is the `see()` function,
+The current API is very minimal, the most important is the `pkg_search()` function,
 that does the search:
 
 ```{r}
-library(seer)
-see("C++")
+library(pkgsearch)
+pkg_search("C++")
 ```
 
 By default it returns a short summary of the ten best search hits. Their
-details can be printed by using the `format = "long"` option of `see()`,
-or just calling `see()` again, without any arguments, after a search:
+details can be printed by using the `format = "long"` option of `pkg_search()`,
+or just calling `pkg_search()` again, without any arguments, after a search:
 
 
 ```{r}
-see()
+pkg_search()
 ```
 
 The `more()` function can be used to display the next batch of search hits,
 batches contain ten packages by default:
 
 ```{r}
-see("google")
+pkg_search("google")
 ```
 
 ```{r}
