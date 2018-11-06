@@ -1,101 +1,93 @@
 
 
-header <- function(result) {
-  left <- "-" %+% ' "' %+% result$query %+% '" '
-  pkg <- if (result$hits$total == 1) "package" else "packages"
-  right <- " " %+% as.character(result$hits$total) %+% " " %+% pkg %+%
-    " in " %+% as.character(round(result$took / 1000, 3)) %+%
+print_header <- function(result) {
+  left <- "-" %+% ' "' %+% meta(result)$query %+% '" '
+  pkg <- if (meta(result)$total == 1) "package" else "packages"
+  right <- " " %+% as.character(meta(result)$total) %+% " " %+% pkg %+%
+    " in " %+% as.character(round(meta(result)$took / 1000, 3)) %+%
     " seconds " %+% "-"
   left_right(left, right, fill = "-") %>%
     cat("\n")
 }
 
-#' @method summary pkg_search_result
 #' @export
+#' @importFrom utils capture.output
 
 summary.pkg_search_result <- function(object, ...) {
-  header(object)
+  print_header(object)
 
-  if (object$hits$total > 0) {
-
-    sources <- lapply(object$hits$hits, "[[", "_source")
-    scores <- vapply(object$hits$hits, "[[", double(1), "_score")
-
+  if (meta(object)$total > 0) {
     pkgs <- data.frame(
       stringsAsFactors = FALSE,
-      N = as.character(seq_along(sources) + object$from - 1),
-      S = round(scores / scores[1] * 100),
-      Package = pluck(sources, "Package"),
-      RTitle = pluck(sources, "Title") %>%
-        gsub(pattern = "\\s+", replacement = " ")
+      check.names = FALSE,
+      " #" = meta(object)$from + seq_len(nrow(object)) - 1,
+      " " = round(object$score / meta(object)$max_score * 100),
+      package = object$package,
+      version = object$version,
+      by = object$maintainer_name,
+      "  @" = time_ago(object$date, format = "terse")
     )
 
-    tw <- getOption("width") - 12 - max(nchar(pkgs$N)) -
-      max(nchar("Package") + 2, max(nchar(pkgs$Package)))
-    pkgs$Title <- substring(pkgs$RTitle, 1, tw)
-    pkgs$Title <- ifelse(pkgs$Title == pkgs$RTitle, pkgs$Title,
-                         paste0(pkgs$Title, "..."))
-    pkgs$RTitle <- NULL
-    names(pkgs) <- c("#", "S", "# Title", "# Package")
+    w <- max(nchar(capture.output(print(pkgs, row.names = FALSE))))
+    tw <- getOption("width") - w - 2
+    if (tw >= 5) {
+      title <- gsub(object$title, pattern = "\\s+", replacement = " ")
+      pkgs$title <- ifelse(
+        nchar(title) <= tw, title,
+        paste0(substr(title, 1, tw - 3), "..."))
+    }
 
-    print.data.frame(pkgs, row.names = FALSE, right = FALSE)
-
+    print(pkgs, row.names = FALSE, right = FALSE)
   }
 
   invisible(object)
 }
 
-#' @method print pkg_search_result
 #' @export
 
 print.pkg_search_result <- function(x, ...) {
-  if (x$format == "short") { return(summary(x, ...)) }
-  header(x)
-  for (i in seq_along(x$hits$hits)) {
-    cat_hit(i + x$from - 1, x$hits$hits[[i]])
+  if (meta(x)$format == "short") {
+    return(summary(x, ...))
+  } else {
+    print_header(x)
+    for (i in seq_len(nrow(x))) cat_hit(x, i)
+    invisible(x)
   }
-  invisible(x)
 }
 
-#' @importFrom parsedate parse_iso_8601
 #' @importFrom prettyunits time_ago
 
-cat_hit <- function(no, pkg) {
+cat_hit <- function(x, no) {
 
   cat("\n")
 
+  pkg <- x[no, ]
+
   ## Header
-  mtn <- pkg[["_source"]]$Maintainer %>%
-    sub(pattern = "\\s+<.*$", replacement = "", perl = TRUE)
-
-  ago <- pkg[["_source"]]$date %>%
-    parse_iso_8601() %>%
-    time_ago()
-
-  pkg_ver <- as.character(no) %+% " " %+% pkg[["_source"]]$Package %+%
-    " @ " %+% pkg[["_source"]]$Version
-
-  left_right(pkg_ver, mtn %+% ", " %+% ago) %>%
+  ago <- time_ago(pkg$date)
+  pkg_ver <- as.character(meta(x)$from + no - 1) %+% " " %+%
+    pkg$package %+% " @ " %+% as.character(pkg$version)
+  left_right(pkg_ver, pkg$maintainer_name %+% ", " %+% ago) %>%
     cat("\n")
 
   cat_line(nchar(pkg_ver), "\n")
 
   ## Title
-  pkg[["_source"]]$Title %>%
+  pkg$title %>%
     sub(pattern = "\\s+", replacement = " ", perl = TRUE) %>%
     paste("#", .) %>%
     strwrap(width = default_width(), indent = 2, exdent = 4) %>%
     cat(sep = "\n")
 
   ## Description
-  pkg[["_source"]]$Description %>%
+  pkg$description %>%
     sub(pattern = "\\s+", replacement = " ", perl = TRUE) %>%
     strwrap(width = default_width(), indent = 2, exdent = 2) %>%
     cat(sep = "\n")
 
   ## URL(s)
-  if (!is.null(pkg[["_source"]]$URL)) {
-    pkg[["_source"]]$URL %>%
+  if (!is.na(pkg$url)) {
+    pkg$url %>%
       strsplit("[,\\s]+", perl = TRUE) %>%
       extract2(1) %>%
       paste(" ", .) %>%
@@ -148,5 +140,5 @@ left_right <- function(left, right, width = default_width(), fill = " ") {
 }
 
 default_width <- function() {
-  min(getOption("width"), 151) -2
+  min(getOption("width"), 121) - 1
 }

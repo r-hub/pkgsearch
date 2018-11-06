@@ -2,16 +2,23 @@
 % Please edit documentation in R/api.R
 \name{pkg_search}
 \alias{pkg_search}
+\alias{ps}
+\alias{more}
 \title{Search CRAN packages}
 \usage{
-pkg_search(query, format = c("short", "long"), from = 1, size = 10)
+pkg_search(query = NULL, format = c("short", "long"), from = 1,
+  size = 10)
+
+ps(query = NULL, format = c("short", "long"), from = 1, size = 10)
+
+more(format = NULL, size = NULL)
 }
 \arguments{
-\item{query}{Search query string. If this argument is missing
-then the results of the last query are printed, in \sQuote{short}
-and \sQuote{long} formats, in turns for successive \code{pkg_search()}
-calls. If this argument is missing, then all other arguments
-are ignored.}
+\item{query}{Search query string. If this argument is missing or
+\code{NULL}, then the results of the last query are printed, in
+\sQuote{short} and \sQuote{long} formats, in turns for successive
+\code{pkg_search()} calls. If this argument is missing, then all
+other arguments are ignored.}
 
 \item{format}{Default formatting of the results. \sQuote{short} only
 outputs the name and title of the packages, \sQuote{long} also

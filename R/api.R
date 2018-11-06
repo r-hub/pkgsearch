@@ -10,11 +10,11 @@ s_data <- new.env()
 #' @details
 #' Note that the search needs a working Internet connection.
 #'
-#' @param query Search query string. If this argument is missing
-#'   then the results of the last query are printed, in \sQuote{short}
-#'   and \sQuote{long} formats, in turns for successive \code{pkg_search()}
-#'   calls. If this argument is missing, then all other arguments
-#'   are ignored.
+#' @param query Search query string. If this argument is missing or
+#'   \code{NULL}, then the results of the last query are printed, in
+#'   \sQuote{short} and \sQuote{long} formats, in turns for successive
+#'   \code{pkg_search()} calls. If this argument is missing, then all
+#'   other arguments are ignored.
 #' @param format Default formatting of the results. \sQuote{short} only
 #'   outputs the name and title of the packages, \sQuote{long} also
 #'   prints the author, last version, full description and URLs.
@@ -36,18 +36,26 @@ s_data <- new.env()
 #' pkg_search("google")
 #' }
 
-pkg_search <- function(query, format = c("short", "long"), from = 1, size = 10) {
+pkg_search <- function(query = NULL, format = c("short", "long"),
+                       from = 1, size = 10) {
 
-  if (missing(query)) { return(pkg_search_again()) }
+  if (is.null(query)) return(pkg_search_again())
   format <- match.arg(format)
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "search.r-pkg.org")
   port <- as.integer(Sys.getenv("R_PKG_SEARCH_PORT", "80"))
 
-  index <- "package"
+  make_pkg_search(query, format, from, size, server, port)
+}
+
+#' @rdname pkg_search
+#' @export
+
+ps <- pkg_search
+
+make_pkg_search <- function(query, format, from, size, server, port) {
 
   result <- make_query(query = query) %>%
-    do_query(server = server, port = port, index = index,
-             from = from, size = size) %>%
+    do_query(server = server, port = port, from = from, size = size) %>%
     format_result(query = query, format = format, from = from,
                   size = size, server = server, port = port)
 
@@ -56,25 +64,19 @@ pkg_search <- function(query, format = c("short", "long"), from = 1, size = 10) 
   result
 }
 
-#' Next page after a search
-#'
-#' @inheritParams pkg_search
+#' @rdname pkg_search
 #' @export
 
-more <- function(format = c("short", "long"), size) {
+more <- function(format = NULL, size = NULL) {
   if (is.null(s_data$prev_q)) { stop("No query, start with 'pkg_search'") }
-  if (missing(format)) {
-    format <-s_data$prev_q$format
-  } else {
-    format <- match.arg(format)
-  }
-  if (missing(size)) {
-    size <- s_data$prev_q$size
-  } else {
-    check_count(size)
-  }
-  pkg_search(query = s_data$prev_q$query, format = format,
-      from = s_data$prev_q$from + s_data$prev_q$size, size = size)
+  make_pkg_search(
+    query = meta(s_data$prev_q)$query,
+    format = format %||% meta(s_data$prev_q)$format,
+    from = meta(s_data$prev_q)$from + meta(s_data$prev_q)$size,
+    size = size %||% meta(s_data$prev_q)$size,
+    server = meta(s_data$prev_q)$server,
+    port = meta(s_data$prev_q)$port
+  )
 }
 
 #' @importFrom jsonlite toJSON
@@ -137,14 +139,14 @@ make_query <- function(query) {
 #' @importFrom httr POST add_headers stop_for_status content
 #' @importFrom jsonlite fromJSON
 
-do_query <- function(query, server, port, index, from, size) {
+do_query <- function(query, server, port, from, size) {
 
   check_count(from)
   check_count(size)
 
   url <- "http://" %+% server %+% ":" %+% as.character(port) %+%
-    "/" %+% index %+% "/_search?from=" %+%
-    as.character(from - 1) %+% "&size=" %+% as.character(size)
+    "/package/_search?from=" %+% as.character(from - 1) %+%
+    "&size=" %+% as.character(size)
   result <- POST(
     url, body = query,
     add_headers("Content-Type" = "application/json"))
@@ -153,16 +155,57 @@ do_query <- function(query, server, port, index, from, size) {
   content(result, as = "text")
 }
 
-format_result <- function(result, ...) {
-  result %>%
-    fromJSON(simplifyVector = FALSE) %>%
-    replace(names(list(...)), list(...)) %>%
-    add_class("pkg_search_result")
+#' @importFrom parsedate parse_iso_8601
+
+format_result <- function(result, query, format, from, size, server,
+                          port) {
+  result <- fromJSON(result, simplifyVector = FALSE)
+
+  meta <- list(
+    query = query,
+    format = format,
+    from = from,
+    size = size,
+    server = server,
+    port = port,
+    total = result$hits$total,
+    max_score = result$hits$max_score,
+    took = result$took,
+    timed_out = result$timed_out
+  )
+
+  sources <- map(result$hits$hits, "[[", "_source")
+  maintainer <- map_chr(sources, "[[", "Maintainer")
+
+  df <- data.frame(
+    stringsAsFactors = FALSE,
+    score = map_dbl(result$hits$hits, "[[", "_score"),
+    package = map_chr(result$hits$hits, "[[", "_id"),
+    version = package_version(map_chr(sources, "[[", "Version")),
+    title = map_chr(sources, "[[", "Title"),
+    description = map_chr(sources, "[[", "Description"),
+    date = parse_iso_8601(map_chr(sources, "[[", "date")),
+    maintainer_name = gsub("\\s+<.*$", "", maintainer),
+    maintainer_email = gsub("^.*<([^>]+)>.*$", "\\1", maintainer, perl = TRUE),
+    revdeps = map_int(sources, "[[", "revdeps"),
+    downloads_last_month = map_int(sources, "[[", "downloads"),
+    license = map_chr(sources, "[[", "License"),
+    url = map_chr(sources, function(x) x$URL %||% NA_character_),
+    bugreports = map_chr(sources, function(x) x$BugReports %||% NA_character_),
+    package_data = I(sources)
+  )
+
+  attr(df, "metadata") <- meta
+
+  requireNamespace("tibble", quietly = TRUE)
+  class(df) <- unique(c("pkg_search_result", "tbl_df", "tbl", class(df)))
+
+  df
 }
 
 pkg_search_again <- function() {
   if (is.null(s_data$prev_q)) { stop("No query given, and no previous query") }
-  format <- s_data$prev_q[["format"]]
-  s_data$prev_q[["format"]] <- if (format == "short") "long" else "short"
+  format <- meta(s_data$prev_q)$format
+  meta(s_data$prev_q)$format <- if (format == "short") "long" else "short"
   s_data$prev_q
 }
