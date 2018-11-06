@@ -19,24 +19,6 @@ check_string <- function(x) {
   paste0(lhs, rhs)
 }
 
-add_class <- function(x, class_name) {
-  if (! inherits(x, class_name)) {
-    class(x) <- c(class_name, attr(x, "class"))
-  }
-  x
-}
-
-pluck <- function(list, field) {
-  sapply(list, "[[", field)
-}
-
-`%s%` <- function(lhs, rhs) {
-  check_string(lhs)
-  list(lhs) %>%
-    c(as.list(rhs)) %>%
-    do.call(what = sprintf)
-}
-
 map <- function(.x, .f, ...) {
   lapply(.x, .f, ...)
 }
@@ -45,10 +27,6 @@ map_mold <- function(.x, .f, .mold, ...) {
   out <- vapply(.x, .f, .mold, ..., USE.NAMES = FALSE)
   names(out) <- names(.x)
   out
-}
-
-map_lgl <- function(.x, .f, ...) {
-  map_mold(.x, .f, logical(1), ...)
 }
 
 map_int <- function(.x, .f, ...) {
