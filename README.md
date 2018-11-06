@@ -24,8 +24,7 @@ install.packages("pkgsearch")
 
 ## Usage
 
-The current API is very minimal, the most important is the `pkg_search()` function,
-that does the search:
+Use `pkg_search()` to search for a term or phrase:
 
 
 ```r
@@ -170,15 +169,16 @@ pkg_search()
 ```
 
 The `more()` function can be used to display the next batch of search hits,
-batches contain ten packages by default:
+batches contain ten packages by default. `ps()` is shorter alias to
+`pkg_search()`:
 
 
 ```r
-pkg_search("google")
+ps("google")
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.006 seconds - 
+#> - "google" ---------------------------------------------- 106 packages in 0.004 seconds - 
 #>   #     package             version by               @ title                             
 #>   1 100 googleVis           0.6.2   Markus Gesmann  2y R Interface to Google Charts      
 #>   2  66 googleAuthR         0.6.3   Mark Edmondson  5M Authenticate and Create Google ...
@@ -198,7 +198,7 @@ more()
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.004 seconds - 
+#> - "google" ---------------------------------------------- 106 packages in 0.005 seconds - 
 #>   #    package          version by                     @ title                           
 #>  11 34 googleAnalyticsR 0.5.0   Mark Edmondson        9M Google Analytics API into R     
 #>  12 33 ggmap            2.6.1   David Kahle           3y Spatial Visualization with gg...
@@ -212,22 +212,206 @@ more()
 #>  20 25 adwordsR         0.3.1   Sean Longthorpe       5M Access the 'Google Adwords' API
 ```
 
+## Features
+
+In addition to simple text matching the search server and client have
+many improvements to deliver better results.
+
+### Stemming
+
+The search server uses the stems of the words in the indexed metadata, and
+the search phrase. This means that "colour" and "colours" deliver the
+exact same result. So do "coloring", "colored", etc. (Unless one is happen
+to be an exact package name or match another non-stemmed field.)
+
 
 ```r
-more()
+ps("colour", size = 3)
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.004 seconds - 
-#>   #    package        version by                @ title                                  
-#>  21 25 sparkbq        0.1.0   Martin Studer    3M Google 'BigQuery' Support for 'spark...
-#>  22 25 RGA            0.4.2   Artem Klevtsov   3y A Google Analytics API Client          
-#>  23 25 translate      0.1.2   Peter Danenberg  4y Bindings for the Google Translate AP...
-#>  24 25 GAR            1.1     Andrew Geisler   3y Authorize and Request Google Analyti...
-#>  25 24 bigrquery      1.0.0   Hadley Wickham   7M An Interface to Google's 'BigQuery' ...
-#>  26 24 scholar        0.1.7   Guangchuang Yu   4M Analyse Citation Data from Google Sc...
-#>  27 23 cld3           1.1     Jeroen Ooms      4M Google's Compact Language Detector 3   
-#>  28 23 searchConsoleR 0.3.0   Mark Edmondson  10M Google Search Console R Client         
-#>  29 23 gepaf          0.1.1   Timothée Giraud  8M Google Encoded Polyline Algorithm Fo...
-#>  30 23 cloudml        0.6.0   Javier Luraschi  2M Interface to the Google Cloud Machin...
+#> - "colour" ---------------------------------------------- 164 packages in 0.004 seconds - 
+#>   #     package    version by              @ title                               
+#>  1  100 colorspace 1.3.2   Achim Zeileis  2y Color Space Manipulation            
+#>  2   86 crayon     1.3.4   Gábor Csárdi   1y Colored Terminal Output             
+#>  3   67 viridis    0.5.1   Simon Garnier  7M Default Color Maps from 'matplotlib'
 ```
+
+```r
+ps("colours", size = 3)
+```
+
+```
+#> - "colours" --------------------------------------------- 162 packages in 0.005 seconds - 
+#>   #     package    version by              @ title                               
+#>  1  100 colorspace 1.3.2   Achim Zeileis  2y Color Space Manipulation            
+#>  2   86 crayon     1.3.4   Gábor Csárdi   1y Colored Terminal Output             
+#>  3   67 viridis    0.5.1   Simon Garnier  7M Default Color Maps from 'matplotlib'
+```
+
+### Ranking
+
+The most important feature of a search engine is the ranking of the results.
+The best results should be listed first. pkgsearch uses weighted scoring,
+where a match in the package title gets a higher score than a match in the
+package desciption. It also uses the number of reverse dependencies and
+the number of downloads to weight the scores:
+
+
+```r
+ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
+```
+
+```
+#> # A tibble: 10 x 4
+#>     score package      revdeps downloads_last_month
+#>     <dbl> <chr>          <int>                <int>
+#>  1 10785. colorspace       134               373346
+#>  2  9293. crayon           104               500169
+#>  3  7247. viridis           79               172186
+#>  4  4938. shape             35                13223
+#>  5  3999. colourpicker      14                15400
+#>  6  3864. viridisLite       28               366798
+#>  7  3848. pillar            16               541280
+#>  8  3522. RColorBrewer     383               390994
+#>  9  3191. dichromat         11                21658
+#> 10  2946. colorRamps        10                 3883
+```
+
+### Preferring Phrases
+
+The search engine prefers matching whole phrases over single words.
+E.g. the search phrase "permutation test" will rank coin higher than
+testthat, even though testthat is a much better result for the single word
+"test". (In fact, at the time of writing testhat is not even on the first
+page of results.)
+
+
+```r
+ps("permutation test")
+```
+
+```
+#> - "permutation test" ----------------------------------- 1539 packages in 0.015 seconds - 
+#>   #     package        version by                      @ title                           
+#>   1 100 coin           1.2.2   Torsten Hothorn        1y Conditional Inference Procedu...
+#>   2  35 flip           2.5.0   Livio Finos            2M Multivariate Permutation Tests  
+#>   3  32 perm           1.0.0.0 Michael Fay            8y Exact or Asymptotic permutati...
+#>   4  22 exactRankTests 0.8.29  Torsten Hothorn        2y Exact Distributions for Rank ...
+#>   5  22 wPerm          1.0.1   Neil A. Weiss          3y Permutation Tests               
+#>   6  19 cpt            1.0.2   Johann Gagnon-Bartsch  7d Classification Permutation Test 
+#>   7  19 AUtests        0.98    Arjun Sondhi           2y Approximate Unconditional and...
+#>   8  19 jmuOutlier     1.4     Steven T. Garren       9M Permutation Tests for Nonpara...
+#>   9  18 permutes       0.1     Cesko Voeten           6M Permutation Tests for Time Se...
+#>  10  18 GlobalDeviance 0.4     Frederike Fuhlbrueck   5y Global Deviance Permutation T...
+```
+
+If the whole phrase does not match, pkgsearch falls back to individual
+matching words. For example, a match from either words is enough here,
+to get on the fist page of results:
+
+
+```r
+ps("test http")
+```
+
+```
+#> - "test http" ------------------------------------------- 5035 packages in 0.01 seconds - 
+#>   #     package   version   by                   @ title                                 
+#>   1 100 httptest  3.1.0     Neal Richardson     5M A Test Environment for HTTP Requests  
+#>   2  88 covr      3.2.1     Jim Hester         19d Test Coverage for Packages            
+#>   3  39 testthat  2.0.1     Hadley Wickham     24d Unit Testing for R                    
+#>   4  19 psych     1.8.10    William Revelle     6d Procedures for Psychological, Psych...
+#>   5  12 vcr       0.2.0     Scott Chamberlain  18d Record 'HTTP' Calls to Disk           
+#>   6  12 httr      1.3.1     Hadley Wickham      1y Tools for Working with URLs and HTTP  
+#>   7   9 RCurl     1.95.4.11 Duncan Temple Lang  4M General Network (HTTP/FTP/...) Clie...
+#>   8   8 bnlearn   4.4       Marco Scutari      21d Bayesian Network Structure Learning...
+#>   9   7 oompaBase 3.2.6     Kevin R. Coombes    6M Class Unions, Matrix Operations, an...
+#>  10   7 pipeGS    0.4       Hera He             9M Permutation p-Value Estimation for ...
+```
+
+### British vs American English
+
+The seach engine uses a dictionary to make sure that package metadata
+and queries given in British and American English yield the same results.
+E.g. note the spelling of colour/color in the results:
+
+
+```r
+ps("colour")
+```
+
+```
+#> - "colour" ---------------------------------------------- 164 packages in 0.005 seconds - 
+#>   #     package      version by                 @ title                                  
+#>   1 100 colorspace   1.3.2   Achim Zeileis     2y Color Space Manipulation               
+#>   2  86 crayon       1.3.4   Gábor Csárdi      1y Colored Terminal Output                
+#>   3  67 viridis      0.5.1   Simon Garnier     7M Default Color Maps from 'matplotlib'   
+#>   4  46 shape        1.4.4   Karline Soetaert  9M Functions for Plotting Graphical Sha...
+#>   5  37 colourpicker 1.0     Dean Attali       1y A Colour Picker Tool for Shiny and f...
+#>   6  36 viridisLite  0.3.0   Simon Garnier     9M Default Color Maps from 'matplotlib'...
+#>   7  36 pillar       1.3.0   Kirill Müller     4M Coloured Formatting for Columns        
+#>   8  33 RColorBrewer 1.1.2   Erich Neuwirth    4y ColorBrewer Palettes                   
+#>   9  30 dichromat    2.0.0   Thomas Lumley     6y Color Schemes for Dichromats           
+#>  10  27 colorRamps   2.3     Tim Keitt         6y Builds color tables
+```
+
+```r
+ps("color")
+```
+
+```
+#> - "color" ----------------------------------------------- 162 packages in 0.004 seconds - 
+#>   #     package      version by                 @ title                                  
+#>   1 100 colorspace   1.3.2   Achim Zeileis     2y Color Space Manipulation               
+#>   2  86 crayon       1.3.4   Gábor Csárdi      1y Colored Terminal Output                
+#>   3  67 viridis      0.5.1   Simon Garnier     7M Default Color Maps from 'matplotlib'   
+#>   4  46 shape        1.4.4   Karline Soetaert  9M Functions for Plotting Graphical Sha...
+#>   5  37 colourpicker 1.0     Dean Attali       1y A Colour Picker Tool for Shiny and f...
+#>   6  36 viridisLite  0.3.0   Simon Garnier     9M Default Color Maps from 'matplotlib'...
+#>   7  36 pillar       1.3.0   Kirill Müller     4M Coloured Formatting for Columns        
+#>   8  33 RColorBrewer 1.1.2   Erich Neuwirth    4y ColorBrewer Palettes                   
+#>   9  30 dichromat    2.0.0   Thomas Lumley     6y Color Schemes for Dichromats           
+#>  10  27 colorRamps   2.3     Tim Keitt         6y Builds color tables
+```
+
+### Ascii Folding
+
+Especially when searching for package maintainer names, it is convenient
+to use the corresponding ASCII letters for non-ASCII characters in search
+phrases. E.g. the following two queries yield the same results. Note that
+case is also ignored.
+
+
+```r
+ps("gabor", size = 5)
+```
+
+```
+#> - "gabor" ------------------------------------------------ 79 packages in 0.005 seconds - 
+#>   #     package  version by              @ title                                         
+#>  1  100 igraph   1.2.2   Gábor Csárdi   3M Network Analysis and Visualization            
+#>  2   47 crayon   1.3.4   Gábor Csárdi   1y Colored Terminal Output                       
+#>  3   38 zoo      1.8.4   Achim Zeileis  2M S3 Infrastructure for Regular and Irregular...
+#>  4   33 progress 1.2.0   Gábor Csárdi   5M Terminal Progress Bars                        
+#>  5   28 cli      1.0.1   Gábor Csárdi   1M Helpers for Developing Command Line Interfaces
+```
+
+```r
+ps("Gábor", size = 5)
+```
+
+```
+#> - "Gábor" ------------------------------------------------ 79 packages in 0.007 seconds - 
+#>   #     package  version by              @ title                                         
+#>  1  100 igraph   1.2.2   Gábor Csárdi   3M Network Analysis and Visualization            
+#>  2   47 crayon   1.3.4   Gábor Csárdi   1y Colored Terminal Output                       
+#>  3   38 zoo      1.8.4   Achim Zeileis  2M S3 Infrastructure for Regular and Irregular...
+#>  4   33 progress 1.2.0   Gábor Csárdi   5M Terminal Progress Bars                        
+#>  5   28 cli      1.0.1   Gábor Csárdi   1M Helpers for Developing Command Line Interfaces
+```
+
+## License
+
+MIT @ [Gábor Csárdi](https://github.com/gaborcsardi),
+      [RStudio](https://github.com/rstudio)
