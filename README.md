@@ -30,18 +30,18 @@ pkg_search("C++")
 ```
 
 ```
-#> - "C++" ------------------------------------------------ 6080 packages in 0.006 seconds -
-#>   #     package       version     by                  @ title
-#>   1 100 Rcpp          0.12.19     Dirk Eddelbuettel  1M Seamless R and C++ Integration
-#>   2  35 covr          3.2.1       Jim Hester        19d Test Coverage for Packages
-#>   3  31 BH            1.66.0.1    Dirk Eddelbuettel  9M Boost C++ Header Files
-#>   4  24 xml2          1.2.0       James Hester      10M Parse XML
-#>   5  20 boot          1.3.20      Brian Ripley       1y Bootstrap Functions (Originall...
-#>   6  19 lme4          1.1.18.1    Ben Bolker         3M Linear Mixed-Effects Models us...
-#>   7  17 roxygen2      6.1.0       Hadley Wickham     3M In-Line Documentation for R
-#>   8  16 rJava         0.9.10      Simon Urbanek      5M Low-Level R to Java Interface
-#>   9  16 rgeos         0.4.1       Roger Bivand      18d Interface to Geometry Engine -...
-#>  10  15 RcppArmadillo 0.9.100.5.0 Dirk Eddelbuettel  3M 'Rcpp' Integration for the 'Ar...
+#> - "C++" ------------------------------------------------ 6080 packages in 0.006 seconds - 
+#>   #     package      version  by                    @ title                              
+#>   1 100 Rcpp         0.12.19  Dirk Eddelbuettel    1M Seamless R and C++ Integration     
+#>   2  31 BH           1.66.0.1 Dirk Eddelbuettel    9M Boost C++ Header Files             
+#>   3  13 inline       0.3.15   Dirk Eddelbuettel    6M Functions to Inline C, C++, Fort...
+#>   4  12 StanHeaders  2.18.0   Ben Goodrich        30d C++ Header Files for Stan          
+#>   5  10 RcppProgress 0.4.1    Karl Forner          6M An Interruptible Progress Bar wi...
+#>   6  10 SnowballC    0.5.1    Milan Bouchet-Valat  4y Snowball stemmers based on the C...
+#>   7   9 covr         3.2.1    Jim Hester          19d Test Coverage for Packages         
+#>   8   7 glpkAPI      1.3.1    Mayo Roettger        2M R Interface to C API of GLPK       
+#>   9   7 RNifti       0.10.0   Jon Clayden         18d Fast R and C++ Access to NIfTI I...
+#>  10   6 xml2         1.2.0    James Hester        10M Parse XML
 ```
 
 By default it returns a short summary of the ten best search hits. Their
@@ -55,9 +55,9 @@ pkg_search()
 ```
 
 ```
-#> - "C++" ------------------------------------------------ 6080 packages in 0.006 seconds -
-#>
-#> 1 Rcpp @ 0.12.19                                     Dirk Eddelbuettel, about a month ago
+#> - "C++" ------------------------------------------------ 6080 packages in 0.006 seconds - 
+#> 
+#> 1 Rcpp @ 0.12.19                                     Dirk Eddelbuettel, about a month ago 
 #> ----------------
 #>   # Seamless R and C++ Integration
 #>   The 'Rcpp' package provides R functions as well as C++ classes which offer a seamless
@@ -72,19 +72,8 @@ pkg_search()
 #>   http://www.rcpp.org
 #>   http://dirk.eddelbuettel.com/code/rcpp.html
 #>   https://github.com/RcppCore/Rcpp
-#>
-#> 2 covr @ 3.2.1                                                    Jim Hester, 19 days ago
-#> --------------
-#>   # Test Coverage for Packages
-#>   Track and report code coverage for your package and (optionally) upload the results to
-#>   a coverage service like 'Codecov' <http://codecov.io> or 'Coveralls'
-#>   <http://coveralls.io>. Code coverage is a measure of the amount of code being
-#>   exercised by a set of tests. It is an indirect measure of test quality and
-#>   completeness. This package is compatible with any testing methodology or framework and
-#>   tracks coverage of both R code and compiled C/C++/FORTRAN code.
-#>   https://github.com/r-lib/covr
-#>
-#> 3 BH @ 1.66.0.1                                           Dirk Eddelbuettel, 9 months ago
+#> 
+#> 2 BH @ 1.66.0.1                                           Dirk Eddelbuettel, 9 months ago 
 #> ---------------
 #>   # Boost C++ Header Files
 #>   Boost provides free peer-reviewed portable C++ source libraries.  A large part of
@@ -100,73 +89,80 @@ pkg_search()
 #>   'iostreams' 'iterator' 'math' 'move' 'mpl' 'multiprcecision' 'numeric' 'pending'
 #>   'phoenix' 'preprocessor' 'propery_tree' 'random' 'range' 'scope_exit' 'smart_ptr'
 #>   'sort' 'spirit' 'tuple' 'type_traits' 'typeof' 'unordered' 'utility' 'uuid'.
-#>
-#> 4 xml2 @ 1.2.0                                                James Hester, 10 months ago
+#> 
+#> 3 inline @ 0.3.15                                         Dirk Eddelbuettel, 6 months ago 
+#> -----------------
+#>   # Functions to Inline C, C++, Fortran Function Calls from R
+#>   Functionality to dynamically define R functions and S4 methods with 'inlined' C, C++
+#>   or Fortran code supporting the .C and .Call calling conventions.
+#> 
+#> 4 StanHeaders @ 2.18.0                                          Ben Goodrich, 30 days ago 
+#> ----------------------
+#>   # C++ Header Files for Stan
+#>   The C++ header files of the Stan project are provided by this package, but it contains
+#>   no R code or function documentation. There is a shared object containing part of the
+#>   'CVODES' library, but it is not accessible from R. 'StanHeaders' is only useful for
+#>   developers who want to utilize the 'LinkingTo' directive of their package's
+#>   DESCRIPTION file to build on the Stan library without incurring unnecessary
+#>   dependencies. The Stan project develops a probabilistic programming language that
+#>   implements full or approximate Bayesian statistical inference via Markov Chain Monte
+#>   Carlo or 'variational' methods and implements (optionally penalized) maximum
+#>   likelihood estimation via optimization. The Stan library includes an advanced
+#>   automatic differentiation scheme, 'templated' statistical and linear algebra functions
+#>   that can handle the automatically 'differentiable' scalar types (and doubles, 'ints',
+#>   etc.), and a parser for the Stan language. The 'rstan' package provides user-facing R
+#>   functions to parse, compile, test, estimate, and analyze Stan models.
+#>   http://mc-stan.org/
+#> 
+#> 5 RcppProgress @ 0.4.1                                          Karl Forner, 6 months ago 
+#> ----------------------
+#>   # An Interruptible Progress Bar with OpenMP Support for C++ in R Packages
+#>   Allows to display a progress bar in the R console for long running computations taking
+#>   place in c++ code, and support for interrupting those computations even in
+#>   multithreaded code, typically using OpenMP.
+#>   https://github.com/kforner/rcpp_progress
+#> 
+#> 6 SnowballC @ 0.5.1                                      Milan Bouchet-Valat, 4 years ago 
+#> -------------------
+#>   # Snowball stemmers based on the C libstemmer UTF-8 library
+#>   An R interface to the C libstemmer library that implements<U+000a>Porter's word
+#>   stemming algorithm for collapsing words to a common<U+000a>root to aid comparison of
+#>   vocabulary. Currently supported languages are<U+000a>Danish, Dutch, English, Finnish,
+#>   French, German, Hungarian, Italian,<U+000a>Norwegian, Portuguese, Romanian, Russian,
+#>   Spanish, Swedish<U+000a>and Turkish.
+#>   https://r-forge.r-project.org/projects/r-temis/
+#> 
+#> 7 covr @ 3.2.1                                                    Jim Hester, 19 days ago 
 #> --------------
+#>   # Test Coverage for Packages
+#>   Track and report code coverage for your package and (optionally) upload the results to
+#>   a coverage service like 'Codecov' <http://codecov.io> or 'Coveralls'
+#>   <http://coveralls.io>. Code coverage is a measure of the amount of code being
+#>   exercised by a set of tests. It is an indirect measure of test quality and
+#>   completeness. This package is compatible with any testing methodology or framework and
+#>   tracks coverage of both R code and compiled C/C++/FORTRAN code.
+#>   https://github.com/r-lib/covr
+#> 
+#> 8 glpkAPI @ 1.3.1                                             Mayo Roettger, 2 months ago 
+#> -----------------
+#>   # R Interface to C API of GLPK
+#>   R Interface to C API of GLPK, depends on GLPK Version >= 4.42.
+#> 
+#> 9 RNifti @ 0.10.0                                                Jon Clayden, 18 days ago 
+#> -----------------
+#>   # Fast R and C++ Access to NIfTI Images
+#>   Provides very fast read and write access to images stored in the NIfTI-1 and
+#>   ANALYZE-7.5 formats, with seamless synchronisation between compiled C and interpreted
+#>   R code. Also provides a C/C++ API that can be used by other packages. Not to be
+#>   confused with 'RNiftyReg', which performs image registration.
+#>   https://github.com/jonclayden/RNifti
+#> 
+#> 10 xml2 @ 1.2.0                                               James Hester, 10 months ago 
+#> ---------------
 #>   # Parse XML
 #>   Work with XML files using a simple, consistent interface. Built on top of the
 #>   'libxml2' C library.
 #>   https://github.com/r-lib/xml2
-#>
-#> 5 boot @ 1.3.20                                            Brian Ripley, about a year ago
-#> ---------------
-#>   # Bootstrap Functions (Originally by Angelo Canty for S)
-#>   Functions and datasets for bootstrapping from the book "Bootstrap Methods and Their
-#>   Application" by A. C. Davison and D. V. Hinkley (1997, CUP), originally written by
-#>   Angelo Canty for S.
-#>
-#> 6 lme4 @ 1.1.18.1                                                Ben Bolker, 3 months ago
-#> -----------------
-#>   # Linear Mixed-Effects Models using 'Eigen' and S4
-#>   Fit linear and generalized linear mixed-effects models. The models and their
-#>   components are represented using S4 classes and methods.  The core computational
-#>   algorithms are implemented using the 'Eigen' C++ library for numerical linear algebra
-#>   and 'RcppEigen' "glue".
-#>   https://github.com/lme4/lme4/
-#>   http://lme4.r-forge.r-project.org/
-#>
-#> 7 roxygen2 @ 6.1.0                                           Hadley Wickham, 3 months ago
-#> ------------------
-#>   # In-Line Documentation for R
-#>   Generate your Rd documentation, 'NAMESPACE' file, and collation field using specially
-#>   formatted comments. Writing documentation in-line with code makes it easier to keep
-#>   your documentation up-to-date as your requirements change. 'Roxygen2' is inspired by
-#>   the 'Doxygen' system for C++.
-#>   https://github.com/klutometis/roxygen
-#>
-#> 8 rJava @ 0.9.10                                              Simon Urbanek, 5 months ago
-#> ----------------
-#>   # Low-Level R to Java Interface
-#>   Low-level interface to Java VM very much like .C/.Call and friends. Allows creation of
-#>   objects, calling methods and accessing fields.
-#>   http://www.rforge.net/rJava/
-#>
-#> 9 rgeos @ 0.4.1                                                 Roger Bivand, 18 days ago
-#> ---------------
-#>   # Interface to Geometry Engine - Open Source ('GEOS')
-#>   Interface to Geometry Engine - Open Source ('GEOS') using the C 'API' for topology
-#>   operations on geometries. The 'GEOS' library is external to the package, and, when
-#>   installing the package from source, must be correctly installed first. Windows and Mac
-#>   Intel OS X binaries are provided on 'CRAN'.
-#>   https://r-forge.r-project.org/projects/rgeos/
-#>   http://trac.osgeo.org/geos/
-#>
-#> 10 RcppArmadillo @ 0.9.100.5.0                            Dirk Eddelbuettel, 3 months ago
-#> ------------------------------
-#>   # 'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
-#>   'Armadillo' is a templated C++ linear algebra library (by Conrad Sanderson) that aims
-#>   towards a good balance between speed and ease of use. Integer, floating point and
-#>   complex numbers are supported, as well as a subset of trigonometric and statistics
-#>   functions. Various matrix decompositions are provided through optional integration
-#>   with LAPACK and ATLAS libraries. The 'RcppArmadillo' package includes the header files
-#>   from the templated 'Armadillo' library. Thus users do not need to install 'Armadillo'
-#>   itself in order to use 'RcppArmadillo'. From release 7.800.0 on, 'Armadillo' is
-#>   licensed under Apache License 2; previous releases were under licensed as MPL 2.0 from
-#>   version 3.800.0 onwards and LGPL-3 prior to that; 'RcppArmadillo' (the 'Rcpp'
-#>   bindings/bridge to Armadillo) is licensed under the GNU GPL version 2 or later, as is
-#>   the rest of 'Rcpp'. Note that Armadillo requires a fairly recent compiler; for the g++
-#>   family at least version 4.6.* is required.
-#>   http://dirk.eddelbuettel.com/code/rcpp.armadillo.html
 ```
 
 The `more()` function can be used to display the next batch of search hits,
@@ -178,18 +174,18 @@ pkg_search("google")
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.008 seconds -
-#>   #     package      version by               @ title
-#>   1 100 lubridate    1.7.4   Vitalie Spinu   7M Make Dealing with Dates a Little Easier
-#>   2  61 ggmap        2.6.1   David Kahle     3y Spatial Visualization with ggplot2
-#>   3  48 googleVis    0.6.2   Markus Gesmann  2y R Interface to Google Charts
-#>   4  40 V8           1.5     Jeroen Ooms     2y Embedded JavaScript Engine for R
-#>   5  32 googleAuthR  0.6.3   Mark Edmondson  5M Authenticate and Create Google APIs
-#>   6  31 RgoogleMaps  1.4.2   Markus Loecher  5M Overlays on Static Maps
-#>   7  30 sysfonts     0.8     Yixuan Qiu     26d Loading Fonts into R
-#>   8  25 tensorflow   1.9     JJ Allaire      3M R Interface to 'TensorFlow'
-#>   9  24 googlesheets 0.3.0   Jennifer Bryan  4M Manage Google Spreadsheets from R
-#>  10  24 plotKML      0.5.8   Tomislav Hengl  1y Visualization of Spatial and Spatio-Te...
+#> - "google" ---------------------------------------------- 106 packages in 0.009 seconds - 
+#>   #     package             version by               @ title                             
+#>   1 100 googleVis           0.6.2   Markus Gesmann  2y R Interface to Google Charts      
+#>   2  66 googleAuthR         0.6.3   Mark Edmondson  5M Authenticate and Create Google ...
+#>   3  54 lubridate           1.7.4   Vitalie Spinu   7M Make Dealing with Dates a Littl...
+#>   4  51 plotKML             0.5.8   Tomislav Hengl  1y Visualization of Spatial and Sp...
+#>   5  46 googlesheets        0.3.0   Jennifer Bryan  4M Manage Google Spreadsheets from R 
+#>   6  42 googledrive         0.1.2   Jennifer Bryan  1M An Interface to Google Drive      
+#>   7  39 googleCloudStorageR 0.4.0   Mark Edmondson  1y Interface with Google Cloud Sto...
+#>   8  36 gsheet              0.4.2   Max Conway      2y Download Google Sheets Using Ju...
+#>   9  36 bigQueryR           0.4.0   Mark Edmondson  5M Interface with Google BigQuery ...
+#>  10  34 googlePolylines     0.7.1   David Cooley    2M Encoding Coordinates into 'Goog...
 ```
 
 
@@ -198,18 +194,18 @@ more()
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.005 seconds -
-#>   #    package             version by                @ title
-#>  11 22 gsheet              0.4.2   Max Conway       2y Download Google Sheets Using Ju...
-#>  12 21 hrbrthemes          0.5.0.1 ORPHANED         3M Additional Themes, Theme Compon...
-#>  13 20 googledrive         0.1.2   Jennifer Bryan   1M An Interface to Google Drive
-#>  14 18 googleCloudStorageR 0.4.0   Mark Edmondson   1y Interface with Google Cloud Sto...
-#>  15 17 bigQueryR           0.4.0   Mark Edmondson   5M Interface with Google BigQuery ...
-#>  16 16 googlePolylines     0.7.1   David Cooley     2M Encoding Coordinates into 'Goog...
-#>  17 16 googleAnalyticsR    0.5.0   Mark Edmondson   9M Google Analytics API into R
-#>  18 15 DescTools           0.99.25 Andri Signorell  3M Tools for Descriptive Statistics
-#>  19 15 cld2                1.2     Jeroen Ooms      6M Google's Compact Language Detec...
-#>  20 14 searchConsoleR      0.3.0   Mark Edmondson  10M Google Search Console R Client
+#> - "google" ---------------------------------------------- 106 packages in 0.005 seconds - 
+#>   #    package          version by                     @ title                           
+#>  11 34 googleAnalyticsR 0.5.0   Mark Edmondson        9M Google Analytics API into R     
+#>  12 33 ggmap            2.6.1   David Kahle           3y Spatial Visualization with gg...
+#>  13 32 cld2             1.2     Jeroen Ooms           6M Google's Compact Language Det...
+#>  14 27 rgoogleslides    0.3.1   Hairizuan Noorazman   2M R Interface to Google Slides    
+#>  15 27 gcite            0.9.2   John Muschelli        9M Google Citation Parser          
+#>  16 26 plusser          0.4.0   Christoph Waldhauser  5y A Google+ Interface for R       
+#>  17 26 ganalytics       0.10.4  Johann de Boer        4M Interact with 'Google Analytics'
+#>  18 26 s2               0.4.0   Ege Rubak             7M Google's S2 Library for Geome...
+#>  19 25 googlePrintr     0.0.1   Carl Ganz             9M Connect to 'Google Cloud Prin...
+#>  20 25 adwordsR         0.3.1   Sean Longthorpe       5M Access the 'Google Adwords' API
 ```
 
 
@@ -218,16 +214,16 @@ more()
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.005 seconds -
-#>   #    package       version by                     @ title
-#>  21 13 RProtoBuf     0.4.13  Dirk Eddelbuettel     3d R Interface to the 'Protocol Buf...
-#>  22 13 googleformr   0.0.3   Steve Simpson         3y Collect Data Programmatically by...
-#>  23 13 choroplethr   3.6.3   Ari Lamstein          3M Simplify the Creation of Choropl...
-#>  24 13 rgoogleslides 0.3.1   Hairizuan Noorazman   2M R Interface to Google Slides
-#>  25 13 gcite         0.9.2   John Muschelli        9M Google Citation Parser
-#>  26 13 plusser       0.4.0   Christoph Waldhauser  5y A Google+ Interface for R
-#>  27 13 ganalytics    0.10.4  Johann de Boer        4M Interact with 'Google Analytics'
-#>  28 12 translate     0.1.2   Peter Danenberg       4y Bindings for the Google Translat...
-#>  29 12 s2            0.4.0   Ege Rubak             7M Google's S2 Library for Geometry...
-#>  30 12 googlePrintr  0.0.1   Carl Ganz             9M Connect to 'Google Cloud Print' API
+#> - "google" ---------------------------------------------- 106 packages in 0.005 seconds - 
+#>   #    package        version by                @ title                                  
+#>  21 25 sparkbq        0.1.0   Martin Studer    3M Google 'BigQuery' Support for 'spark...
+#>  22 25 RGA            0.4.2   Artem Klevtsov   3y A Google Analytics API Client          
+#>  23 25 translate      0.1.2   Peter Danenberg  4y Bindings for the Google Translate AP...
+#>  24 25 GAR            1.1     Andrew Geisler   3y Authorize and Request Google Analyti...
+#>  25 24 bigrquery      1.0.0   Hadley Wickham   7M An Interface to Google's 'BigQuery' ...
+#>  26 24 scholar        0.1.7   Guangchuang Yu   4M Analyse Citation Data from Google Sc...
+#>  27 23 cld3           1.1     Jeroen Ooms      4M Google's Compact Language Detector 3   
+#>  28 23 searchConsoleR 0.3.0   Mark Edmondson  10M Google Search Console R Client         
+#>  29 23 gepaf          0.1.1   Timothée Giraud  8M Google Encoded Polyline Algorithm Fo...
+#>  30 23 cloudml        0.6.0   Javier Luraschi  2M Interface to the Google Cloud Machin...
 ```

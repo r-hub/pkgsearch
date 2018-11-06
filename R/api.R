@@ -85,7 +85,7 @@ make_query <- function(query) {
 
   check_string(query)
 
-  fields <- c("Package^10", "Title^5", "Description^4",
+  fields <- c("Package^20", "Title^10", "Description^2",
               "Author^5", "Maintainer^6", "_all")
 
   query_object <- list(
@@ -113,7 +113,7 @@ make_query <- function(query) {
               ## This is matching the complete phrase, so it takes priority
               list(multi_match = list(
                      query = query,
-                     fields = c("Title^5", "Description^4", "_all"),
+                     fields = c("Title^10", "Description^2", "_all"),
                      type = "phrase",
                      analyzer = "english_and_synonyms",
                      boost = 10
