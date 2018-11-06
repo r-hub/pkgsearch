@@ -95,12 +95,6 @@ cat_hit <- function(x, no) {
   }
 }
 
-cat_fill <- function(text) {
-  check_string(text)
-  width <- getOption("width") - nchar(text) - 1
-  cat(text, paste(rep("-", width, collapse = "")), sep = "", "\n")
-}
-
 cat_line <- function(length, ...) {
   rep("-", length) %>%
     paste(collapse = "") %>%

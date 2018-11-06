@@ -2,7 +2,8 @@
 `%||%` <- function(l, r) if (is.null(l)) r else l
 
 check_count <- function(x) {
-  if (!is.numeric(x) || length(x) != 1 || as.integer(x) != x || x < 0) {
+  if (!is.numeric(x) || length(x) != 1 || as.integer(x) != x ||
+      is.na(x) || x < 0) {
     stop(x, " is not a count", call. = FALSE)
   }
 }

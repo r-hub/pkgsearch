@@ -13,10 +13,11 @@ Imports:
     httr,
     jsonlite,
     parsedate,
-    prettyunits,
-    tibble
+    prettyunits
 Suggests:
-    testthat
+    covr,
+    testthat,
+    tibble
 Encoding: UTF-8
 RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
