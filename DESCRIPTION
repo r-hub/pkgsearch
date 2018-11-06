@@ -6,7 +6,7 @@ Description: Search CRAN R packages. Uses the 'METACRAN' search server,
   see <https://r-pkg.org>.
 License: MIT + file LICENSE
 LazyData: true
-URL: https://github.com/metacran/pkgsearch
+URL: https://github.com/metacran/pkgsearch#readme
 BugReports: https://github.com/metacran/pkgsearch/issues
 Imports:
     magrittr,
