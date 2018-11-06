@@ -12,19 +12,23 @@ options(max.print = 200)
 
 # CRAN package search
 
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Linux Build Status](https://travis-ci.org/metacran/pkgsearch.svg?branch=master)](https://travis-ci.org/metacran/pkgsearch)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/metacran/pkgsearch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgsearch)
+[![CRAN status](https://www.r-pkg.org/badges/version/pkgsearch)](https://cran.r-project.org/package=pkgsearch)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/pkg/pkgsearch)
+[![Coverage status](https://codecov.io/gh/metacran/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/metacran/pkgsearch?branch=master)
 
-The `pkgsearch` package searches all CRAN packages. It uses a web service,
+The pkgsearch package searches all CRAN packages. It uses a web service,
 and a careful weighting that ranks popular packages before less
 frequently used ones.
 
 ## Installation
 
-Install the package from github, using `devtools`:
+Once released, you can install the package from CRAN:
 
 ```r
-devtools::install_github("metacran/pkgsearch")
+install.packages("pkgsearch")
 ```
 
 ## Usage

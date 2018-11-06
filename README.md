@@ -3,19 +3,23 @@
 
 # CRAN package search
 
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Linux Build Status](https://travis-ci.org/metacran/pkgsearch.svg?branch=master)](https://travis-ci.org/metacran/pkgsearch)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/metacran/pkgsearch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgsearch)
+[![CRAN status](https://www.r-pkg.org/badges/version/pkgsearch)](https://cran.r-project.org/package=pkgsearch)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/pkg/pkgsearch)
+[![Coverage status](https://codecov.io/gh/metacran/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/metacran/pkgsearch?branch=master)
 
-The `pkgsearch` package searches all CRAN packages. It uses a web service,
+The pkgsearch package searches all CRAN packages. It uses a web service,
 and a careful weighting that ranks popular packages before less
 frequently used ones.
 
 ## Installation
 
-Install the package from github, using `devtools`:
+Once released, you can install the package from CRAN:
 
 ```r
-devtools::install_github("metacran/pkgsearch")
+install.packages("pkgsearch")
 ```
 
 ## Usage
@@ -30,7 +34,7 @@ pkg_search("C++")
 ```
 
 ```
-#> - "C++" ------------------------------------------------ 6080 packages in 0.006 seconds - 
+#> - "C++" ------------------------------------------------ 6080 packages in 0.005 seconds - 
 #>   #     package      version  by                    @ title                              
 #>   1 100 Rcpp         0.12.19  Dirk Eddelbuettel    1M Seamless R and C++ Integration     
 #>   2  31 BH           1.66.0.1 Dirk Eddelbuettel    9M Boost C++ Header Files             
@@ -55,7 +59,7 @@ pkg_search()
 ```
 
 ```
-#> - "C++" ------------------------------------------------ 6080 packages in 0.006 seconds - 
+#> - "C++" ------------------------------------------------ 6080 packages in 0.005 seconds - 
 #> 
 #> 1 Rcpp @ 0.12.19                                     Dirk Eddelbuettel, about a month ago 
 #> ----------------
@@ -174,7 +178,7 @@ pkg_search("google")
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.009 seconds - 
+#> - "google" ---------------------------------------------- 106 packages in 0.006 seconds - 
 #>   #     package             version by               @ title                             
 #>   1 100 googleVis           0.6.2   Markus Gesmann  2y R Interface to Google Charts      
 #>   2  66 googleAuthR         0.6.3   Mark Edmondson  5M Authenticate and Create Google ...
@@ -194,7 +198,7 @@ more()
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.005 seconds - 
+#> - "google" ---------------------------------------------- 106 packages in 0.004 seconds - 
 #>   #    package          version by                     @ title                           
 #>  11 34 googleAnalyticsR 0.5.0   Mark Edmondson        9M Google Analytics API into R     
 #>  12 33 ggmap            2.6.1   David Kahle           3y Spatial Visualization with gg...
@@ -214,7 +218,7 @@ more()
 ```
 
 ```
-#> - "google" ---------------------------------------------- 106 packages in 0.005 seconds - 
+#> - "google" ---------------------------------------------- 106 packages in 0.004 seconds - 
 #>   #    package        version by                @ title                                  
 #>  21 25 sparkbq        0.1.0   Martin Studer    3M Google 'BigQuery' Support for 'spark...
 #>  22 25 RGA            0.4.2   Artem Klevtsov   3y A Google Analytics API Client          
