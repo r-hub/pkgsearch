@@ -1,6 +1,6 @@
 Package: pkgsearch
 Title: Search CRAN R Packages
-Version: 2.0.0
+Version: 2.0.1
 Authors@R: c(person("Gábor", "Csárdi", email = "csardi.gabor@gmail.com",
 	     role = c("aut", "cre")))
 Description: Search CRAN R packages. Uses the 'METACRAN' search server,
