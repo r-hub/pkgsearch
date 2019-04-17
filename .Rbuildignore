@@ -3,3 +3,5 @@
 ^README.Rmd$
 ^Makefile$
 ^appveyor.yml$
+^.*\.Rproj$
+^\.Rproj\.user$
