@@ -8,8 +8,8 @@ Description: Search CRAN R packages. Uses the 'METACRAN' search server,
   see <https://r-pkg.org>.
 License: MIT + file LICENSE
 LazyData: true
-URL: https://github.com/metacran/pkgsearch#readme
-BugReports: https://github.com/metacran/pkgsearch/issues
+URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch
+BugReports: https://github.com/r-hub/pkgsearch/issues
 Imports:
     magrittr,
     httr,
@@ -21,5 +21,5 @@ Suggests:
     testthat,
     tibble
 Encoding: UTF-8
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
