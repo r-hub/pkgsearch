@@ -20,7 +20,8 @@ Imports:
     parsedate,
     prettyunits,
     methods,
-    assertthat
+    assertthat,
+    dotenv
 Suggests:
     covr,
     testthat,
