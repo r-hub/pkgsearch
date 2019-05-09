@@ -18,7 +18,9 @@ Imports:
     httr,
     jsonlite,
     parsedate,
-    prettyunits
+    prettyunits,
+    methods,
+    assertthat
 Suggests:
     covr,
     testthat,
