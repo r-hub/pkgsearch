@@ -5,20 +5,20 @@ test_that("cran_package() works", {
 
   r1 <- cran_package("igraph0")
 
-  expect_equal(sort(names(r1)), c("Author", "crandb_file_date", "date",
+  expect_equal(sort(names(r1)), sort(c("Author", "crandb_file_date", "date",
     "Date", "Date/Publication", "Depends", "Description", "License",
     "Maintainer", "NeedsCompilation", "Package", "Packaged", "releases",
     "Repository", "Suggests", "SystemRequirements", "Title", "URL",
-    "Version"))
+    "Version")))
 
   expect_equal(r1$Version, "0.5.7")
 
   r2 <- cran_package("igraph", "0.5.5")
 
-  expect_equal(sort(names(r2)), c("Author", "crandb_file_date", "date",
+  expect_equal(sort(names(r2)), sort(c("Author", "crandb_file_date", "date",
     "Date", "Date/Publication", "Depends", "Description", "License",
     "Maintainer", "Package", "Packaged", "releases", "Repository",
-                                  "Suggests", "SystemRequirements", "Title", "URL", "Version"))
+    "Suggests", "SystemRequirements", "Title", "URL", "Version")))
 
   r3 <- cran_package("igraph", "all")
 

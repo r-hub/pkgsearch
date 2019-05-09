@@ -99,10 +99,10 @@ test_that("Convert DESCRIPTIONs to JSON", {
   vers <- fj[["versions"]]
   expect_equal(length(vers), 1)
   expect_equal(sort(names(vers[[1]])),
-    c("Author", "Authors@R", "Collate", "date", "Date/Publication",
+    sort(c("Author", "Authors@R", "Collate", "date", "Date/Publication",
       "Description", "License", "Maintainer", "NeedsCompilation", "Package",
       "Packaged", "releases", "Repository", "Roxygen", "Suggests", "Title",
-      "Version"))
+      "Version")))
   expect_equal(vers[[1]]$Suggests, structure(list(testthat = "*"),
                                              .Names = "testthat"))
   ## TODO: latest
