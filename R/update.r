@@ -2,7 +2,7 @@
 cran_site <- function() {
 
   cran <- getOption("repos") %>%
-    extract("CRAN") %>%
+    magrittr::extract("CRAN") %>%
     NA_NULL()
 
   cran %||% "https://cloud.r-project.org"
@@ -28,7 +28,7 @@ last_mod <- function(new_value) {
       read_file() %>%
       trim() %>%
       list() %>%
-      set_names("etag")
+      magrittr::set_names("etag")
 
   } else {
 
@@ -175,7 +175,7 @@ unarchive <- function(object) {
   object$timeline <- object$timeline %>%
     names() %>%
     setdiff("archived") %>%
-    extract(object$timeline, .)
+    magrittr::extract(object$timeline, .)
 
   object
 }

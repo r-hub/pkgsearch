@@ -159,7 +159,7 @@ from_tarball <- function(tar_file, files) {
 
   file.path(tmp, files) %>%
     sapply(read_file) %>%
-    set_names(files)
+    magrittr::set_names(files)
 }
 
 read_file <- function(path) {

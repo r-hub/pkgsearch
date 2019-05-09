@@ -29,7 +29,7 @@ pkg_to_json <- function(dcf, archived, archived_at = NA,
 get_versions <- function(dcf) {
   res <- apply(dcf, 1, pkg_version_to_json)
   res %>%
-    set_names(sapply(res, "[[", "Version"))
+    magrittr::set_names(sapply(res, "[[", "Version"))
 }
 
 add_releases_to_versions <- function(frec) {
@@ -37,7 +37,7 @@ add_releases_to_versions <- function(frec) {
   act_ver <- r_releases$date %>%
     as.character() %>%
     sapply(pkg_ver_at_time, frec = frec) %>%
-    set_names(r_releases$version)
+    magrittr::set_names(r_releases$version)
 
   ## Remove the releases after the archival of the package
   if (frec$archived) {
@@ -61,7 +61,7 @@ pkg_ver_at_time <- function(frec, date) {
 
   ver <- frec$versions %>%
     sapply(extract2, "date") %>%
-    is_weakly_less_than(date) %>%
+    magrittr::is_weakly_less_than(date) %>%
     which() %>%
     names() %>%
     utils::tail(1)
@@ -157,7 +157,7 @@ add_date <- function(rec) {
 normalize_date <- function(date) {
   date %>%
     parse_date() %>%
-    subtract(as.difftime(1, units = "hours")) %>% # CRAN is in CET?
+    magrittr::subtract(as.difftime(1, units = "hours")) %>% # CRAN is in CET?
     format_iso_8601()
 }
 
