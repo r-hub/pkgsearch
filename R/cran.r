@@ -26,7 +26,6 @@ couchdb_uri <- function(){
 
 service <- NA
 
-#' @include utils.r
 
 .onLoad <- function(libname, pkgname) {
   if (file.exists(".env")) dotenv::load_dot_env()

@@ -27,7 +27,6 @@ Collate:
     'api.R'
     'assert.r'
     'build.r'
-    'utils.r'
     'cran.r'
     'config.r'
     'couch.r'
