@@ -33,7 +33,7 @@ here.}
 }
 \value{
 A tibble with columns:
-* `score`: Score of the hit. See Section \emph{Scoring} for some details.
+* `score`: Score of the hit. See Section *Scoring* for some details.
 `package`: Package name.
 `version`: Latest package version.
 `title`: Package title.
