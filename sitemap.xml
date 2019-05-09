@@ -4,6 +4,30 @@
     <loc>https://r-hub.github.io/pkgsearch/index.html</loc>
   </url>
   <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/cran_events.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/cran_package.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/cran_releases.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/create_empty_db.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/list_cran_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/list_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/pipe.html</loc>
+  </url>
+  <url>
     <loc>https://r-hub.github.io/pkgsearch/reference/pkg_search.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/pkgsearch-package.html</loc>
   </url>
 </urlset>
