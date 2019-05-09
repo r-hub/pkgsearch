@@ -26,18 +26,3 @@ Suggests:
 Encoding: UTF-8
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
-Collate: 
-    'api.R'
-    'assert.r'
-    'build.r'
-    'cran.r'
-    'config.r'
-    'couch.r'
-    'cran.R'
-    'crandb-internal-api.r'
-    'crandb-public-api.r'
-    'pkgsearch-package.R'
-    'print.R'
-    'update.r'
-    'utils-pipe.R'
-    'utils.R'

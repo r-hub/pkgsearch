@@ -85,7 +85,7 @@ list_packages <- function(from = "", limit = 10,
 #' @export
 #' @importFrom assertthat assert_that is.count is.flag
 
-events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
+cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
 
   assert_that(is.count(limit))
   assert_that(is.flag(releases))

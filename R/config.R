@@ -6,8 +6,6 @@ config <- list()
   ub("config", asNamespace(pkgname))
 }
 
-#' @include cran.r
-
 appname <- (function() {
   `_appname` <- "r-crandb"
   function(name) {

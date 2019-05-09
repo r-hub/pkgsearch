@@ -4,10 +4,13 @@
 \name{pkgsearch-package}
 \alias{pkgsearch}
 \alias{pkgsearch-package}
-\title{pkgsearch: Search CRAN R Packages}
+\title{pkgsearch: Search CRAN R Packages and their metadata}
 \description{
-Search CRAN R packages. Uses the 'METACRAN' search server,
-  see <https://r-pkg.org>.
+Search CRAN R packages and their metadata. 
+  Uses the 'METACRAN' search server,
+  see <https://r-pkg.org> and the CRAN metadata database, that 
+  contains information about CRAN packages. Note that this is _not_ 
+  a CRAN project.
 }
 \seealso{
 Useful links:
