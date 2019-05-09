@@ -82,6 +82,8 @@ trim_leading <- function (x)  sub("^\\s+", "", x)
 
 trim_trailing <- function (x) sub("\\s+$", "", x)
 
+#' @importFrom magrittr equals
+
 check_external <- function(cmdline) {
   system(cmdline, ignore.stdout = TRUE, ignore.stderr = TRUE) %>%
     equals(0)
