@@ -117,7 +117,7 @@ cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
 #'
 #' @export
 
-releases <- function() {
+cran_releases <- function() {
 
   "/-/releases" %>%
     query() %>%
