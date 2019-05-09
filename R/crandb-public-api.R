@@ -13,7 +13,7 @@
 #' @export
 #' @importFrom assertthat assert_that
 
-package <- function(name, version = NULL) {
+cran_package <- function(name, version = NULL) {
 
   assert_that(is_package_name(name))
   assert_that(is.null(version) || is_package_version(version))

@@ -1,9 +1,9 @@
 
 context("Public API")
 
-test_that("package() works", {
+test_that("cran_package() works", {
 
-  r1 <- package("igraph0")
+  r1 <- cran_package("igraph0")
 
   expect_equal(sort(names(r1)), c("Author", "crandb_file_date", "date",
     "Date", "Date/Publication", "Depends", "Description", "License",
@@ -13,14 +13,14 @@ test_that("package() works", {
 
   expect_equal(r1$Version, "0.5.7")
 
-  r2 <- package("igraph", "0.5.5")
+  r2 <- cran_package("igraph", "0.5.5")
 
   expect_equal(sort(names(r2)), c("Author", "crandb_file_date", "date",
     "Date", "Date/Publication", "Depends", "Description", "License",
     "Maintainer", "Package", "Packaged", "releases", "Repository",
                                   "Suggests", "SystemRequirements", "Title", "URL", "Version"))
 
-  r3 <- package("igraph", "all")
+  r3 <- cran_package("igraph", "all")
 
   expect_equal(sort(names(r3)), c("archived", "latest", "name", "revdeps",
     "timeline", "title", "versions"))
