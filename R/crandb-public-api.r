@@ -5,8 +5,8 @@
 #' Metadata about a CRAN package
 #'
 #' @param name Name of the package.
-#' @param version The package version to query. If \code{NULL}, the latest
-#'   version if returned. If it is \sQuote{\code{all}}, then all versions
+#' @param version The package version to query. If `NULL`, the latest
+#'   version if returned. If it is \sQuote{`all`}, then all versions
 #'   are returned. Otherwise it should be a version number.
 #' @return The package metadata.
 #'
@@ -33,13 +33,13 @@ package <- function(name, version = NULL) {
 #' @param from The name of the first package to list. By default it
 #'    is the first one in alphabetical order.
 #' @param limit The number of packages to list.
-#' @param format What to return. \sQuote{\code{short}} means the
-#'    title and version number only. \sQuote{\code{latest}} means
-#'    the complete description of the latest version. \sQuote{\code{full}}
+#' @param format What to return. \sQuote{`short`} means the
+#'    title and version number only. \sQuote{`latest`} means
+#'    the complete description of the latest version. \sQuote{`full`}
 #'    means all versions.
 #' @param archived Whether to include archived packages in the result.
-#'    If this is \code{TRUE}, then \code{format} must be
-#'    \sQuote{\code{full}}.
+#'    If this is `TRUE`, then `format` must be
+#'    \sQuote{`full`}.
 #' @return List of packages.
 #'
 #' @export

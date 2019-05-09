@@ -15,16 +15,16 @@ more(format = NULL, size = NULL)
 }
 \arguments{
 \item{query}{Search query string. If this argument is missing or
-\code{NULL}, then the results of the last query are printed, in
-\emph{short} and \emph{long} formats, in turns for successive
-\code{pkg_search()} calls. If this argument is missing, then all
+`NULL`, then the results of the last query are printed, in
+*short* and *long* formats, in turns for successive
+`pkg_search()` calls. If this argument is missing, then all
 other arguments are ignored.}
 
-\item{format}{Default formatting of the results. \emph{short} only
-outputs the name and title of the packages, \emph{long} also
+\item{format}{Default formatting of the results. *short* only
+outputs the name and title of the packages, *long* also
 prints the author, last version, full description and URLs.
 Note that this only affects the default printing, and you can
-still inspect the full results, even if you specify \emph{short}
+still inspect the full results, even if you specify *short*
 here.}
 
 \item{from}{Where to start listing the results, for pagination.}
@@ -33,31 +33,30 @@ here.}
 }
 \value{
 A tibble with columns:
-\itemize{
-\item \code{score}: Score of the hit. See Section \emph{Scoring} for some details.
-\item \code{package}: Package name.
-\item \code{version}: Latest package version.
-\item \code{title}: Package title.
-\item \code{description}: Short package description.
-\item \code{date}: Time stamp of the last release.
-\item \code{maintainer_name}: Name of the package maintainer.
-\item \code{maintainer_email}: Email address of the package maintainer.
-\item \code{revdeps}: Number of (strong and weak) reverse dependencies of the
+* `score`: Score of the hit. See Section \emph{Scoring} for some details.
+`package`: Package name.
+`version`: Latest package version.
+`title`: Package title.
+`description`: Short package description.
+`date`: Time stamp of the last release.
+`maintainer_name`: Name of the package maintainer.
+`maintainer_email`: Email address of the package maintainer.
+`revdeps`: Number of (strong and weak) reverse dependencies of the
 package.
-\item \code{downloads_last_month}: Raw number of package downloads last month,
+`downloads_last_month`: Raw number of package downloads last month,
 from the RStudio CRAN mirror.
-\item \code{license}: Package license.
-\item \code{url}: Package URL(s).
-\item \code{bugreports}: URL of issue tracker, or email address for bug reports.
-}
+`license`: Package license.
+`url`: Package URL(s).
+`bugreports`: URL of issue tracker, or email address for bug reports.
+
 }
 \description{
-\code{pkg_search()} starts a new search query, or shows the details of the
+`pkg_search()` starts a new search query, or shows the details of the
 previous query, if called without arguments.
 
-\code{ps()} is an alias to \code{pkg_search()}.
+`ps()` is an alias to `pkg_search()`.
 
-\code{more()} retrieves that next page of results for the previous query.
+`more()` retrieves that next page of results for the previous query.
 }
 \details{
 Note that the search needs a working Internet connection.
