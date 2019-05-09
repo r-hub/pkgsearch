@@ -1,11 +1,14 @@
 Package: pkgsearch
-Title: Search CRAN R Packages
+Title: Search CRAN R Packages and their metadata
 Version: 2.0.1.9000
 Authors@R: c(person("Gábor", "Csárdi", email = "csardi.gabor@gmail.com",
 	     role = c("aut", "cre")),
              person("R Consortium", role = c("fnd")))
-Description: Search CRAN R packages. Uses the 'METACRAN' search server,
-  see <https://r-pkg.org>.
+Description: Search CRAN R packages and their metadata. 
+  Uses the 'METACRAN' search server,
+  see <https://r-pkg.org> and the CRAN metadata database, that 
+  contains information about CRAN packages. Note that this is _not_ 
+  a CRAN project.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch
@@ -15,7 +18,10 @@ Imports:
     httr,
     jsonlite,
     parsedate,
-    prettyunits
+    prettyunits,
+    methods,
+    assertthat,
+    dotenv
 Suggests:
     covr,
     testthat,
