@@ -235,6 +235,13 @@ format_result <- function(result, query, format, from, size, server,
   df
 }
 
+#' @export
+
+`[.pkg_search_result` <- function(x, i, j, drop = FALSE) {
+  class(x) <- setdiff(class(x), "pkg_search_result")
+  NextMethod("[")
+}
+
 pkg_search_again <- function() {
   if (is.null(s_data$prev_q)) { stop("No query given, and no previous query") }
   format <- meta(s_data$prev_q)$format
