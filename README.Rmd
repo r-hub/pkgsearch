@@ -43,13 +43,6 @@ You can install the package from CRAN:
 install.packages("pkgsearch")
 ```
 
-Or from GitHub
-
-```r
-remotes::install_github("r-hub/pkgsearch")
-```
-
-
 ```{r child='vignettes/rmdhunks/search.Rmd'} 
 ```
 

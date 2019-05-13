@@ -34,12 +34,6 @@ You can install the package from CRAN:
 install.packages("pkgsearch")
 ```
 
-Or from GitHub
-
-``` r
-remotes::install_github("r-hub/pkgsearch")
-```
-
 ## Search CRAN packages with pkgsearch
 
 For search of CRAN packages, pkgsearch uses a [web
@@ -53,12 +47,12 @@ library(pkgsearch)
 pkg_search("C++")
 ```
 
-    #> - "C++" ------------------------------------------------ 6968 packages in 0.007 seconds - 
+    #> - "C++" ------------------------------------------------ 6970 packages in 0.008 seconds - 
     #>   #     package      version  by                    @ title                              
     #>   1 100 Rcpp         1.0.1    Dirk Eddelbuettel    2M Seamless R and C++ Integration     
     #>   2  30 BH           1.69.0.1 Dirk Eddelbuettel    4M Boost C++ Header Files             
     #>   3  13 inline       0.3.15   Dirk Eddelbuettel    1y Functions to Inline C, C++, Fort...
-    #>   4  12 StanHeaders  2.18.1   Ben Goodrich         3M C++ Header Files for Stan          
+    #>   4  13 StanHeaders  2.18.1   Ben Goodrich         3M C++ Header Files for Stan          
     #>   5  11 SnowballC    0.6.0    Milan Bouchet-Valat  4M Snowball Stemmers Based on the C...
     #>   6  10 RcppProgress 0.4.1    Karl Forner          1y An Interruptible Progress Bar wi...
     #>   7  10 covr         3.2.1    Jim Hester           7M Test Coverage for Packages         
@@ -76,7 +70,7 @@ arguments, after a
 pkg_search()
 ```
 
-    #> - "C++" ------------------------------------------------ 6968 packages in 0.007 seconds - 
+    #> - "C++" ------------------------------------------------ 6970 packages in 0.008 seconds - 
     #> 
     #> 1 Rcpp @ 1.0.1                                            Dirk Eddelbuettel, 2 months ago 
     #> --------------
@@ -194,7 +188,7 @@ to
 ps("google")
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.012 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.011 seconds - 
     #>   #     package             version by               @ title                             
     #>   1 100 googleVis           0.6.3   Markus Gesmann  6M R Interface to Google Charts      
     #>   2  68 googleAuthR         0.7.0   Mark Edmondson  6M Authenticate and Create Google ...
@@ -211,7 +205,7 @@ ps("google")
 more()
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.009 seconds - 
     #>   #    package         version by                     @ title                            
     #>  11 35 googlePolylines 0.7.2   David Cooley          6M Encoding Coordinates into 'Goo...
     #>  12 33 ggmap           3.0.0   ORPHANED              3M Spatial Visualization with ggp...
@@ -241,7 +235,7 @@ happen to be an exact package name or match another non-stemmed
 ps("colour", size = 3)
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.006 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.009 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -272,14 +266,14 @@ ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
     #> # A tibble: 10 x 4
     #>     score package      revdeps downloads_last_month
     #>     <dbl> <chr>          <int>                <int>
-    #>  1 10979. crayon           143               489832
+    #>  1 10980. crayon           143               489832
     #>  2  9265. colorspace       138               445656
-    #>  3  7711. viridis           87               185130
+    #>  3  7712. viridis           87               185130
     #>  4  5018. colourpicker      22                21100
-    #>  5  4880. shape             35                16415
-    #>  6  4787. viridisLite       44               376412
+    #>  5  4881. shape             35                16415
+    #>  6  4788. viridisLite       44               376412
     #>  7  4678. pillar            23               609550
-    #>  8  3700. RColorBrewer     419               409782
+    #>  8  3701. RColorBrewer     419               409782
     #>  9  3351. colorRamps        13                 4607
     #> 10  3085. dichromat         10                27513
 
@@ -296,7 +290,7 @@ first page of
 ps("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1667 packages in 0.014 seconds - 
+    #> - "permutation test" ----------------------------------- 1667 packages in 0.016 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -318,7 +312,7 @@ to get on the first page of
 ps("test http")
 ```
 
-    #> - "test http" ------------------------------------------ 5402 packages in 0.013 seconds - 
+    #> - "test http" ------------------------------------------ 5402 packages in 0.022 seconds - 
     #>   #     package   version   by                   @ title                                 
     #>   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
     #>   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
@@ -342,7 +336,7 @@ results. E.g. note the spelling of colour/color in the
 ps("colour")
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.011 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.007 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -384,25 +378,25 @@ Note that case is also
 ps("gabor", size = 5)
 ```
 
-    #> - "gabor" ------------------------------------------------ 84 packages in 0.007 seconds - 
+    #> - "gabor" ------------------------------------------------ 84 packages in 0.006 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  21d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
     #>  3   37 zoo      1.8.5   Achim Zeileis  2M S3 Infrastructure for Regular and Irregular...
     #>  4   35 progress 1.2.0   Gábor Csárdi  11M Terminal Progress Bars                        
-    #>  5   33 cli      1.1.0   Gábor Csárdi   2M Helpers for Developing Command Line Interfaces
+    #>  5   32 cli      1.1.0   Gábor Csárdi   2M Helpers for Developing Command Line Interfaces
 
 ``` r
 ps("Gábor", size = 5)
 ```
 
-    #> - "Gábor" ------------------------------------------------ 84 packages in 0.009 seconds - 
+    #> - "Gábor" ------------------------------------------------ 84 packages in 0.008 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  21d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
     #>  3   37 zoo      1.8.5   Achim Zeileis  2M S3 Infrastructure for Regular and Irregular...
     #>  4   35 progress 1.2.0   Gábor Csárdi  11M Terminal Progress Bars                        
-    #>  5   33 cli      1.1.0   Gábor Csárdi   2M Helpers for Developing Command Line Interfaces
+    #>  5   32 cli      1.1.0   Gábor Csárdi   2M Helpers for Developing Command Line Interfaces
 
 ## Get CRAN metadata
 
@@ -474,17 +468,17 @@ cran_events()
 ```
 
     #> CRAN events (events)---------------------------------------------------------------------
-    #>  . When     Package         Version Title                                                
-    #>  + 13 hours SGB             1.0     Simplicial Generalized Beta Regression               
-    #>  + 13 hours volesti         1.0.0   Volume Approximation and Sampling of Convex Polyto...
-    #>  - 13 hours planor          1.4-1   Generation of Regular Factorial Designs              
-    #>  - 13 hours packagefinder   0.1.2   Comfortable Search for R Packages on CRAN Directly...
-    #>  - 13 hours nestedRanksTest 0.2     Mann-Whitney-Wilcoxon Test for Nested Ranks          
-    #>  - 13 hours kmi             0.5.4   Kaplan-Meier Multiple Imputation for the Analysis ...
-    #>  - 13 hours intReg          0.2-8   Interval Regression                                  
-    #>  - 13 hours MIRL            1.0     Multiple Imputation Random Lasso for Variable Sele...
-    #>  - 13 hours daff            0.3.4   Diff, Patch and Merge for Data.frames                
-    #>  + 13 hours pkgcache        1.0.4   Cache 'CRAN'-Like Metadata and R Packages
+    #>  . When     Package         Version   Title                                              
+    #>  + 14 hours dialrjars       8.10.11.1 Required 'libphonenumber' jars for the 'dialr' P...
+    #>  + 14 hours merTools        0.5.0     Tools for Analyzing Mixed Effect Regression Mode...
+    #>  + 14 hours plot.matrix     1.1       Visualizes a Matrix as Heatmap                     
+    #>  + 14 hours SGB             1.0       Simplicial Generalized Beta Regression             
+    #>  + 14 hours volesti         1.0.0     Volume Approximation and Sampling of Convex Poly...
+    #>  - 14 hours planor          1.4-1     Generation of Regular Factorial Designs            
+    #>  - 14 hours packagefinder   0.1.2     Comfortable Search for R Packages on CRAN Direct...
+    #>  - 14 hours nestedRanksTest 0.2       Mann-Whitney-Wilcoxon Test for Nested Ranks        
+    #>  - 14 hours kmi             0.5.4     Kaplan-Meier Multiple Imputation for the Analysi...
+    #>  - 14 hours intReg          0.2-8     Interval Regression
 
 ``` r
 cran_events(limit = 5, releases = FALSE)
@@ -492,23 +486,23 @@ cran_events(limit = 5, releases = FALSE)
 
     #> CRAN events (archivals)------------------------------------------------------------------
     #>  . When     Package         Version Title                                                
-    #>  - 13 hours planor          1.4-1   Generation of Regular Factorial Designs              
-    #>  - 13 hours packagefinder   0.1.2   Comfortable Search for R Packages on CRAN Directly...
-    #>  - 13 hours nestedRanksTest 0.2     Mann-Whitney-Wilcoxon Test for Nested Ranks          
-    #>  - 13 hours kmi             0.5.4   Kaplan-Meier Multiple Imputation for the Analysis ...
-    #>  - 13 hours intReg          0.2-8   Interval Regression
+    #>  - 14 hours planor          1.4-1   Generation of Regular Factorial Designs              
+    #>  - 14 hours packagefinder   0.1.2   Comfortable Search for R Packages on CRAN Directly...
+    #>  - 14 hours nestedRanksTest 0.2     Mann-Whitney-Wilcoxon Test for Nested Ranks          
+    #>  - 14 hours kmi             0.5.4   Kaplan-Meier Multiple Imputation for the Analysis ...
+    #>  - 14 hours intReg          0.2-8   Interval Regression
 
 ``` r
 cran_events(limit = 5, archivals = FALSE)
 ```
 
     #> CRAN events (pkgreleases)----------------------------------------------------------------
-    #>  . When     Package  Version Title                                                
-    #>  + 13 hours SGB      1.0     Simplicial Generalized Beta Regression               
-    #>  + 13 hours volesti  1.0.0   Volume Approximation and Sampling of Convex Polytopes
-    #>  + 13 hours pkgcache 1.0.4   Cache 'CRAN'-Like Metadata and R Packages            
-    #>  + 13 hours somspace 1.0.0   Spatial Analysis with Self-Organizing Maps           
-    #>  + 13 hours spdplyr  0.3.0   Data Manipulation Verbs for the Spatial Classes
+    #>  . When     Package     Version   Title                                                  
+    #>  + 14 hours dialrjars   8.10.11.1 Required 'libphonenumber' jars for the 'dialr' Packa...
+    #>  + 14 hours merTools    0.5.0     Tools for Analyzing Mixed Effect Regression Models     
+    #>  + 14 hours plot.matrix 1.1       Visualizes a Matrix as Heatmap                         
+    #>  + 14 hours SGB         1.0       Simplicial Generalized Beta Regression                 
+    #>  + 14 hours volesti     1.0.0     Volume Approximation and Sampling of Convex Polytope...
 
 ### List active (available) packages
 
