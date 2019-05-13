@@ -8,7 +8,8 @@
 #' @param version The package version to query. If `NULL`, the latest
 #'   version if returned. If it is \sQuote{`all`}, then all versions
 #'   are returned. Otherwise it should be a version number.
-#' @return The package metadata.
+#' @return The package metadata (information from DESCRIPTION, latest 
+#' CRAN release).
 #' @examples
 #' \dontrun{
 #' cran_package("pkgsearch")

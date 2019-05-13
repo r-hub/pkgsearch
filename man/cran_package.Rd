@@ -14,7 +14,8 @@ version if returned. If it is \sQuote{\code{all}}, then all versions
 are returned. Otherwise it should be a version number.}
 }
 \value{
-The package metadata.
+The package metadata (information from DESCRIPTION, latest
+CRAN release).
 }
 \description{
 Metadata about a CRAN package
