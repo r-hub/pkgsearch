@@ -7,8 +7,7 @@ reference:
 - title: Metadata about CRAN packages
   desc: ~
   contents:
-  - '`cran_events`'
   - '`cran_package`'
+  - '`cran_events`'
   - '`cran_releases`'
-  - '`list_cran_packages`'
   - '`list_packages`'
