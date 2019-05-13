@@ -9,6 +9,10 @@
 #'   version if returned. If it is \sQuote{`all`}, then all versions
 #'   are returned. Otherwise it should be a version number.
 #' @return The package metadata.
+#' @examples
+#' \dontrun{
+#' cran_package("pkgsearch")
+#' }
 #'
 #' @export
 #' @importFrom assertthat assert_that
@@ -41,6 +45,12 @@ cran_package <- function(name, version = NULL) {
 #'    If this is `TRUE`, then `format` must be
 #'    \sQuote{`full`}.
 #' @return List of packages.
+#' @examples
+#' \dontrun{
+#' list_packages(from = "pkgsearch")
+#' list_packages(format = "latest")
+#' list_packages(format = "full")
+#' }
 #'
 #' @export
 #' @importFrom assertthat assert_that is.count is.flag
@@ -83,6 +93,12 @@ list_packages <- function(from = "", limit = 10,
 #' @return List of events.
 #'
 #' @export
+#' @examples
+#' \dontrun{
+#' cran_events()
+#' cran_events(limit = 5, releases = FALSE)
+#' cran_events(limit = 5, archivals = FALSE)
+#' }
 #' @importFrom assertthat assert_that is.count is.flag
 
 cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
@@ -114,6 +130,10 @@ cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
 #' List R releases in the CRANDB database
 #'
 #' @return List of R releases.
+#' @examples
+#' \dontrun{
+#' cran_releases()
+#' }
 #'
 #' @export
 

@@ -28,3 +28,11 @@ List of packages.
 \description{
 List active packages
 }
+\examples{
+\dontrun{
+list_packages(from = "pkgsearch")
+list_packages(format = "latest")
+list_packages(format = "full")
+}
+
+}

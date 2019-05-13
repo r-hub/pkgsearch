@@ -19,3 +19,10 @@ List of events.
 \description{
 List of all CRAN events (new, updated, archived packages)
 }
+\examples{
+\dontrun{
+cran_events()
+cran_events(limit = 5, releases = FALSE)
+cran_events(limit = 5, archivals = FALSE)
+}
+}

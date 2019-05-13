@@ -19,3 +19,9 @@ The package metadata.
 \description{
 Metadata about a CRAN package
 }
+\examples{
+\dontrun{
+cran_package("pkgsearch")
+}
+
+}

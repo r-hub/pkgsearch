@@ -12,3 +12,9 @@ List of R releases.
 \description{
 List R releases in the CRANDB database
 }
+\examples{
+\dontrun{
+cran_releases()
+}
+
+}

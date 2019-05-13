@@ -12,7 +12,7 @@ matrix:
      before_cache: Rscript -e 'remotes::install_github("r-lib/pkgdown")'
      deploy:
        provider: script
-       script: Rscript -e 'pkgdown::deploy_site_github()'
+       script: Rscript -e 'pkgdown::deploy_site_github(run_dont_run = TRUE)'
        skip_cleanup: true
    - r: devel
 
