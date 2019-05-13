@@ -55,7 +55,7 @@ list_packages <- function(from = "", limit = 10,
   assert_that(is.flag(archived))
 
   if (archived && format != "full") {
-    warning("Using 'full' format because 'archive' is TRUE")
+    warning("Using 'full' format because 'archived' is TRUE")
   }
 
   url <- switch(format,
