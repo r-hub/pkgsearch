@@ -20,8 +20,8 @@ cran_events(limit = 5, archivals = FALSE)
 ### List active (available) packages
 
 ```{r}
-list_packages()
-list_packages(from = "pkgsearch")
+cran_packages()
+cran_packages(from = "pkgsearch")
 ```
 
 ### List R releases in the CRANDB database

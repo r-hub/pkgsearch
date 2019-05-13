@@ -50,22 +50,22 @@ cran_package <- function(name, version = NULL) {
 #' @examples
 #' \dontrun{
 #' # Only title and latest version
-#' (l1 <- list_packages(format = "short"))
+#' (l1 <- cran_packages(format = "short"))
 #' l1[[1]]
 #' 
 #' # Metadata for the latest version
-#' (l2 <- list_packages(format = "latest"))
+#' (l2 <- cran_packages(format = "latest"))
 #' l2[[1]]
 #' 
 #' # All available metadata
-#' (l3 <- list_packages(format = "full"))
+#' (l3 <- cran_packages(format = "full"))
 #' l3[[1]]
 #' }
 #'
 #' @export
 #' @importFrom assertthat assert_that is.count is.flag
 
-list_packages <- function(from = "", limit = 10,
+cran_packages <- function(from = "", limit = 10,
                           format = c("short", "latest", "full"),
                           archived = FALSE) {
 

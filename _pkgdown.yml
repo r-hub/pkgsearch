@@ -18,5 +18,5 @@ reference:
   contents:
   - '`cran_package`'
   - '`cran_events`'
-  - '`list_packages`'
+  - '`cran_packages`'
   - '`cran_releases`'
