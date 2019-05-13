@@ -21,7 +21,7 @@ status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](ht
 The pkgsearch package provides two categories of services around CRAN
 packages:
 
-  - search over all CRAN packages, e.g. by keyword (“colour”, “GLM”,
+  - **search over all CRAN packages**, e.g. by keyword (“colour”, “GLM”,
     etc.);
 
   - extraction of CRAN information, e.g. releases and archivals.
@@ -235,7 +235,7 @@ happen to be an exact package name or match another non-stemmed
 ps("colour", size = 3)
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.009 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.007 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -245,7 +245,7 @@ ps("colour", size = 3)
 ps("colours", size = 3)
 ```
 
-    #> - "colours" --------------------------------------------- 174 packages in 0.012 seconds - 
+    #> - "colours" --------------------------------------------- 174 packages in 0.008 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -290,7 +290,7 @@ first page of
 ps("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1667 packages in 0.013 seconds - 
+    #> - "permutation test" ----------------------------------- 1667 packages in 0.022 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -312,7 +312,7 @@ to get on the first page of
 ps("test http")
 ```
 
-    #> - "test http" ------------------------------------------ 5402 packages in 0.021 seconds - 
+    #> - "test http" ------------------------------------------ 5402 packages in 0.014 seconds - 
     #>   #     package   version   by                   @ title                                 
     #>   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
     #>   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
@@ -336,7 +336,7 @@ results. E.g. note the spelling of colour/color in the
 ps("colour")
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.011 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.008 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -353,7 +353,7 @@ ps("colour")
 ps("color")
 ```
 
-    #> - "color" ----------------------------------------------- 174 packages in 0.008 seconds - 
+    #> - "color" ----------------------------------------------- 174 packages in 0.007 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -378,7 +378,7 @@ Note that case is also
 ps("gabor", size = 5)
 ```
 
-    #> - "gabor" ------------------------------------------------ 84 packages in 0.008 seconds - 
+    #> - "gabor" ------------------------------------------------ 84 packages in 0.007 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  21d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
@@ -390,7 +390,7 @@ ps("gabor", size = 5)
 ps("Gábor", size = 5)
 ```
 
-    #> - "Gábor" ------------------------------------------------ 84 packages in 0.012 seconds - 
+    #> - "Gábor" ------------------------------------------------ 84 packages in 0.008 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  21d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       

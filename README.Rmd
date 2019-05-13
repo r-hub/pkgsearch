@@ -29,7 +29,7 @@ options(max.print = 200)
 
 The pkgsearch package provides two categories of services around CRAN packages:
 
-* search over all CRAN packages, e.g. by keyword ("colour", "GLM", etc.);
+* **search over all CRAN packages**, e.g. by keyword ("colour", "GLM", etc.);
 
 * extraction of CRAN information, e.g. releases and archivals.
 
