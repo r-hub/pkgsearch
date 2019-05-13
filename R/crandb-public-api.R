@@ -41,16 +41,25 @@ cran_package <- function(name, version = NULL) {
 #' @param format What to return. \sQuote{`short`} means the
 #'    title and version number only. \sQuote{`latest`} means
 #'    the complete description of the latest version. \sQuote{`full`}
-#'    means all versions.
+#'    means all versions. Note that the output printing look the same 
+#'    for all formats, although the output is actually different.
 #' @param archived Whether to include archived packages in the result.
 #'    If this is `TRUE`, then `format` must be
 #'    \sQuote{`full`}.
 #' @return List of packages.
 #' @examples
 #' \dontrun{
-#' list_packages(from = "pkgsearch")
-#' list_packages(format = "latest")
-#' list_packages(format = "full")
+#' # Only title and latest version
+#' (l1 <- list_packages(format = "short"))
+#' l1[[1]]
+#' 
+#' # Metadata for the latest version
+#' (l2 <- list_packages(format = "latest"))
+#' l2[[1]]
+#' 
+#' # All available metadata
+#' (l3 <- list_packages(format = "full"))
+#' l3[[1]]
 #' }
 #'
 #' @export
