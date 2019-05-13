@@ -136,4 +136,4 @@ ps("Gábor", size = 5)
 ## License
 
 MIT @ [Gábor Csárdi](https://github.com/gaborcsardi),
-      [RStudio](https://github.com/rstudio)
+      [RStudio](https://github.com/rstudio), [R Consortium](https://www.r-consortium.org/).
