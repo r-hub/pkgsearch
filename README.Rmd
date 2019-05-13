@@ -16,18 +16,24 @@ options(width = 90)
 options(max.print = 200)
 ```
 
-# CRAN package search
+# Search CRAN R Packages and get their metadata
 
+<!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Linux Build Status](https://travis-ci.org/r-hub/pkgsearch.svg?branch=master)](https://travis-ci.org/r-hub/pkgsearch)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-hub/pkgsearch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgsearch)
 [![CRAN status](https://www.r-pkg.org/badges/version/pkgsearch)](https://cran.r-project.org/package=pkgsearch)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/pkg/pkgsearch)
 [![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
+<!-- badges: end -->
 
-The pkgsearch package searches all CRAN packages. It uses a web service,
-and a careful weighting that ranks popular packages before less
-frequently used ones.
+The pkgsearch package provides two categories of services around CRAN packages:
+
+* search over all CRAN packages, e.g. by keyword ("colour", "GLM", etc.);
+
+* extraction of CRAN information, e.g. releases and archivals.
+
+
 
 ## Installation
 
@@ -37,7 +43,18 @@ You can install the package from CRAN:
 install.packages("pkgsearch")
 ```
 
-## Usage
+Or from GitHub
+
+```r
+remotes::install_github("r-hub/pkgsearch")
+```
+
+## Search CRAN packages with pkgsearch
+
+
+It uses a web service,
+and a careful weighting that ranks popular packages before less
+frequently used ones.
 
 Use `pkg_search()` to search for a term or phrase:
 
