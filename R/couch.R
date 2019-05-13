@@ -162,7 +162,7 @@ normalize_date <- function(date) {
 }
 
 #' Create an empty Couchdb database with CRAN-DB structure
-#'
+#' @noRd
 
 create_empty_db <- function() {
   check_couchapp()
