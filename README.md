@@ -1,7 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# CRAN package search
+# Search CRAN R Packages and get their metadata
+
+<!-- badges: start -->
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Linux Build
@@ -14,10 +16,15 @@ status](https://www.r-pkg.org/badges/version/pkgsearch)](https://cran.r-project.
 downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/pkg/pkgsearch)
 [![Coverage
 status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
+<!-- badges: end -->
 
-The pkgsearch package searches all CRAN packages. It uses a web service,
-and a careful weighting that ranks popular packages before less
-frequently used ones.
+The pkgsearch package provides two categories of services around CRAN
+packages:
+
+  - search over all CRAN packages, e.g. by keyword (“colour”, “GLM”,
+    etc.);
+
+  - extraction of CRAN information, e.g. releases and archivals.
 
 ## Installation
 
@@ -27,7 +34,17 @@ You can install the package from CRAN:
 install.packages("pkgsearch")
 ```
 
-## Usage
+Or from GitHub
+
+``` r
+remotes::install_github("r-hub/pkgsearch")
+```
+
+## Search CRAN packages with pkgsearch
+
+For search of CRAN packages, pkgsearch uses a [web
+service](https://github.com/metacran/search), and a careful weighting
+that ranks popular packages before less frequently used ones.
 
 Use `pkg_search()` to search for a term or phrase:
 
@@ -36,7 +53,7 @@ library(pkgsearch)
 pkg_search("C++")
 ```
 
-    #> - "C++" ------------------------------------------------ 6963 packages in 0.009 seconds - 
+    #> - "C++" ------------------------------------------------ 6964 packages in 0.009 seconds - 
     #>   #     package      version  by                    @ title                              
     #>   1 100 Rcpp         1.0.1    Dirk Eddelbuettel    2M Seamless R and C++ Integration     
     #>   2  30 BH           1.69.0.1 Dirk Eddelbuettel    4M Boost C++ Header Files             
@@ -59,7 +76,7 @@ arguments, after a
 pkg_search()
 ```
 
-    #> - "C++" ------------------------------------------------ 6963 packages in 0.009 seconds - 
+    #> - "C++" ------------------------------------------------ 6964 packages in 0.009 seconds - 
     #> 
     #> 1 Rcpp @ 1.0.1                                            Dirk Eddelbuettel, 2 months ago 
     #> --------------
@@ -177,7 +194,7 @@ to
 ps("google")
 ```
 
-    #> - "google" ----------------------------------------------- 112 packages in 0.01 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.011 seconds - 
     #>   #     package             version by               @ title                             
     #>   1 100 googleVis           0.6.3   Markus Gesmann  6M R Interface to Google Charts      
     #>   2  68 googleAuthR         0.7.0   Mark Edmondson  6M Authenticate and Create Google ...
@@ -194,7 +211,7 @@ ps("google")
 more()
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.009 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
     #>   #    package         version by                     @ title                            
     #>  11 35 googlePolylines 0.7.2   David Cooley          6M Encoding Coordinates into 'Goo...
     #>  12 33 ggmap           3.0.0   ORPHANED              3M Spatial Visualization with ggp...
@@ -224,7 +241,7 @@ happen to be an exact package name or match another non-stemmed
 ps("colour", size = 3)
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.009 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.008 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -234,7 +251,7 @@ ps("colour", size = 3)
 ps("colours", size = 3)
 ```
 
-    #> - "colours" --------------------------------------------- 174 packages in 0.013 seconds - 
+    #> - "colours" --------------------------------------------- 174 packages in 0.008 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -255,10 +272,10 @@ ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
     #> # A tibble: 10 x 4
     #>     score package      revdeps downloads_last_month
     #>     <dbl> <chr>          <int>                <int>
-    #>  1 10996. crayon           143               489832
-    #>  2  9264. colorspace       138               445656
+    #>  1 10979. crayon           143               489832
+    #>  2  9265. colorspace       138               445656
     #>  3  7727. viridis           87               185130
-    #>  4  5036. colourpicker      22                21100
+    #>  4  5037. colourpicker      22                21100
     #>  5  4880. shape             35                16415
     #>  6  4787. viridisLite       44               376412
     #>  7  4688. pillar            23               609550
@@ -279,7 +296,7 @@ first page of
 ps("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1667 packages in 0.026 seconds - 
+    #> - "permutation test" ----------------------------------- 1667 packages in 0.022 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -294,14 +311,14 @@ ps("permutation test")
 
 If the whole phrase does not match, pkgsearch falls back to individual
 matching words. For example, a match from either words is enough here,
-to get on the fist page of
+to get on the first page of
     results:
 
 ``` r
 ps("test http")
 ```
 
-    #> - "test http" ------------------------------------------ 5398 packages in 0.017 seconds - 
+    #> - "test http" ------------------------------------------ 5398 packages in 0.016 seconds - 
     #>   #     package   version   by                   @ title                                 
     #>   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
     #>   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
@@ -325,7 +342,7 @@ results. E.g. note the spelling of colour/color in the
 ps("colour")
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.009 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.008 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -335,14 +352,14 @@ ps("colour")
     #>   6  44 viridisLite  0.3.0   Simon Garnier     1y Default Color Maps from 'matplotlib'...
     #>   7  43 pillar       1.4.0   Kirill Müller     2d Coloured Formatting for Columns        
     #>   8  34 RColorBrewer 1.1.2   Erich Neuwirth    4y ColorBrewer Palettes                   
-    #>   9  30 colorRamps   2.3     Tim Keitt         7y Builds color tables                    
+    #>   9  31 colorRamps   2.3     Tim Keitt         7y Builds color tables                    
     #>  10  28 dichromat    2.0.0   Thomas Lumley     6y Color Schemes for Dichromats
 
 ``` r
 ps("color")
 ```
 
-    #> - "color" ----------------------------------------------- 174 packages in 0.012 seconds - 
+    #> - "color" ----------------------------------------------- 174 packages in 0.008 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -352,7 +369,7 @@ ps("color")
     #>   6  44 viridisLite  0.3.0   Simon Garnier     1y Default Color Maps from 'matplotlib'...
     #>   7  43 pillar       1.4.0   Kirill Müller     2d Coloured Formatting for Columns        
     #>   8  34 RColorBrewer 1.1.2   Erich Neuwirth    4y ColorBrewer Palettes                   
-    #>   9  30 colorRamps   2.3     Tim Keitt         7y Builds color tables                    
+    #>   9  31 colorRamps   2.3     Tim Keitt         7y Builds color tables                    
     #>  10  28 dichromat    2.0.0   Thomas Lumley     6y Color Schemes for Dichromats
 
 ### Ascii Folding
@@ -367,7 +384,7 @@ Note that case is also
 ps("gabor", size = 5)
 ```
 
-    #> - "gabor" ------------------------------------------------ 84 packages in 0.008 seconds - 
+    #> - "gabor" ------------------------------------------------ 84 packages in 0.009 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  21d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
