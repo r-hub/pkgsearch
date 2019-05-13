@@ -53,6 +53,8 @@ remotes::install_github("r-hub/pkgsearch")
 ```{r child='vignettes/rmdhunks/search.Rmd'} 
 ```
 
+```{r child='vignettes/rmdhunks/cran-metadata.Rmd'} 
+```
 
 ## License
 

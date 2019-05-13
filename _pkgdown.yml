@@ -9,5 +9,5 @@ reference:
   contents:
   - '`cran_package`'
   - '`cran_events`'
-  - '`cran_releases`'
   - '`list_packages`'
+  - '`cran_releases`'

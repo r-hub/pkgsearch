@@ -53,7 +53,7 @@ library(pkgsearch)
 pkg_search("C++")
 ```
 
-    #> - "C++" ------------------------------------------------ 6964 packages in 0.009 seconds - 
+    #> - "C++" ------------------------------------------------ 6968 packages in 0.007 seconds - 
     #>   #     package      version  by                    @ title                              
     #>   1 100 Rcpp         1.0.1    Dirk Eddelbuettel    2M Seamless R and C++ Integration     
     #>   2  30 BH           1.69.0.1 Dirk Eddelbuettel    4M Boost C++ Header Files             
@@ -76,7 +76,7 @@ arguments, after a
 pkg_search()
 ```
 
-    #> - "C++" ------------------------------------------------ 6964 packages in 0.009 seconds - 
+    #> - "C++" ------------------------------------------------ 6968 packages in 0.007 seconds - 
     #> 
     #> 1 Rcpp @ 1.0.1                                            Dirk Eddelbuettel, 2 months ago 
     #> --------------
@@ -194,7 +194,7 @@ to
 ps("google")
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.011 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.012 seconds - 
     #>   #     package             version by               @ title                             
     #>   1 100 googleVis           0.6.3   Markus Gesmann  6M R Interface to Google Charts      
     #>   2  68 googleAuthR         0.7.0   Mark Edmondson  6M Authenticate and Create Google ...
@@ -203,7 +203,7 @@ ps("google")
     #>   5  49 plotKML             0.5.9   Tomislav Hengl  4M Visualization of Spatial and Sp...
     #>   6  48 googlesheets        0.3.0   Jennifer Bryan 11M Manage Google Spreadsheets from R 
     #>   7  46 googleCloudStorageR 0.4.0   Mark Edmondson  1y Interface with Google Cloud Sto...
-    #>   8  38 gsheet              0.4.2   Max Conway      2y Download Google Sheets Using Ju...
+    #>   8  37 gsheet              0.4.2   Max Conway      2y Download Google Sheets Using Ju...
     #>   9  37 bigQueryR           0.4.0   Mark Edmondson  1y Interface with Google BigQuery ...
     #>  10  35 googleAnalyticsR    0.6.0   Mark Edmondson  5M Google Analytics API into R
 
@@ -217,7 +217,7 @@ more()
     #>  12 33 ggmap           3.0.0   ORPHANED              3M Spatial Visualization with ggp...
     #>  13 33 cld2            1.2     Jeroen Ooms           1y Google's Compact Language Dete...
     #>  14 29 V8              2.2     Jeroen Ooms           1M Embedded JavaScript Engine for R 
-    #>  15 28 gcite           0.10.1  John Muschelli        2M Google Citation Parser           
+    #>  15 27 gcite           0.10.1  John Muschelli        2M Google Citation Parser           
     #>  16 27 rgoogleslides   0.3.1   Hairizuan Noorazman   8M R Interface to Google Slides     
     #>  17 27 plusser         0.4.0   Christoph Waldhauser  5y A Google+ Interface for R        
     #>  18 27 ganalytics      0.10.7  Johann de Boer        2M Interact with 'Google Analytics' 
@@ -241,7 +241,7 @@ happen to be an exact package name or match another non-stemmed
 ps("colour", size = 3)
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.008 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.006 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -274,14 +274,14 @@ ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
     #>     <dbl> <chr>          <int>                <int>
     #>  1 10979. crayon           143               489832
     #>  2  9265. colorspace       138               445656
-    #>  3  7727. viridis           87               185130
-    #>  4  5037. colourpicker      22                21100
+    #>  3  7711. viridis           87               185130
+    #>  4  5018. colourpicker      22                21100
     #>  5  4880. shape             35                16415
     #>  6  4787. viridisLite       44               376412
-    #>  7  4688. pillar            23               609550
+    #>  7  4678. pillar            23               609550
     #>  8  3700. RColorBrewer     419               409782
     #>  9  3351. colorRamps        13                 4607
-    #> 10  3091. dichromat         10                27513
+    #> 10  3085. dichromat         10                27513
 
 ### Preferring Phrases
 
@@ -296,7 +296,7 @@ first page of
 ps("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1667 packages in 0.022 seconds - 
+    #> - "permutation test" ----------------------------------- 1667 packages in 0.014 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -318,7 +318,7 @@ to get on the first page of
 ps("test http")
 ```
 
-    #> - "test http" ------------------------------------------ 5398 packages in 0.016 seconds - 
+    #> - "test http" ------------------------------------------ 5402 packages in 0.013 seconds - 
     #>   #     package   version   by                   @ title                                 
     #>   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
     #>   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
@@ -326,7 +326,7 @@ ps("test http")
     #>   4  17 psych     1.8.12    William Revelle     4M Procedures for Psychological, Psych...
     #>   5  13 vcr       0.2.6     Scott Chamberlain   3M Record 'HTTP' Calls to Disk           
     #>   6  10 httr      1.4.0     Hadley Wickham      5M Tools for Working with URLs and HTTP  
-    #>   7   8 webmockr  0.3.4     Scott Chamberlain   3M Stubbing and Setting Expectations o...
+    #>   7   9 webmockr  0.3.4     Scott Chamberlain   3M Stubbing and Setting Expectations o...
     #>   8   8 bnlearn   4.4.1     Marco Scutari       2M Bayesian Network Structure Learning...
     #>   9   8 RCurl     1.95.4.12 Duncan Temple Lang  2M General Network (HTTP/FTP/...) Clie...
     #>  10   6 oompaBase 3.2.8     Kevin R. Coombes    7d Class Unions, Matrix Operations, an...
@@ -342,7 +342,7 @@ results. E.g. note the spelling of colour/color in the
 ps("colour")
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.008 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.011 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -359,7 +359,7 @@ ps("colour")
 ps("color")
 ```
 
-    #> - "color" ----------------------------------------------- 174 packages in 0.008 seconds - 
+    #> - "color" ----------------------------------------------- 174 packages in 0.007 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -384,7 +384,7 @@ Note that case is also
 ps("gabor", size = 5)
 ```
 
-    #> - "gabor" ------------------------------------------------ 84 packages in 0.009 seconds - 
+    #> - "gabor" ------------------------------------------------ 84 packages in 0.007 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  21d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
@@ -403,6 +403,203 @@ ps("Gábor", size = 5)
     #>  3   37 zoo      1.8.5   Achim Zeileis  2M S3 Infrastructure for Regular and Irregular...
     #>  4   35 progress 1.2.0   Gábor Csárdi  11M Terminal Progress Bars                        
     #>  5   33 cli      1.1.0   Gábor Csárdi   2M Helpers for Developing Command Line Interfaces
+
+## Get CRAN metadata
+
+For obtaining CRAN metadata, pkgsearch uses the crandb webservice.
+
+### Get metadata about a package
+
+``` r
+cran_package("pkgsearch")
+```
+
+    #> CRAN package pkgsearch 2.0.1, 5 months ago
+    #> Title: Search CRAN R Packages
+    #> Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
+    #> Author: Gábor Csárdi [aut, cre]
+    #> BugReports: https://github.com/metacran/pkgsearch/issues
+    #> Date/Publication: 2018-12-05 06:50:03 UTC
+    #> Description: Search CRAN R packages. Uses the 'METACRAN' search server, see
+    #>     <https://r-pkg.org>.
+    #> Encoding: UTF-8
+    #> Imports: magrittr (*), httr (*), jsonlite (*), parsedate (*), prettyunits (*)
+    #> LazyData: true
+    #> License: MIT + file LICENSE
+    #> MD5sum: 25c874565c70866576b8e2228980af7c
+    #> NeedsCompilation: no
+    #> Packaged: 2018-12-04 22:38:55 UTC; gaborcsardi
+    #> releases:
+    #> Repository: CRAN
+    #> RoxygenNote: 6.1.0
+    #> Suggests: covr (*), testthat (*), tibble (*)
+    #> URL: https://github.com/metacran/pkgsearch#readme
+
+``` r
+cran_package("rhub")
+```
+
+    #> CRAN package rhub 1.1.1, about a month ago
+    #> Title: Connect to 'R-hub'
+    #> Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
+    #> Author: Gábor Csárdi [aut, cre], Maëlle Salmon [aut]
+    #>     (<https://orcid.org/0000-0002-2815-0399>), R Consortium [fnd]
+    #> BugReports: https://github.com/r-hub/rhub/issues
+    #> Date/Publication: 2019-04-08 08:30:03 UTC
+    #> Description: Run 'R CMD check' on any of the 'R-hub'
+    #>     (<https://builder.r-hub.io/>) architectures, from the command line. The
+    #>     current architectures include 'Windows', 'macOS', 'Solaris' and various
+    #>     'Linux' distributions.
+    #> Encoding: UTF-8
+    #> Imports: assertthat (*), callr (*), cli (>= 1.1.0), crayon (*), desc (*), digest
+    #>     (*), httr (*), jsonlite (*), parsedate (*), pillar (*), prettyunits (*),
+    #>     processx (*), R6 (*), rappdirs (*), rcmdcheck (>= 1.2.1), rematch (*),
+    #>     tibble (*), utils (*), uuid (*), whoami (*), withr (*)
+    #> LazyData: true
+    #> License: MIT + file LICENSE
+    #> MD5sum: 7be8e0a7b90ec1da851d9c24e23910d8
+    #> NeedsCompilation: no
+    #> Packaged: 2019-04-08 08:15:03 UTC; gaborcsardi
+    #> releases:
+    #> Repository: CRAN
+    #> RoxygenNote: 6.1.1
+    #> Suggests: covr (*), testthat (*), knitr (*), rmarkdown (*)
+    #> URL: https://github.com/r-hub/rhub, https://r-hub.github.io/rhub/
+    #> VignetteBuilder: knitr
+
+### Get latest CRAN events (releases, archivals)
+
+``` r
+cran_events()
+```
+
+    #> CRAN events (events)---------------------------------------------------------------------
+    #>  . When     Package         Version Title                                                
+    #>  + 13 hours SGB             1.0     Simplicial Generalized Beta Regression               
+    #>  + 13 hours volesti         1.0.0   Volume Approximation and Sampling of Convex Polyto...
+    #>  - 13 hours planor          1.4-1   Generation of Regular Factorial Designs              
+    #>  - 13 hours packagefinder   0.1.2   Comfortable Search for R Packages on CRAN Directly...
+    #>  - 13 hours nestedRanksTest 0.2     Mann-Whitney-Wilcoxon Test for Nested Ranks          
+    #>  - 13 hours kmi             0.5.4   Kaplan-Meier Multiple Imputation for the Analysis ...
+    #>  - 13 hours intReg          0.2-8   Interval Regression                                  
+    #>  - 13 hours MIRL            1.0     Multiple Imputation Random Lasso for Variable Sele...
+    #>  - 13 hours daff            0.3.4   Diff, Patch and Merge for Data.frames                
+    #>  + 13 hours pkgcache        1.0.4   Cache 'CRAN'-Like Metadata and R Packages
+
+``` r
+cran_events(limit = 5, releases = FALSE)
+```
+
+    #> CRAN events (archivals)------------------------------------------------------------------
+    #>  . When     Package         Version Title                                                
+    #>  - 13 hours planor          1.4-1   Generation of Regular Factorial Designs              
+    #>  - 13 hours packagefinder   0.1.2   Comfortable Search for R Packages on CRAN Directly...
+    #>  - 13 hours nestedRanksTest 0.2     Mann-Whitney-Wilcoxon Test for Nested Ranks          
+    #>  - 13 hours kmi             0.5.4   Kaplan-Meier Multiple Imputation for the Analysis ...
+    #>  - 13 hours intReg          0.2-8   Interval Regression
+
+``` r
+cran_events(limit = 5, archivals = FALSE)
+```
+
+    #> CRAN events (pkgreleases)----------------------------------------------------------------
+    #>  . When     Package  Version Title                                                
+    #>  + 13 hours SGB      1.0     Simplicial Generalized Beta Regression               
+    #>  + 13 hours volesti  1.0.0   Volume Approximation and Sampling of Convex Polytopes
+    #>  + 13 hours pkgcache 1.0.4   Cache 'CRAN'-Like Metadata and R Packages            
+    #>  + 13 hours somspace 1.0.0   Spatial Analysis with Self-Organizing Maps           
+    #>  + 13 hours spdplyr  0.3.0   Data Manipulation Verbs for the Spatial Classes
+
+### List active (available) packages
+
+``` r
+list_packages()
+```
+
+    #> CRAN packages (short)--------------------------------------------------------------------
+    #>  Package     Version Title                                                               
+    #>  A3          1.0.0   Accurate, Adaptable, and Accessible Error Metrics for Predictive ...
+    #>  abbyyR      0.5.4   Access to Abbyy Optical Character Recognition (OCR) API             
+    #>  abc         2.1     Tools for Approximate Bayesian Computation (ABC)                    
+    #>  abc.data    1.0     Data Only: Tools for Approximate Bayesian Computation (ABC)         
+    #>  ABC.RAP     0.9.0   Array Based CpG Region Analysis Pipeline                            
+    #>  ABCanalysis 1.2.1   Computed ABC Analysis                                               
+    #>  abcdeFBA    0.4     ABCDE_FBA: A-Biologist-Can-Do-Everything of Flux Balance<U+000a>A...
+    #>  ABCoptim    0.15.0  Implementation of Artificial Bee Colony (ABC) Optimization          
+    #>  ABCp2       1.2     Approximate Bayesian Computational Model for Estimating P2          
+    #>  abcrf       1.7.1   Approximate Bayesian Computation via Random Forests
+
+``` r
+list_packages(from = "pkgsearch")
+```
+
+    #> CRAN packages (short)--------------------------------------------------------------------
+    #>  Package    Version Title                                                                
+    #>  pkgsearch  2.0.1   Search CRAN R Packages                                               
+    #>  pkgverse   0.0.1   Build a Meta-Package Universe                                        
+    #>  PKI        0.1-5.1 Public Key Infrastucture for R Based on the X.509 Standard           
+    #>  pkmon      1.0     Least-Squares Estimator under k-Monotony Constraint for Discrete F...
+    #>  PKNCA      0.8.5   Perform Pharmacokinetic Non-Compartmental Analysis                   
+    #>  PKPDmisc   2.1.1   Pharmacokinetic and Pharmacodynamic Data Management Functions        
+    #>  PKPDmodels 0.3.2   Pharmacokinetic/pharmacodynamic models                               
+    #>  pkr        0.1.2   Pharmacokinetics in R                                                
+    #>  PKreport   1.5     A reporting pipeline for checking population pharmacokinetic model...
+    #>  pks        0.4-0   Probabilistic Knowledge Structures
+
+### List R releases in the CRANDB database
+
+``` r
+cran_releases()
+```
+
+    #> R releases-------------------------------------------------------------------------------
+    #>  Version Date               
+    #>  2.0.0   2004-10-04 02:00:00
+    #>  2.0.1   2004-11-15 01:00:00
+    #>  2.1.0   2005-04-18 02:00:00
+    #>  2.1.1   2005-06-20 02:00:00
+    #>  2.2.0   2005-10-06 02:00:00
+    #>  2.2.1   2005-12-20 01:00:00
+    #>  2.3.0   2006-04-24 02:00:00
+    #>  2.3.1   2006-06-01 02:00:00
+    #>  2.4.0   2006-10-03 02:00:00
+    #>  2.4.1   2006-12-18 01:00:00
+    #>  2.5.0   2007-04-24 02:00:00
+    #>  2.5.1   2007-06-28 02:00:00
+    #>  2.6.0   2007-10-03 02:00:00
+    #>  2.6.1   2007-11-26 01:00:00
+    #>  2.6.2   2008-02-08 01:00:00
+    #>  2.7.0   2008-04-22 02:00:00
+    #>  2.7.1   2008-06-23 02:00:00
+    #>  2.7.2   2008-08-25 02:00:00
+    #>  2.8.0   2008-10-20 02:00:00
+    #>  2.8.1   2008-12-22 01:00:00
+    #>  2.9.0   2009-04-17 02:00:00
+    #>  2.9.1   2009-06-26 02:00:00
+    #>  2.9.2   2009-08-24 02:00:00
+    #>  2.10.0  2009-10-26 01:00:00
+    #>  2.10.1  2009-12-14 01:00:00
+    #>  2.11.0  2010-04-22 02:00:00
+    #>  2.11.1  2010-05-31 02:00:00
+    #>  2.12.0  2010-10-15 02:00:00
+    #>  2.12.1  2010-12-16 01:00:00
+    #>  2.12.2  2011-02-25 01:00:00
+    #>  2.13.0  2011-04-13 02:00:00
+    #>  2.13.1  2011-07-08 02:00:00
+    #>  2.13.2  2011-09-30 02:00:00
+    #>  2.14.0  2011-10-31 01:00:00
+    #>  2.14.1  2011-12-22 01:00:00
+    #>  2.14.2  2012-02-29 01:00:00
+    #>  2.15.0  2012-03-30 02:00:00
+    #>  2.15.1  2012-06-22 02:00:00
+    #>  2.15.2  2012-10-26 02:00:00
+    #>  2.15.3  2013-03-01 01:00:00
+    #>  3.0.0   2013-04-03 02:00:00
+    #>  3.0.1   2013-05-16 02:00:00
+    #>  3.0.2   2013-09-25 02:00:00
+    #>  3.0.3   2014-03-06 01:00:00
+    #>  3.1.0   2014-04-10 02:00:00
+    #>  3.1.1   2014-07-10 02:00:00
 
 ## License
 
