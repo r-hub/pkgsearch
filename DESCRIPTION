@@ -10,6 +10,7 @@ Description: Search CRAN R packages and their metadata.
   contains information about CRAN packages. Note that this is _not_ 
   a CRAN project.
 License: MIT + file LICENSE
+VignetteBuilder: knitr
 LazyData: true
 URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch
 BugReports: https://github.com/r-hub/pkgsearch/issues
@@ -25,7 +26,9 @@ Imports:
 Suggests:
     covr,
     testthat,
-    tibble
+    tibble,
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
