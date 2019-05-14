@@ -223,9 +223,9 @@
 #&gt;   Work with XML files using a simple, consistent interface. Built on top of the
 #&gt;   'libxml2' C library.
 #&gt;   https://github.com/r-lib/xml2</code></pre>
-<p>The <code><a href="reference/pkg_search.html">more()</a></code> function can be used to display the next batch of search hits, batches contain ten packages by default. <code><a href="reference/pkg_search.html">ps()</a></code> is shorter alias to <code><a href="reference/pkg_search.html">pkg_search()</a></code>:</p>
+<p>The <code><a href="reference/pkg_search.html">more()</a></code> function can be used to display the next batch of search hits, batches contain ten packages by default. <code><a href="reference/pkg_search.html">ps()</a></code> is a shorter alias to <code><a href="reference/pkg_search.html">pkg_search()</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/pkg_search.html">ps</a></span>(<span class="st">"google"</span>)</a></code></pre></div>
-<pre><code>#&gt; - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
+<pre><code>#&gt; - "google" ---------------------------------------------- 112 packages in 0.013 seconds - 
 #&gt;   #     package             version by               @ title                             
 #&gt;   1 100 googleVis           0.6.3   Markus Gesmann  6M R Interface to Google Charts      
 #&gt;   2  68 googleAuthR         0.7.0   Mark Edmondson  6M Authenticate and Create Google ...
@@ -238,7 +238,7 @@
 #&gt;   9  37 bigQueryR           0.4.0   Mark Edmondson  1y Interface with Google BigQuery ...
 #&gt;  10  35 googleAnalyticsR    0.6.0   Mark Edmondson  5M Google Analytics API into R</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="reference/pkg_search.html">more</a></span>()</a></code></pre></div>
-<pre><code>#&gt; - "google" ---------------------------------------------- 112 packages in 0.007 seconds - 
+<pre><code>#&gt; - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
 #&gt;   #    package         version by                     @ title                            
 #&gt;  11 35 googlePolylines 0.7.2   David Cooley          6M Encoding Coordinates into 'Goo...
 #&gt;  12 34 ggmap           3.0.0   ORPHANED              3M Spatial Visualization with ggp...
@@ -249,7 +249,7 @@
 #&gt;  17 27 plusser         0.4.0   Christoph Waldhauser  5y A Google+ Interface for R        
 #&gt;  18 27 ganalytics      0.10.7  Johann de Boer        2M Interact with 'Google Analytics' 
 #&gt;  19 27 pluscode        0.1.0   Michael Doyle         6M Encoder for Google 'Pluscodes'   
-#&gt;  20 27 s2              0.4.0   Ege Rubak             1y Google's S2 Library for Geomet...</code></pre>
+#&gt;  20 26 s2              0.4.0   Ege Rubak             1y Google's S2 Library for Geomet...</code></pre>
 </div>
 <div id="features" class="section level2">
 <h2 class="hasAnchor">
@@ -282,21 +282,21 @@
 #&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;int&gt;                &lt;int&gt;
 #&gt;  1 10970. crayon           142               489589
 #&gt;  2  9253. colorspace       138               444949
-#&gt;  3  7668. viridis           86               184853
+#&gt;  3  7669. viridis           86               184853
 #&gt;  4  5018. colourpicker      22                21223
 #&gt;  5  4882. shape             35                16545
 #&gt;  6  4789. viridisLite       44               376462
-#&gt;  7  4678. pillar            23               613278
-#&gt;  8  3701. RColorBrewer     419               409670
+#&gt;  7  4679. pillar            23               613278
+#&gt;  8  3702. RColorBrewer     419               409670
 #&gt;  9  3347. colorRamps        13                 4634
-#&gt; 10  3085. dichromat         10                27602</code></pre>
+#&gt; 10  3086. dichromat         10                27602</code></pre>
 </div>
 <div id="preferring-phrases" class="section level3">
 <h3 class="hasAnchor">
 <a href="#preferring-phrases" class="anchor"></a>Preferring Phrases</h3>
 <p>The search engine prefers matching whole phrases over single words. E.g. the search phrase “permutation test” will rank coin higher than testthat, even though testthat is a much better result for the single word “test”. (In fact, at the time of writing testhat is not even on the first page of results.)</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="reference/pkg_search.html">ps</a></span>(<span class="st">"permutation test"</span>)</a></code></pre></div>
-<pre><code>#&gt; - "permutation test" ----------------------------------- 1668 packages in 0.018 seconds - 
+<pre><code>#&gt; - "permutation test" ----------------------------------- 1668 packages in 0.017 seconds - 
 #&gt;   #     package        version by                      @ title                           
 #&gt;   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
 #&gt;   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -310,7 +310,7 @@
 #&gt;  10  19 AUtests        0.98    Arjun Sondhi           3y Approximate Unconditional and...</code></pre>
 <p>If the whole phrase does not match, pkgsearch falls back to individual matching words. For example, a match from either words is enough here, to get on the first page of results:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw"><a href="reference/pkg_search.html">ps</a></span>(<span class="st">"test http"</span>)</a></code></pre></div>
-<pre><code>#&gt; - "test http" ------------------------------------------ 5404 packages in 0.015 seconds - 
+<pre><code>#&gt; - "test http" ------------------------------------------ 5403 packages in 0.019 seconds - 
 #&gt;   #     package   version   by                   @ title                                 
 #&gt;   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
 #&gt;   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
@@ -341,7 +341,7 @@
 #&gt;   9  31 colorRamps   2.3     Tim Keitt         7y Builds color tables                    
 #&gt;  10  28 dichromat    2.0.0   Thomas Lumley     6y Color Schemes for Dichromats</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw"><a href="reference/pkg_search.html">ps</a></span>(<span class="st">"color"</span>)</a></code></pre></div>
-<pre><code>#&gt; - "color" ----------------------------------------------- 174 packages in 0.008 seconds - 
+<pre><code>#&gt; - "color" ----------------------------------------------- 174 packages in 0.007 seconds - 
 #&gt;   #     package      version by                 @ title                                  
 #&gt;   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
 #&gt;   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -359,7 +359,7 @@
 <a href="#ascii-folding" class="anchor"></a>Ascii Folding</h3>
 <p>Especially when searching for package maintainer names, it is convenient to use the corresponding ASCII letters for non-ASCII characters in search phrases. E.g. the following two queries yield the same results. Note that case is also ignored.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw"><a href="reference/pkg_search.html">ps</a></span>(<span class="st">"gabor"</span>, <span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
-<pre><code>#&gt; - "gabor" ------------------------------------------------ 84 packages in 0.006 seconds - 
+<pre><code>#&gt; - "gabor" ------------------------------------------------ 84 packages in 0.008 seconds - 
 #&gt;   #     package  version by              @ title                                         
 #&gt;  1  100 igraph   1.2.4.1 Gábor Csárdi  22d Network Analysis and Visualization            
 #&gt;  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
@@ -367,7 +367,7 @@
 #&gt;  4   35 progress 1.2.1   Gábor Csárdi   1d Terminal Progress Bars                        
 #&gt;  5   33 cli      1.1.0   Gábor Csárdi   2M Helpers for Developing Command Line Interfaces</code></pre>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw"><a href="reference/pkg_search.html">ps</a></span>(<span class="st">"Gábor"</span>, <span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
-<pre><code>#&gt; - "Gábor" ------------------------------------------------ 84 packages in 0.007 seconds - 
+<pre><code>#&gt; - "Gábor" ------------------------------------------------ 84 packages in 0.008 seconds - 
 #&gt;   #     package  version by              @ title                                         
 #&gt;  1  100 igraph   1.2.4.1 Gábor Csárdi  22d Network Analysis and Visualization            
 #&gt;  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
@@ -438,17 +438,17 @@
 <a href="#get-latest-cran-events-releases-archivals" class="anchor"></a>Get latest CRAN events (releases, archivals)</h3>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw"><a href="reference/cran_events.html">cran_events</a></span>()</a></code></pre></div>
 <pre><code>#&gt; CRAN events (events)---------------------------------------------------------------------
-#&gt;  . When    Package      Version Title                                                    
-#&gt;  + 2 hours btergm       1.9.4   Temporal Exponential Random Graph Models by Bootstrapp...
-#&gt;  + 2 hours c212         0.95    Methods for Detecting Safety Signals in Clinical Trial...
-#&gt;  + 4 hours pct          0.2.1   Propensity to Cycle Tool                                 
-#&gt;  + 4 hours rticles      0.8     Article Formats for R Markdown                           
-#&gt;  + 4 hours tinytex      0.13    Helper Functions to Install and Maintain 'TeX Live', a...
-#&gt;  + 4 hours xaringan     0.10    Presentation Ninja                                       
-#&gt;  + 4 hours xfun         0.7     Miscellaneous Functions by 'Yihui Xie'                   
-#&gt;  + 4 hours BLPestimatoR 0.2.9   Performs a BLP Demand Estimation                         
-#&gt;  + 4 hours ecoval       1.2.4   Procedures for Ecological Assessment of Surface Waters   
-#&gt;  + 4 hours metafor      2.1-0   Meta-Analysis Package for R</code></pre>
+#&gt;  . When    Package  Version Title                                                        
+#&gt;  + 3 hours dplyr    0.8.1   A Grammar of Data Manipulation                               
+#&gt;  + 3 hours btergm   1.9.4   Temporal Exponential Random Graph Models by Bootstrapped P...
+#&gt;  + 3 hours c212     0.95    Methods for Detecting Safety Signals in Clinical Trials Us...
+#&gt;  + 3 hours plm      2.0-0   Linear Models for Panel Data                                 
+#&gt;  + 4 hours ergm     3.10.1  Fit, Simulate and Diagnose Exponential-Family Models for N...
+#&gt;  + 4 hours ukgasapi 0.16    API for UK Gas Market Information                            
+#&gt;  + 5 hours pct      0.2.1   Propensity to Cycle Tool                                     
+#&gt;  + 5 hours rticles  0.8     Article Formats for R Markdown                               
+#&gt;  + 5 hours tinytex  0.13    Helper Functions to Install and Maintain 'TeX Live', and C...
+#&gt;  + 5 hours xaringan 0.10    Presentation Ninja</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw"><a href="reference/cran_events.html">cran_events</a></span>(<span class="dt">limit =</span> <span class="dv">5</span>, <span class="dt">releases =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>#&gt; CRAN events (archivals)------------------------------------------------------------------
 #&gt;  . When  Package         Version Title                                                   
@@ -460,11 +460,11 @@
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw"><a href="reference/cran_events.html">cran_events</a></span>(<span class="dt">limit =</span> <span class="dv">5</span>, <span class="dt">archivals =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>#&gt; CRAN events (pkgreleases)----------------------------------------------------------------
 #&gt;  . When    Package Version Title                                                         
-#&gt;  + 2 hours btergm  1.9.4   Temporal Exponential Random Graph Models by Bootstrapped Ps...
-#&gt;  + 2 hours c212    0.95    Methods for Detecting Safety Signals in Clinical Trials Usi...
-#&gt;  + 4 hours pct     0.2.1   Propensity to Cycle Tool                                      
-#&gt;  + 4 hours rticles 0.8     Article Formats for R Markdown                                
-#&gt;  + 4 hours tinytex 0.13    Helper Functions to Install and Maintain 'TeX Live', and Co...</code></pre>
+#&gt;  + 3 hours dplyr   0.8.1   A Grammar of Data Manipulation                                
+#&gt;  + 3 hours btergm  1.9.4   Temporal Exponential Random Graph Models by Bootstrapped Ps...
+#&gt;  + 3 hours c212    0.95    Methods for Detecting Safety Signals in Clinical Trials Usi...
+#&gt;  + 3 hours plm     2.0-0   Linear Models for Panel Data                                  
+#&gt;  + 4 hours ergm    3.10.1  Fit, Simulate and Diagnose Exponential-Family Models for Ne...</code></pre>
 </div>
 <div id="list-active-available-packages" class="section level3">
 <h3 class="hasAnchor">
