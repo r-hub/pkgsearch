@@ -16,18 +16,28 @@ options(width = 90)
 options(max.print = 200)
 ```
 
-# CRAN package search
+# Search CRAN R Packages and get their metadata
 
+<!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Linux Build Status](https://travis-ci.org/r-hub/pkgsearch.svg?branch=master)](https://travis-ci.org/r-hub/pkgsearch)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-hub/pkgsearch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgsearch)
 [![CRAN status](https://www.r-pkg.org/badges/version/pkgsearch)](https://cran.r-project.org/package=pkgsearch)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/pkg/pkgsearch)
 [![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
+<!-- badges: end -->
 
 The pkgsearch package searches all CRAN packages. It uses a web service,
 and a careful weighting that ranks popular packages before less
-frequently used ones.
+frequently used ones. The package also has functions to list the new / most recently updated / archived packages, and list all versions of a package.
+
+In this README, read about how `pkgsearch` supports
+
+* [search over all CRAN packages](#search-cran-packages-with-pkgsearch), e.g. by keyword ("colour", "GLM", etc.);
+
+* [extraction of CRAN information](#get-cran-metadata), e.g. releases and archivals.
+
+
 
 ## Installation
 
@@ -37,7 +47,11 @@ You can install the package from CRAN:
 install.packages("pkgsearch")
 ```
 
-## Usage
+## Search CRAN packages with pkgsearch
+
+For search of CRAN packages, pkgsearch uses a [web service](https://github.com/metacran/search),
+and a careful weighting that ranks popular packages before less
+frequently used ones.
 
 Use `pkg_search()` to search for a term or phrase:
 
@@ -110,7 +124,7 @@ ps("permutation test")
 
 If the whole phrase does not match, pkgsearch falls back to individual
 matching words. For example, a match from either words is enough here,
-to get on the fist page of results:
+to get on the first page of results:
 
 ```{r}
 ps("test http")
@@ -137,6 +151,38 @@ case is also ignored.
 ```{r}
 ps("gabor", size = 5)
 ps("Gábor", size = 5)
+```
+
+## Get CRAN metadata
+
+For obtaining CRAN metadata, pkgsearch uses the crandb webservice.
+
+### Get metadata about a package
+
+```{r}
+cran_package("pkgsearch")
+cran_package("rhub")
+```
+
+### Get latest CRAN events (releases, archivals)
+
+```{r}
+cran_events()
+cran_events(limit = 5, releases = FALSE)
+cran_events(limit = 5, archivals = FALSE)
+```
+
+### List active (available) packages
+
+```{r}
+cran_packages()
+cran_packages(from = "pkgsearch")
+```
+
+### List R releases in the CRANDB database
+
+```{r}
+cran_releases()
 ```
 
 ## License

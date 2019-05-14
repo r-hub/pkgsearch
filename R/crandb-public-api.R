@@ -8,7 +8,12 @@
 #' @param version The package version to query. If `NULL`, the latest
 #'   version if returned. If it is \sQuote{`all`}, then all versions
 #'   are returned. Otherwise it should be a version number.
-#' @return The package metadata.
+#' @return The package metadata (information from DESCRIPTION, latest 
+#' CRAN release).
+#' @examples
+#' \dontrun{
+#' cran_package("pkgsearch")
+#' }
 #'
 #' @export
 #' @importFrom assertthat assert_that
@@ -36,16 +41,31 @@ cran_package <- function(name, version = NULL) {
 #' @param format What to return. \sQuote{`short`} means the
 #'    title and version number only. \sQuote{`latest`} means
 #'    the complete description of the latest version. \sQuote{`full`}
-#'    means all versions.
+#'    means all versions. Note that the output printing look the same 
+#'    for all formats, although the output is actually different.
 #' @param archived Whether to include archived packages in the result.
 #'    If this is `TRUE`, then `format` must be
 #'    \sQuote{`full`}.
 #' @return List of packages.
+#' @examples
+#' \dontrun{
+#' # Only title and latest version
+#' (l1 <- cran_packages(format = "short"))
+#' l1[[1]]
+#' 
+#' # Metadata for the latest version
+#' (l2 <- cran_packages(format = "latest"))
+#' l2[[1]]
+#' 
+#' # All available metadata
+#' (l3 <- cran_packages(format = "full"))
+#' l3[[1]]
+#' }
 #'
 #' @export
 #' @importFrom assertthat assert_that is.count is.flag
 
-list_packages <- function(from = "", limit = 10,
+cran_packages <- function(from = "", limit = 10,
                           format = c("short", "latest", "full"),
                           archived = FALSE) {
 
@@ -83,6 +103,12 @@ list_packages <- function(from = "", limit = 10,
 #' @return List of events.
 #'
 #' @export
+#' @examples
+#' \dontrun{
+#' cran_events()
+#' cran_events(limit = 5, releases = FALSE)
+#' cran_events(limit = 5, archivals = FALSE)
+#' }
 #' @importFrom assertthat assert_that is.count is.flag
 
 cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
@@ -114,6 +140,10 @@ cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
 #' List R releases in the CRANDB database
 #'
 #' @return List of R releases.
+#' @examples
+#' \dontrun{
+#' cran_releases()
+#' }
 #'
 #' @export
 
