@@ -20,8 +20,11 @@ status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](ht
 
 The pkgsearch package searches all CRAN packages. It uses a web service,
 and a careful weighting that ranks popular packages before less
-frequently used ones. In this README, read about how `pkgsearch`
-supports
+frequently used ones. The package also has functions to list the new /
+most recently updated / archived packages, and list all versions of a
+package.
+
+In this README, read about how `pkgsearch` supports
 
   - [search over all CRAN
     packages](#search-cran-packages-with-pkgsearch), e.g. by keyword
@@ -51,7 +54,7 @@ library(pkgsearch)
 pkg_search("C++")
 ```
 
-    #> - "C++" ------------------------------------------------ 6972 packages in 0.013 seconds - 
+    #> - "C++" ------------------------------------------------ 6972 packages in 0.008 seconds - 
     #>   #     package      version  by                    @ title                              
     #>   1 100 Rcpp         1.0.1    Dirk Eddelbuettel    2M Seamless R and C++ Integration     
     #>   2  30 BH           1.69.0.1 Dirk Eddelbuettel    4M Boost C++ Header Files             
@@ -74,7 +77,7 @@ arguments, after a
 pkg_search()
 ```
 
-    #> - "C++" ------------------------------------------------ 6972 packages in 0.013 seconds - 
+    #> - "C++" ------------------------------------------------ 6972 packages in 0.008 seconds - 
     #> 
     #> 1 Rcpp @ 1.0.1                                            Dirk Eddelbuettel, 2 months ago 
     #> --------------
@@ -192,7 +195,7 @@ to
 ps("google")
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.007 seconds - 
     #>   #     package             version by               @ title                             
     #>   1 100 googleVis           0.6.3   Markus Gesmann  6M R Interface to Google Charts      
     #>   2  68 googleAuthR         0.7.0   Mark Edmondson  6M Authenticate and Create Google ...
@@ -209,7 +212,7 @@ ps("google")
 more()
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.012 seconds - 
     #>   #    package         version by                     @ title                            
     #>  11 35 googlePolylines 0.7.2   David Cooley          6M Encoding Coordinates into 'Goo...
     #>  12 34 ggmap           3.0.0   ORPHANED              3M Spatial Visualization with ggp...
@@ -249,7 +252,7 @@ ps("colour", size = 3)
 ps("colours", size = 3)
 ```
 
-    #> - "colours" --------------------------------------------- 174 packages in 0.007 seconds - 
+    #> - "colours" --------------------------------------------- 174 packages in 0.009 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -294,7 +297,7 @@ first page of
 ps("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1668 packages in 0.022 seconds - 
+    #> - "permutation test" ----------------------------------- 1668 packages in 0.015 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -316,7 +319,7 @@ to get on the first page of
 ps("test http")
 ```
 
-    #> - "test http" ------------------------------------------ 5403 packages in 0.018 seconds - 
+    #> - "test http" ------------------------------------------ 5403 packages in 0.014 seconds - 
     #>   #     package   version   by                   @ title                                 
     #>   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
     #>   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
@@ -340,7 +343,7 @@ results. E.g. note the spelling of colour/color in the
 ps("colour")
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.007 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.008 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -357,7 +360,7 @@ ps("colour")
 ps("color")
 ```
 
-    #> - "color" ----------------------------------------------- 174 packages in 0.009 seconds - 
+    #> - "color" ------------------------------------------------ 174 packages in 0.01 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -394,7 +397,7 @@ ps("gabor", size = 5)
 ps("Gábor", size = 5)
 ```
 
-    #> - "Gábor" ------------------------------------------------ 84 packages in 0.009 seconds - 
+    #> - "Gábor" ------------------------------------------------ 84 packages in 0.008 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  22d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
