@@ -28,8 +28,8 @@ In this vignette, read about how `pkgsearch` supports
 
 * [extraction of CRAN information](#get-cran-metadata), e.g. releases and archivals.
 
-```{r child='vignettes/rmdhunks/search.Rmd'} 
+```{r child='rmdhunks/search.Rmd'} 
 ```
 
-```{r child='vignettes/rmdhunks/cran-metadata.Rmd'} 
+```{r child='rmdhunks/cran-metadata.Rmd'} 
 ```
