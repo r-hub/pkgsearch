@@ -47,10 +47,10 @@ You can install the package from CRAN:
 install.packages("pkgsearch")
 ```
 
-```{r child='vignettes/rmdhunks/search.inc'} 
+```{r child='vignettes/rmdhunks/search.Rmd'} 
 ```
 
-```{r child='vignettes/rmdhunks/cran-metadata.inc'} 
+```{r child='vignettes/rmdhunks/cran-metadata.Rmd'} 
 ```
 
 ## License
