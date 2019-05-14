@@ -27,9 +27,11 @@ options(max.print = 200)
 [![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
 <!-- badges: end -->
 
-The pkgsearch package provides two categories of services around CRAN packages:
+The pkgsearch package searches all CRAN packages. It uses a web service,
+and a careful weighting that ranks popular packages before less
+frequently used ones. In this README, read about how `pkgsearch` supports
 
-* [**search over all CRAN packages**](#search-cran-packages-with-pkgsearch), e.g. by keyword ("colour", "GLM", etc.);
+* [search over all CRAN packages](#search-cran-packages-with-pkgsearch), e.g. by keyword ("colour", "GLM", etc.);
 
 * [extraction of CRAN information](#get-cran-metadata), e.g. releases and archivals.
 
@@ -43,10 +45,10 @@ You can install the package from CRAN:
 install.packages("pkgsearch")
 ```
 
-```{r child='vignettes/rmdhunks/search.Rmd'} 
+```{r child='inst/rmdhunks/search.Rmd'} 
 ```
 
-```{r child='vignettes/rmdhunks/cran-metadata.Rmd'} 
+```{r child='inst/rmdhunks/cran-metadata.Rmd'} 
 ```
 
 ## License
