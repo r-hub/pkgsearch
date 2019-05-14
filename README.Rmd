@@ -70,7 +70,7 @@ pkg_search()
 ```
 
 The `more()` function can be used to display the next batch of search hits,
-batches contain ten packages by default. `ps()` is shorter alias to
+batches contain ten packages by default. `ps()` is a shorter alias to
 `pkg_search()`:
 
 ```{r}

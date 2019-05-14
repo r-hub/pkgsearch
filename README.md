@@ -187,7 +187,7 @@ pkg_search()
     #>   https://github.com/r-lib/xml2
 
 The `more()` function can be used to display the next batch of search
-hits, batches contain ten packages by default. `ps()` is shorter alias
+hits, batches contain ten packages by default. `ps()` is a shorter alias
 to
     `pkg_search()`:
 
@@ -212,7 +212,7 @@ ps("google")
 more()
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.007 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
     #>   #    package         version by                     @ title                            
     #>  11 35 googlePolylines 0.7.2   David Cooley          6M Encoding Coordinates into 'Goo...
     #>  12 34 ggmap           3.0.0   ORPHANED              3M Spatial Visualization with ggp...
@@ -252,7 +252,7 @@ ps("colour", size = 3)
 ps("colours", size = 3)
 ```
 
-    #> - "colours" --------------------------------------------- 174 packages in 0.008 seconds - 
+    #> - "colours" --------------------------------------------- 174 packages in 0.007 seconds - 
     #>   #     package    version by              @ title                                       
     #>  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     
     #>  2   84 colorspace 1.4.1   Achim Zeileis  2M A Toolbox for Manipulating and Assessing ...
@@ -273,16 +273,16 @@ ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
     #> # A tibble: 10 x 4
     #>     score package      revdeps downloads_last_month
     #>     <dbl> <chr>          <int>                <int>
-    #>  1 10968. crayon           142               489589
+    #>  1 10970. crayon           142               489589
     #>  2  9253. colorspace       138               444949
-    #>  3  7668. viridis           86               184853
+    #>  3  7669. viridis           86               184853
     #>  4  5018. colourpicker      22                21223
     #>  5  4882. shape             35                16545
     #>  6  4789. viridisLite       44               376462
-    #>  7  4678. pillar            23               613278
-    #>  8  3701. RColorBrewer     419               409670
+    #>  7  4679. pillar            23               613278
+    #>  8  3702. RColorBrewer     419               409670
     #>  9  3347. colorRamps        13                 4634
-    #> 10  3085. dichromat         10                27602
+    #> 10  3086. dichromat         10                27602
 
 ### Preferring Phrases
 
@@ -297,7 +297,7 @@ first page of
 ps("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1668 packages in 0.017 seconds - 
+    #> - "permutation test" ----------------------------------- 1668 packages in 0.014 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -319,7 +319,7 @@ to get on the first page of
 ps("test http")
 ```
 
-    #> - "test http" ------------------------------------------ 5404 packages in 0.017 seconds - 
+    #> - "test http" ------------------------------------------- 5403 packages in 0.02 seconds - 
     #>   #     package   version   by                   @ title                                 
     #>   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
     #>   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
@@ -343,7 +343,7 @@ results. E.g. note the spelling of colour/color in the
 ps("colour")
 ```
 
-    #> - "colour" ---------------------------------------------- 176 packages in 0.007 seconds - 
+    #> - "colour" ---------------------------------------------- 176 packages in 0.008 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -360,7 +360,7 @@ ps("colour")
 ps("color")
 ```
 
-    #> - "color" ----------------------------------------------- 174 packages in 0.008 seconds - 
+    #> - "color" ----------------------------------------------- 174 packages in 0.009 seconds - 
     #>   #     package      version by                 @ title                                  
     #>   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
@@ -397,7 +397,7 @@ ps("gabor", size = 5)
 ps("Gábor", size = 5)
 ```
 
-    #> - "Gábor" ------------------------------------------------ 84 packages in 0.014 seconds - 
+    #> - "Gábor" ------------------------------------------------ 84 packages in 0.008 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  22d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
@@ -475,17 +475,17 @@ cran_events()
 ```
 
     #> CRAN events (events)---------------------------------------------------------------------
-    #>  . When     Package      Version Title                                                   
-    #>  + 12 hours pct          0.2.1   Propensity to Cycle Tool                                
-    #>  + 12 hours rticles      0.8     Article Formats for R Markdown                          
-    #>  + 12 hours tinytex      0.13    Helper Functions to Install and Maintain 'TeX Live', ...
-    #>  + 12 hours xaringan     0.10    Presentation Ninja                                      
-    #>  + 12 hours xfun         0.7     Miscellaneous Functions by 'Yihui Xie'                  
-    #>  + 12 hours BLPestimatoR 0.2.9   Performs a BLP Demand Estimation                        
-    #>  + 12 hours ecoval       1.2.4   Procedures for Ecological Assessment of Surface Water...
-    #>  + 12 hours metafor      2.1-0   Meta-Analysis Package for R                             
-    #>  + 12 hours mthapower    0.1.1   Sample Size and Power for Association Studies Involvi...
-    #>  + 12 hours grImport     0.9-2   Importing Vector Graphics
+    #>  . When     Package  Version Title                                                       
+    #>  + 14 hours dplyr    0.8.1   A Grammar of Data Manipulation                              
+    #>  + 14 hours btergm   1.9.4   Temporal Exponential Random Graph Models by Bootstrapped ...
+    #>  + 14 hours c212     0.95    Methods for Detecting Safety Signals in Clinical Trials U...
+    #>  + 14 hours plm      2.0-0   Linear Models for Panel Data                                
+    #>  + 14 hours ergm     3.10.1  Fit, Simulate and Diagnose Exponential-Family Models for ...
+    #>  + 14 hours ukgasapi 0.16    API for UK Gas Market Information                           
+    #>  + 14 hours pct      0.2.1   Propensity to Cycle Tool                                    
+    #>  + 14 hours rticles  0.8     Article Formats for R Markdown                              
+    #>  + 14 hours tinytex  0.13    Helper Functions to Install and Maintain 'TeX Live', and ...
+    #>  + 14 hours xaringan 0.10    Presentation Ninja
 
 ``` r
 cran_events(limit = 5, releases = FALSE)
@@ -504,12 +504,12 @@ cran_events(limit = 5, archivals = FALSE)
 ```
 
     #> CRAN events (pkgreleases)----------------------------------------------------------------
-    #>  . When     Package  Version Title                                                       
-    #>  + 12 hours pct      0.2.1   Propensity to Cycle Tool                                    
-    #>  + 12 hours rticles  0.8     Article Formats for R Markdown                              
-    #>  + 12 hours tinytex  0.13    Helper Functions to Install and Maintain 'TeX Live', and ...
-    #>  + 12 hours xaringan 0.10    Presentation Ninja                                          
-    #>  + 12 hours xfun     0.7     Miscellaneous Functions by 'Yihui Xie'
+    #>  . When     Package Version Title                                                        
+    #>  + 14 hours dplyr   0.8.1   A Grammar of Data Manipulation                               
+    #>  + 14 hours btergm  1.9.4   Temporal Exponential Random Graph Models by Bootstrapped P...
+    #>  + 14 hours c212    0.95    Methods for Detecting Safety Signals in Clinical Trials Us...
+    #>  + 14 hours plm     2.0-0   Linear Models for Panel Data                                 
+    #>  + 14 hours ergm    3.10.1  Fit, Simulate and Diagnose Exponential-Family Models for N...
 
 ### List active (available) packages
 
