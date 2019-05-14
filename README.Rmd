@@ -155,7 +155,7 @@ ps("Gábor", size = 5)
 
 ## Get CRAN metadata
 
-For obtaining CRAN metadata, pkgsearch uses the crandb webservice.
+For obtaining CRAN metadata, pkgsearch uses the [crandb webservice](http://crandb.r-pkg.org).
 
 ### Get metadata about a package
 
