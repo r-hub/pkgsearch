@@ -54,17 +54,17 @@ library(pkgsearch)
 pkg_search("C++")
 ```
 
-    #> - "C++" ------------------------------------------------ 6972 packages in 0.013 seconds - 
+    #> - "C++" ------------------------------------------------ 6973 packages in 0.008 seconds - 
     #>   #     package      version  by                    @ title                              
     #>   1 100 Rcpp         1.0.1    Dirk Eddelbuettel    2M Seamless R and C++ Integration     
-    #>   2  30 BH           1.69.0.1 Dirk Eddelbuettel    4M Boost C++ Header Files             
-    #>   3  12 StanHeaders  2.18.1   Ben Goodrich         4M C++ Header Files for Stan          
+    #>   2  31 BH           1.69.0.1 Dirk Eddelbuettel    4M Boost C++ Header Files             
+    #>   3  13 StanHeaders  2.18.1   Ben Goodrich         4M C++ Header Files for Stan          
     #>   4  12 inline       0.3.15   Dirk Eddelbuettel    1y Functions to Inline C, C++, Fort...
     #>   5  11 SnowballC    0.6.0    Milan Bouchet-Valat  4M Snowball Stemmers Based on the C...
     #>   6  10 RcppProgress 0.4.1    Karl Forner          1y An Interruptible Progress Bar wi...
-    #>   7   9 covr         3.2.1    Jim Hester           7M Test Coverage for Packages         
+    #>   7  10 covr         3.2.1    Jim Hester           7M Test Coverage for Packages         
     #>   8   7 RNifti       0.10.0   Jon Clayden          7M Fast R and C++ Access to NIfTI I...
-    #>   9   6 glpkAPI      1.3.1    Mayo Roettger        8M R Interface to C API of GLPK       
+    #>   9   7 glpkAPI      1.3.1    Mayo Roettger        8M R Interface to C API of GLPK       
     #>  10   6 xml2         1.2.0    James Hester         1y Parse XML
 
 By default it returns a short summary of the ten best search hits. Their
@@ -77,7 +77,7 @@ arguments, after a
 pkg_search()
 ```
 
-    #> - "C++" ------------------------------------------------ 6972 packages in 0.013 seconds - 
+    #> - "C++" ------------------------------------------------ 6973 packages in 0.008 seconds - 
     #> 
     #> 1 Rcpp @ 1.0.1                                            Dirk Eddelbuettel, 2 months ago 
     #> --------------
@@ -195,7 +195,7 @@ to
 ps("google")
 ```
 
-    #> - "google" ---------------------------------------------- 112 packages in 0.008 seconds - 
+    #> - "google" ---------------------------------------------- 112 packages in 0.007 seconds - 
     #>   #     package             version by               @ title                             
     #>   1 100 googleVis           0.6.3   Markus Gesmann  6M R Interface to Google Charts      
     #>   2  68 googleAuthR         0.7.0   Mark Edmondson  6M Authenticate and Create Google ...
@@ -204,7 +204,7 @@ ps("google")
     #>   5  49 plotKML             0.5.9   Tomislav Hengl  4M Visualization of Spatial and Sp...
     #>   6  48 googlesheets        0.3.0   Jennifer Bryan 11M Manage Google Spreadsheets from R 
     #>   7  46 googleCloudStorageR 0.4.0   Mark Edmondson  1y Interface with Google Cloud Sto...
-    #>   8  38 gsheet              0.4.2   Max Conway      2y Download Google Sheets Using Ju...
+    #>   8  37 gsheet              0.4.2   Max Conway      2y Download Google Sheets Using Ju...
     #>   9  37 bigQueryR           0.4.0   Mark Edmondson  1y Interface with Google BigQuery ...
     #>  10  35 googleAnalyticsR    0.6.0   Mark Edmondson  5M Google Analytics API into R
 
@@ -218,12 +218,12 @@ more()
     #>  12 34 ggmap           3.0.0   ORPHANED              3M Spatial Visualization with ggp...
     #>  13 33 cld2            1.2     Jeroen Ooms           1y Google's Compact Language Dete...
     #>  14 29 V8              2.2     Jeroen Ooms           1M Embedded JavaScript Engine for R 
-    #>  15 28 gcite           0.10.1  John Muschelli        2M Google Citation Parser           
+    #>  15 27 gcite           0.10.1  John Muschelli        2M Google Citation Parser           
     #>  16 27 rgoogleslides   0.3.1   Hairizuan Noorazman   8M R Interface to Google Slides     
     #>  17 27 plusser         0.4.0   Christoph Waldhauser  5y A Google+ Interface for R        
     #>  18 27 ganalytics      0.10.7  Johann de Boer        2M Interact with 'Google Analytics' 
     #>  19 27 pluscode        0.1.0   Michael Doyle         6M Encoder for Google 'Pluscodes'   
-    #>  20 27 s2              0.4.0   Ege Rubak             1y Google's S2 Library for Geomet...
+    #>  20 26 s2              0.4.0   Ege Rubak             1y Google's S2 Library for Geomet...
 
 ## Features
 
@@ -273,12 +273,12 @@ ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
     #> # A tibble: 10 x 4
     #>     score package      revdeps downloads_last_month
     #>     <dbl> <chr>          <int>                <int>
-    #>  1 10966. crayon           142               489589
+    #>  1 10968. crayon           142               489589
     #>  2  9253. colorspace       138               444949
-    #>  3  7667. viridis           86               184853
-    #>  4  5033. colourpicker      22                21223
-    #>  5  4880. shape             35                16545
-    #>  6  4787. viridisLite       44               376462
+    #>  3  7668. viridis           86               184853
+    #>  4  5018. colourpicker      22                21223
+    #>  5  4882. shape             35                16545
+    #>  6  4789. viridisLite       44               376462
     #>  7  4678. pillar            23               613278
     #>  8  3701. RColorBrewer     419               409670
     #>  9  3347. colorRamps        13                 4634
@@ -297,7 +297,7 @@ first page of
 ps("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1668 packages in 0.019 seconds - 
+    #> - "permutation test" ----------------------------------- 1668 packages in 0.017 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.0   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  35 flip           2.5.0   Livio Finos            9M Multivariate Permutation Tests  
@@ -308,7 +308,7 @@ ps("permutation test")
     #>   7  19 GlobalDeviance 0.4     Frederike Fuhlbrueck   6y Global Deviance Permutation T...
     #>   8  19 permutes       0.1     Cesko Voeten           1y Permutation Tests for Time Se...
     #>   9  19 jmuOutlier     1.4     Steven T. Garren       1y Permutation Tests for Nonpara...
-    #>  10  18 AUtests        0.98    Arjun Sondhi           3y Approximate Unconditional and...
+    #>  10  19 AUtests        0.98    Arjun Sondhi           3y Approximate Unconditional and...
 
 If the whole phrase does not match, pkgsearch falls back to individual
 matching words. For example, a match from either words is enough here,
@@ -319,15 +319,15 @@ to get on the first page of
 ps("test http")
 ```
 
-    #> - "test http" ------------------------------------------ 5403 packages in 0.022 seconds - 
+    #> - "test http" ------------------------------------------ 5404 packages in 0.017 seconds - 
     #>   #     package   version   by                   @ title                                 
     #>   1 100 httptest  3.2.2     Neal Richardson     5M A Test Environment for HTTP Requests  
     #>   2  80 covr      3.2.1     Jim Hester          7M Test Coverage for Packages            
-    #>   3  34 testthat  2.1.1     Hadley Wickham     20d Unit Testing for R                    
+    #>   3  34 testthat  2.1.1     Hadley Wickham     21d Unit Testing for R                    
     #>   4  17 psych     1.8.12    William Revelle     4M Procedures for Psychological, Psych...
     #>   5  13 vcr       0.2.6     Scott Chamberlain   3M Record 'HTTP' Calls to Disk           
     #>   6  10 httr      1.4.0     Hadley Wickham      5M Tools for Working with URLs and HTTP  
-    #>   7   8 webmockr  0.3.4     Scott Chamberlain   3M Stubbing and Setting Expectations o...
+    #>   7   9 webmockr  0.3.4     Scott Chamberlain   3M Stubbing and Setting Expectations o...
     #>   8   8 bnlearn   4.4.1     Marco Scutari       2M Bayesian Network Structure Learning...
     #>   9   8 RCurl     1.95.4.12 Duncan Temple Lang  2M General Network (HTTP/FTP/...) Clie...
     #>  10   6 oompaBase 3.2.8     Kevin R. Coombes    8d Class Unions, Matrix Operations, an...
@@ -349,7 +349,7 @@ ps("colour")
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
     #>   3  70 viridis      0.5.1   Simon Garnier     1y Default Color Maps from 'matplotlib'   
     #>   4  46 colourpicker 1.0     Dean Attali       2y A Colour Picker Tool for Shiny and f...
-    #>   5  44 shape        1.4.4   Karline Soetaert  1y Functions for Plotting Graphical Sha...
+    #>   5  45 shape        1.4.4   Karline Soetaert  1y Functions for Plotting Graphical Sha...
     #>   6  44 viridisLite  0.3.0   Simon Garnier     1y Default Color Maps from 'matplotlib'...
     #>   7  43 pillar       1.4.0   Kirill Müller     3d Coloured Formatting for Columns        
     #>   8  34 RColorBrewer 1.1.2   Erich Neuwirth    4y ColorBrewer Palettes                   
@@ -366,7 +366,7 @@ ps("color")
     #>   2  84 colorspace   1.4.1   Achim Zeileis     2M A Toolbox for Manipulating and Asses...
     #>   3  70 viridis      0.5.1   Simon Garnier     1y Default Color Maps from 'matplotlib'   
     #>   4  46 colourpicker 1.0     Dean Attali       2y A Colour Picker Tool for Shiny and f...
-    #>   5  44 shape        1.4.4   Karline Soetaert  1y Functions for Plotting Graphical Sha...
+    #>   5  45 shape        1.4.4   Karline Soetaert  1y Functions for Plotting Graphical Sha...
     #>   6  44 viridisLite  0.3.0   Simon Garnier     1y Default Color Maps from 'matplotlib'...
     #>   7  43 pillar       1.4.0   Kirill Müller     3d Coloured Formatting for Columns        
     #>   8  34 RColorBrewer 1.1.2   Erich Neuwirth    4y ColorBrewer Palettes                   
@@ -385,7 +385,7 @@ Note that case is also
 ps("gabor", size = 5)
 ```
 
-    #> - "gabor" ------------------------------------------------ 84 packages in 0.007 seconds - 
+    #> - "gabor" ------------------------------------------------ 84 packages in 0.008 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  22d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
@@ -397,7 +397,7 @@ ps("gabor", size = 5)
 ps("Gábor", size = 5)
 ```
 
-    #> - "Gábor" ------------------------------------------------ 84 packages in 0.026 seconds - 
+    #> - "Gábor" ------------------------------------------------ 84 packages in 0.014 seconds - 
     #>   #     package  version by              @ title                                         
     #>  1  100 igraph   1.2.4.1 Gábor Csárdi  22d Network Analysis and Visualization            
     #>  2   50 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       
@@ -475,17 +475,17 @@ cran_events()
 ```
 
     #> CRAN events (events)---------------------------------------------------------------------
-    #>  . When    Package         Version Title                                                 
-    #>  + 9 hours mplot           1.0.3   Graphical Model Stability and Variable Selection Pr...
-    #>  + 1 day   doex            1.1     The One-Way Heteroscedastic ANOVA Tests               
-    #>  + 1 day   koRpus.lang.en  0.1-3   Language Support for 'koRpus' Package: English        
-    #>  + 1 day   taxotools       0.0.29  Tools to Handle Taxonomic Lists                       
-    #>  + 1 day   mice            3.5.0   Multivariate Imputation by Chained Equations          
-    #>  + 1 day   tables          0.8.8   Formula-Driven Table Generation                       
-    #>  + 1 day   Rilostat        1.0.0   ILO Open Data via Ilostat Bulk Download Facility or...
-    #>  + 1 day   SurfaceTortoise 1.0.1   Find Optimal Sampling Locations Based on Spatial Co...
-    #>  + 1 day   CVXR            0.99-5  Disciplined Convex Optimization                       
-    #>  + 1 day   aster           1.0-3   Aster Models
+    #>  . When     Package      Version Title                                                   
+    #>  + 12 hours pct          0.2.1   Propensity to Cycle Tool                                
+    #>  + 12 hours rticles      0.8     Article Formats for R Markdown                          
+    #>  + 12 hours tinytex      0.13    Helper Functions to Install and Maintain 'TeX Live', ...
+    #>  + 12 hours xaringan     0.10    Presentation Ninja                                      
+    #>  + 12 hours xfun         0.7     Miscellaneous Functions by 'Yihui Xie'                  
+    #>  + 12 hours BLPestimatoR 0.2.9   Performs a BLP Demand Estimation                        
+    #>  + 12 hours ecoval       1.2.4   Procedures for Ecological Assessment of Surface Water...
+    #>  + 12 hours metafor      2.1-0   Meta-Analysis Package for R                             
+    #>  + 12 hours mthapower    0.1.1   Sample Size and Power for Association Studies Involvi...
+    #>  + 12 hours grImport     0.9-2   Importing Vector Graphics
 
 ``` r
 cran_events(limit = 5, releases = FALSE)
@@ -504,12 +504,12 @@ cran_events(limit = 5, archivals = FALSE)
 ```
 
     #> CRAN events (pkgreleases)----------------------------------------------------------------
-    #>  . When    Package        Version Title                                                  
-    #>  + 9 hours mplot          1.0.3   Graphical Model Stability and Variable Selection Pro...
-    #>  + 1 day   doex           1.1     The One-Way Heteroscedastic ANOVA Tests                
-    #>  + 1 day   koRpus.lang.en 0.1-3   Language Support for 'koRpus' Package: English         
-    #>  + 1 day   taxotools      0.0.29  Tools to Handle Taxonomic Lists                        
-    #>  + 1 day   mice           3.5.0   Multivariate Imputation by Chained Equations
+    #>  . When     Package  Version Title                                                       
+    #>  + 12 hours pct      0.2.1   Propensity to Cycle Tool                                    
+    #>  + 12 hours rticles  0.8     Article Formats for R Markdown                              
+    #>  + 12 hours tinytex  0.13    Helper Functions to Install and Maintain 'TeX Live', and ...
+    #>  + 12 hours xaringan 0.10    Presentation Ninja                                          
+    #>  + 12 hours xfun     0.7     Miscellaneous Functions by 'Yihui Xie'
 
 ### List active (available) packages
 
