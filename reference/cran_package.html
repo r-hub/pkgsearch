@@ -133,9 +133,33 @@ are returned. Otherwise it should be a version number.</p></td>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The package metadata.</p>
+    <p>The package metadata (information from DESCRIPTION, latest
+CRAN release).</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>cran_package</span>(<span class='st'>"pkgsearch"</span>)</div><div class='output co'>#&gt; CRAN package pkgsearch 2.0.1, 5 months ago
+#&gt; Title: Search CRAN R Packages
+#&gt; Maintainer: Gábor Csárdi &lt;csardi.gabor@gmail.com&gt;
+#&gt; Author: Gábor Csárdi [aut, cre]
+#&gt; BugReports: https://github.com/metacran/pkgsearch/issues
+#&gt; Date/Publication: 2018-12-05 06:50:03 UTC
+#&gt; Description: Search CRAN R packages. Uses the 'METACRAN' search server,
+#&gt;     see &lt;https://r-pkg.org&gt;.
+#&gt; Encoding: UTF-8
+#&gt; Imports: magrittr (*), httr (*), jsonlite (*), parsedate (*),
+#&gt;     prettyunits (*)
+#&gt; LazyData: true
+#&gt; License: MIT + file LICENSE
+#&gt; MD5sum: 25c874565c70866576b8e2228980af7c
+#&gt; NeedsCompilation: no
+#&gt; Packaged: 2018-12-04 22:38:55 UTC; gaborcsardi
+#&gt; releases:
+#&gt; Repository: CRAN
+#&gt; RoxygenNote: 6.1.0
+#&gt; Suggests: covr (*), testthat (*), tibble (*)
+#&gt; URL: https://github.com/metacran/pkgsearch#readme</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -143,7 +167,9 @@ are returned. Otherwise it should be a version number.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
