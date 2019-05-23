@@ -113,14 +113,39 @@ cran_package_histories <- function(from = "", limit = 10,
                            archived = archived) %>%
     lapply(tibblify_history) 
   
+  all_names <- unique(unlist(lapply(df_list, names)))
+  df_list <- lapply(df_list, 
+                    add_names,
+                    all_names)
+  
   do.call("rbind", df_list)
 }
 
-tibblify_history <- function(list){
-  list$versions <- lapply(list$versions, 
-                          tibblify_description)
+add_names <- function(df, all_names){
+  if(any(! all_names %in% names(df))){
+    
+    df[all_names[! all_names %in% names(df)]] <- NA
+  }
   
-  df <- tibble::as.tibble(list)
+  df
+}
+
+tibblify_history <- function(list){
+  
+ 
+  df_list <- lapply(list$versions, 
+                    tibblify_description)
+
+  all_names <- unique(unlist(lapply(df_list, names)))
+  df_list <- lapply(df_list, 
+                    add_names,
+                    all_names)
+  
+  df <- do.call("rbind", df_list)
+  
+  df$archived <- list$archived[[1]]
+  
+  df
   
   if (!"revdeps" %in% names(df)) {
     df$revdeps <- 0
@@ -130,7 +155,7 @@ tibblify_history <- function(list){
   
 }
 
-# from https://github.com/r-lib/desc/blob/4f60833fdb6d1aae4cbf09b7eb293c5fa0770e5c/R/deps.R#L68
+# adapted from https://github.com/r-lib/desc/blob/4f60833fdb6d1aae4cbf09b7eb293c5fa0770e5c/R/deps.R#L68
 
 dep_types <- function(){
   c("Depends", "Imports", "Suggests", "Enhances",
@@ -171,13 +196,17 @@ str_trim <- function(x) {
 
 
 tibblify_description <- function(description_list){
+
+  if (length(description_list$releases) == 0) {
+    description_list$releases <- NULL
+  } else {
+    description_list$releases <- list(description_list$releases)
+  }
   
   description_list$dependencies <- list(idesc_get_deps(description_list))
   
   description_list[dep_types()] <- NULL
-  
-  browser()
-  
-  description_list
+ 
+  tibble::as_tibble(description_list)
   
 }
