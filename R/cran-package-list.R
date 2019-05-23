@@ -72,10 +72,7 @@ cran_active_packages <- function(from = "", limit = 10){
                            archived = FALSE) %>%
     lapply(rectangle_description) 
   
-  all_names <- unique(unlist(lapply(df_list, names)))
-  df_list <- lapply(df_list, 
-                    add_names,
-                    all_names)
+  df_list <- make_col_compatible(df_list)
   
   do.call("rbind", df_list)
 }
@@ -99,10 +96,7 @@ cran_package_histories <- function(from = "", limit = 10,
                            archived = archived) %>%
     lapply(rectangle_history) 
   
-  all_names <- unique(unlist(lapply(df_list, names)))
-  df_list <- lapply(df_list, 
-                    add_names,
-                    all_names)
+  df_list <- make_col_compatible(df_list)
   
   do.call("rbind", df_list)
 }
@@ -116,6 +110,14 @@ add_names <- function(df, all_names){
   df
 }
 
+make_col_compatible <- function(df_list){
+  all_names <- unique(unlist(lapply(df_list, names)))
+  df_list <- lapply(df_list, 
+                    add_names,
+                    all_names)
+  df_list
+}
+
 dep_types <- function(){
   c("Depends", "Imports", "Suggests", "Enhances",
     "LinkingTo")
@@ -127,10 +129,7 @@ rectangle_history <- function(list){
   df_list <- lapply(list$versions, 
                     rectangle_description)
 
-  all_names <- unique(unlist(lapply(df_list, names)))
-  df_list <- lapply(df_list, 
-                    add_names,
-                    all_names)
+  df_list <- make_col_compatible(df_list)
   
   df <- do.call("rbind", df_list)
   
