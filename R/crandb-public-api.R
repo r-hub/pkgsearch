@@ -30,67 +30,7 @@ cran_package <- function(name, version = NULL) {
     add_class("cran_package")
 }
 
-## ----------------------------------------------------------------------
-## /-/all, /-/latest, /-/desc, /-/allall
 
-#' List active packages
-#'
-#' @param from The name of the first package to list. By default it
-#'    is the first one in alphabetical order.
-#' @param limit The number of packages to list.
-#' @param format What to return. \sQuote{`short`} means the
-#'    title and version number only. \sQuote{`latest`} means
-#'    the complete description of the latest version. \sQuote{`full`}
-#'    means all versions. Note that the output printing look the same 
-#'    for all formats, although the output is actually different.
-#' @param archived Whether to include archived packages in the result.
-#'    If this is `TRUE`, then `format` must be
-#'    \sQuote{`full`}.
-#' @return List of packages.
-#' @examples
-#' \dontrun{
-#' # Only title and latest version
-#' (l1 <- cran_packages(format = "short"))
-#' l1[[1]]
-#' 
-#' # Metadata for the latest version
-#' (l2 <- cran_packages(format = "latest"))
-#' l2[[1]]
-#' 
-#' # All available metadata
-#' (l3 <- cran_packages(format = "full"))
-#' l3[[1]]
-#' }
-#'
-#' @export
-#' @importFrom assertthat assert_that is.count is.flag
-
-cran_packages <- function(from = "", limit = 10,
-                          format = c("short", "latest", "full"),
-                          archived = FALSE) {
-
-  assert_that(is_package_name(from))
-  assert_that(is.count(limit))
-  format <- match.arg(format)
-  assert_that(is.flag(archived))
-
-  if (archived && format != "full") {
-    warning("Using 'full' format because 'archived' is TRUE")
-  }
-
-  url <- switch(format,
-                "short" = "/-/desc",
-                "latest" = "/-/latest",
-                "full" = "/-/all")
-  if (archived) url <- "/-/allall"
-
-  url %>%
-    paste0('?start_key="', from, '"') %>%
-    paste0("&limit=", limit) %>%
-    query() %>%
-    remove_special(level = 2) %>%
-    add_class("cran_package_list")
-}
 
 ## ----------------------------------------------------------------------
 ## /-/pkgreleases, /-/archivals, /-/events

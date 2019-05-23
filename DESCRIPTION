@@ -24,7 +24,7 @@ Imports:
     dotenv
 Suggests:
     covr,
-    testthat,
+    testthat (>= 2.1.0),
     tibble
 Encoding: UTF-8
 RoxygenNote: 6.1.1
