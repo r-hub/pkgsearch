@@ -70,7 +70,7 @@ cran_active_packages <- function(from = "", limit = 10){
   df_list <- cran_packages(from = from, limit = limit,
                            format = "latest",
                            archived = FALSE) %>%
-    lapply(tibblify_description) 
+    lapply(rectangle_description) 
   
   all_names <- unique(unlist(lapply(df_list, names)))
   df_list <- lapply(df_list, 
@@ -97,7 +97,7 @@ cran_package_histories <- function(from = "", limit = 10,
   df_list <- cran_packages(from = from, limit = limit,
                            format = "full",
                            archived = archived) %>%
-    lapply(tibblify_history) 
+    lapply(rectangle_history) 
   
   all_names <- unique(unlist(lapply(df_list, names)))
   df_list <- lapply(df_list, 
@@ -121,11 +121,11 @@ dep_types <- function(){
     "LinkingTo")
 } 
 
-tibblify_history <- function(list){
+rectangle_history <- function(list){
   
  
   df_list <- lapply(list$versions, 
-                    tibblify_description)
+                    rectangle_description)
 
   all_names <- unique(unlist(lapply(df_list, names)))
   df_list <- lapply(df_list, 
@@ -146,7 +146,7 @@ tibblify_history <- function(list){
   
 }
 
-tibblify_description <- function(description_list){
+rectangle_description <- function(description_list){
   
   if (length(description_list$releases) == 0) {
     description_list$releases <- NULL
