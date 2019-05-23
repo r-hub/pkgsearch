@@ -2,9 +2,15 @@
 % Please edit documentation in R/cran-package-list.R
 \name{cran-package-list}
 \alias{cran_package_list}
+\alias{cran_active_packages}
+\alias{cran_package_histories}
 \title{Lists of CRAN packages}
 \usage{
-cran_package_list(from = "", limit = 10, archived = FALSE)
+cran_package_list(from = "", limit = 10)
+
+cran_active_packages(from = "", limit = 10)
+
+cran_package_histories(from = "", limit = 10, archived = FALSE)
 }
 \arguments{
 \item{from}{The name of the first package to list. By default it
@@ -12,9 +18,7 @@ is the first one in alphabetical order.}
 
 \item{limit}{The number of packages to list.}
 
-\item{archived}{Whether to include archived packages in the result.
-If this is \code{TRUE}, then \code{format} must be
-\sQuote{\code{full}}.}
+\item{archived}{Whether to include archived packages in the result.}
 }
 \value{
 A \code{tbl_df} with two columns:
@@ -22,12 +26,27 @@ A \code{tbl_df} with two columns:
 \item version
 \item title
 }
+
+A \code{tbl_df}  with as many columns as possible description fields.
+
+A \code{tbl_df} with as many columns as possible description fields,
+as well as an \code{archived} Boolean column.
 }
 \description{
 List packages on CRAN, in different formats.
 }
 \section{\code{cran_package_list()}}{
 
-For all packages, returns title and version number only.
+For all \code{limit} packages , returns title and version number only.
+}
+
+\section{\code{cran_active_packages()}}{
+
+For all \code{limit} packages , returns the complete description of the latest version.
+}
+
+\section{\code{cran_package_histories()}}{
+
+For all \code{limit} packages , returns the complete description of all versions.
 }
 

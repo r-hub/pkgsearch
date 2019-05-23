@@ -35,11 +35,10 @@ cran_packages <- function(from, limit,
 }
 
 #' @section `cran_package_list()`:
-#' For all packages, returns title and version number only.
+#' For all `limit` packages , returns title and version number only.
 #' @param from The name of the first package to list. By default it
 #'    is the first one in alphabetical order.
 #' @param limit The number of packages to list.
-#' @param archived Whether to include archived packages in the result.
 #'    
 #' @return A `tbl_df` with two columns:
 #' * version
@@ -47,12 +46,11 @@ cran_packages <- function(from, limit,
 #' @export
 #' @rdname cran-package-list
 #' 
-cran_package_list <- function(from = "", limit = 10,
-                              archived = FALSE){
+cran_package_list <- function(from = "", limit = 10){
 
   df_list <- cran_packages(from = from, limit = limit,
                 format = "short",
-                archived = archived) %>%
+                archived = FALSE) %>%
     lapply(tibble::as_tibble) 
   
   do.call("rbind", df_list)
@@ -60,47 +58,35 @@ cran_package_list <- function(from = "", limit = 10,
 
 
 #' @section `cran_active_packages()`:
-#' For all packages, returns the complete description of the latest version.
+#' For all `limit` packages , returns the complete description of the latest version.
 #' @inheritParams cran_package_list
 #'    
-#' @return A `tbl_df` with two columns:
-#' * version
-#' * title
+#' @return A `tbl_df`  with as many columns as possible description fields.
 #' @export
 #' @rdname cran-package-list
 #' 
-cran_active_packages <- function(from = "", limit = 10,
-                              archived = FALSE){
-  browser()
+cran_active_packages <- function(from = "", limit = 10){
+
   df_list <- cran_packages(from = from, limit = limit,
                            format = "latest",
-                           archived = archived) 
+                           archived = FALSE) %>%
+    lapply(tibblify_description) 
   
-  df <- tibble::as.tibble(
-    rbind(lapply(df_list, tibble::as.tibble)))
-  to_unnest <- names(df)[unlist(lapply(df, length)) < 2]
-  for (col in to_unnest) {
-    val <- df[col][[1]][[1]]
-    if (nrow(val) > 0){
-      df[col] <- val[[1]]  
-    } else {
-      df[col] <- NULL
-    }
-    
-  }
-  
-  df
+  all_names <- unique(unlist(lapply(df_list, names)))
+  df_list <- lapply(df_list, 
+                    add_names,
+                    all_names)
   
   do.call("rbind", df_list)
 }
 
 #' @section `cran_package_histories()`:
-#' For all packages, returns the complete description of all versions.
+#' For all `limit` packages , returns the complete description of all versions.
 #' @inheritParams cran_package_list
+#' @param archived Whether to include archived packages in the result.
 #'    
-#' @return A `tbl_df` with two columns:
-#' * version
-#' * title
+#' @return A `tbl_df` with as many columns as possible description fields,
+#' as well as an `archived` Boolean column.
 #' @export
 #' @rdname cran-package-list
 #' 
@@ -130,6 +116,11 @@ add_names <- function(df, all_names){
   df
 }
 
+dep_types <- function(){
+  c("Depends", "Imports", "Suggests", "Enhances",
+    "LinkingTo")
+} 
+
 tibblify_history <- function(list){
   
  
@@ -155,12 +146,23 @@ tibblify_history <- function(list){
   
 }
 
-# adapted from https://github.com/r-lib/desc/blob/4f60833fdb6d1aae4cbf09b7eb293c5fa0770e5c/R/deps.R#L68
+tibblify_description <- function(description_list){
+  
+  if (length(description_list$releases) == 0) {
+    description_list$releases <- NULL
+  } else {
+    description_list$releases <- list(description_list$releases)
+  }
+  
+  description_list$dependencies <- list(idesc_get_deps(description_list))
+  
+  description_list[dep_types()] <- NULL
+  
+  tibble::as_tibble(description_list)
+  
+}
 
-dep_types <- function(){
-  c("Depends", "Imports", "Suggests", "Enhances",
-    "LinkingTo")
-} 
+# adapted from https://github.com/r-lib/desc/blob/4f60833fdb6d1aae4cbf09b7eb293c5fa0770e5c/R/deps.R#L68
 
 idesc_get_deps <- function(description_list) {
   
@@ -192,21 +194,4 @@ parse_deps <- function(type, deps) {
 
 str_trim <- function(x) {
   sub("^\\s+", "", sub("\\s+$", "", x))
-}
-
-
-tibblify_description <- function(description_list){
-
-  if (length(description_list$releases) == 0) {
-    description_list$releases <- NULL
-  } else {
-    description_list$releases <- list(description_list$releases)
-  }
-  
-  description_list$dependencies <- list(idesc_get_deps(description_list))
-  
-  description_list[dep_types()] <- NULL
- 
-  tibble::as_tibble(description_list)
-  
 }
