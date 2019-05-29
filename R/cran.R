@@ -57,7 +57,7 @@ crandb_production <- function() {
 
 ## R release dates
 
-r_releases <- read.table(header = TRUE, stringsAsFactors = FALSE,
+r_releases <- utils::read.table(header = TRUE, stringsAsFactors = FALSE,
                          textConnection(
 "version      date
 3.1.1   2014-07-10

@@ -20,8 +20,11 @@ Imports:
     jsonlite,
     magrittr,
     methods,
+    miniUI,
     parsedate,
-    prettyunits
+    prettyunits,
+    rstudioapi,
+    shiny
 Suggests:
     covr,
     pingr (>= 2.0.0),
