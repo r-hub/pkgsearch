@@ -23,13 +23,15 @@ Imports:
     miniUI,
     parsedate,
     prettyunits,
-    rstudioapi,
-    shiny
+    tibble
 Suggests:
     covr,
+    DT,
+    miniUI,
     pingr (>= 2.0.0),
-    testthat (>= 2.1.0),
-    tibble
+    rstudioapi,
+    shiny,
+    testthat (>= 2.1.0)
 Encoding: UTF-8
 RoxygenNote: 6.1.99.9001
 Roxygen: list(markdown = TRUE)
