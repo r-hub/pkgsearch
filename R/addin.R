@@ -30,17 +30,16 @@ package_search <- function() {
           label = "Query",
           value = ""
         ),
-        shiny::radioButtons("format",
-                            label = "format",
-                            choices = c("short", "long"),
-                            select = "short"
-        ),
-       shiny::numericInput("from",
+       shiny::sliderInput("from",
                            label = "From",
-                           value = 1),
-    shiny::numericInput("limit",
+                           value = 1,
+                          min = 1,
+                          max = 1000),
+    shiny::sliderInput("limit",
                         label = "Limit",
-                        value = 10)   
+                        value = 10,
+                       min = 1,
+                       max = 1000)   
       ),
     shiny::mainPanel(
       DT::dataTableOutput("result")
@@ -55,7 +54,6 @@ package_search <- function() {
       
       res <- pkgsearch::pkg_search(
         query = input$query,
-        format = input$format,
         from = input$from,
         size = input$limit
       )
