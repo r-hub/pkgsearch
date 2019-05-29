@@ -37,10 +37,13 @@ package_search <- function() {
         from = input$from,
         size = input$limit
       )
-      res$bugreports <-
-        paste0('<a href="', res$bugreports,
-               '" target="_blank">', res$bugreports,
-               '</a>')
+      
+      res$url <- lapply(res$url, strsplit, ",")
+      res$url <- lapply(res$url, format_urls)
+      res$bugreports <- format_url(res$bugreports)
+      res$package <- format_url(paste0("https://r-pkg.org/pkg/", res$package),
+                                res$package)
+      
      output$result <- DT::renderDataTable(
        res[, colnames(res) != "package_data"],
       options = list(scrollX = TRUE),
@@ -49,3 +52,13 @@ package_search <- function() {
   
   shiny::runGadget(ui, server)
 }
+
+format_url <- function(url, name = url){
+  paste0('<a href="', url, '" target="_blank">', name, '</a>')
+}
+
+format_urls <- function(urls){
+  l <- unlist(lapply(urls, format_url))
+  toString(l)
+}
+
