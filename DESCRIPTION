@@ -23,15 +23,19 @@ Imports:
     miniUI,
     parsedate,
     prettyunits,
-    rstudioapi,
-    shiny
+    tibble
 Suggests:
     covr,
-    pingr (>= 2.0.0),
-    testthat (>= 2.1.0),
-    tibble,
+    DT,
     knitr,
+    miniUI,
+    pingr (>= 2.0.0),
     rmarkdown
+    rstudioapi,
+    shiny,
+    testthat (>= 2.1.0),
+    tibble
+>>>>>>> d4b669f... make dependencies optional
 Encoding: UTF-8
 RoxygenNote: 6.1.99.9001
 Roxygen: list(markdown = TRUE)

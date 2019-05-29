@@ -1,5 +1,27 @@
 package_search <- function() {
+  if (!requireNamespace("shiny", quietly = TRUE)) {
+    stop("The shiny package is required for this gadget to work. Please install it.",
+         call. = FALSE
+    )
+  }
   
+  if (!requireNamespace("miniUI", quietly = TRUE)) {
+    stop("The miniUI package is required for this gadget to work. Please install it.",
+         call. = FALSE
+    )
+  }  
+  
+  if (!requireNamespace("DT", quietly = TRUE)) {
+    stop("The DT package is required for this gadget to work. Please install it.",
+         call. = FALSE
+    )
+  }  
+  
+  if (!requireNamespace("rstudioapi", quietly = TRUE)) {
+    stop("The rstudioapi package is required for this gadget to work. Please install it.",
+         call. = FALSE
+    )
+  }
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("Search Packages"),
       shiny::inputPanel(
@@ -47,7 +69,7 @@ package_search <- function() {
      output$result <- DT::renderDataTable(
        res[, colnames(res) != "package_data"],
       options = list(scrollX = TRUE),
-      escape = FALSE)
+      escape = FALSE, width = "100%")s
   })}
   
   shiny::runGadget(ui, server)
