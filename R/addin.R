@@ -19,20 +19,25 @@ package_search <- function() {
     shiny::numericInput("limit",
                         label = "Limit",
                         value = 10)   
-      )
+      ),
+    shiny::mainPanel(
+      DT::dataTableOutput("result")
+    )
+    
 )
   
   server <- function(input, output, session) {
     
     shiny::observeEvent(input$done, {
-      shiny::stopApp()
+      #shiny::stopApp()
       
-     pkg_search(
+     output$result <- DT::renderDataTable(
+       pkgsearch::pkg_search(
             query = input$query,
                 format = input$format,
                 from = input$from,
                 size = input$limit
-      )
+      ))
   })}
   
   shiny::runGadget(ui, server)
