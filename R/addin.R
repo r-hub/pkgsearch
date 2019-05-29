@@ -23,7 +23,12 @@ package_search <- function() {
     )
   }
   ui <- miniUI::miniPage(
-    miniUI::gadgetTitleBar("Search Packages"),
+    miniUI::gadgetTitleBar("Search Packages",
+                           left = miniUI::miniTitleBarButton("done", "Search",
+                                                             primary = TRUE),
+                           right = miniUI::miniTitleBarCancelButton("cancel", "Quit",
+                                                              primary = TRUE)
+    ),
       shiny::inputPanel(
         shiny::textInput(
           "query",
