@@ -31,13 +31,16 @@ package_search <- function() {
     shiny::observeEvent(input$done, {
       #shiny::stopApp()
       
+      res <- pkgsearch::pkg_search(
+        query = input$query,
+        format = input$format,
+        from = input$from,
+        size = input$limit
+      )
+      
      output$result <- DT::renderDataTable(
-       pkgsearch::pkg_search(
-            query = input$query,
-                format = input$format,
-                from = input$from,
-                size = input$limit
-      ))
+       res[, colnames(res) != "package_data"],
+      options = list(scrollX = TRUE))
   })}
   
   shiny::runGadget(ui, server)
