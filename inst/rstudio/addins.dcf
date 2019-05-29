@@ -1,5 +1,5 @@
-Name: New Addin Name
-Description: New Addin Description
+Name: CRAN Package Search
+Description: Search packages on CRAN
 Binding: package_search
 Interactive: false
 
