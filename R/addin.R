@@ -69,7 +69,7 @@ package_search <- function() {
      output$result <- DT::renderDataTable(
        res[, colnames(res) != "package_data"],
       options = list(scrollX = TRUE),
-      escape = FALSE, width = "100%")s
+      escape = FALSE, width = "100%")
   })}
   
   shiny::runGadget(ui, server)
