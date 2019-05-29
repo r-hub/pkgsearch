@@ -37,10 +37,14 @@ package_search <- function() {
         from = input$from,
         size = input$limit
       )
-      
+      res$bugreports <-
+        paste0('<a href="', res$bugreports,
+               '" target="_blank">', res$bugreports,
+               '</a>')
      output$result <- DT::renderDataTable(
        res[, colnames(res) != "package_data"],
-      options = list(scrollX = TRUE))
+      options = list(scrollX = TRUE),
+      escape = FALSE)
   })}
   
   shiny::runGadget(ui, server)
