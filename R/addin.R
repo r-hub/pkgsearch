@@ -47,7 +47,7 @@ package_search <- function() {
                        max = 1000)   
       ),
     shiny::mainPanel(
-      DT::dataTableOutput("result")
+      DT::dataTableOutput("result"), width = 12
     )
     
 )
@@ -68,7 +68,7 @@ package_search <- function() {
       res$bugreports <- format_url(res$bugreports)
       res$package <- format_url(paste0("https://r-pkg.org/pkg/", res$package),
                                 res$package)
-      
+      res$version <- gsub("\\,", ".", res$version)
      output$result <- DT::renderDataTable(
        res[, colnames(res) != "package_data"],
       options = list(scrollX = TRUE),
