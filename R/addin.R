@@ -66,12 +66,15 @@ package_search <- function() {
       res$version <- gsub("\\,", ".", res$version)
      output$result <- DT::renderDataTable(
        res[, colnames(res) != "package_data"],
-       extensions = c('Responsive', 'Buttons'),
-      options = list(dom = 'Bfrtip', buttons = I('colvis'),
-                     paging = FALSE, 
-                     scrollY = "300px",
+       extensions = c('Responsive', 'Buttons', 'Scroller'),
+      options = list(dom = 'Bfrtip', 
+                     buttons = I('colvis'),
+                     deferRender = TRUE,
+                     scrollY = 200,
+                     scroller = TRUE,
                      autoWidth = TRUE,
-                     columnDefs = list(list(width = '250px', targets = list(4, 5)))),
+                     columnDefs = list(list(width = '250px', 
+                                            targets = list(4, 5)))),
       escape = FALSE, width = "100%")
   })}
   
