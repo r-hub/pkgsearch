@@ -42,7 +42,7 @@ pkg_search_adv <- function(package = NULL, title = NULL,
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "search.r-pkg.org")
   port <- as.integer(Sys.getenv("R_PKG_SEARCH_PORT", "80"))
   
-  make_pkg_search(queries, format, from, size, server, port)
+  make_pkg_search_adv(queries, format, from, size, server, port)
 }
 
 make_pkg_search_adv <- function(query, format, from, size, server, port) {
