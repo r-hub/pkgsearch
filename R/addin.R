@@ -66,6 +66,7 @@ package_search <- function() {
       res$version <- gsub("\\,", ".", res$version)
      output$result <- DT::renderDataTable(
        res[, colnames(res) != "package_data"],
+       extensions = 'Responsive',
       options = list(paging = FALSE, 
                      scrollY = "300px",
                      autoWidth = TRUE,
