@@ -20,56 +20,45 @@
 #'   here.
 #' @param from Where to start listing the results, for pagination.
 #' @param size The number of results to list.
-#' @return A tibble with columns:
-#'   * `score`: Score of the hit. See Section _Scoring_ for some details.
-#'   * `package`: Package name.
-#'   * `version`: Latest package version.
-#'   * `title`: Package title.
-#'   * `description`: Short package description.
-#'   * `date`: Time stamp of the last release.
-#'   * `maintainer_name`: Name of the package maintainer.
-#'   * `maintainer_email`: Email address of the package maintainer.
-#'   * `revdeps`: Number of (strong and weak) reverse dependencies of the
-#'     package.
-#'   * `downloads_last_month`: Raw number of package downloads last month,
-#'     from the RStudio CRAN mirror.
-#'   * `license`: Package license.
-#'   * `url`: Package URL(s).
-#'   * `bugreports`: URL of issue tracker, or email address for bug reports.
-#'
+#' @inherit pkg_search return
 #' @export
-#' @importFrom magrittr %>% extract2
-#' @examples
-#' \donttest{
-#' # Example
-#' ps("survival")
-#'
-#' # Pagination
-#' ps("networks")
-#' more()
-#'
-#' # Details
-#' ps("visualization")
-#' ps()
-#'
-#' # See the underlying tibble
-#' ps("ropensci")
-#' ps()[]
-#' }
-
-pkg_search <- function(query = NULL, format = c("short", "long"),
+pkg_search_adv <- function(package = NULL, title = NULL,
+                           author = NULL, maintainer = NULL,
+                           description = NULL, keywords = NULL,
+                           format = c("short", "long"),
                        from = 1, size = 10) {
   
-  if (is.null(query)) return(pkg_search_again())
+  
+  queries <- c("Package" = package, "Title" = title,
+               "Author" = author, "Maintainer" = maintainer,
+               "Description" = description, "Keywords" = keywords)
+  queries <- queries[!is.null(queries)]
+  
+  if (length(queries) == 0){
+    stop("Provide at least a query on one field.")
+  }
+  
   format <- match.arg(format)
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "search.r-pkg.org")
   port <- as.integer(Sys.getenv("R_PKG_SEARCH_PORT", "80"))
   
-  make_pkg_search(query, format, from, size, server, port)
+  make_pkg_search(queries, format, from, size, server, port)
+}
+
+make_pkg_search_adv <- function(query, format, from, size, server, port) {
+  
+  result <- make_query_adv(query = query) %>%
+    do_query(server = server, port = port, from = from, size = size) %>%
+    format_result(query = query, format = format, from = from,
+                  size = size, server = server, port = port)
+  
+  s_data$prev_q <- result
+  
+  result
 }
 
 
-make_advanced_query <- function(queries) {
+make_query_adv <- function(queries) {
   
   check_strings(queries)
   
