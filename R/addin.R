@@ -17,11 +17,6 @@ package_search <- function() {
     )
   }  
   
-  if (!requireNamespace("rstudioapi", quietly = TRUE)) {
-    stop("The rstudioapi package is required for this gadget to work. Please install it.",
-         call. = FALSE
-    )
-  }
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("Search Packages",
                            left = miniUI::miniTitleBarButton("done", "Search",
