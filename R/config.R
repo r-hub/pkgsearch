@@ -1,10 +1,7 @@
 
-config <- list()
 
-.onAttach <- function(libname, pkgname) {
-  ub <- unlockBinding
-  ub("config", asNamespace(pkgname))
-}
+pkgdata <- new.env(parent = emptyenv())
+pkgdata$config <- list()
 
 appname <- (function() {
   `_appname` <- "r-crandb"
@@ -18,14 +15,14 @@ appname <- (function() {
 
 get_config <- function(key) {
   if (missing(key)) {
-    config
+    pkgdata$config
   } else {
-    config[[key]]
+    pkgdata$config[[key]]
   }
 }
 
 set_config <- function(key, value) {
-  config[[key]] <<- value
+  pkgdata$config[[key]] <<- value
 }
 
 getset_config <- function(key, value, default, environment = NA) {
