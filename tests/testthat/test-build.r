@@ -73,7 +73,7 @@ test_that("", {
   expect_true(all(c("Package", "Version", "Title") %in% colnames(desc)))
 
   desc2 <- get_descriptions("igraph0")
-  expect_equal(nrow(desc2), 8)
+  expect_true(nrow(desc2) >= 8)
   expect_true(all(c("Package", "Version", "Title") %in% colnames(desc2)))
 })
 
