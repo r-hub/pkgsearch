@@ -92,7 +92,7 @@ cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
 
 #' Trending R packages
 #'
-#' Treding packages are the ones that were downloaded at least 1000 times
+#' Trending packages are the ones that were downloaded at least 1000 times
 #' during last week, and that substantially increased their download
 #' counts, compared to the average weekly downloads in the previous 24
 #' weeks. The percentage of increase is also shown in the output.

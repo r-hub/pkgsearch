@@ -6,7 +6,8 @@
 \alias{more}
 \title{Search CRAN packages}
 \usage{
-pkg_search(query = NULL, format = c("short", "long"), from = 1, size = 10)
+pkg_search(query = NULL, format = c("short", "long"), from = 1,
+  size = 10)
 
 ps(query = NULL, format = c("short", "long"), from = 1, size = 10)
 

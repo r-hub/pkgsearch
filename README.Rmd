@@ -103,7 +103,7 @@ ps("colours", size = 3)
 The most important feature of a search engine is the ranking of the results.
 The best results should be listed first. pkgsearch uses weighted scoring,
 where a match in the package title gets a higher score than a match in the
-package desciption. It also uses the number of reverse dependencies and
+package description. It also uses the number of reverse dependencies and
 the number of downloads to weight the scores:
 
 ```{r}
@@ -115,7 +115,7 @@ ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
 The search engine prefers matching whole phrases over single words.
 E.g. the search phrase "permutation test" will rank coin higher than
 testthat, even though testthat is a much better result for the single word
-"test". (In fact, at the time of writing testhat is not even on the first
+"test". (In fact, at the time of writing testthat is not even on the first
 page of results.)
 
 ```{r}
@@ -132,7 +132,7 @@ ps("test http")
 
 ### British vs American English
 
-The seach engine uses a dictionary to make sure that package metadata
+The search engine uses a dictionary to make sure that package metadata
 and queries given in British and American English yield the same results.
 E.g. note the spelling of colour/color in the results:
 
