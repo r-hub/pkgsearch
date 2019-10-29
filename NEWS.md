@@ -2,19 +2,21 @@
 
 ## Major changes
 
-Using the R-hub crandb API, new functions whose name all start with `cran_`:
+* New function `advanced_search()` for more search flexibility. It accepts either search terms, named or unnamed; or a character string that contains the query to send to Elastic.
 
-* Functions returning metadata about specific packages
-
-    * `cran_packages()` returns metadata about multiple CRAN packages in a `tibble` whereas `cran_package()` returns metadata about a single CRAN package.
+* Using the R-hub crandb API, new functions whose name all start with `cran_`:
     
-    * `cran_package_history()` returns a `tibble` containing the history of a package metadata, with one row per package version.
+    * Functions returning metadata about specific packages
     
-* Functions returning metadata about packages across CRAN
-
-    * `cran_events()` lists all CRAN events (new, updated, archived packages)
-
-    * `cran_top_downloaded()` and `cran_trending()` return a `tibble` of the 100 most downloaded and trending packages, respectively.
+      * `cran_packages()` returns metadata about multiple CRAN packages in a `tibble` whereas `cran_package()` returns metadata about a single CRAN package.
+      
+      * `cran_package_history()` returns a `tibble` containing the history of a package metadata, with one row per package version.
+      
+    * Functions returning metadata about packages across CRAN
+    
+      * `cran_events()` lists all CRAN events (new, updated, archived packages)
+    
+      * `cran_top_downloaded()` and `cran_trending()` return a `tibble` of the 100 most downloaded and trending packages, respectively.
 
 # pkgsearch 2.0.1
 
