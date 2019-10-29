@@ -12,3 +12,7 @@ Tibble of top downloaded packages.
 \description{
 Last week.
 }
+\details{
+You can use the \href{https://r-hub.github.io/cranlogs/}{cranlogs package}
+to get more flexibility into what is returned.
+}
