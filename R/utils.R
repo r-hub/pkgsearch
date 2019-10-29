@@ -14,6 +14,12 @@ check_string <- function(x) {
   }
 }
 
+check_strings <- function(x) {
+  if (!is.character(x) || any(is.na(x))) {
+    stop(x, " is not a string", call. = FALSE)
+  }
+}
+
 `%+%` <- function(lhs, rhs) {
   check_string(lhs)
   check_string(rhs)
