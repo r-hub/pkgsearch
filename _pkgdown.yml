@@ -15,6 +15,7 @@ reference:
   desc: ~
   contents:
   - '`pkg_search`'
+  - '`advanced_search`'
 - title: Discover packages
   desc: ~
   contents:
