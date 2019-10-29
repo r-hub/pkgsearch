@@ -4,7 +4,8 @@
 \alias{advanced_search}
 \title{Advanced CRAN package search}
 \usage{
-advanced_search(..., format = c("short", "long"), from = 1, size = 10)
+advanced_search(..., format = c("short", "long"), from = 1,
+  size = 10)
 }
 \arguments{
 \item{...}{Search terms. For named terms, the name specifies the field
