@@ -22,8 +22,9 @@ downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/p
 status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
 <!-- badges: end -->
 
-`pkgsearch` uses two R-hub web services
-([crandb](http://crandb.r-pkg.org) and
+`pkgsearch` uses three R-hub web services
+([crandb](https://github.com/r-hub/crandb),
+[cranlogs](https://github.com/r-hub/cranlogs.app) and
 [search](https://github.com/metacran/search)) that munge CRAN metadata
 and let you access it through several lenses.
 
@@ -37,7 +38,7 @@ library("pkgsearch")
 pkg_search("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1814 packages in 0.014 seconds - 
+    #> - "permutation test" ----------------------------------- 1814 packages in 0.013 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.1   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  33 flip           2.5.0   Livio Finos            1y Multivariate Permutation Tests  
@@ -131,17 +132,17 @@ cran_events()
 ```
 
     #> CRAN events (events)---------------------------------------------------------------------
-    #>  . When     Package       Version Title                                                  
-    #>  + 4 hours  mlr3learners  0.1.4   Recommended Learners for 'mlr3'                        
-    #>  + 5 hours  PAutilities   0.3.0   Streamline Physical Activity Research                  
-    #>  + 5 hours  mlr3pipelines 0.1.1   Preprocessing Operators and Pipelines for 'mlr3'       
-    #>  + 6 hours  openxlsx      4.1.2   Read, Write and Edit xlsx Files                        
-    #>  + 6 hours  ritis         0.8.0   Integrated Taxonomic Information System Client         
-    #>  + 6 hours  shinybusy     0.2.0   Busy Indicator for 'Shiny' Applications                
-    #>  + 6 hours  krige         0.3-1   Geospatial Kriging with Metropolis Sampling            
-    #>  + 7 hours  StepReg       1.3.1   Stepwise Regression Analysis                           
-    #>  + 7 hours  ADAPTS        0.9.26  Automated Deconvolution Augmentation of Profiles for...
-    #>  + 13 hours SemNeT        1.1.2   Methods and Measures for Semantic Network Analysis
+    #>  . When    Package       Version Title                                           
+    #>  + 4 hours Taxonstand    2.2     Taxonomic Standardization of Plant Species Names
+    #>  + 5 hours TideCurves    0.0.4   Analysis and Prediction of Tides                
+    #>  + 6 hours mlr3learners  0.1.4   Recommended Learners for 'mlr3'                 
+    #>  + 8 hours PAutilities   0.3.0   Streamline Physical Activity Research           
+    #>  + 8 hours mlr3pipelines 0.1.1   Preprocessing Operators and Pipelines for 'mlr3'
+    #>  + 8 hours openxlsx      4.1.2   Read, Write and Edit xlsx Files                 
+    #>  + 8 hours ritis         0.8.0   Integrated Taxonomic Information System Client  
+    #>  + 8 hours shinybusy     0.2.0   Busy Indicator for 'Shiny' Applications         
+    #>  + 9 hours krige         0.3-1   Geospatial Kriging with Metropolis Sampling     
+    #>  + 9 hours StepReg       1.3.1   Stepwise Regression Analysis
 
 ## More info
 
