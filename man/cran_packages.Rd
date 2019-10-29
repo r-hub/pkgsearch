@@ -8,7 +8,7 @@ cran_packages(names)
 }
 \arguments{
 \item{names}{Package names. May also contain versions, separated by a
-dash or \code{@} character.}
+\code{@} character.}
 }
 \value{
 A data frame of package metadata, one package per row.
@@ -24,7 +24,6 @@ cran_packages("rhub")
 cran_packages(c("rhub", "testthat"))
 # Get metadata about two packages at given versions
 cran_packages(c("rhub@1.1.1", "testthat@2.2.1", "testthat@2.2.0"))
-cran_packages(c("rhub-1.1.1", "testthat-2.2.1", "testthat-2.2.0"))
 # If a version does not exist nothing is returned
 cran_packages("rhub@notaversion")
 }
