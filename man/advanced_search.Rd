@@ -31,6 +31,9 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-
 }
 \examples{
 \dontrun{
+# All orphaned packages
+advanced_search(Maintainer = "ORPHANED")
+
 # Packages that match a certain field
 advanced_search(Author = "Hester AND NOT Wickham")
 
@@ -39,6 +42,9 @@ advanced_search("permutation test AND NOT License: GPL OR GNU")
 
 # Packages that have a certain field
 advanced_search("_exists_" = "URL")
+
+# Packages that do not have a certain field:
+advanced_search("NOT _exists_: URL")
 
 # Regular expressionss
 advanced_search(Author = "/Joh?nathan/")
