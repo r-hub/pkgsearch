@@ -27,6 +27,9 @@
 #'
 #' # Packages that have a certain field
 #' advanced_search("_exists_" = "URL")
+#' 
+#' # Packages that don't have a certain field
+#' advanced_search("NOT _exists_: URL")
 #'
 #' # Packages that do not have a certain field:
 #' advanced_search("NOT _exists_: URL")

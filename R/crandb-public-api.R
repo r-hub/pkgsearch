@@ -30,9 +30,19 @@ cran_package <- function(name, version = NULL) {
 #' Metadata about multiple CRAN packages
 #'
 #' @param names Package names. May also contain versions, separated by a
-#'   dash or `@@` character.
+#'   `@@` character.
 #' @return A data frame of package metadata, one package per row.
 #'
+#' @examples \dontrun{
+#' # Get metadata about one package
+#' cran_packages("rhub")
+#' # Get metadata about two packages
+#' cran_packages(c("rhub", "testthat"))
+#' # Get metadata about two packages at given versions
+#' cran_packages(c("rhub@1.1.1", "testthat@2.2.1", "testthat@2.2.0"))
+#' # If a version does not exist nothing is returned
+#' cran_packages("rhub@notaversion")
+#' }
 #' @export
 
 cran_packages <- function(names) {

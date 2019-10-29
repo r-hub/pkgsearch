@@ -4,7 +4,8 @@
 \alias{advanced_search}
 \title{Advanced CRAN package search}
 \usage{
-advanced_search(..., format = c("short", "long"), from = 1, size = 10)
+advanced_search(..., format = c("short", "long"), from = 1,
+  size = 10)
 }
 \arguments{
 \item{...}{Search terms. For named terms, the name specifies the field
@@ -46,6 +47,9 @@ advanced_search("permutation test AND NOT License: GPL OR GNU")
 
 # Packages that have a certain field
 advanced_search("_exists_" = "URL")
+
+# Packages that don't have a certain field
+advanced_search("NOT _exists_: URL")
 
 # Packages that do not have a certain field:
 advanced_search("NOT _exists_: URL")
