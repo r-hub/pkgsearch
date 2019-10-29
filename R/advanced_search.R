@@ -27,14 +27,25 @@
 #'
 #' # Packages that have a certain field
 #' advanced_search("_exists_" = "URL")
-#' 
-#' # Packages that don't have a certain field
-#' advanced_search("NOT _exists_: URL")
 #'
 #' # Packages that do not have a certain field:
 #' advanced_search("NOT _exists_: URL")
 #'
-#' # Regular expressionss
+#' # The same but as JSON query
+#' query <- '{
+#' "query": {
+#'   "bool": {
+#'     "must_not": {
+#'       "exists": {
+#'         "field": "URL"
+#'       }
+#'     }
+#'   }
+#' }
+#' }'
+#' advanced_search(json = query)
+#' 
+#' # Regular expressions
 #' advanced_search(Author = "/Joh?nathan/")
 #'
 #' # Fuzzy search
