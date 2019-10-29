@@ -4,8 +4,8 @@ Version: 2.0.1.9000
 Authors@R: c(person("Gábor", "Csárdi", email = "csardi.gabor@gmail.com",
 	     role = c("aut", "cre")),
              person("R Consortium", role = c("fnd")))
-Description: Search CRAN R packages and their metadata. 
-  Uses the 'METACRAN' search server,
+Description: Get/search CRAN metadata about packages by keyword, popularity,
+  recent activity, package name and more. Uses the 'R-hub' search server,
   see <https://r-pkg.org> and the CRAN metadata database, that 
   contains information about CRAN packages. Note that this is _not_ 
   a CRAN project.
@@ -26,7 +26,10 @@ Imports:
 Suggests:
     covr,
     testthat (>= 2.1.0),
-    tibble
+    tibble,
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 RoxygenNote: 6.1.99.9001
 Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
