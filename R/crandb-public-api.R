@@ -125,6 +125,9 @@ cran_trending <- function() {
 #' Last week.
 #'
 #' @return Tibble of top downloaded packages.
+#' 
+#' @details You can use the [`cranlogs` package](https://r-hub.github.io/cranlogs/) 
+#' to get more flexibility into what is returned.
 #'
 #' @export
 
