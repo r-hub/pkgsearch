@@ -1,5 +1,3 @@
-
-
 print_header <- function(result) {
   left <- "-" %+% ' "' %+% meta(result)$query %+% '" '
   pkg <- if (meta(result)$total == 1) "package" else "packages"
@@ -239,68 +237,6 @@ print_field <- function(key, value, indent = 0) {
     gsub(pattern = "\n", replacement = " ") %>%
     strwrap(indent = indent, exdent = indent + 4) %>%
     cat(sep = "\n")
-}
-
-## ----------------------------------------------------------------------
-
-#' @method summary cran_package_list
-#' @export
-
-summary.cran_package_list <- function(object, ...) {
-  cat("CRAN PACKAGES:\n")
-  print(names(object))
-  invisible(object)
-}
-
-## ----------------------------------------------------------------------
-
-#' @method print cran_package_list
-#' @export
-#'
-
-print.cran_package_list <- function(x, ...) {
-  if ("version" %in% names(x[[1]])) {
-    print_cran_list_short(x, ...)
-  } else if ("timeline" %in% names(x[[1]])) {
-    print_cran_list_full(x, ...)
-  } else {
-    print_cran_list_latest(x, ...)
-  }
-  invisible(x)
-}
-
-print_cran_list_short <- function(x, ...) {
-  print_cran_list_i(x, "CRAN packages (short)", "version", "title", ...)
-}
-
-print_cran_list_latest <- function(x, ...) {
-  print_cran_list_i(x, "CRAN packages (latest versions)", "Version",
-                    "Title", ...)
-}
-
-print_cran_list_full <- function(x, ...) {
-  print_cran_list_i(x, "CRAN packages (full)", "latest", "title", ...)
-}
-
-print_cran_list_i <- function(x, header, version, title, ...) {
-  cat_fill(header)
-  pkgs <- data.frame(
-    stringsAsFactors = FALSE,
-    Package = names(x),
-    Version = sapply(x, function(xx) xx[[version]] %>% NULL_NA),
-    RTitle = sapply(x, function(xx) xx[[title]] %>% NULL_NA) %>%
-      gsub(pattern = "\\s+", replacement = " ")
-  )
-  
-  tw <- getOption("width") - 7 -
-    max(nchar("Package"), max(nchar(pkgs$Package))) -
-    max(nchar("Version"), max(nchar(pkgs$Version)))
-  pkgs$Title <- substring(pkgs$RTitle, 1, tw)
-  pkgs$Title <- ifelse(pkgs$Title == pkgs$RTitle, pkgs$Title,
-                       paste0(pkgs$Title, "..."))
-  pkgs$RTitle <- NULL
-  
-  print.data.frame(pkgs, row.names = FALSE, right = FALSE)
 }
 
 ## ----------------------------------------------------------------------

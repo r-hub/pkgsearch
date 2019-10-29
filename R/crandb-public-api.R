@@ -6,15 +6,12 @@
 #'
 #' @param name Name of the package.
 #' @param version The package version to query. If `NULL`, the latest
-#'   version if returned. If it is \sQuote{`all`}, then all versions
-#'   are returned. Otherwise it should be a version number.
-#' @return The package metadata (information from DESCRIPTION, latest 
-#' CRAN release).
+#'   version if returned.
+#' @return The package metadata, in a named list.
 #' @examples
 #' \dontrun{
 #' cran_package("pkgsearch")
 #' }
-#'
 #' @export
 #' @importFrom assertthat assert_that
 
@@ -30,66 +27,25 @@ cran_package <- function(name, version = NULL) {
     add_class("cran_package")
 }
 
-## ----------------------------------------------------------------------
-## /-/all, /-/latest, /-/desc, /-/allall
-
-#' List active packages
+#' Metadata about multiple CRAN packages
 #'
-#' @param from The name of the first package to list. By default it
-#'    is the first one in alphabetical order.
-#' @param limit The number of packages to list.
-#' @param format What to return. \sQuote{`short`} means the
-#'    title and version number only. \sQuote{`latest`} means
-#'    the complete description of the latest version. \sQuote{`full`}
-#'    means all versions. Note that the output printing look the same 
-#'    for all formats, although the output is actually different.
-#' @param archived Whether to include archived packages in the result.
-#'    If this is `TRUE`, then `format` must be
-#'    \sQuote{`full`}.
-#' @return List of packages.
-#' @examples
-#' \dontrun{
-#' # Only title and latest version
-#' (l1 <- cran_packages(format = "short"))
-#' l1[[1]]
-#' 
-#' # Metadata for the latest version
-#' (l2 <- cran_packages(format = "latest"))
-#' l2[[1]]
-#' 
-#' # All available metadata
-#' (l3 <- cran_packages(format = "full"))
-#' l3[[1]]
-#' }
+#' @param names Package names. May also contain versions, separated by a
+#'   dash or `@@` character.
+#' @return A data frame of package metadata, one package per row.
 #'
 #' @export
-#' @importFrom assertthat assert_that is.count is.flag
 
-cran_packages <- function(from = "", limit = 10,
-                          format = c("short", "latest", "full"),
-                          archived = FALSE) {
+cran_packages <- function(names) {
+  names <- sub("@", "-", names, fixed = TRUE)
+  url <- paste0(
+    "/-/versions?keys=[",
+    paste0("\"", names, "\"", collapse = ","),
+    "]"
+  )
 
-  assert_that(is_package_name(from))
-  assert_that(is.count(limit))
-  format <- match.arg(format)
-  assert_that(is.flag(archived))
+  resp <- query(url)
 
-  if (archived && format != "full") {
-    warning("Using 'full' format because 'archived' is TRUE")
-  }
-
-  url <- switch(format,
-                "short" = "/-/desc",
-                "latest" = "/-/latest",
-                "full" = "/-/all")
-  if (archived) url <- "/-/allall"
-
-  url %>%
-    paste0('?start_key="', from, '"') %>%
-    paste0("&limit=", limit) %>%
-    query() %>%
-    remove_special(level = 2) %>%
-    add_class("cran_package_list")
+  rectangle_packages(resp)
 }
 
 ## ----------------------------------------------------------------------
@@ -134,22 +90,152 @@ cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
     add_class("cran_event_list")
 }
 
-## ----------------------------------------------------------------------
-## /-/releases
-
-#' List R releases in the CRANDB database
+#' Trending R packages
 #'
-#' @return List of R releases.
-#' @examples
-#' \dontrun{
-#' cran_releases()
-#' }
+#' Treding packages are the ones that were downloaded at least 1000 times
+#' during last week, and that substantially increased their download
+#' counts, compared to the average weekly downloads in the previous 24
+#' weeks. The percentage of increase is also shown in the output.
+#'
+#' @return Tibble of trending packages.
 #'
 #' @export
 
-cran_releases <- function() {
+cran_trending <- function() {
+  url <- "https://cranlogs.r-pkg.org/trending"
+  resp <- httr::stop_for_status(httr::GET(url))
+  cnt <- content(resp, as = "text", encoding = "UTF-8")
+  tb <- fromJSON(cnt, simplifyDataFrame = TRUE)
+  colnames(tb) <- c("package", "score")
+  tibble::as_tibble(tb)
+}
 
-  "/-/releases" %>%
-    query() %>%
-    add_class("r_releases")
+#' Top downloaded packages
+#'
+#' Last week.
+#'
+#' @return Tibble of top downloaded packages.
+#'
+#' @export
+
+cran_top_downloaded <- function() {
+  url <- "http://cranlogs.r-pkg.org/top/last-week/100"
+  resp <- httr::stop_for_status(httr::GET(url))
+  cnt <- content(resp, as = "text", encoding = "UTF-8")
+  tb <- fromJSON(cnt, simplifyDataFrame = TRUE)$downloads
+  names(tb) <- c("package", "count")
+  tibble::as_tibble(tb)
+}
+
+#' @importFrom assertthat assert_that is.count is.flag
+
+do_cran_query <- function(from, limit,
+                          format = c("short", "latest", "full"),
+                          archived) {
+
+  assert_that(is_package_name(from))
+  assert_that(is.count(limit))
+  format <- match.arg(format)
+  assert_that(is.flag(archived))
+
+  url <- switch(
+    format,
+    "short" = "/-/desc",
+    "latest" = "/-/latest",
+    "full" = "/-/all")
+
+  if (archived) url <- "/-/allall"
+
+  url <- sprintf("%s?start_key=\"%s\"&limit=%d", url, from, limit)
+  resp <- query(url)
+  remove_special(resp, level = 2)
+}
+
+#' Query the history of a package
+#'
+#' @param package Package name.
+#' @return A tibble, with one row per package version.
+#' @export
+
+cran_package_history <- function(package) {
+
+  resp <- do_cran_query(
+    from = package, limit = 1,
+    format = "full",
+    archived = TRUE
+  )
+
+  df_list <- lapply(resp, function(p) rectangle_packages(p$versions))
+  df_list <- make_col_compatible(df_list)
+  do.call("rbind", df_list)
+}
+
+add_names <- function(df, all_names) {
+  if(any(! all_names %in% names(df))) {
+
+    df[all_names[! all_names %in% names(df)]] <- NA
+  }
+
+  df
+}
+
+make_col_compatible <- function(df_list) {
+  all_names <- unique(unlist(lapply(df_list, names)))
+  lapply(df_list, add_names, all_names)
+}
+
+dep_types <- function() {
+  c("Depends", "Imports", "Suggests", "Enhances", "LinkingTo")
+}
+
+rectangle_packages <- function(list) {
+
+  df_list <- lapply(list, rectangle_description)
+  df_list <- make_col_compatible(df_list)
+  df <- do.call("rbind", df_list)
+
+  drop <- c("revdeps", "archived")
+  df <- df[, setdiff(colnames(df), drop)]
+
+  df
+}
+
+rectangle_description <- function(description_list) {
+
+  description_list$releases <- NULL
+
+  description_list$dependencies <- list(idesc_get_deps(description_list))
+
+  description_list[dep_types()] <- NULL
+
+  tibble::as_tibble(description_list)
+}
+
+idesc_get_deps <- function(description_list) {
+
+  types <- intersect(names(description_list), dep_types())
+  res <- lapply(
+    types,
+    function(type) parse_deps(type, description_list[type])
+  )
+
+  empty <- data.frame(
+    stringsAsFactors = FALSE,
+    type = character(),
+    package = character(),
+    version = character()
+  )
+
+  do.call(rbind, c(list(empty), res))
+}
+
+parse_deps <- function(type, deps) {
+  res <- data.frame(
+    stringsAsFactors = FALSE,
+    type = type,
+    package = names(deps[type][[1]]),
+    version = as.character(deps[[1]])
+  )
+
+  res
 }

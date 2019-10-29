@@ -27,48 +27,6 @@ test_that("cran_package() works", {
 
 })
 
-test_that("cran_packages() works", {
-
-  r1 <- cran_packages()
-  expect_equal(length(r1), 10)
-  r1 %>% sapply(names) %>% t() %>% unique() %>% as.vector() %>%
-    expect_equal(c("version", "title"))
-
-  r2 <- cran_packages(limit = 5)
-  expect_equal(length(r2), 5)
-  r2 %>% sapply(names) %>% t() %>% unique() %>% as.vector() %>%
-    expect_equal(c("version", "title"))
-
-  r3 <- cran_packages(from = "igraph", limit = 3)
-  expect_equal(length(r3), 3)
-  r3 %>% sapply(names) %>% t() %>% unique() %>% as.vector() %>%
-    expect_equal(c("version", "title"))
-  expect_equal(names(r3)[1], "igraph")
-
-  r4 <- cran_packages(format = "latest", from = "igraph0", limit = 2)
-  expect_equal(length(r4), 2)
-  expect_false(names(r4)[1] == "igraph0")
-  r4[[1]] %>%
-    names() %>%
-    contains(c("Package", "Title", "Author", "date", "releases")) %>%
-    all() %>%
-    expect_true()
-
-  r5 <- cran_packages(format = "full", from = "igraph0", limit = 2)
-  expect_equal(length(r5), 2)
-  expect_true(names(r5)[1] != "igraph0")
-  expect_equal(sort(names(r5[[1]])), c("archived", "latest", "name",
-    "revdeps", "timeline", "title", "versions"))
-
-  r6 <- cran_packages(format = "full", from = "igraph0", archived = TRUE,
-                      limit = 2)
-  expect_equal(length(r6), 2)
-  expect_equal(names(r6)[1], "igraph0")
-  expect_equal(sort(names(r6[[1]])), c("archived", "latest", "name",
-    "timeline", "title", "versions"))
-
-})
-
 test_that("cran_events() works", {
 
   r1 <- cran_events()

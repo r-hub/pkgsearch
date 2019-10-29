@@ -10,12 +10,10 @@ cran_package(name, version = NULL)
 \item{name}{Name of the package.}
 
 \item{version}{The package version to query. If \code{NULL}, the latest
-version if returned. If it is \sQuote{\code{all}}, then all versions
-are returned. Otherwise it should be a version number.}
+version if returned.}
 }
 \value{
-The package metadata (information from DESCRIPTION, latest
-CRAN release).
+The package metadata, in a named list.
 }
 \description{
 Metadata about a CRAN package
@@ -24,5 +22,4 @@ Metadata about a CRAN package
 \dontrun{
 cran_package("pkgsearch")
 }
-
 }

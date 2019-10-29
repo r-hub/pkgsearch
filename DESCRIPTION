@@ -14,18 +14,19 @@ LazyData: true
 URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch
 BugReports: https://github.com/r-hub/pkgsearch/issues
 Imports:
-    magrittr,
+    assertthat,
+    desc,
+    dotenv,
     httr,
     jsonlite,
-    parsedate,
-    prettyunits,
+    magrittr,
     methods,
-    assertthat,
-    dotenv
+    parsedate,
+    prettyunits
 Suggests:
     covr,
-    testthat,
+    testthat (>= 2.1.0),
     tibble
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 6.1.99.9001
 Roxygen: list(markdown = TRUE)

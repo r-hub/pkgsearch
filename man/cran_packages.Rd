@@ -2,46 +2,17 @@
 % Please edit documentation in R/crandb-public-api.R
 \name{cran_packages}
 \alias{cran_packages}
-\title{List active packages}
+\title{Metadata about multiple CRAN packages}
 \usage{
-cran_packages(from = "", limit = 10, format = c("short", "latest",
-  "full"), archived = FALSE)
+cran_packages(names)
 }
 \arguments{
-\item{from}{The name of the first package to list. By default it
-is the first one in alphabetical order.}
-
-\item{limit}{The number of packages to list.}
-
-\item{format}{What to return. \sQuote{\code{short}} means the
-title and version number only. \sQuote{\code{latest}} means
-the complete description of the latest version. \sQuote{\code{full}}
-means all versions. Note that the output printing look the same
-for all formats, although the output is actually different.}
-
-\item{archived}{Whether to include archived packages in the result.
-If this is \code{TRUE}, then \code{format} must be
-\sQuote{\code{full}}.}
+\item{names}{Package names. May also contain versions, separated by a
+dash or \verb{@} character.}
 }
 \value{
-List of packages.
+A data frame of package metadata, one package per row.
 }
 \description{
-List active packages
-}
-\examples{
-\dontrun{
-# Only title and latest version
-(l1 <- cran_packages(format = "short"))
-l1[[1]]
-
-# Metadata for the latest version
-(l2 <- cran_packages(format = "latest"))
-l2[[1]]
-
-# All available metadata
-(l3 <- cran_packages(format = "full"))
-l3[[1]]
-}
-
+Metadata about multiple CRAN packages
 }
