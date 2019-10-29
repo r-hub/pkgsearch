@@ -1,12 +1,15 @@
 
 #' Advanced CRAN package search
 #'
-#' See the ElasticSearch documentation for the syntax and features:
+#' See the Elastic documentation for the syntax and features:
 #' https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 #'
 #' @param ... Search terms. For named terms, the name specifies the field
 #'   to search for. For unnamed ones, the term is taken as is. The
 #'   individual terms are combined with the `AND` operator.
+#' @param json A character string that contains the query to
+#'   send to Elastic. If this is not `NULL`, then you cannot specify
+#'   any search terms in `...`.
 #' @inheritParams pkg_search
 #'
 #' @return Search hits.
@@ -35,28 +38,37 @@
 #' advanced_search(Author = "Johnathan~1")
 #' }
 
-advanced_search <- function(..., format = c("short", "long"), from = 1,
-                            size = 10) {
-
-  format <- match.arg(format)
+advanced_search <- function(..., json = NULL, format = c("short", "long"),
+                            from = 1, size = 10) {
 
   terms <- unlist(list(...))
-  if (is.null(names(terms))) names(terms) <- rep("", length(terms))
+  format <- match.arg(format)
 
-  q <- ifelse(
-    names(terms) == "",
-    terms,
-    paste0("(", names(terms), ":", terms, ")")
-  )
+  if (!is.null(json) && length(terms) > 0) {
+    stop("You cannot specify `json` together with search terms.")
+  }
 
-  qstr <- toJSON(list(
-    query = list(
-      query_string = list(
-        query = unbox(paste0(q, collapse = " AND ")),
-        default_field = unbox("*")
-      )
+  if (is.null(json)) {
+    if (is.null(names(terms))) names(terms) <- rep("", length(terms))
+
+    q <- ifelse(
+      names(terms) == "",
+      terms,
+      paste0("(", names(terms), ":", terms, ")")
     )
-  ))
+
+    qstr <- toJSON(list(
+      query = list(
+        query_string = list(
+          query = unbox(paste0(q, collapse = " AND ")),
+          default_field = unbox("*")
+        )
+      )
+    ))
+
+  } else {
+    qstr <- json
+  }
 
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "search.r-pkg.org")
   port <- as.integer(Sys.getenv("R_PKG_SEARCH_PORT", "80"))

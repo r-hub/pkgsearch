@@ -11,6 +11,10 @@ advanced_search(..., format = c("short", "long"), from = 1, size = 10)
 to search for. For unnamed ones, the term is taken as is. The
 individual terms are combined with the \code{AND} operator.}
 
+\item{json}{A character string that contains the query to
+send to Elastic. If this is not \code{NULL}, then you cannot specify
+any search terms in \code{...}.}
+
 \item{format}{Default formatting of the results. \emph{short} only
 outputs the name and title of the packages, \emph{long} also
 prints the author, last version, full description and URLs.
@@ -26,7 +30,7 @@ here.}
 Search hits.
 }
 \description{
-See the ElasticSearch documentation for the syntax and features:
+See the Elastic documentation for the syntax and features:
 https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 }
 \examples{
