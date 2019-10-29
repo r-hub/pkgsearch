@@ -29,7 +29,7 @@ options(max.print = 200)
 [![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
 <!-- badges: end -->
 
-`pkgsearch` uses two R-hub web services ([crandb](http://crandb.r-pkg.org) and [search](https://github.com/metacran/search)) that **munge CRAN metadata and let you access it through several lenses**:
+`pkgsearch` uses two R-hub web services ([crandb](http://crandb.r-pkg.org) and [search](https://github.com/metacran/search)) that munge CRAN metadata and let you access it through several lenses.
 
 ## Search relevant packages
 
@@ -59,7 +59,7 @@ cran_top_downloaded()
 
 ## Keep up with CRAN
 
-are you curious about the latest releases or archivals?
+Are you curious about the latest releases or archivals?
 
 ```{r}
 cran_events()

@@ -24,8 +24,8 @@ status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](ht
 
 `pkgsearch` uses two R-hub web services
 ([crandb](http://crandb.r-pkg.org) and
-[search](https://github.com/metacran/search)) that **munge CRAN metadata
-and let you access it through several lenses**:
+[search](https://github.com/metacran/search)) that munge CRAN metadata
+and let you access it through several lenses.
 
 ## Search relevant packages
 
@@ -37,7 +37,7 @@ library("pkgsearch")
 pkg_search("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1814 packages in 0.015 seconds - 
+    #> - "permutation test" ----------------------------------- 1814 packages in 0.014 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.1   Torsten Hothorn        2M Conditional Inference Procedu...
     #>   2  33 flip           2.5.0   Livio Finos            1y Multivariate Permutation Tests  
@@ -123,7 +123,7 @@ cran_top_downloaded()
 
 ## Keep up with CRAN
 
-are you curious about the latest releases or
+Are you curious about the latest releases or
     archivals?
 
 ``` r
@@ -132,11 +132,11 @@ cran_events()
 
     #> CRAN events (events)---------------------------------------------------------------------
     #>  . When     Package       Version Title                                                  
-    #>  + 3 hours  mlr3learners  0.1.4   Recommended Learners for 'mlr3'                        
+    #>  + 4 hours  mlr3learners  0.1.4   Recommended Learners for 'mlr3'                        
     #>  + 5 hours  PAutilities   0.3.0   Streamline Physical Activity Research                  
     #>  + 5 hours  mlr3pipelines 0.1.1   Preprocessing Operators and Pipelines for 'mlr3'       
-    #>  + 5 hours  openxlsx      4.1.2   Read, Write and Edit xlsx Files                        
-    #>  + 5 hours  ritis         0.8.0   Integrated Taxonomic Information System Client         
+    #>  + 6 hours  openxlsx      4.1.2   Read, Write and Edit xlsx Files                        
+    #>  + 6 hours  ritis         0.8.0   Integrated Taxonomic Information System Client         
     #>  + 6 hours  shinybusy     0.2.0   Busy Indicator for 'Shiny' Applications                
     #>  + 6 hours  krige         0.3-1   Geospatial Kriging with Metropolis Sampling            
     #>  + 7 hours  StepReg       1.3.1   Stepwise Regression Analysis                           
