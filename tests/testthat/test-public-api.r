@@ -52,11 +52,3 @@ test_that("cran_events() works", {
   expect_equal(names(r4[[1]]), c("date", "name", "event", "package"))
 
 })
-
-test_that("cran_releases() works", {
-
-  r1 <- cran_releases()
-  expect_true(is.data.frame(r1))
-  expect_equal(colnames(r1), c("version", "date"))
-
-})
