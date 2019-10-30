@@ -1,12 +1,14 @@
-test_that("cran_package_list works", {
-  expect_is(cran_package_list(), "tbl_df")
-})
 
-test_that("cran_active_packages works", {
-  expect_is(cran_active_packages(), "tbl_df")
+test_that("cran_packages works", {
+  tab <- cran_packages(c("igraph", "pkgconfig@1.0.0"))
+  expect_is(tab, "tbl_df")
+  expect_equal(tab$Package, c("igraph", "pkgconfig"))
 })
-
 
 test_that("cran_package_histories works", {
-  expect_is(cran_package_histories(), "tbl_df")
+  tab <- cran_package_history("igraph")
+  expect_is(tab, "tbl_df")
+  expect_true(nrow(tab) >= 45)
+  expect_true(all(tab$Package == "igraph"))
+  expect_false(is.unsorted(tab$Version))
 })
