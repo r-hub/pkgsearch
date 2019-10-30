@@ -6,24 +6,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>List active packages — cran_packages • pkgsearch</title>
+<title>Metadata about multiple CRAN packages — cran_packages • pkgsearch</title>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -31,10 +34,11 @@
 
 
 
-<meta property="og:title" content="List active packages — cran_packages" />
 
-<meta property="og:description" content="List active packages" />
+<meta property="og:title" content="Metadata about multiple CRAN packages — cran_packages" />
+<meta property="og:description" content="Metadata about multiple CRAN packages" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -46,6 +50,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -83,7 +88,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/r-hub/pkgsearch">
@@ -98,408 +102,84 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>List active packages</h1>
+    <h1>Metadata about multiple CRAN packages</h1>
     <small class="dont-index">Source: <a href='https://github.com/r-hub/pkgsearch/blob/master/R/crandb-public-api.R'><code>R/crandb-public-api.R</code></a></small>
     <div class="hidden name"><code>cran_packages.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-    <p>List active packages</p>
-    
+    <p>Metadata about multiple CRAN packages</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cran_packages</span>(<span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"short"</span>, <span class='st'>"latest"</span>,
-  <span class='st'>"full"</span>), <span class='kw'>archived</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>cran_packages</span>(<span class='no'>names</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>from</th>
-      <td><p>The name of the first package to list. By default it
-is the first one in alphabetical order.</p></td>
-    </tr>
-    <tr>
-      <th>limit</th>
-      <td><p>The number of packages to list.</p></td>
-    </tr>
-    <tr>
-      <th>format</th>
-      <td><p>What to return. &#8216;<code>short</code>&#8217; means the
-title and version number only. &#8216;<code>latest</code>&#8217; means
-the complete description of the latest version. &#8216;<code>full</code>&#8217;
-means all versions. Note that the output printing look the same
-for all formats, although the output is actually different.</p></td>
-    </tr>
-    <tr>
-      <th>archived</th>
-      <td><p>Whether to include archived packages in the result.
-If this is <code>TRUE</code>, then <code>format</code> must be
-&#8216;<code>full</code>&#8217;.</p></td>
+      <th>names</th>
+      <td><p>Package names. May also contain versions, separated by a
+<code>@</code> character.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>List of packages.</p>
-    
+    <p>A data frame of package metadata, one package per row.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Only title and latest version</span>
-(<span class='no'>l1</span> <span class='kw'>&lt;-</span> <span class='fu'>cran_packages</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"short"</span>))</div><div class='output co'>#&gt; CRAN packages (short)----------------------------------------------------------
-#&gt;  Package     Version Title                                                     
-#&gt;  A3          1.0.0   Accurate, Adaptable, and Accessible Error Metrics for P...
-#&gt;  abbyyR      0.5.4   Access to Abbyy Optical Character Recognition (OCR) API   
-#&gt;  abc         2.1     Tools for Approximate Bayesian Computation (ABC)          
-#&gt;  abc.data    1.0     Data Only: Tools for Approximate Bayesian Computation (...
-#&gt;  ABC.RAP     0.9.0   Array Based CpG Region Analysis Pipeline                  
-#&gt;  ABCanalysis 1.2.1   Computed ABC Analysis                                     
-#&gt;  abcdeFBA    0.4     ABCDE_FBA: A-Biologist-Can-Do-Everything of Flux Balanc...
-#&gt;  ABCoptim    0.15.0  Implementation of Artificial Bee Colony (ABC) Optimizat...
-#&gt;  ABCp2       1.2     Approximate Bayesian Computational Model for Estimating...
-#&gt;  abcrf       1.7.1   Approximate Bayesian Computation via Random Forests       </div><div class='input'><span class='no'>l1</span><span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; $version
-#&gt; [1] "1.0.0"
-#&gt; 
-#&gt; $title
-#&gt; [1] "Accurate, Adaptable, and Accessible Error Metrics for Predictive\nModels"
-#&gt; </div><div class='input'>
-<span class='co'># Metadata for the latest version</span>
-(<span class='no'>l2</span> <span class='kw'>&lt;-</span> <span class='fu'>cran_packages</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"latest"</span>))</div><div class='output co'>#&gt; CRAN packages (latest versions)------------------------------------------------
-#&gt;  Package     Version Title                                                     
-#&gt;  A3          1.0.0   Accurate, Adaptable, and Accessible Error Metrics for P...
-#&gt;  abbyyR      0.5.4   Access to Abbyy Optical Character Recognition (OCR) API   
-#&gt;  abc         2.1     Tools for Approximate Bayesian Computation (ABC)          
-#&gt;  abc.data    1.0     Data Only: Tools for Approximate Bayesian Computation (...
-#&gt;  ABC.RAP     0.9.0   Array Based CpG Region Analysis Pipeline                  
-#&gt;  ABCanalysis 1.2.1   Computed ABC Analysis                                     
-#&gt;  abcdeFBA    0.4     ABCDE_FBA: A-Biologist-Can-Do-Everything of Flux Balanc...
-#&gt;  ABCoptim    0.15.0  Implementation of Artificial Bee Colony (ABC) Optimizat...
-#&gt;  ABCp2       1.2     Approximate Bayesian Computational Model for Estimating...
-#&gt;  abcrf       1.7.1   Approximate Bayesian Computation via Random Forests       </div><div class='input'><span class='no'>l2</span><span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; $Package
-#&gt; [1] "A3"
-#&gt; 
-#&gt; $Type
-#&gt; [1] "Package"
-#&gt; 
-#&gt; $Title
-#&gt; [1] "Accurate, Adaptable, and Accessible Error Metrics for Predictive\nModels"
-#&gt; 
-#&gt; $Version
-#&gt; [1] "1.0.0"
-#&gt; 
-#&gt; $Date
-#&gt; [1] "2015-08-15"
-#&gt; 
-#&gt; $Author
-#&gt; [1] "Scott Fortmann-Roe"
-#&gt; 
-#&gt; $Maintainer
-#&gt; [1] "Scott Fortmann-Roe &lt;scottfr@berkeley.edu&gt;"
-#&gt; 
-#&gt; $Description
-#&gt; [1] "Supplies tools for tabulating and analyzing the results of predictive models. The methods employed are applicable to virtually any predictive model and make comparisons between different methodologies straightforward."
-#&gt; 
-#&gt; $License
-#&gt; [1] "GPL (&gt;= 2)"
-#&gt; 
-#&gt; $Depends
-#&gt; $Depends$R
-#&gt; [1] "&gt;= 2.15.0"
-#&gt; 
-#&gt; $Depends$xtable
-#&gt; [1] "*"
-#&gt; 
-#&gt; $Depends$pbapply
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $Suggests
-#&gt; $Suggests$randomForest
-#&gt; [1] "*"
-#&gt; 
-#&gt; $Suggests$e1071
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $NeedsCompilation
-#&gt; [1] "no"
-#&gt; 
-#&gt; $Packaged
-#&gt; [1] "2015-08-16 14:17:33 UTC; scott"
-#&gt; 
-#&gt; $Repository
-#&gt; [1] "CRAN"
-#&gt; 
-#&gt; $`Date/Publication`
-#&gt; [1] "2015-08-16 23:05:52"
-#&gt; 
-#&gt; $crandb_file_date
-#&gt; [1] "2015-08-16 17:08:22"
-#&gt; 
-#&gt; $date
-#&gt; [1] "2015-08-16T23:05:52+00:00"
-#&gt; 
-#&gt; $releases
-#&gt; list()
-#&gt; </div><div class='input'>
-<span class='co'># All available metadata</span>
-(<span class='no'>l3</span> <span class='kw'>&lt;-</span> <span class='fu'>cran_packages</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"full"</span>))</div><div class='output co'>#&gt; CRAN packages (full)-----------------------------------------------------------
-#&gt;  Package     Version Title                                                     
-#&gt;  A3          1.0.0   Accurate, Adaptable, and Accessible Error Metrics for P...
-#&gt;  abbyyR      0.5.4   Access to Abbyy Optical Character Recognition (OCR) API   
-#&gt;  abc         2.1     Tools for Approximate Bayesian Computation (ABC)          
-#&gt;  abc.data    1.0     Data Only: Tools for Approximate Bayesian Computation (...
-#&gt;  ABC.RAP     0.9.0   Array Based CpG Region Analysis Pipeline                  
-#&gt;  ABCanalysis 1.2.1   Computed ABC Analysis                                     
-#&gt;  abcdeFBA    0.4     ABCDE_FBA: A-Biologist-Can-Do-Everything of Flux Balanc...
-#&gt;  ABCoptim    0.15.0  Implementation of Artificial Bee Colony (ABC) Optimizat...
-#&gt;  ABCp2       1.2     Approximate Bayesian Computational Model for Estimating...
-#&gt;  abcrf       1.7.1   Approximate Bayesian Computation via Random Forests       </div><div class='input'><span class='no'>l3</span><span class='kw'>[[</span><span class='fl'>1</span>]]</div><div class='output co'>#&gt; $name
-#&gt; [1] "A3"
-#&gt; 
-#&gt; $versions
-#&gt; $versions$`0.9.1`
-#&gt; $versions$`0.9.1`$Package
-#&gt; [1] "A3"
-#&gt; 
-#&gt; $versions$`0.9.1`$Type
-#&gt; [1] "Package"
-#&gt; 
-#&gt; $versions$`0.9.1`$Title
-#&gt; [1] "A3: Accurate, Adaptable, and Accessible Error Metrics for&lt;U+000a&gt;Predictive Models"
-#&gt; 
-#&gt; $versions$`0.9.1`$Version
-#&gt; [1] "0.9.1"
-#&gt; 
-#&gt; $versions$`0.9.1`$Date
-#&gt; [1] "2013-02-06"
-#&gt; 
-#&gt; $versions$`0.9.1`$Author
-#&gt; [1] "Scott Fortmann-Roe"
-#&gt; 
-#&gt; $versions$`0.9.1`$Maintainer
-#&gt; [1] "Scott Fortmann-Roe &lt;scottfr@berkeley.edu&gt;"
-#&gt; 
-#&gt; $versions$`0.9.1`$Description
-#&gt; [1] "This package supplies tools for tabulating and analyzing&lt;U+000a&gt;the results of predictive models. The methods employed are&lt;U+000a&gt;applicable to virtually any predictive model and make&lt;U+000a&gt;comparisons between different methodologies straightforward."
-#&gt; 
-#&gt; $versions$`0.9.1`$License
-#&gt; [1] "GPL (&gt;= 2)"
-#&gt; 
-#&gt; $versions$`0.9.1`$Depends
-#&gt; $versions$`0.9.1`$Depends$xtable
-#&gt; [1] "*"
-#&gt; 
-#&gt; $versions$`0.9.1`$Depends$pbapply
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $versions$`0.9.1`$Suggests
-#&gt; $versions$`0.9.1`$Suggests$randomForest
-#&gt; [1] "*"
-#&gt; 
-#&gt; $versions$`0.9.1`$Suggests$e1071
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $versions$`0.9.1`$Packaged
-#&gt; [1] "2013-02-06 16:46:12 UTC; scott"
-#&gt; 
-#&gt; $versions$`0.9.1`$Repository
-#&gt; [1] "CRAN"
-#&gt; 
-#&gt; $versions$`0.9.1`$`Date/Publication`
-#&gt; [1] "2013-02-07 10:00:27"
-#&gt; 
-#&gt; $versions$`0.9.1`$crandb_file_date
-#&gt; [1] "2013-02-07 04:00:29"
-#&gt; 
-#&gt; $versions$`0.9.1`$date
-#&gt; [1] "2013-02-07T10:00:27+00:00"
-#&gt; 
-#&gt; $versions$`0.9.1`$releases
-#&gt; [1] "2.15.3"
-#&gt; 
-#&gt; 
-#&gt; $versions$`0.9.2`
-#&gt; $versions$`0.9.2`$Package
-#&gt; [1] "A3"
-#&gt; 
-#&gt; $versions$`0.9.2`$Type
-#&gt; [1] "Package"
-#&gt; 
-#&gt; $versions$`0.9.2`$Title
-#&gt; [1] "A3: Accurate, Adaptable, and Accessible Error Metrics for&lt;U+000a&gt;Predictive Models"
-#&gt; 
-#&gt; $versions$`0.9.2`$Version
-#&gt; [1] "0.9.2"
-#&gt; 
-#&gt; $versions$`0.9.2`$Date
-#&gt; [1] "2013-03-24"
-#&gt; 
-#&gt; $versions$`0.9.2`$Author
-#&gt; [1] "Scott Fortmann-Roe"
-#&gt; 
-#&gt; $versions$`0.9.2`$Maintainer
-#&gt; [1] "Scott Fortmann-Roe &lt;scottfr@berkeley.edu&gt;"
-#&gt; 
-#&gt; $versions$`0.9.2`$Description
-#&gt; [1] "This package supplies tools for tabulating and analyzing&lt;U+000a&gt;the results of predictive models. The methods employed are&lt;U+000a&gt;applicable to virtually any predictive model and make&lt;U+000a&gt;comparisons between different methodologies straightforward."
-#&gt; 
-#&gt; $versions$`0.9.2`$License
-#&gt; [1] "GPL (&gt;= 2)"
-#&gt; 
-#&gt; $versions$`0.9.2`$Depends
-#&gt; $versions$`0.9.2`$Depends$R
-#&gt; [1] "&gt;= 2.15.0"
-#&gt; 
-#&gt; $versions$`0.9.2`$Depends$xtable
-#&gt; [1] "*"
-#&gt; 
-#&gt; $versions$`0.9.2`$Depends$pbapply
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $versions$`0.9.2`$Suggests
-#&gt; $versions$`0.9.2`$Suggests$randomForest
-#&gt; [1] "*"
-#&gt; 
-#&gt; $versions$`0.9.2`$Suggests$e1071
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $versions$`0.9.2`$Packaged
-#&gt; [1] "2013-03-26 18:58:12 UTC; scott"
-#&gt; 
-#&gt; $versions$`0.9.2`$Repository
-#&gt; [1] "CRAN"
-#&gt; 
-#&gt; $versions$`0.9.2`$`Date/Publication`
-#&gt; [1] "2013-03-26 19:58:40"
-#&gt; 
-#&gt; $versions$`0.9.2`$crandb_file_date
-#&gt; [1] "2013-03-26 14:58:40"
-#&gt; 
-#&gt; $versions$`0.9.2`$NeedsCompilation
-#&gt; [1] "no"
-#&gt; 
-#&gt; $versions$`0.9.2`$date
-#&gt; [1] "2013-03-26T19:58:40+00:00"
-#&gt; 
-#&gt; $versions$`0.9.2`$releases
-#&gt; [1] "3.0.0" "3.0.1" "3.0.2" "3.0.3" "3.1.0" "3.1.1"
-#&gt; 
-#&gt; 
-#&gt; $versions$`1.0.0`
-#&gt; $versions$`1.0.0`$Package
-#&gt; [1] "A3"
-#&gt; 
-#&gt; $versions$`1.0.0`$Type
-#&gt; [1] "Package"
-#&gt; 
-#&gt; $versions$`1.0.0`$Title
-#&gt; [1] "Accurate, Adaptable, and Accessible Error Metrics for Predictive\nModels"
-#&gt; 
-#&gt; $versions$`1.0.0`$Version
-#&gt; [1] "1.0.0"
-#&gt; 
-#&gt; $versions$`1.0.0`$Date
-#&gt; [1] "2015-08-15"
-#&gt; 
-#&gt; $versions$`1.0.0`$Author
-#&gt; [1] "Scott Fortmann-Roe"
-#&gt; 
-#&gt; $versions$`1.0.0`$Maintainer
-#&gt; [1] "Scott Fortmann-Roe &lt;scottfr@berkeley.edu&gt;"
-#&gt; 
-#&gt; $versions$`1.0.0`$Description
-#&gt; [1] "Supplies tools for tabulating and analyzing the results of predictive models. The methods employed are applicable to virtually any predictive model and make comparisons between different methodologies straightforward."
-#&gt; 
-#&gt; $versions$`1.0.0`$License
-#&gt; [1] "GPL (&gt;= 2)"
-#&gt; 
-#&gt; $versions$`1.0.0`$Depends
-#&gt; $versions$`1.0.0`$Depends$R
-#&gt; [1] "&gt;= 2.15.0"
-#&gt; 
-#&gt; $versions$`1.0.0`$Depends$xtable
-#&gt; [1] "*"
-#&gt; 
-#&gt; $versions$`1.0.0`$Depends$pbapply
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $versions$`1.0.0`$Suggests
-#&gt; $versions$`1.0.0`$Suggests$randomForest
-#&gt; [1] "*"
-#&gt; 
-#&gt; $versions$`1.0.0`$Suggests$e1071
-#&gt; [1] "*"
-#&gt; 
-#&gt; 
-#&gt; $versions$`1.0.0`$NeedsCompilation
-#&gt; [1] "no"
-#&gt; 
-#&gt; $versions$`1.0.0`$Packaged
-#&gt; [1] "2015-08-16 14:17:33 UTC; scott"
-#&gt; 
-#&gt; $versions$`1.0.0`$Repository
-#&gt; [1] "CRAN"
-#&gt; 
-#&gt; $versions$`1.0.0`$`Date/Publication`
-#&gt; [1] "2015-08-16 23:05:52"
-#&gt; 
-#&gt; $versions$`1.0.0`$crandb_file_date
-#&gt; [1] "2015-08-16 17:08:22"
-#&gt; 
-#&gt; $versions$`1.0.0`$date
-#&gt; [1] "2015-08-16T23:05:52+00:00"
-#&gt; 
-#&gt; $versions$`1.0.0`$releases
-#&gt; list()
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; $timeline
-#&gt; $timeline$`0.9.1`
-#&gt; [1] "2013-02-07T10:00:27+00:00"
-#&gt; 
-#&gt; $timeline$`0.9.2`
-#&gt; [1] "2013-03-26T19:58:40+00:00"
-#&gt; 
-#&gt; $timeline$`1.0.0`
-#&gt; [1] "2015-08-16T23:05:52+00:00"
-#&gt; 
-#&gt; 
-#&gt; $latest
-#&gt; [1] "1.0.0"
-#&gt; 
-#&gt; $title
-#&gt; [1] "Accurate, Adaptable, and Accessible Error Metrics for Predictive\nModels"
-#&gt; 
-#&gt; $archived
-#&gt; [1] FALSE
-#&gt; </div><div class='input'>
+    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
+<span class='co'># Get metadata about one package</span>
+<span class='fu'>cran_packages</span>(<span class='st'>"rhub"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 22
+#&gt;   Package Title Version `Authors@R` Description License LazyData URL  
+#&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;
+#&gt; 1 rhub    Conn… 1.1.1   "c(\nperso… "Run 'R CM… MIT + … true     http…
+#&gt; # … with 14 more variables: BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;,
+#&gt; #   Encoding &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,
+#&gt; #   Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;, Repository &lt;chr&gt;,
+#&gt; #   `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,
+#&gt; #   dependencies &lt;list&gt;</div><div class='input'><span class='co'># Get metadata about two packages</span>
+<span class='fu'>cran_packages</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rhub"</span>, <span class='st'>"testthat"</span>))</div><div class='output co'>#&gt; # A tibble: 2 x 23
+#&gt;   Package Title Version `Authors@R` Description License LazyData URL  
+#&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;
+#&gt; 1 rhub    Conn… 1.1.1   "c(\nperso… "Run 'R CM… MIT + … true     http…
+#&gt; 2 testth… Unit… 2.2.1   "c(\nperso… "Software … MIT + … &lt;NA&gt;     http…
+#&gt; # … with 15 more variables: BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;,
+#&gt; #   Encoding &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,
+#&gt; #   Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;, Repository &lt;chr&gt;,
+#&gt; #   `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,
+#&gt; #   dependencies &lt;list&gt;, Collate &lt;chr&gt;</div><div class='input'><span class='co'># Get metadata about two packages at given versions</span>
+<span class='fu'>cran_packages</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rhub@1.1.1"</span>, <span class='st'>"testthat@2.2.1"</span>, <span class='st'>"testthat@2.2.0"</span>))</div><div class='output co'>#&gt; # A tibble: 3 x 23
+#&gt;   Package Title Version `Authors@R` Description License LazyData URL  
+#&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;
+#&gt; 1 rhub    Conn… 1.1.1   "c(\nperso… "Run 'R CM… MIT + … true     http…
+#&gt; 2 testth… Unit… 2.2.1   "c(\nperso… "Software … MIT + … &lt;NA&gt;     http…
+#&gt; 3 testth… Unit… 2.2.0   "c(\nperso… "Software … MIT + … &lt;NA&gt;     http…
+#&gt; # … with 15 more variables: BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;,
+#&gt; #   Encoding &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,
+#&gt; #   Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;, Repository &lt;chr&gt;,
+#&gt; #   `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,
+#&gt; #   dependencies &lt;list&gt;, Collate &lt;chr&gt;</div><div class='input'><span class='co'># If a version does not exist nothing is returned</span>
+<span class='fu'>cran_packages</span>(<span class='st'>"rhub@notaversion"</span>)</div><div class='output co'>#&gt; NULL</div><div class='input'># }
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -507,13 +187,16 @@ If this is <code>TRUE</code>, then <code>format</code> must be
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

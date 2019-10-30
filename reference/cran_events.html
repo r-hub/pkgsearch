@@ -8,22 +8,25 @@
 
 <title>List of all CRAN events (new, updated, archived packages) — cran_events • pkgsearch</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -31,10 +34,11 @@
 
 
 
-<meta property="og:title" content="List of all CRAN events (new, updated, archived packages) — cran_events" />
 
+<meta property="og:title" content="List of all CRAN events (new, updated, archived packages) — cran_events" />
 <meta property="og:description" content="List of all CRAN events (new, updated, archived packages)" />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -46,6 +50,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -83,7 +88,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/r-hub/pkgsearch">
@@ -98,6 +102,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -109,13 +114,11 @@
     </div>
 
     <div class="ref-description">
-    
     <p>List of all CRAN events (new, updated, archived packages)</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -132,50 +135,50 @@
       <td><p>Whether to include package archivals.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>List of events.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>cran_events</span>()</div><div class='output co'>#&gt; CRAN events (events)-----------------------------------------------------------
-#&gt;  . When    Package  Version Title                                              
-#&gt;  + 3 hours dplyr    0.8.1   A Grammar of Data Manipulation                     
-#&gt;  + 3 hours btergm   1.9.4   Temporal Exponential Random Graph Models by Boot...
-#&gt;  + 3 hours c212     0.95    Methods for Detecting Safety Signals in Clinical...
-#&gt;  + 4 hours plm      2.0-0   Linear Models for Panel Data                       
-#&gt;  + 4 hours ergm     3.10.1  Fit, Simulate and Diagnose Exponential-Family Mo...
-#&gt;  + 4 hours ukgasapi 0.16    API for UK Gas Market Information                  
-#&gt;  + 5 hours pct      0.2.1   Propensity to Cycle Tool                           
-#&gt;  + 5 hours rticles  0.8     Article Formats for R Markdown                     
-#&gt;  + 5 hours tinytex  0.13    Helper Functions to Install and Maintain 'TeX Li...
-#&gt;  + 5 hours xaringan 0.10    Presentation Ninja                                 </div><div class='input'><span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; CRAN events (archivals)--------------------------------------------------------
-#&gt;  . When  Package         Version Title                                         
-#&gt;  - 1 day planor          1.4-1   Generation of Regular Factorial Designs       
-#&gt;  - 1 day packagefinder   0.1.2   Comfortable Search for R Packages on CRAN D...
-#&gt;  - 1 day nestedRanksTest 0.2     Mann-Whitney-Wilcoxon Test for Nested Ranks   
-#&gt;  - 1 day kmi             0.5.4   Kaplan-Meier Multiple Imputation for the An...
-#&gt;  - 1 day intReg          0.2-8   Interval Regression                           </div><div class='input'><span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; CRAN events (pkgreleases)------------------------------------------------------
-#&gt;  . When    Package Version Title                                               
-#&gt;  + 3 hours dplyr   0.8.1   A Grammar of Data Manipulation                      
-#&gt;  + 3 hours btergm  1.9.4   Temporal Exponential Random Graph Models by Boots...
-#&gt;  + 3 hours c212    0.95    Methods for Detecting Safety Signals in Clinical ...
-#&gt;  + 4 hours plm     2.0-0   Linear Models for Panel Data                        
-#&gt;  + 4 hours ergm    3.10.1  Fit, Simulate and Diagnose Exponential-Family Mod...</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
+<span class='fu'>cran_events</span>()</div><div class='output co'>#&gt; CRAN events (events)-----------------------------------------------------------
+#&gt;  . When    Package          Version Title                                      
+#&gt;  + 2 hours xaringan         0.13    Presentation Ninja                         
+#&gt;  + 3 hours sentometrics     0.7.5   An Integrated Framework for Textual Sent...
+#&gt;  + 3 hours tree.interpreter 0.1.0   Random Forest Prediction Decomposition a...
+#&gt;  + 4 hours contact          1.0.1   Creating Contact and Social Networks       
+#&gt;  + 4 hours tfprobability    0.8.0.0 Interface to 'TensorFlow Probability'      
+#&gt;  + 4 hours BinGSD           0.0.1   Calculation for Single Arm Group Sequent...
+#&gt;  + 4 hours corto            0.99.10 Inference of Gene Regulatory Networks      
+#&gt;  + 4 hours fsbrain          0.0.1   Managing and Visualizing Brain Surface D...
+#&gt;  + 4 hours spBFA            1.0     Spatial Bayesian Factor Analysis           
+#&gt;  + 4 hours SpatialNP        1.1-4   Multivariate Nonparametric Methods Based...</div><div class='input'><span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; CRAN events (archivals)--------------------------------------------------------
+#&gt;  . When     Package     Version Title                                          
+#&gt;  - 11 hours CRFCSD      2.0     Mixture Cure Generalized Odds Ratio Frailty ...
+#&gt;  - 11 hours boxoffice   1.3.0   Downloads Box Office Information for Given D...
+#&gt;  - 2 day    soilDB      2.3.5   Soil Database Interface                        
+#&gt;  - 2 day    sharpshootR 1.0     A Soil Survey Toolkit                          
+#&gt;  - 2 day    mssm        0.1.2   Multivariate State Space Models                </div><div class='input'><span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; CRAN events (pkgreleases)------------------------------------------------------
+#&gt;  . When    Package          Version Title                                      
+#&gt;  + 2 hours xaringan         0.13    Presentation Ninja                         
+#&gt;  + 3 hours sentometrics     0.7.5   An Integrated Framework for Textual Sent...
+#&gt;  + 3 hours tree.interpreter 0.1.0   Random Forest Prediction Decomposition a...
+#&gt;  + 4 hours contact          1.0.1   Creating Contact and Social Networks       
+#&gt;  + 4 hours tfprobability    0.8.0.0 Interface to 'TensorFlow Probability'      </div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -183,13 +186,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
