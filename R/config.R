@@ -22,7 +22,7 @@ get_config <- function(key) {
 }
 
 set_config <- function(key, value) {
-  pkgdata$config[[key]] <<- value
+  pkgdata$config[[key]] <- value
 }
 
 getset_config <- function(key, value, default, environment = NA) {
