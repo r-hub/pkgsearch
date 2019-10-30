@@ -1,0 +1,9 @@
+---
+output: html_document
+---
+
+```{r echo = FALSE}
+library(asciicast)
+cast <- read_cast("pkgsearch.cast")
+asciinema_player(cast)
+```
