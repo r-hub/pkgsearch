@@ -24,6 +24,7 @@ Imports:
     prettyunits
 Suggests:
     covr,
+    pingr (>= 2.0.0),
     testthat (>= 2.1.0),
     tibble
 Encoding: UTF-8

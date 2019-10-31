@@ -3,6 +3,8 @@ context("Public API")
 
 test_that("cran_package() works", {
 
+  skip_if_offline()
+
   r1 <- cran_package("igraph0")
 
   expect_equal(sort(names(r1)), sort(c("Author", "crandb_file_date", "date",
@@ -28,6 +30,8 @@ test_that("cran_package() works", {
 })
 
 test_that("cran_events() works", {
+
+  skip_if_offline()
 
   r1 <- cran_events()
   expect_true(is.null(names(r1)))
