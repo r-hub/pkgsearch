@@ -2,6 +2,7 @@
 context("Extracting data from CRAN")
 
 test_that("Listing CRAN packages", {
+  skip_if_offline()
   need_pkgs(c("assertthat", "testthat"))
   expect_equal(list_cran_packages(),
                list(current = c("assertthat", "testthat"),
@@ -49,6 +50,7 @@ test_that("Extract a file from a tarball", {
 })
 
 test_that("List tarballs for a package", {
+  skip_if_offline()
   need_pkgs(c("assertthat", "testthat", "igraph0"))
   expect_equal(
     list_tarballs("assertthat")[1],
@@ -68,6 +70,7 @@ test_that("List tarballs for a package", {
 })
 
 test_that("", {
+  skip_if_offline()
   need_pkgs(c("assertthat", "testthat", "igraph0"))
   desc <- get_descriptions("assertthat")
   expect_true(all(c("Package", "Version", "Title") %in% colnames(desc)))

@@ -2,7 +2,7 @@
 context("print")
 
 test_that("short", {
-  skip_on_cran()
+  skip_if_offline()
 
   x <- ps("csardi")
   out <- capture.output(print(x))
@@ -13,7 +13,7 @@ test_that("short", {
 })
 
 test_that("long", {
-  skip_on_cran()
+  skip_if_offline()
 
   x <- ps("csardi", "long")
   out <- capture.output(print(x))

@@ -2,7 +2,7 @@
 context("search")
 
 test_that("search", {
-  skip_on_cran()
+  skip_if_offline()
 
   x <- ps("csardi")
   expect_s3_class(x, "tbl_df")
@@ -29,7 +29,7 @@ test_that("more w/o previous search", {
 })
 
 test_that("again", {
-  skip_on_cran()
+  skip_if_offline()
 
   x <- ps("csardi")
   expect_equal(meta(s_data$prev_q)$format, "short")
@@ -48,7 +48,7 @@ test_that("again", {
 })
 
 test_that("more", {
-  skip_on_cran()
+  skip_if_offline()
 
   x <- ps("csardi")
   x2 <- more()
