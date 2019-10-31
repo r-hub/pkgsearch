@@ -4,7 +4,7 @@
 \name{pkgsearch-package}
 \alias{pkgsearch}
 \alias{pkgsearch-package}
-\title{pkgsearch: Search CRAN R Packages and get their metadata}
+\title{pkgsearch: Search and Query CRAN R Packages}
 \description{
 Get/search CRAN metadata about packages by keyword, popularity,
   recent activity, package name and more. Uses the 'R-hub' search server,

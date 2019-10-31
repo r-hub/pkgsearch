@@ -16,9 +16,7 @@ options(width = 90)
 options(max.print = 200)
 ```
 
-# pkgsearch: Search and Query CRAN R Packages
-
-> Get/search CRAN metadata about packages by keyword, popularity, recent activity, package name and more.
+# Search and Query CRAN R Packages
 
 <!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)

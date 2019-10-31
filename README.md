@@ -1,11 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pkgsearch: Search and Query CRAN R Packages
-
-> Get/search CRAN metadata about packages by keyword, popularity, recent
-> activity, package name and
-more.
+# Search and Query CRAN R Packages
 
 <!-- badges: start -->
 
