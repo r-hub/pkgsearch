@@ -16,7 +16,7 @@ options(width = 90)
 options(max.print = 200)
 ```
 
-# Search CRAN R Packages and get their metadata
+# Search and Query CRAN R Packages
 
 <!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)

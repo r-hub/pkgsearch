@@ -1,5 +1,5 @@
 Package: pkgsearch
-Title: Search CRAN R Packages and get their metadata
+Title: Search and Query CRAN R Packages
 Version: 2.0.1.9000
 Authors@R: c(person("Gábor", "Csárdi", email = "csardi.gabor@gmail.com",
 	     role = c("aut", "cre")),

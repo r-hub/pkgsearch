@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Search CRAN R Packages and get their metadata
+# Search and Query CRAN R Packages
 
 <!-- badges: start -->
 
