@@ -226,7 +226,8 @@ rectangle_description <- function(description_list) {
 
 idesc_get_deps <- function(description_list) {
 
-  types <- intersect(names(description_list), dep_types())
+  types <- intersect(names(description_list)[lengths(description_list) > 0], 
+                     dep_types())
   res <- lapply(
     types,
     function(type) parse_deps(type, description_list[type])
