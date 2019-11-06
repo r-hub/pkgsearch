@@ -92,10 +92,19 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
         wired <<- c(wired, id)
         observeEvent(input[[id]], action_cran("search", i))
       }
+    })
+    lapply(1:10, function(i) {
       id <- paste0("btn-search-", i, "-metacran")
       if (! id %in% wired) {
         wired <<- c(wired, id)
         observeEvent(input[[id]], action_metacran("search", i))
+      }
+    })
+    lapply(1:10, function(i) {
+      id <- paste0("btn-search-", i, "-source")
+      if (! id %in% wired) {
+        wired <<- c(wired, id)
+        observeEvent(input[[id]], action_source("search", i))
       }
     })
   }
@@ -142,6 +151,10 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
             actionButton(
               paste0("btn-", id, "-metacran"),
               label = "View on METACRAN (external)",
+            ),
+            actionButton(
+              paste0("btn-", id, "-source"),
+              label = "Browse source code (external)"
             ),
             actionButton(
               paste0("btn-", id, "-install"),
@@ -191,6 +204,12 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
   action_metacran <- function(set, row) {
     package <- data[[set]]$package[[row]]
     url <- paste0("https://r-pkg.org/pkg/", package)
+    browseURL(url)
+  }
+
+  action_source <- function(set, row) {
+    package <- data[[set]]$package[[row]]
+    url <- paste0("https://github.com/cran/", package)
     browseURL(url)
   }
 
