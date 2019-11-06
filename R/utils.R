@@ -190,3 +190,14 @@ download_method <- function() {
   if (is.na(capabilities()["libcurl"])) "internal" else "libcurl"
 }
 
+needs_packages <- function(pkgs) {
+  for (pkg in pkgs) {
+    if (!requireNamespace(pkg, quietly = TRUE)) {
+      stop("The ", pkg, " package is needed for this addin to work.")
+    }
+  }
+}
+
+clean_description <- function(txt) {
+  gsub("<U+000a>", " ", txt, fixed = TRUE)
+}
