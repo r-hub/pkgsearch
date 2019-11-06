@@ -20,17 +20,15 @@ Imports:
     jsonlite,
     magrittr,
     methods,
-    miniUI,
     parsedate,
     prettyunits,
     tibble
 Suggests:
     covr,
-    DT,
-    miniUI,
     pingr (>= 2.0.0),
     rstudioapi,
     shiny,
+    shinyWidgets,
     testthat (>= 2.1.0)
 Encoding: UTF-8
 RoxygenNote: 6.1.99.9001
