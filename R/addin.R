@@ -142,28 +142,28 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
           shinyWidgets::dropdownButton(
             actionButton(
               paste0("btn-", id, "-home"),
-              label = "View home page (external)"
+              label = "View home page (in browser)"
             ),
             actionButton(
               paste0("btn-", id, "-cran"),
-              label = "View on CRAN (external)"
+              label = "View on CRAN (in browser)"
             ),
             actionButton(
               paste0("btn-", id, "-metacran"),
-              label = "View on METACRAN (external)",
+              label = "View on METACRAN (in browser)",
             ),
             actionButton(
               paste0("btn-", id, "-source"),
-              label = "Browse source code (external)"
+              label = "Browse source code (in browser)"
             ),
-            actionButton(
-              paste0("btn-", id, "-install"),
-              label = "Install, with dependencies"
-            ),
-            actionButton(
-              paste0("btn-", id, "-bug"),
-              label = "Report a bug about this package"
-            ),
+            # actionButton(
+            #   paste0("btn-", id, "-install"),
+            #   label = "Install, with dependencies"
+            # ),
+            # actionButton(
+            #  paste0("btn-", id, "-bug"),
+            #  label = "Report a bug about this package"
+            #),
             label = record$package,
             circle = FALSE,
             inline = TRUE,
