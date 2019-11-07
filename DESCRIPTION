@@ -32,6 +32,7 @@ Suggests:
     rmarkdown,
     rstudioapi,
     shiny,
+    shinyjs,
     shinyWidgets,
     testthat (>= 2.1.0)
 >>>>>>> fcc7aa8... Refactor addin

@@ -4,14 +4,16 @@
 \alias{cran_events}
 \title{List of all CRAN events (new, updated, archived packages)}
 \usage{
-cran_events(limit = 10, releases = TRUE, archivals = TRUE)
+cran_events(releases = TRUE, archivals = TRUE, limit = 10, from = 1)
 }
 \arguments{
-\item{limit}{Number of events to list.}
-
 \item{releases}{Whether to include package releases.}
 
 \item{archivals}{Whether to include package archivals.}
+
+\item{limit}{Number of events to list.}
+
+\item{from}{Where to start the list, for pagination.}
 }
 \value{
 List of events.
