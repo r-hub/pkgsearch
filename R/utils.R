@@ -48,6 +48,10 @@ map_chr <- function(.x, .f, ...) {
   map_mold(.x, .f, character(1), ...)
 }
 
+map_lgl <- function(.x, .f, ...) {
+  map_mold(.x, .f, logical(1), ...)
+}
+
 meta <- function(x) {
   attr(x, "metadata")
 }
@@ -200,4 +204,8 @@ needs_packages <- function(pkgs) {
 
 clean_description <- function(txt) {
   gsub("<U+000a>", " ", txt, fixed = TRUE)
+}
+
+zap_null <- function(x) {
+  x[! map_lgl(x, is.null)]
 }

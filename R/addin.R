@@ -3,8 +3,11 @@
 
 pkg_search_addin <- function(viewer = c("dialog", "browser")) {
 
-  data <- list()
   wired <- character()
+  data <- list(
+    `cnt-search-next` = 0L,
+    `cnt-search-prev` = 0L
+  )
 
   needs_packages(c("shiny", "shinyWidgets"))
 
@@ -31,11 +34,15 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
   }
 
   searchResults <- function(id) {
-    htmlOutput(paste0("results-", id))
+    shiny::htmlOutput(paste0("results-", id))
   }
 
   styles <- function() {
-    HTML(".packagename {
+    shiny::HTML("
+          .packagetitlerow span {
+            vertical-align: middle;
+          }
+          .packagename {
             margin-top: 20px;
           }
           .packagename .dropdown-menu {
@@ -66,6 +73,10 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
             font-size: 110%;
             margin-bottom: 5px;
           }
+          .paginate {
+            padding-top: 10px;
+            padding-bottom: 10px;
+          }
           "
         )
   }
@@ -76,16 +87,27 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
     shiny::tabPanel("New packages", shiny::tableOutput("table")),
     shiny::tabPanel("Top packages", shiny::tableOutput("table2")),
     shiny::tabPanel("My packages", shiny::tableOutput("table3")),
-    header = tags$head(tags$style(styles()))
+    header = shiny::tags$head(shiny::tags$style(styles()))
+  )
+
+  reactives <- reactiveValues(
+    "search-next" = 0L,
+    "search-prev" = 0L
   )
 
   server <- function(input, output, session) {
-    output$`results-search` <-
-      shiny::renderUI(simple_search(input$`query-search`))
-    wire_menu(input)
+    output$`results-search` <- shiny::renderUI({
+      simple_search(
+        input$`query-search`,
+        reactives$`search-prev`,
+        reactives$`search-next`
+      )
+    })
+
+    wire_menu(input, output)
   }
 
-  wire_menu <- function(input) {
+  wire_menu <- function(input, output) {
     lapply(1:10, function(i) {
       id <- paste0("btn-search-", i, "-cran")
       if (! id %in% wired) {
@@ -107,6 +129,22 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
         observeEvent(input[[id]], action_source("search", i))
       }
     })
+    if (! "search-prev" %in% wired) {
+      wired <<- c(wired, "search-prev")
+      observeEvent(
+        input$`search-prev`, isolate({
+          reactives$`search-prev` <- reactives$`search-prev` + 1
+        })
+      )
+    }
+    if (! "search-next" %in% wired) {
+      wired <<- c(wired, "search-next")
+      observeEvent(
+        input$`search-next`, isolate({
+          reactives$`search-next` <- reactives$`search-next` + 1
+        })
+      )
+    }
   }
 
   format_results <- function(results, id) {
@@ -122,12 +160,31 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
     )
     pkgs <- lapply(
       seq_len(nrow(results)),
-      function(i) format_pkg(results[i,], paste0(id, "-", i))
+      function(i) format_pkg(results[i,], id, i, meta$from)
     )
-    do.call(shiny::div, c(list(div(took)), pkgs))
+    paginate <- format_paginate(results, id)
+
+    do.call(
+      shiny::div,
+      c(list(div(took)),
+        pkgs,
+        list(shiny::div(paginate, class = "paginate"))
+      )
+    )
   }
 
-  format_pkg <- function(record, id) {
+  format_paginate <- function(results, id) {
+    meta <- attr(results, "metadata")
+    has_prev <- meta$from != 1
+    has_next <- meta$from + nrow(results) - 1L < meta$total
+    btns <- zap_null(list(
+      if (has_prev) actionButton(paste0(id, "-prev"), "Previous"),
+      if (has_next) actionButton(paste0(id, "-next"), "Next")
+    ))
+    btns
+  }
+
+  format_pkg <- function(record, id, num, from) {
     by <- paste0(
       "\u2014 version ",
       record$version,
@@ -138,30 +195,32 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
     )
     p(
       div(
+        class = "packagetitlerow",
+        span(paste0(from + num - 1L, ". ")),
         span(
           shinyWidgets::dropdownButton(
             actionButton(
-              paste0("btn-", id, "-home"),
+              paste0("btn-", id, "-", num, "-home"),
               label = "View home page (in browser)"
             ),
             actionButton(
-              paste0("btn-", id, "-cran"),
+              paste0("btn-", id, "-", num, "-cran"),
               label = "View on CRAN (in browser)"
             ),
             actionButton(
-              paste0("btn-", id, "-metacran"),
+              paste0("btn-", id, "-", num, "-metacran"),
               label = "View on METACRAN (in browser)",
             ),
             actionButton(
-              paste0("btn-", id, "-source"),
+              paste0("btn-", id, "-", num, "-source"),
               label = "Browse source code (in browser)"
             ),
             # actionButton(
-            #   paste0("btn-", id, "-install"),
+            #   paste0("btn-", id, "-", num, -install"),
             #   label = "Install, with dependencies"
             # ),
             # actionButton(
-            #  paste0("btn-", id, "-bug"),
+            #  paste0("btn-", id, "-", num, "-bug"),
             #  label = "Report a bug about this package"
             #),
             label = record$package,
@@ -188,9 +247,27 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
     )
   }
 
-  simple_search <- function(query) {
+  simple_search <- function(query, btn_prev, btn_next) {
+
+    # Create dependencies
+    btn_next
+    btn_prev
+
+    if (identical(query, meta(data$search)$query)) {
+      if (btn_next > data$`cnt-search-next`) {
+        from <- meta(data$search)$from + meta(data$search)$size
+        data$`cnt-search-next` <<- btn_next
+      } else {
+        from <- meta(data$search)$from - meta(data$search)$size
+        data$`cnt-search-prev` <<- btn_prev
+      }
+    } else {
+      from <- 1
+    }
+
     if (is.null(query) || nchar(query) == 0) return(NULL)
-    result <- pkg_search(query)
+
+    result <- pkg_search(query, from = from)
     data$search <<- result
     format_results(result, "search")
   }
