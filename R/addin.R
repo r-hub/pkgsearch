@@ -1,4 +1,12 @@
 
+#' RStudio addin to search CRAN packages
+#'
+#' Call this function from RStudio.
+#'
+#' @param query Query string to start the addin with.
+#' @param viewer Whether to show the addin within RStudio (`"dialog"`),
+#'   or in a web browser (`"browser"`).
+#'
 #' @export
 
 pkg_search_addin <- function(
