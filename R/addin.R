@@ -5,11 +5,13 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
 
   wired <- character()
   data <- list(
+    `cnt-search-prev` = 0L,
     `cnt-search-next` = 0L,
-    `cnt-search-prev` = 0L
+    `cnt-new-prev`    = 0L,
+    `cnt-new-next`    = 0L
   )
 
-  needs_packages(c("shiny", "shinyWidgets"))
+  needs_packages(c("shiny", "shinyWidgets", "shinyjs"))
 
   if (is.character(viewer)) {
     mode <- match.arg(viewer)
@@ -39,9 +41,6 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
 
   styles <- function() {
     shiny::HTML("
-          .packagetitlerow span {
-            vertical-align: middle;
-          }
           .packagename {
             margin-top: 20px;
           }
@@ -84,80 +83,91 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
   ui <- shiny::navbarPage("Package search",
     shiny::tabPanel("Search", searchQuery("search"), searchResults("search")),
     shiny::tabPanel("Advanced search", shiny::verbatimTextOutput("summary")),
-    shiny::tabPanel("New packages", shiny::tableOutput("table")),
+    shiny::tabPanel("New packages", searchResults("new")),
     shiny::tabPanel("Top packages", shiny::tableOutput("table2")),
     shiny::tabPanel("My packages", shiny::tableOutput("table3")),
-    header = shiny::tags$head(shiny::tags$style(styles()))
+    header = shiny::tagList(
+      shiny::tags$head(shiny::tags$style(styles())),
+      shinyjs::useShinyjs()
+    )
   )
 
-  reactives <- reactiveValues(
+  reactives <- shiny::reactiveValues(
+    "search-prev" = 0L,
     "search-next" = 0L,
-    "search-prev" = 0L
+    "new-prev" = 0L,
+    "new-next" = 0L
   )
 
   server <- function(input, output, session) {
     output$`results-search` <- shiny::renderUI({
-      simple_search(
+      ret <- simple_search(
         input$`query-search`,
         reactives$`search-prev`,
         reactives$`search-next`
       )
+      shinyjs::runjs("window.scrollTo(0, 0)")
+      ret
+    })
+
+    output$`results-new` <- shiny::renderUI({
+      ret <- new_search(
+        reactives$`new-prev`,
+        reactives$`new-next`
+      )
+      shinyjs::runjs("window.scrollTo(0, 0)")
+      ret
     })
 
     wire_menu(input, output)
   }
 
   wire_menu <- function(input, output) {
-    lapply(1:10, function(i) {
-      id <- paste0("btn-search-", i, "-cran")
-      if (! id %in% wired) {
-        wired <<- c(wired, id)
-        observeEvent(input[[id]], action_cran("search", i))
+    lapply(c("search", "new"), function(tab) {
+      lapply(1:10, function(i) {
+        id <- paste0("btn-", tab, "-", i, "-cran")
+        if (! id %in% wired) {
+          wired <<- c(wired, id)
+          shiny::observeEvent(input[[id]], action_cran(tab, i))
+        }
+      })
+      lapply(1:10, function(i) {
+        id <- paste0("btn-", tab, "-", i, "-metacran")
+        if (! id %in% wired) {
+          wired <<- c(wired, id)
+          shiny::observeEvent(input[[id]], action_metacran(tab, i))
+        }
+      })
+      lapply(1:10, function(i) {
+        id <- paste0("btn-", tab, "-", i, "-source")
+        if (! id %in% wired) {
+          wired <<- c(wired, id)
+          shiny::observeEvent(input[[id]], action_source(tab, i))
+        }
+      })
+      id1 <- paste0(tab, "-prev")
+      if (! id1 %in% wired) {
+        wired <<- c(wired, id1)
+        shiny::observeEvent(
+          input[[id1]],
+          shiny::isolate(reactives[[id1]] <- reactives[[id1]] + 1)
+        )
+      }
+      id2 <- paste0(tab, "-next")
+      if (! id2 %in% wired) {
+        wired <<- c(wired, id2)
+        shiny::observeEvent(
+          input[[id2]],
+          shiny::isolate(reactives[[id2]] <- reactives[[id2]] + 1)
+        )
       }
     })
-    lapply(1:10, function(i) {
-      id <- paste0("btn-search-", i, "-metacran")
-      if (! id %in% wired) {
-        wired <<- c(wired, id)
-        observeEvent(input[[id]], action_metacran("search", i))
-      }
-    })
-    lapply(1:10, function(i) {
-      id <- paste0("btn-search-", i, "-source")
-      if (! id %in% wired) {
-        wired <<- c(wired, id)
-        observeEvent(input[[id]], action_source("search", i))
-      }
-    })
-    if (! "search-prev" %in% wired) {
-      wired <<- c(wired, "search-prev")
-      observeEvent(
-        input$`search-prev`, isolate({
-          reactives$`search-prev` <- reactives$`search-prev` + 1
-        })
-      )
-    }
-    if (! "search-next" %in% wired) {
-      wired <<- c(wired, "search-next")
-      observeEvent(
-        input$`search-next`, isolate({
-          reactives$`search-next` <- reactives$`search-next` + 1
-        })
-      )
-    }
   }
 
   format_results <- function(results, id) {
     if (is.null(results)) return(NULL)
     meta <- attr(results, "metadata")
-    took <- paste0(
-      "Found ",
-      meta$total,
-      if (meta$total == 1) " package " else " packages ",
-      "in ",
-      round(meta$took / 1000, 3),
-      " seconds"
-    )
+    took <- format_took(results)
     pkgs <- lapply(
       seq_len(nrow(results)),
       function(i) format_pkg(results[i,], id, i, meta$from)
@@ -166,10 +176,27 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
 
     do.call(
       shiny::div,
-      c(list(div(took)),
+      c(list(shiny::div(took)),
         pkgs,
         list(shiny::div(paginate, class = "paginate"))
       )
+    )
+  }
+
+  format_took <- function(results) {
+    meta <- meta(results)
+    page <- if (meta$from != 1) {
+      paste0("Page ", (meta$from - 1)/meta$size + 1)
+    }
+    if (is.null(meta$took)) return(page)
+
+    paste0(
+      if (meta$from != 1) paste0(page, " of "),
+      meta$total,
+      if (meta$total == 1) " package, " else " packages, ",
+      "found in ",
+      round(meta$took / 1000, 3),
+      " seconds"
     )
   }
 
@@ -178,8 +205,8 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
     has_prev <- meta$from != 1
     has_next <- meta$from + nrow(results) - 1L < meta$total
     btns <- zap_null(list(
-      if (has_prev) actionButton(paste0(id, "-prev"), "Previous"),
-      if (has_next) actionButton(paste0(id, "-next"), "Next")
+      if (has_prev) shiny::actionButton(paste0(id, "-prev"), "Previous"),
+      if (has_next) shiny::actionButton(paste0(id, "-next"), "Next")
     ))
     btns
   }
@@ -193,33 +220,32 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
       ", ",
       time_ago(record$date)
     )
-    p(
-      div(
+    shiny::p(
+      shiny::div(
         class = "packagetitlerow",
-        span(paste0(from + num - 1L, ". ")),
-        span(
+        shiny::span(
           shinyWidgets::dropdownButton(
-            actionButton(
+            shiny::actionButton(
               paste0("btn-", id, "-", num, "-home"),
               label = "View home page (in browser)"
             ),
-            actionButton(
+            shiny::actionButton(
               paste0("btn-", id, "-", num, "-cran"),
               label = "View on CRAN (in browser)"
             ),
-            actionButton(
+            shiny::actionButton(
               paste0("btn-", id, "-", num, "-metacran"),
               label = "View on METACRAN (in browser)",
             ),
-            actionButton(
+            shiny::actionButton(
               paste0("btn-", id, "-", num, "-source"),
               label = "Browse source code (in browser)"
             ),
-            # actionButton(
+            # shiny::actionButton(
             #   paste0("btn-", id, "-", num, -install"),
             #   label = "Install, with dependencies"
             # ),
-            # actionButton(
+            # shiny::actionButton(
             #  paste0("btn-", id, "-", num, "-bug"),
             #  label = "Report a bug about this package"
             #),
@@ -232,16 +258,16 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
           ),
           class = "packagename"
         ),
-        span(by, class = "packageauthor")
+        shiny::span(by, class = "packageauthor")
       ),
-      div(
-        div(record$title, class = "packagetitle"),
-        div(
+      shiny::div(
+        shiny::div(record$title, class = "packagetitle"),
+        shiny::div(
           clean_description(record$description),
           class = "packagedescription"
         ),
         if (!is.na(record$url)) {
-          div(HTML(highlight_urls(record$url)), class = "packageurl")
+          shiny::div(shiny::HTML(highlight_urls(record$url)), class = "packageurl")
         }
       )
     )
@@ -272,22 +298,64 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
     format_results(result, "search")
   }
 
+  new_search <- function(btn_prev, btn_next) {
+
+    btn_prev
+    btn_next
+
+    if (btn_next > data$`cnt-new-next`) {
+      from <- meta(data$new)$from + meta(data$new)$size
+      data$`cnt-new-next` <<- btn_next
+    } else if (btn_prev > data$`cnt-new-prev`) {
+      from <- meta(data$new)$from - meta(data$new)$size
+      data$`cnt-new-prev` <<- btn_prev
+    } else {
+      from <- 1
+    }
+
+    result <- rectangle_events(cran_events(archivals = FALSE, from = from))
+    attr(result, "metadata") <- list(from = from, size = 10, total = 15000)
+    data$new <<- result
+    format_results(result, "new")
+  }
+
+  rectangle_events <- function(ev) {
+    maintainer <- map_chr(ev, function(x) x$package$Maintainer)
+    tibble::tibble(
+      package =          map_chr(ev, function(x) x$package$Package),
+      version =          map_chr(ev, function(x) x$package$Version),
+      title =            map_chr(ev, function(x) x$package$Title),
+      description =      map_chr(ev, function(x) x$package$Description),
+      date =
+        parsedate::parse_iso_8601(map_chr(ev, "[[", "date")),
+      maintainer_name =  gsub("\\s+<.*$", "", maintainer),
+      maintainer_email =
+        gsub("^.*<([^>]+)>.*$", "\\1", maintainer, perl = TRUE),
+      license =          map_chr(ev, function(x) x$package$License),
+      url =
+        map_chr(ev, function(x) x$package$URL %||% NA_character_),
+      bugreports =
+        map_chr(ev, function(x) x$package$BugReports %||% NA_character_),
+      package_data =     map(ev, "[[", "package")
+    )
+  }
+
   action_cran <- function(set, row) {
     package <- data[[set]]$package[[row]]
     url <- paste0("https://cloud.r-project.org/package=", package)
-    browseURL(url)
+    utils::browseURL(url)
   }
 
   action_metacran <- function(set, row) {
     package <- data[[set]]$package[[row]]
     url <- paste0("https://r-pkg.org/pkg/", package)
-    browseURL(url)
+    utils::browseURL(url)
   }
 
   action_source <- function(set, row) {
     package <- data[[set]]$package[[row]]
     url <- paste0("https://github.com/cran/", package)
-    browseURL(url)
+    utils::browseURL(url)
   }
 
   shiny::runGadget(ui, server, viewer = viewer)

@@ -28,6 +28,7 @@ Suggests:
     pingr (>= 2.0.0),
     rstudioapi,
     shiny,
+    shinyjs,
     shinyWidgets,
     testthat (>= 2.1.0)
 Encoding: UTF-8
