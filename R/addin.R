@@ -1,7 +1,11 @@
 
 #' @export
 
-pkg_search_addin <- function(viewer = c("dialog", "browser")) {
+pkg_search_addin <- function(
+  query = "",
+  viewer = c("dialog", "browser")) {
+
+  query
 
   wired <- character()
   data <- list(
@@ -30,7 +34,7 @@ pkg_search_addin <- function(viewer = c("dialog", "browser")) {
     shiny::textInput(
       paste0("query-", id),
       label = NULL,
-      value = "",
+      value = query,
       placeholder = "Write your search query here..."
     )
   }
