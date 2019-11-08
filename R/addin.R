@@ -14,6 +14,7 @@ pkg_search_addin <- function(
   viewer = c("dialog", "browser")) {
 
   query
+  maint <- whoami::email_address(fallback = "")
 
   wired <- character()
   data <- list(
@@ -26,10 +27,12 @@ pkg_search_addin <- function(
     `cnt-topdep-prev` = 0L,
     `cnt-topdep-next` = 0L,
     `cnt-trend-prev` = 0L,
-    `cnt-trend-next` = 0L
+    `cnt-trend-next` = 0L,
+    `cnt-maint-prev` = 0L,
+    `cnt-maint-next` = 0L
   )
 
-  needs_packages(c("memoise", "shiny", "shinyjs", "shinyWidgets"))
+  needs_packages(c("memoise", "shiny", "shinyjs", "shinyWidgets", "whoami"))
 
   if (is.character(viewer)) {
     mode <- match.arg(viewer)
@@ -53,6 +56,15 @@ pkg_search_addin <- function(
     )
   }
 
+  maintQuery <- function() {
+    shiny::textInput(
+      "query-maint",
+      label = "Maintainer email address",
+      value = maint,
+      placeholder = "Write your email address here..."
+    )
+  }
+
   searchResults <- function(id) {
     shiny::htmlOutput(paste0("results-", id))
   }
@@ -66,7 +78,7 @@ pkg_search_addin <- function(
       tabPanel("Most depended upon", searchResults("topdep")),
       tabPanel("Trending", searchResults("trend"))
     ),
-    shiny::tabPanel("My packages", shiny::tableOutput("table3")),
+    shiny::tabPanel("My packages", maintQuery(), searchResults("maint")),
     header = shiny::tagList(
       shiny::tags$head(shiny::tags$style(addin_styles())),
       shinyjs::useShinyjs()
@@ -83,7 +95,9 @@ pkg_search_addin <- function(
     "topdep-prev" = 0L,
     "topdep-next" = 0L,
     "trend-prev" = 0L,
-    "trend-next" = 0L
+    "trend-next" = 0L,
+    "maint-prev" = 0L,
+    "maint-next" = 0L
   )
 
   server <- function(input, output, session) {
@@ -133,11 +147,22 @@ pkg_search_addin <- function(
       ret
     })
 
+    output$`results-maint` <- shiny::renderUI({
+      ret <- maint_search(
+        input$`query-maint`,
+        reactives$`maint-prev`,
+        reactives$`maint-next`
+      )
+      shinyjs::runjs("window.scrollTo(0, 0)")
+      ret
+    })
+
     wire_menu(input, output)
   }
 
   wire_menu <- function(input, output) {
-    lapply(c("search", "new", "topdl", "topdep", "trend"), function(tab) {
+    tabs <- c("search", "new", "topdl", "topdep", "trend", "maint")
+    lapply(tabs, function(tab) {
       lapply(1:10, function(i) {
         id <- paste0("btn-", tab, "-", i, "-cran")
         if (! id %in% wired) {
@@ -332,6 +357,61 @@ pkg_search_addin <- function(
   }
 
   get_trend <- memoise::memoise(get_trend0, ~ memoise::timeout(60 * 60))
+
+  maint_search <- function(query, btn_prev, btn_next) {
+
+    # Create dependencies
+    btn_next
+    btn_prev
+
+    if (identical(query, meta(data$maint)$query)) {
+      if (btn_next > data$`cnt-maint-next`) {
+        from <- meta(data$maint)$from + meta(data$maint)$size
+        data$`cnt-maint-next` <<- btn_next
+      } else {
+        from <- meta(data$maint)$from - meta(data$maint)$size
+        data$`cnt-maint-prev` <<- btn_prev
+      }
+    } else {
+      from <- 1
+    }
+
+    if (is.null(query) || nchar(query) == 0) return(NULL)
+
+    result <- get_maint(query, from = from)
+    data$maint <<- result
+    format_results(result, "maint")
+  }
+
+  get_maint_data0 <- function(query) {
+    ep <- "/-/maintainer"
+    keys <- trim(strsplit(query, ",", fixed = TRUE)[[1]])
+    keys <- map_chr(keys, utils::URLencode)
+    keys <- paste0('"', keys, '"', collapse = ",")
+    url <- paste0(ep, "?keys=[", keys, "]")
+    ret <- query(url)
+    tibble::tibble(email = ret[,1], package = ret[,2])
+  }
+
+  get_maint_data <- memoise::memoise(
+    get_maint_data0,
+    ~ memoise::timeout(60 * 60)
+  )
+
+  get_maint0 <- function(query, from) {
+    mine <- get_maint_data(query)
+    pkgs <- cran_packages(mine$package[from:(from + 10 - 1)])
+    result <- rectangle_pkgs(pkgs)
+    attr(result, "metadata") <- list(
+      from = from,
+      size = 10,
+      total = nrow(mine),
+      query = query
+    )
+    result
+  }
+
+  get_maint <- memoise::memoise(get_maint0, ~ memoise::timeout(60 * 60))
 
   action_cran <- function(set, row) {
     package <- data[[set]]$package[[row]]
