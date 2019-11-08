@@ -22,7 +22,11 @@ pkg_search_addin <- function(
     `cnt-new-prev`    = 0L,
     `cnt-new-next`    = 0L,
     `cnt-topdl-prev`  = 0L,
-    `cnt-topdl-next`  = 0L
+    `cnt-topdl-next`  = 0L,
+    `cnt-topdep-prev` = 0L,
+    `cnt-topdep-next` = 0L,
+    `cnt-trend-prev` = 0L,
+    `cnt-trend-next` = 0L
   )
 
   needs_packages(c("memoise", "shiny", "shinyjs", "shinyWidgets"))
@@ -58,9 +62,9 @@ pkg_search_addin <- function(
     shiny::tabPanel("Advanced search", searchResults("advanced")),
     shiny::tabPanel("New packages", searchResults("new")),
     shiny::navbarMenu("Top packages",
-      tabPanel("Top downloaded", searchResults("topdl")),
+      tabPanel("Most downloaded", searchResults("topdl")),
       tabPanel("Most depended upon", searchResults("topdep")),
-      tabPanel("Trending packages", searchResults("toptrend"))
+      tabPanel("Trending", searchResults("trend"))
     ),
     shiny::tabPanel("My packages", shiny::tableOutput("table3")),
     header = shiny::tagList(
@@ -75,7 +79,11 @@ pkg_search_addin <- function(
     "new-prev" = 0L,
     "new-next" = 0L,
     "topdl-prev" = 0L,
-    "topdl-next" = 0L
+    "topdl-next" = 0L,
+    "topdep-prev" = 0L,
+    "topdep-next" = 0L,
+    "trend-prev" = 0L,
+    "trend-next" = 0L
   )
 
   server <- function(input, output, session) {
@@ -107,11 +115,29 @@ pkg_search_addin <- function(
       ret
     })
 
+    output$`results-topdep` <- shiny::renderUI({
+      ret <- topdep_search(
+        reactives$`topdep-prev`,
+        reactives$`topdep-next`
+      )
+      shinyjs::runjs("window.scrollTo(0, 0)")
+      ret
+    })
+
+    output$`results-trend` <- shiny::renderUI({
+      ret <- trend_search(
+        reactives$`trend-prev`,
+        reactives$`trend-next`
+      )
+      shinyjs::runjs("window.scrollTo(0, 0)")
+      ret
+    })
+
     wire_menu(input, output)
   }
 
   wire_menu <- function(input, output) {
-    lapply(c("search", "new", "topdl"), function(tab) {
+    lapply(c("search", "new", "topdl", "topdep", "trend"), function(tab) {
       lapply(1:10, function(i) {
         id <- paste0("btn-", tab, "-", i, "-cran")
         if (! id %in% wired) {
@@ -219,8 +245,93 @@ pkg_search_addin <- function(
     format_results(result, "topdl")
   }
 
+  cran_top_dl <- memoise::memoise(
+    cran_top_downloaded,
+    ~ memoise::timeout(60 * 60)
+  )
+
+  get_topdl0 <- function(from) {
+    dl <- cran_top_dl()
+    pkgs <- cran_packages(dl$package[from:(from + 10 - 1)])
+    rectangle_pkgs(pkgs)
+  }
+
   # Cache the top downloaded packages for one hour
   get_topdl <- memoise::memoise(get_topdl0, ~ memoise::timeout(60 * 60))
+
+  topdep_search <- function(btn_prev, btn_next) {
+
+    btn_prev
+    btn_next
+
+    if (btn_next > data$`cnt-topdep-next`) {
+      from <- meta(data$topdep)$from + meta(data$topdep)$size
+      data$`cnt-topdep-next` <<- btn_next
+    } else if (btn_prev > data$`cnt-topdep-prev`) {
+      from <- meta(data$topdep)$from - meta(data$topdep)$size
+      data$`cnt-topdep-prev` <<- btn_prev
+    } else {
+      from <- 1
+    }
+
+    result <- get_topdep(from = from)
+    attr(result, "metadata") <- list(from = from, size = 10, total = 15000)
+    data$topdep <<- result
+    format_results(result, "topdep")
+  }
+
+  dep_list0 <- function() {
+    deps <- query("/-/deps/devel")
+    tibble::tibble(
+      package = names(deps),
+      count = unlist(deps)
+    )
+  }
+
+  dep_list <- memoise::memoise(dep_list0, ~ memoise::timeout(60 * 60))
+
+  get_topdep0 <- function(from) {
+    deps <- dep_list()
+    deps <- deps[order(deps$count, decreasing = TRUE), ]
+    pkgs <- cran_packages(deps$package[from:(from + 10 - 1)])
+    rectangle_pkgs(pkgs)
+  }
+
+  get_topdep <- memoise::memoise(get_topdep0, ~ memoise::timeout(60 * 60))
+
+  trend_search <- function(btn_prev, btn_next) {
+
+    btn_prev
+    btn_next
+
+    if (btn_next > data$`cnt-trend-next`) {
+      from <- meta(data$trend)$from + meta(data$trend)$size
+      data$`cnt-trend-next` <<- btn_next
+    } else if (btn_prev > data$`cnt-trend-prev`) {
+      from <- meta(data$trend)$from - meta(data$trend)$size
+      data$`cnt-trend-prev` <<- btn_prev
+    } else {
+      from <- 1
+    }
+
+    result <- get_trend(from = from)
+    attr(result, "metadata") <- list(from = from, size = 10, total = 15000)
+    data$trend <<- result
+    format_results(result, "trend")
+  }
+
+  cran_trending1 <- memoise::memoise(
+    cran_trending,
+    ~ memoise::timeout(60 * 60)
+  )
+
+  get_trend0 <- function(from) {
+    deps <- cran_trending1()
+    pkgs <- cran_packages(deps$package[from:(from + 10 - 1)])
+    rectangle_pkgs(pkgs)
+  }
+
+  get_trend <- memoise::memoise(get_trend0, ~ memoise::timeout(60 * 60))
 
   action_cran <- function(set, row) {
     package <- data[[set]]$package[[row]]
@@ -244,7 +355,7 @@ pkg_search_addin <- function(
 }
 
 highlight_urls <- function(txt) {
-  gsub("(https?://[^\\s,;]+)", "<a href=\"\\1\">\\1</a>", txt, perl = TRUE)
+  gsub("(https?://[^\\s,;>]+)", "<a href=\"\\1\">\\1</a>", txt, perl = TRUE)
 }
 
 addin_styles <- function() {
@@ -395,12 +506,6 @@ format_pkg <- function(record, id, num, from) {
       }
     )
   )
-}
-
-get_topdl0 <- function(from) {
-  dl <- cran_top_downloaded()
-  pkgs <- cran_packages(dl$package[from:(from + 10 - 1)])
-  rectangle_pkgs(pkgs)
 }
 
 rectangle_pkgs <- function(pkgs) {
