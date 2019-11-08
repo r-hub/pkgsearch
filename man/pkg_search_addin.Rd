@@ -13,5 +13,17 @@ pkg_search_addin(query = "", viewer = c("dialog", "browser"))
 or in a web browser (\code{"browser"}).}
 }
 \description{
-Call this function from RStudio.
+Call this function from RStudio for best results. You can also use it
+without RStudio, then it will run in the web browser.
+}
+\details{
+The app has:
+\itemize{
+\item A search tab for free text search, very much like the \code{\link[=pkg_search]{pkg_search()}}
+function.
+\item The list of recently updated packages.
+\item The list of top packages: most downloaded, most depended upon,
+and trending packages.
+\item Package list by maintainer.
+}
 }

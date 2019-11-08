@@ -1,7 +1,16 @@
 
 #' RStudio addin to search CRAN packages
 #'
-#' Call this function from RStudio.
+#' Call this function from RStudio for best results. You can also use it
+#' without RStudio, then it will run in the web browser.
+#'
+#' The app has:
+#' - A search tab for free text search, very much like the [pkg_search()]
+#'   function.
+#' - The list of recently updated packages.
+#' - The list of top packages: most downloaded, most depended upon,
+#'   and trending packages.
+#' - Package list by maintainer.
 #'
 #' @param query Query string to start the addin with.
 #' @param viewer Whether to show the addin within RStudio (`"dialog"`),
