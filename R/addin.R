@@ -171,6 +171,13 @@ pkg_search_addin <- function(
         }
       })
       lapply(1:10, function(i) {
+        id <- paste0("btn-", tab, "-", i, "-home")
+        if (! id %in% wired) {
+          wired <<- c(wired, id)
+          shiny::observeEvent(input[[id]], action_home(tab, i))
+        }
+      })
+      lapply(1:10, function(i) {
         id <- paste0("btn-", tab, "-", i, "-metacran")
         if (! id %in% wired) {
           wired <<- c(wired, id)
@@ -425,6 +432,11 @@ pkg_search_addin <- function(
     utils::browseURL(url)
   }
 
+  action_home <- function(set, row) {
+    urls <- find_urls(data[[set]]$url[[row]])
+    lapply(urls, utils::browseURL)
+  }
+
   action_source <- function(set, row) {
     package <- data[[set]]$package[[row]]
     url <- paste0("https://github.com/cran/", package)
@@ -434,8 +446,16 @@ pkg_search_addin <- function(
   shiny::runGadget(ui, server, viewer = viewer)
 }
 
+url_regex <- function() "(https?://[^\\s,;>]+)"
+
+find_urls <- function(txt) {
+  if (is.na(txt)) return(character())
+  mch <- gregexpr(url_regex(), txt, perl = TRUE)
+  regmatches(txt, mch)[[1]]
+}
+
 highlight_urls <- function(txt) {
-  gsub("(https?://[^\\s,;>]+)", "<a href=\"\\1\">\\1</a>", txt, perl = TRUE)
+  gsub(url_regex(), "<a href=\"\\1\">\\1</a>", txt, perl = TRUE)
 }
 
 addin_styles <- function() {
@@ -535,15 +555,18 @@ format_pkg <- function(record, id, num, from) {
     ", ",
     time_ago(record$date)
   )
+  urls <- find_urls(record$url)
   shiny::p(
     shiny::div(
       class = "packagetitlerow",
       shiny::span(
         shinyWidgets::dropdownButton(
-          shiny::actionButton(
-            paste0("btn-", id, "-", num, "-home"),
-            label = "View home page (in browser)"
-          ),
+          if (length(urls)) {
+            shiny::actionButton(
+              paste0("btn-", id, "-", num, "-home"),
+              label = "View home page (in browser)"
+            )
+          },
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-cran"),
             label = "View on CRAN (in browser)"
