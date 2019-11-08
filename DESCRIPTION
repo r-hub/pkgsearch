@@ -22,7 +22,8 @@ Imports:
     methods,
     parsedate,
     prettyunits,
-    tibble
+    tibble,
+    whoami
 Suggests:
     covr,
     memoise,
