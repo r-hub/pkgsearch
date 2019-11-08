@@ -74,9 +74,9 @@ pkg_search_addin <- function(
     shiny::tabPanel("Advanced search", searchResults("advanced")),
     shiny::tabPanel("New packages", searchResults("new")),
     shiny::navbarMenu("Top packages",
-      tabPanel("Most downloaded", searchResults("topdl")),
-      tabPanel("Most depended upon", searchResults("topdep")),
-      tabPanel("Trending", searchResults("trend"))
+      shiny::tabPanel("Most downloaded", searchResults("topdl")),
+      shiny::tabPanel("Most depended upon", searchResults("topdep")),
+      shiny::tabPanel("Trending", searchResults("trend"))
     ),
     shiny::tabPanel("My packages", maintQuery(), searchResults("maint")),
     header = shiny::tagList(
