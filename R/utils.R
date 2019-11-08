@@ -1,6 +1,8 @@
 
 `%||%` <- function(l, r) if (is.null(l)) r else l
 
+`%|NA|%` <- function(l, r) ifelse(is.na(l), r, l)
+
 check_count <- function(x) {
   if (!is.numeric(x) || length(x) != 1 || as.integer(x) != x ||
       is.na(x) || x < 0) {
