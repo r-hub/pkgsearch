@@ -71,7 +71,6 @@ pkg_search_addin <- function(
 
   ui <- shiny::navbarPage("Package search",
     shiny::tabPanel("Search", searchQuery("search"), searchResults("search")),
-    shiny::tabPanel("Advanced search", searchResults("advanced")),
     shiny::tabPanel("New packages", searchResults("new")),
     shiny::navbarMenu("Top packages",
       shiny::tabPanel("Most downloaded", searchResults("topdl")),
