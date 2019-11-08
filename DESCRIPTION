@@ -28,6 +28,7 @@ Suggests:
     DT,
     knitr,
     miniUI,
+    memoise,
     pingr (>= 2.0.0),
     rmarkdown,
     rstudioapi,
