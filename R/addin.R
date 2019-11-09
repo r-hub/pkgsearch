@@ -79,10 +79,10 @@ pkg_search_addin <- function(
   }
 
   ui <- shiny::navbarPage(
-    title = div(
-      div(
+    title = shiny::div(
+      shiny::div(
         id = "rhub-logo",
-        img(src = "https://cdn.jsdelivr.net/gh/r-hub/branding@master/logo/rhub-square.svg",
+        shiny::img(src = "https://cdn.jsdelivr.net/gh/r-hub/branding@master/logo/rhub-square.svg",
             width = "40px",
             height = "40px"
         )
@@ -99,7 +99,7 @@ pkg_search_addin <- function(
     header = shiny::tagList(
       shiny::tags$head(
         shiny::tags$style(addin_styles()),
-        tags$link(
+        shiny::tags$link(
           rel = "stylesheet",
           type = "text/css",
           href = "https://cdn.jsdelivr.net/gh/gaborcsardi/r-font@master/rlogo.css")
