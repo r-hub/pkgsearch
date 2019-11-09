@@ -484,10 +484,10 @@ highlight_urls <- function(txt) {
 addin_styles <- function() {
   shiny::HTML("
           .packagename {
-            margin-top: 20px;
+            margin-top: 30px;
           }
           .packagename .dropdown-menu {
-            margin-top: 10px;
+           margin-top: 10px;
             padding: 0;
             border: 0;
           }
@@ -509,10 +509,11 @@ addin_styles <- function() {
             font-style: italic;
             font-size: 90%;
             padding-right: 10px;
+            margin-top: -5px;
+            margin-bottom: 5px;
           }
           .packagetitle {
             font-size: 110%;
-            margin-bottom: 5px;
           }
           .paginate {
             padding-top: 10px;
@@ -577,7 +578,7 @@ format_paginate <- function(results, id) {
 
 format_pkg <- function(record, id, num, from) {
   by <- paste0(
-    "\u2014 version ",
+    "Version ",
     record$version,
     ", by ",
     record$maintainer_name,
@@ -628,10 +629,10 @@ format_pkg <- function(record, id, num, from) {
         ),
         class = "packagename"
       ),
-      shiny::span(by, class = "packageauthor")
+      shiny::span("\u2014 ", record$title, class = "packagetitle")
     ),
     shiny::div(
-      shiny::div(record$title, class = "packagetitle"),
+      shiny::div(by, class = "packageauthor"),
       shiny::div(
         clean_description(record$description),
         class = "packagedescription"
