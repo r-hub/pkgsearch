@@ -78,7 +78,16 @@ pkg_search_addin <- function(
     shiny::htmlOutput(paste0("results-", id))
   }
 
-  ui <- shiny::navbarPage("Package search",
+  ui <- shiny::navbarPage(
+    title = div(
+      div(
+        id = "rhub-logo",
+        img(src = "https://cdn.jsdelivr.net/gh/r-hub/branding@master/logo/rhub-square.svg",
+            width = "40px",
+            height = "40px"
+        )
+      )
+    ),
     shiny::tabPanel("Search", searchQuery("search"), searchResults("search")),
     shiny::tabPanel("New packages", searchResults("new")),
     shiny::navbarMenu("Top packages",
@@ -88,7 +97,13 @@ pkg_search_addin <- function(
     ),
     shiny::tabPanel("My packages", maintQuery(), searchResults("maint")),
     header = shiny::tagList(
-      shiny::tags$head(shiny::tags$style(addin_styles())),
+      shiny::tags$head(
+        shiny::tags$style(addin_styles()),
+        tags$link(
+          rel = "stylesheet",
+          type = "text/css",
+          href = "https://cdn.jsdelivr.net/gh/gaborcsardi/r-font@master/rlogo.css")
+        ),
       shinyjs::useShinyjs()
     )
   )
@@ -503,6 +518,12 @@ addin_styles <- function() {
             padding-top: 10px;
             padding-bottom: 10px;
           }
+          .fa-cubes { color: blue }
+          #rhub-logo {
+            right: 10px;
+            top: 0px;
+            margin-top: -10px;
+          }
           "
   )
 }
@@ -572,20 +593,23 @@ format_pkg <- function(record, id, num, from) {
           if (length(urls)) {
             shiny::actionButton(
               paste0("btn-", id, "-", num, "-home"),
-              label = "View home page (in browser)"
+              label = "View home page",
+              icon = icon("home")
             )
           },
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-cran"),
-            label = "View on CRAN (in browser)"
+            label = HTML("<i class=\"icon-rlogo\"></i> View on CRAN")
           ),
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-metacran"),
-            label = "View on METACRAN (in browser)",
+            label = "View on METACRAN",
+            icon = icon("globe")
           ),
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-source"),
-            label = "Browse source code (in browser)"
+            label = "Source code at CRAN@GH mirror",
+            icon = icon("code")
           ),
           # shiny::actionButton(
           #   paste0("btn-", id, "-", num, -install"),
