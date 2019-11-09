@@ -197,10 +197,17 @@ download_method <- function() {
 }
 
 needs_packages <- function(pkgs) {
-  for (pkg in pkgs) {
-    if (!requireNamespace(pkg, quietly = TRUE)) {
-      stop("The ", pkg, " package is needed for this addin to work.")
-    }
+  has <- map_lgl(pkgs, function(pkg) {
+    requireNamespace(pkg, quietly = TRUE)
+  })
+
+  if (!all(has)) {
+    stop(
+      "The ",
+      paste(sQuote(pkgs), collapse = ", "),
+      " packages are needed for this addin.",
+      call. = FALSE
+    )
   }
 }
 
