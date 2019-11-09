@@ -610,7 +610,7 @@ format_pkg <- function(record, id, num, from) {
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-source"),
             label = "Source code at CRAN@GH mirror",
-            icon = icon("code")
+            icon = icon("home-alt")
           ),
           # shiny::actionButton(
           #   paste0("btn-", id, "-", num, -install"),
