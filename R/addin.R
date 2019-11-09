@@ -661,7 +661,7 @@ rectangle_pkgs <- function(pkgs) {
 
 parse_maint <- function(x) {
   tibble::tibble(
-    maintainer_name = gsub("\\s+<.*$", "", x),
+    maintainer_name = gsub("\\s*<.*$", "", x),
     maintainer_email = gsub("^.*<([^>]+)>.*$", "\\1", x, perl = TRUE)
   )
 }
