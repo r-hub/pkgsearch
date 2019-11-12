@@ -1,6 +1,9 @@
 
 # pkgsearch (development version)
 
+* New RStudio addin to search for packages in a GUI:
+  `pkg_search_addin()`.
+
 * New `cran_package()`, `cran_packages()` and `cran_package_history()`
   functions to query metadata about certain packages.
 
