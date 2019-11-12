@@ -109,7 +109,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>List of all CRAN events (new, updated, archived packages)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-hub/pkgsearch/blob/master/R/crandb-public-api.R'><code>R/crandb-public-api.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/r-hub/pkgsearch/blob/master/R/crandb-public-api.R'><code>R/crandb-public-api.R</code></a>, <a href='https://github.com/r-hub/pkgsearch/blob/master/R/print.R'><code>R/print.R</code></a></small>
     <div class="hidden name"><code>cran_events.Rd</code></div>
     </div>
 
@@ -117,7 +117,13 @@
     <p>List of all CRAN events (new, updated, archived packages)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cran_events</span>(<span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>cran_events</span>(<span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>)
+
+<span class='co'># S3 method for cran_event_list</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for cran_event_list</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -138,6 +144,18 @@
       <th>from</th>
       <td><p>Where to start the list, for pagination.</p></td>
     </tr>
+    <tr>
+      <th>object</th>
+      <td><p>Object to summarize.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments are ignored currently.</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>Object to print.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -145,32 +163,46 @@
     <p>List of events.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
-<span class='fu'>cran_events</span>()</div><div class='output co'>#&gt; CRAN events (events)-----------------------------------------------------------
+    <pre class="examples"><div class='input'> <span class='kw'>if</span> (<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>()) <span class='fu'><a href='https://rdrr.io/r/base/source.html'>withAutoprint</a></span>({
+<span class='fu'>cran_events</span>()
+<span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>))
+ })</div><div class='output co'>#&gt; &gt; cran_events()
+#&gt; CRAN events (events)-----------------------------------------------------------
 #&gt;  . When    Package        Version Title                                        
-#&gt;  + 3 hours AzureCognitive 1.0.0   Interface to Azure Cognitive Services        
-#&gt;  + 3 hours RAINBOWR       0.1.13  Genome-Wide Association Study with SNP-Set...
-#&gt;  + 4 hours RcppAnnoy      0.0.14  'Rcpp' Bindings for 'Annoy', a Library for...
-#&gt;  + 4 hours rsimsum        0.7.0   Analysis of Simulation Studies Including M...
-#&gt;  + 4 hours gtsummary      1.2.3   Presentation-Ready Data Summary and Analyt...
-#&gt;  + 5 hours Jaya           0.1.9   Jaya, a Gradient-Free Optimization Algorit...
-#&gt;  + 5 hours DealGPL570     0.0.1   Dealing GPL570 RAW.tar file                  
-#&gt;  + 5 hours marindicators  1.0.0   Marine Ecosystem and Fishing Pressure Indi...
-#&gt;  + 6 hours comat          0.7.2   Creates Co-Occurrence Matrices of Spatial ...
-#&gt;  + 6 hours dtplyr         1.0.0   Data Table Back-End for 'dplyr'              </div><div class='input'><span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; CRAN events (archivals)--------------------------------------------------------
+#&gt;  + 3 hours FuzzyR         2.2     Fuzzy Logic Toolkit for R                    
+#&gt;  + 3 hours RxODE          0.9.1-8 Facilities for Simulating from ODE-Based M...
+#&gt;  + 3 hours palasso        0.0.6   Paired Lasso Regression                      
+#&gt;  + 5 hours AzureCognitive 1.0.0   Interface to Azure Cognitive Services        
+#&gt;  + 5 hours RAINBOWR       0.1.13  Genome-Wide Association Study with SNP-Set...
+#&gt;  + 6 hours RcppAnnoy      0.0.14  'Rcpp' Bindings for 'Annoy', a Library for...
+#&gt;  + 6 hours rsimsum        0.7.0   Analysis of Simulation Studies Including M...
+#&gt;  + 6 hours gtsummary      1.2.3   Presentation-Ready Data Summary and Analyt...
+#&gt;  + 6 hours Jaya           0.1.9   Jaya, a Gradient-Free Optimization Algorit...
+#&gt;  + 7 hours DealGPL570     0.0.1   Dealing GPL570 RAW.tar file                  
+#&gt; &gt; cran_events(limit = 5, releases = FALSE)
+#&gt; CRAN events (archivals)--------------------------------------------------------
 #&gt;  . When  Package  Version Title                                                
 #&gt;  - 1 day dpmixsim 0.0-9   Dirichlet Process Mixture Model Simulation for Clu...
 #&gt;  - 2 day Rmst     0.0.2   Computerized Adaptive Multistage Testing             
 #&gt;  - 2 day CAM      1.0     Causal Additive Model (CAM)                          
 #&gt;  - 2 day P2C2M    0.7.6   Posterior Predictive Checks of Coalescent Models     
-#&gt;  - 2 day BrailleR 0.29.1  Improved Access for Blind Users                      </div><div class='input'><span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; CRAN events (pkgreleases)------------------------------------------------------
+#&gt;  - 2 day BrailleR 0.29.1  Improved Access for Blind Users                      
+#&gt; &gt; cran_events(limit = 5, archivals = FALSE)
+#&gt; CRAN events (pkgreleases)------------------------------------------------------
 #&gt;  . When    Package        Version Title                                        
-#&gt;  + 3 hours AzureCognitive 1.0.0   Interface to Azure Cognitive Services        
-#&gt;  + 3 hours RAINBOWR       0.1.13  Genome-Wide Association Study with SNP-Set...
-#&gt;  + 4 hours RcppAnnoy      0.0.14  'Rcpp' Bindings for 'Annoy', a Library for...
-#&gt;  + 4 hours rsimsum        0.7.0   Analysis of Simulation Studies Including M...
-#&gt;  + 4 hours gtsummary      1.2.3   Presentation-Ready Data Summary and Analyt...</div><div class='input'># }
-</div></pre>
+#&gt;  + 3 hours FuzzyR         2.2     Fuzzy Logic Toolkit for R                    
+#&gt;  + 3 hours RxODE          0.9.1-8 Facilities for Simulating from ODE-Based M...
+#&gt;  + 3 hours palasso        0.0.6   Paired Lasso Regression                      
+#&gt;  + 5 hours AzureCognitive 1.0.0   Interface to Azure Cognitive Services        
+#&gt;  + 5 hours RAINBOWR       0.1.13  Genome-Wide Association Study with SNP-Set...
+#&gt; &gt; summary(cran_events(limit = 10))
+#&gt; CRAN events (events)
+#&gt;  [1] "FuzzyR@2.2"           "RxODE@0.9.1-8"        "palasso@0.0.6"       
+#&gt;  [4] "AzureCognitive@1.0.0" "RAINBOWR@0.1.13"      "RcppAnnoy@0.0.14"    
+#&gt;  [7] "rsimsum@0.7.0"        "gtsummary@1.2.3"      "Jaya@0.1.9"          
+#&gt; [10] "DealGPL570@0.0.1"    </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

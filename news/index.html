@@ -114,32 +114,14 @@
 <h1 class="page-header">
 <a href="#pkgsearch-development-version" class="anchor"></a>pkgsearch (development version)<small> Unreleased </small>
 </h1>
-<div id="major-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#major-changes" class="anchor"></a>Major changes</h2>
 <ul>
-<li><p>New function <code><a href="../reference/advanced_search.html">advanced_search()</a></code> for more search flexibility. It accepts either search terms, named or unnamed; or a character string that contains the query to send to Elastic.</p></li>
-<li>
-<p>Using the R-hub crandb API, new functions whose name all start with <code>cran_</code>:</p>
-<ul>
-<li>
-<p>Functions returning metadata about specific packages</p>
-<ul>
-<li><p><code><a href="../reference/cran_packages.html">cran_packages()</a></code> returns metadata about multiple CRAN packages in a <code>tibble</code> whereas <code><a href="../reference/cran_package.html">cran_package()</a></code> returns metadata about a single CRAN package.</p></li>
-<li><p><code><a href="../reference/cran_package_history.html">cran_package_history()</a></code> returns a <code>tibble</code> containing the history of a package metadata, with one row per package version.</p></li>
+<li><p>New RStudio addin to search for packages in a GUI: <code><a href="../reference/pkg_search_addin.html">pkg_search_addin()</a></code>.</p></li>
+<li><p>New <code><a href="../reference/cran_package.html">cran_package()</a></code>, <code><a href="../reference/cran_packages.html">cran_packages()</a></code> and <code><a href="../reference/cran_package_history.html">cran_package_history()</a></code> functions to query metadata about certain packages.</p></li>
+<li><p>New <code><a href="../reference/cran_events.html">cran_events()</a></code> function to list recent CRAN events, new, updated or archived packages.</p></li>
+<li><p>New <code><a href="../reference/cran_top_downloaded.html">cran_top_downloaded()</a></code> function to query packages with the most downloads.</p></li>
+<li><p>New <code><a href="../reference/cran_trending.html">cran_trending()</a></code> function to return the trending CRAN packages.</p></li>
+<li><p>New function <code><a href="../reference/advanced_search.html">advanced_search()</a></code> for more search flexibility.</p></li>
 </ul>
-</li>
-<li>
-<p>Functions returning metadata about packages across CRAN</p>
-<ul>
-<li><p><code><a href="../reference/cran_events.html">cran_events()</a></code> lists all CRAN events (new, updated, archived packages)</p></li>
-<li><p><code><a href="../reference/cran_top_downloaded.html">cran_top_downloaded()</a></code> and <code><a href="../reference/cran_trending.html">cran_trending()</a></code> return a <code>tibble</code> of the 100 most downloaded and trending packages, respectively.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 </div>
     <div id="pkgsearch-2-0-1" class="section level1">
 <h1 class="page-header">

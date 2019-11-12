@@ -112,7 +112,7 @@ more() retrieves that next page of results for the previous query." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Search CRAN packages</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-hub/pkgsearch/blob/master/R/api.R'><code>R/api.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/r-hub/pkgsearch/blob/master/R/api.R'><code>R/api.R</code></a>, <a href='https://github.com/r-hub/pkgsearch/blob/master/R/print.R'><code>R/print.R</code></a></small>
     <div class="hidden name"><code>pkg_search.Rd</code></div>
     </div>
 
@@ -127,7 +127,13 @@ previous query, if called without arguments.</p>
 
 <span class='fu'>ps</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"short"</span>, <span class='st'>"long"</span>), <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)
 
-<span class='fu'>more</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>more</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='co'># S3 method for pkg_search_result</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for pkg_search_result</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,6 +163,18 @@ here.</p></td>
       <th>size</th>
       <td><p>The number of results to list.</p></td>
     </tr>
+    <tr>
+      <th>object</th>
+      <td><p>Object to summarize.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments, ignored currently.</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>Object to print.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -184,11 +202,25 @@ from the RStudio CRAN mirror.</p></li>
     <p>Note that the search needs a working Internet connection.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'> <span class='kw'>if</span> (<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>()) <span class='fu'><a href='https://rdrr.io/r/base/source.html'>withAutoprint</a></span>({
 <span class='co'># Example</span>
-<span class='fu'>ps</span>(<span class='st'>"survival"</span>)</div><div class='output co'>#&gt; - "survival" ---------------------------------- 796 packages in 0.009 seconds -
+<span class='fu'>ps</span>(<span class='st'>"survival"</span>)
+
+<span class='co'># Pagination</span>
+<span class='fu'>ps</span>(<span class='st'>"networks"</span>)
+<span class='fu'>more</span>()
+
+<span class='co'># Details</span>
+<span class='fu'>ps</span>(<span class='st'>"visualization"</span>)
+<span class='fu'>ps</span>()
+
+<span class='co'># See the underlying tibble</span>
+<span class='fu'>ps</span>(<span class='st'>"ropensci"</span>)
+<span class='fu'>ps</span>()[]
+ })</div><div class='output co'>#&gt; &gt; ps("survival")
+#&gt; - "survival" ---------------------------------- 796 packages in 0.008 seconds -
 #&gt;   #     package         version by                      @ title                
-#&gt;   1 100 survival        3.1.7   Terry M Therneau       3d Survival Analysis    
+#&gt;   1 100 survival        3.1.7   Terry M Therneau       4d Survival Analysis    
 #&gt;   2   8 flexsurv        1.1.1   Christopher Jackson    8M Flexible Parametri...
 #&gt;   3   6 relsurv         2.2.3   Maja Pohar Perme       1y Relative Survival    
 #&gt;   4   6 rpart           4.1.15  Beth Atkinson          7M Recursive Partitio...
@@ -197,9 +229,9 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   7   6 randomForestSRC 2.9.1   Udaya B. Kogalur       4M Fast Unified Rando...
 #&gt;   8   5 survRM2         1.0.2   Hajime Uno             3y Comparing Restrict...
 #&gt;   9   5 muhaz           1.2.6.1 David Winsemius       10M Hazard Function Es...
-#&gt;  10   5 rstpm2          1.5.1   Mark Clements          7d Smooth Survival Mo...</div><div class='input'>
-<span class='co'># Pagination</span>
-<span class='fu'>ps</span>(<span class='st'>"networks"</span>)</div><div class='output co'>#&gt; - "networks" ---------------------------------- 624 packages in 0.009 seconds -
+#&gt;  10   5 rstpm2          1.5.1   Mark Clements          7d Smooth Survival Mo...
+#&gt; &gt; ps("networks")
+#&gt; - "networks" ---------------------------------- 624 packages in 0.007 seconds -
 #&gt;   #     package    version   by                    @ title                     
 #&gt;   1 100 igraph     1.2.4.1   Gábor Csárdi         7M Network Analysis and Vi...
 #&gt;   2  48 network    1.15      Carter T. Butts      7M Classes for Relational ...
@@ -210,7 +242,9 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   7  22 visNetwork 2.0.8     Benoit Thieurmel     3M Network Visualization u...
 #&gt;   8  22 snow       0.4.3     Luke Tierney         1y Simple Network of Works...
 #&gt;   9  20 neuralnet  1.44.2    Marvin N. Wright     9M Training of Neural Netw...
-#&gt;  10  18 ggraph     2.0.0     Thomas Lin Pedersen  2M An Implementation of Gr...</div><div class='input'><span class='fu'>more</span>()</div><div class='output co'>#&gt; - "networks" ---------------------------------- 624 packages in 0.008 seconds -
+#&gt;  10  18 ggraph     2.0.0     Thomas Lin Pedersen  2M An Implementation of Gr...
+#&gt; &gt; more()
+#&gt; - "networks" ---------------------------------- 624 packages in 0.008 seconds -
 #&gt;   #    package        version by                    @ title                    
 #&gt;  11 17 bnlearn        4.5     Marco Scutari        3M Bayesian Network Struc...
 #&gt;  12 17 networkD3      0.4     Christopher Gandrud  3y D3 JavaScript Network ...
@@ -221,9 +255,9 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;  17 12 intergraph     2.0.2   Michal Bojanowski    4y Coercion Routines for ...
 #&gt;  18 12 RSNNS          0.4.12  Christoph Bergmeir   2M Neural Networks using ...
 #&gt;  19 10 gRain          1.3.0   Søren Højsgaard      3y Graphical Independence...
-#&gt;  20  9 igraphdata     1.0.1   Gabor Csardi         4y A Collection of Networ...</div><div class='input'>
-<span class='co'># Details</span>
-<span class='fu'>ps</span>(<span class='st'>"visualization"</span>)</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1057 packages in 0.009 seconds -
+#&gt;  20  9 igraphdata     1.0.1   Gabor Csardi         4y A Collection of Networ...
+#&gt; &gt; ps("visualization")
+#&gt; - "visualization" ---------------------------- 1057 packages in 0.008 seconds -
 #&gt;   #     package    version  by                @ title                          
 #&gt;   1 100 ggplot2    3.2.1    Hadley Wickham   3M Create Elegant Data Visualis...
 #&gt;   2  68 igraph     1.2.4.1  Gábor Csárdi     7M Network Analysis and Visuali...
@@ -234,7 +268,9 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   7  20 vdiffr     0.3.1    Lionel Henry     5M Visual Regression Testing an...
 #&gt;   8  19 DiagrammeR 1.0.1    Richard Iannone  7M Graph/Network Visualization    
 #&gt;   9  19 vcd        1.4.4    David Meyer      2y Visualizing Categorical Data   
-#&gt;  10  19 ggmap      3.0.0    ORPHANED         9M Spatial Visualization with g...</div><div class='input'><span class='fu'>ps</span>()</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1057 packages in 0.009 seconds -
+#&gt;  10  19 ggmap      3.0.0    ORPHANED         9M Spatial Visualization with g...
+#&gt; &gt; ps()
+#&gt; - "visualization" ---------------------------- 1057 packages in 0.008 seconds -
 #&gt; 
 #&gt; 1 ggplot2 @ 3.2.1                                  Hadley Wickham, 3 months ago
 #&gt; -----------------
@@ -343,9 +379,9 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   of static maps from various online sources (e.g Google Maps and
 #&gt;   Stamen Maps). It includes tools common to those tasks, including
 #&gt;   functions for geolocation and routing.
-#&gt;   https://github.com/dkahle/ggmap</div><div class='input'>
-<span class='co'># See the underlying tibble</span>
-<span class='fu'>ps</span>(<span class='st'>"ropensci"</span>)</div><div class='output co'>#&gt; - "ropensci" ---------------------------------- 220 packages in 0.009 seconds -
+#&gt;   https://github.com/dkahle/ggmap
+#&gt; &gt; ps("ropensci")
+#&gt; - "ropensci" ---------------------------------- 220 packages in 0.009 seconds -
 #&gt;   #     package    version by                  @ title                         
 #&gt;   1 100 webmockr   0.4.0   Scott Chamberlain  3M Stubbing and Setting Expect...
 #&gt;   2  87 RSelenium  1.7.5   Ju Yeong Kim      10M R Bindings for 'Selenium We...
@@ -356,7 +392,9 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   7  78 ropenaq    0.2.7   Maëlle Salmon     10M Accesses Air Quality Data f...
 #&gt;   8  69 jsonld     2.1     Jeroen Ooms        9M JSON for Linking Data         
 #&gt;   9  66 solrium    1.1.4   Scott Chamberlain 10d General Purpose R Interface...
-#&gt;  10  66 taxize     0.9.9   Scott Chamberlain 26d Taxonomic Information from ...</div><div class='input'><span class='fu'>ps</span>()[]</div><div class='output co'>#&gt; # A tibble: 10 x 14
+#&gt;  10  66 taxize     0.9.9   Scott Chamberlain 26d Taxonomic Information from ...
+#&gt; &gt; ps()[]
+#&gt; # A tibble: 10 x 14
 #&gt;    score package version title description date                maintainer_name
 #&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;pckg_&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dttm&gt;              &lt;chr&gt;          
 #&gt;  1  417. webmoc… 0.4.0   Stub… "Stubbing … 2019-08-09 20:50:02 Scott Chamberl…
@@ -371,8 +409,7 @@ from the RStudio CRAN mirror.</p></li>
 #&gt; 10  275. taxize  0.9.9   Taxo… "Interacts… 2019-10-17 20:10:02 Scott Chamberl…
 #&gt; # … with 7 more variables: maintainer_email &lt;chr&gt;, revdeps &lt;int&gt;,
 #&gt; #   downloads_last_month &lt;int&gt;, license &lt;chr&gt;, url &lt;chr&gt;, bugreports &lt;chr&gt;,
-#&gt; #   package_data &lt;I&lt;list&gt;&gt;</div><div class='input'># }
-</div></pre>
+#&gt; #   package_data &lt;I&lt;list&gt;&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
