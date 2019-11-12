@@ -598,22 +598,22 @@ format_pkg <- function(record, id, num, from) {
             shiny::actionButton(
               paste0("btn-", id, "-", num, "-home"),
               label = "View home page",
-              icon = icon("home")
+              icon = shiny::icon("home")
             )
           },
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-cran"),
-            label = HTML("<i class=\"icon-rlogo\"></i> View on CRAN")
+            label = shiny::HTML("<i class=\"icon-rlogo\"></i> View on CRAN")
           ),
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-metacran"),
             label = "View on METACRAN",
-            icon = icon("globe")
+            icon = shiny::icon("globe")
           ),
           shiny::actionButton(
             paste0("btn-", id, "-", num, "-source"),
             label = "Source code at CRAN@GH mirror",
-            icon = icon("file-alt")
+            icon = shiny::icon("file-alt")
           ),
           # shiny::actionButton(
           #   paste0("btn-", id, "-", num, -install"),
