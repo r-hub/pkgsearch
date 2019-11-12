@@ -163,46 +163,47 @@
     <p>List of events.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'> <span class='kw'>if</span> (<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>()) <span class='fu'><a href='https://rdrr.io/r/base/source.html'>withAutoprint</a></span>({
+    <pre class="examples"><div class='input'> <span class='fu'><a href='https://rdrr.io/r/base/ns-internal.html'>asNamespace</a></span>(<span class='st'>"pkgsearch"</span>)$<span class='fu'>exif</span>(<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>(), {
 <span class='fu'>cran_events</span>()
 <span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>))
  })</div><div class='output co'>#&gt; &gt; cran_events()
 #&gt; CRAN events (events)-----------------------------------------------------------
-#&gt;  . When    Package        Version Title                                        
-#&gt;  + 4 hours FuzzyR         2.2     Fuzzy Logic Toolkit for R                    
-#&gt;  + 4 hours RxODE          0.9.1-8 Facilities for Simulating from ODE-Based M...
-#&gt;  + 4 hours palasso        0.0.6   Paired Lasso Regression                      
-#&gt;  + 5 hours AzureCognitive 1.0.0   Interface to Azure Cognitive Services        
-#&gt;  + 6 hours RAINBOWR       0.1.13  Genome-Wide Association Study with SNP-Set...
-#&gt;  + 6 hours RcppAnnoy      0.0.14  'Rcpp' Bindings for 'Annoy', a Library for...
-#&gt;  + 6 hours rsimsum        0.7.0   Analysis of Simulation Studies Including M...
-#&gt;  + 6 hours gtsummary      1.2.3   Presentation-Ready Data Summary and Analyt...
-#&gt;  + 7 hours Jaya           0.1.9   Jaya, a Gradient-Free Optimization Algorit...
-#&gt;  + 7 hours DealGPL570     0.0.1   Dealing GPL570 RAW.tar file                  
+#&gt;  . When    Package           Version Title                                     
+#&gt;  + 2 hours ehelp             1.1     Enhanced Help to Enable "Docstring"-Com...
+#&gt;  + 3 hours BIGDAWG           2.3     Case-Control Analysis of Multi-Allelic ...
+#&gt;  + 3 hours imagefx           0.3.0   Extract Features from Images              
+#&gt;  + 3 hours rqdatatable       1.2.4   'rquery' for 'data.table'                 
+#&gt;  + 3 hours unmarked          0.13-0  Models for Data from Unmarked Animals     
+#&gt;  + 4 hours DiffXTables       0.0.2   Pattern Heterogeneity via Distributiona...
+#&gt;  + 4 hours freesurferformats 0.1.5   Read and Write 'FreeSurfer' Neuroimagin...
+#&gt;  + 4 hours flextable         0.5.6   Functions for Tabular Reporting           
+#&gt;  + 4 hours readJDX           0.4.29  Import Data in the JCAMP-DX Format        
+#&gt;  + 4 hours DT                0.10    A Wrapper of the JavaScript Library 'Da...
 #&gt; &gt; cran_events(limit = 5, releases = FALSE)
 #&gt; CRAN events (archivals)--------------------------------------------------------
 #&gt;  . When  Package  Version Title                                                
 #&gt;  - 1 day dpmixsim 0.0-9   Dirichlet Process Mixture Model Simulation for Clu...
-#&gt;  - 2 day Rmst     0.0.2   Computerized Adaptive Multistage Testing             
 #&gt;  - 2 day CAM      1.0     Causal Additive Model (CAM)                          
-#&gt;  - 2 day P2C2M    0.7.6   Posterior Predictive Checks of Coalescent Models     
-#&gt;  - 2 day BrailleR 0.29.1  Improved Access for Blind Users                      
+#&gt;  - 3 day P2C2M    0.7.6   Posterior Predictive Checks of Coalescent Models     
+#&gt;  - 3 day BrailleR 0.29.1  Improved Access for Blind Users                      
+#&gt;  - 3 day bda      13.4.13 Density Estimation for Grouped Data                  
 #&gt; &gt; cran_events(limit = 5, archivals = FALSE)
 #&gt; CRAN events (pkgreleases)------------------------------------------------------
-#&gt;  . When    Package        Version Title                                        
-#&gt;  + 4 hours FuzzyR         2.2     Fuzzy Logic Toolkit for R                    
-#&gt;  + 4 hours RxODE          0.9.1-8 Facilities for Simulating from ODE-Based M...
-#&gt;  + 4 hours palasso        0.0.6   Paired Lasso Regression                      
-#&gt;  + 5 hours AzureCognitive 1.0.0   Interface to Azure Cognitive Services        
-#&gt;  + 6 hours RAINBOWR       0.1.13  Genome-Wide Association Study with SNP-Set...
+#&gt;  . When    Package     Version Title                                           
+#&gt;  + 2 hours ehelp       1.1     Enhanced Help to Enable "Docstring"-Comments ...
+#&gt;  + 3 hours BIGDAWG     2.3     Case-Control Analysis of Multi-Allelic Loci     
+#&gt;  + 3 hours imagefx     0.3.0   Extract Features from Images                    
+#&gt;  + 3 hours rqdatatable 1.2.4   'rquery' for 'data.table'                       
+#&gt;  + 3 hours unmarked    0.13-0  Models for Data from Unmarked Animals           
 #&gt; &gt; summary(cran_events(limit = 10))
 #&gt; CRAN events (events)
-#&gt;  [1] "FuzzyR@2.2"           "RxODE@0.9.1-8"        "palasso@0.0.6"       
-#&gt;  [4] "AzureCognitive@1.0.0" "RAINBOWR@0.1.13"      "RcppAnnoy@0.0.14"    
-#&gt;  [7] "rsimsum@0.7.0"        "gtsummary@1.2.3"      "Jaya@0.1.9"          
-#&gt; [10] "DealGPL570@0.0.1"    </div></pre>
+#&gt;  [1] "ehelp@1.1"               "BIGDAWG@2.3"            
+#&gt;  [3] "imagefx@0.3.0"           "rqdatatable@1.2.4"      
+#&gt;  [5] "unmarked@0.13-0"         "DiffXTables@0.0.2"      
+#&gt;  [7] "freesurferformats@0.1.5" "flextable@0.5.6"        
+#&gt;  [9] "readJDX@0.4.29"          "DT@0.10"                </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
