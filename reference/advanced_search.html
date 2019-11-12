@@ -168,7 +168,7 @@ here.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
 <span class='co'># All orphaned packages</span>
-<span class='fu'>advanced_search</span>(<span class='kw'>Maintainer</span> <span class='kw'>=</span> <span class='st'>"ORPHANED"</span>)</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 60 packages in 0.003 seconds -
+<span class='fu'>advanced_search</span>(<span class='kw'>Maintainer</span> <span class='kw'>=</span> <span class='st'>"ORPHANED"</span>)</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 60 packages in 0.001 seconds -
 #&gt;   #     package      version   by         @ title                              
 #&gt;   1 100 SDMTools     1.1.221.1 ORPHANED  7M Species Distribution Modelling T...
 #&gt;   2 100 AlgDesign    1.1.7.3   ORPHANED  5y Algorithmic Experimental Design    
@@ -181,7 +181,7 @@ here.</p></td>
 #&gt;   9  98 caTools      1.17.1.2  ORPHANED  8M Tools: moving window statistics,...
 #&gt;  10  98 DAAG         1.22.1    ORPHANED  9M Data Analysis and Graphics Data ...</div><div class='input'>
 <span class='co'># Packages that match a certain field</span>
-<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"Hester AND NOT Wickham"</span>)</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 21 packages in 0.009 seconds -
+<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"Hester AND NOT Wickham"</span>)</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 21 packages in 0.003 seconds -
 #&gt;   #     package        version by              @ title                         
 #&gt;   1 100 gmailr         1.0.0   Jim Hester     3M Access the 'Gmail' 'RESTful...
 #&gt;   2  98 primerTree     1.0.4   Jim Hester    11M Visually Assessing the Spec...
@@ -194,7 +194,7 @@ here.</p></td>
 #&gt;   9  70 pak            0.1.2   Gábor Csárdi   9M Another Approach to Package...
 #&gt;  10  64 mockery        0.4.2   Jim Hester     2M Mocking Library for R         </div><div class='input'>
 <span class='co'># Packages for permutation tests and permissive licenses</span>
-<span class='fu'>advanced_search</span>(<span class='st'>"permutation test AND NOT License: GPL OR GNU"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 247 packages in 0.023 seconds -
+<span class='fu'>advanced_search</span>(<span class='st'>"permutation test AND NOT License: GPL OR GNU"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 247 packages in 0.024 seconds -
 #&gt;   #     package           version by                  @ title                  
 #&gt;   1 100 phd               0.1     Jesse Hemerik      4M Permutation Testing ...
 #&gt;   2  96 confSAM           0.2     Jesse Hemerik      2y Estimates and Bounds...
@@ -257,7 +257,7 @@ here.</p></td>
 #&gt;   9 100 doSNOW          1.0.18  Hong Ooi              4M Foreach Parallel Ad...
 #&gt;  10 100 nor1mix         1.3.0   Martin Maechler       5M Normal aka Gaussian...</div><div class='input'>
 <span class='co'># Regular expressions</span>
-<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"/Joh?nathan/"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 184 packages in 0.004 seconds -
+<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"/Joh?nathan/"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 184 packages in 0.002 seconds -
 #&gt;   #     package         version  by                         @ title            
 #&gt;   1 100 texPreview      1.4.1    Jonathan Sidi            14d Compile and Pr...
 #&gt;   2 100 mlergm          0.4      Jonathan Stewart          8d Multilevel Exp...
