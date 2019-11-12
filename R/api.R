@@ -1,6 +1,4 @@
 
-. <- "dot"
-
 ## ----------------------------------------------------------------------
 
 s_data <- new.env()
@@ -49,7 +47,6 @@ s_data <- new.env()
 #'   * `bugreports`: URL of issue tracker, or email address for bug reports.
 #'
 #' @export
-#' @importFrom magrittr %>% extract2
 #' @examples
 #' \donttest{
 #' # Example
@@ -86,14 +83,15 @@ ps <- pkg_search
 
 make_pkg_search <- function(query, format, from, size, server, port) {
 
-  result <- make_query(query = query) %>%
-    do_query(server = server, port = port, from = from, size = size) %>%
-    format_result(query = query, format = format, from = from,
-                  size = size, server = server, port = port)
+  qry <- make_query(query = query)
+  rsp <- do_query(qry, server = server, port = port, from = from,
+                  size = size)
+  rst <- format_result(rsp, query = query, format = format, from = from,
+                       size = size, server = server, port = port)
 
-  s_data$prev_q <- result
+  s_data$prev_q <- rst
 
-  result
+  rst
 }
 
 #' @rdname pkg_search
