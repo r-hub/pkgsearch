@@ -138,109 +138,6 @@ default_width <- function() {
 
 ## ----------------------------------------------------------------------
 
-#' @method summary cran_package
-#' @export
-#'
-
-summary.cran_package <- function(object, ...) {
-  if ("versions" %in% names(object)) {
-    summary_cran_package_all(object, ...)
-  } else {
-    summary_cran_package_single(object, ...)
-  }
-  invisible(object)
-}
-
-#' @importFrom parsedate parse_date
-#' @importFrom prettyunits time_ago
-
-summary_cran_package_single <- function(object, ...) {
-  cat('CRAN package ' %+% object$Package %+% " " %+% object$Version %+%
-        ', ' %+% time_ago(parse_date(object$date)) %+% "\n")
-}
-
-#' @importFrom parsedate parse_date
-
-summary_cran_package_all <- function(object, ...) {
-  latest_date <- object$versions[[object$latest]]$date
-  cat('CRAN package ' %+% object$name %+% ", latest: " %+% object$latest %+%
-        ", " %+% time_ago(parse_date(latest_date)))
-  if (object$archived) {
-    cat(", archived " %+% time_ago(parse_date(object$timeline[["archived"]])))
-  }
-  cat("\n")
-}
-
-## ----------------------------------------------------------------------
-
-#' @method print cran_package
-#' @export
-
-print.cran_package <- function(x, ...) {
-  if ("versions" %in% names(x)) {
-    print_cran_package_all(x, ...)
-  } else {
-    print_cran_package_single(x, ...)
-  }
-  invisible(x)
-}
-
-print_cran_package_single <- function(x, ...) {
-  summary_cran_package_single(x)
-  print_cran_package_body(x)
-}
-
-print_cran_package_body <- function(x, indent = 0) {
-  x <- collapse_dep_fields(x)
-  x[["releases"]] <- paste(x[["releases"]], collapse = ", ")
-  
-  print_field("Title", x$Title, indent = indent)
-  print_field("Maintainer", x$Maintainer, indent = indent)
-  
-  names(x) %>%
-    setdiff(c("Title", "Maintainer", "Package", "Authors@R", "Version",
-              "date", "crandb_file_date")) %>%
-    sort() %>%
-    sapply(function(xx) print_field(xx, x[[xx]], indent = indent))
-}
-
-print_cran_package_all <- function(x, ...) {
-  summary_cran_package_all(x)
-  print_cran_package_all_1(x$latest, x$versions[[x$latest]])
-  
-  names(x$timeline) %>%
-    setdiff(c("archived", x$latest)) %>%
-    rev() %>%
-    ##    sapply(function(xx) print_cran_package_all_1(xx, x$versions[[xx]]))
-    paste(collapse = ", ") %>%
-    paste("Other versions:", .) %>%
-    strwrap(exdent = 2) %>%
-    cat(sep = "\n")
-}
-
-print_cran_package_all_1 <- function(name, version) {
-  cat("['" %+% name %+% "']:\n")
-  print_cran_package_body(version, indent = 2)
-}
-
-collapse_dep_fields <- function(pkg) {
-  for (f in intersect(names(pkg), cran_dep_fields)) {
-    pkg[[f]] <- names(pkg[[f]]) %>%
-      paste0(" (", pkg[[f]], ")") %>%
-      paste(collapse = ", ")
-  }
-  pkg
-}
-
-print_field <- function(key, value, indent = 0) {
-  (key %+% ": " %+% value) %>%
-    gsub(pattern = "\n", replacement = " ") %>%
-    strwrap(indent = indent, exdent = indent + 4) %>%
-    cat(sep = "\n")
-}
-
-## ----------------------------------------------------------------------
-#' @method summary cran_event_list
 #' @export
 
 summary.cran_event_list <- function(object, ...) {
@@ -254,8 +151,6 @@ summary.cran_event_list <- function(object, ...) {
   invisible(object)
 }
 
-## ----------------------------------------------------------------------
-#' @method print cran_event_list
 #' @export
 #' @importFrom prettyunits time_ago
 
@@ -286,33 +181,6 @@ print.cran_event_list <- function(x, ...) {
 }
 
 ## ----------------------------------------------------------------------
-
-#' @method summary r_releases
-#' @export
-
-summary.r_releases <- function(object, ...) {
-  cat("R releases " %+% object[1,]$version %+% " ... " %+%
-        object[nrow(object),]$version %+% "\n")
-  invisible(object)
-}
-
-## ----------------------------------------------------------------------
-
-#' @method print r_releases
-#' @export
-
-print.r_releases <- function(x, ...) {
-  cat_fill("R releases")
-  rels <- data.frame(
-    stringsAsFactors = FALSE,
-    Version = x$version,
-    Date = x$date %>% parse_date() %>% simple_date()
-  )
-  print.data.frame(rels, right = FALSE, row.names = FALSE)
-  invisible(x)
-}
-
-## ----------------------------------------------------------------------
 ## Utilities
 
 #' @importFrom assertthat assert_that is.string
@@ -322,10 +190,3 @@ cat_fill <- function(text) {
   width <- getOption("width") - nchar(text) - 1
   cat(text, paste(rep("-", width, collapse = "")), sep = "", "\n")
 }
-
-simple_date <- function(date) {
-  date %>%
-    gsub(pattern = "T", replacement = " ", fixed = TRUE) %>%
-    gsub(pattern = "+00:00", replacement = "", fixed = TRUE)
-}
-

@@ -16,12 +16,6 @@ check_string <- function(x) {
   }
 }
 
-check_strings <- function(x) {
-  if (!is.character(x) || any(is.na(x))) {
-    stop(x, " is not a string", call. = FALSE)
-  }
-}
-
 `%+%` <- function(lhs, rhs) {
   check_string(lhs)
   check_string(rhs)
@@ -63,79 +57,17 @@ meta <- function(x) {
   x
 }
 
-
-create_file_if_missing <- function(path, parent = TRUE) {
-  
-  if (parent) {
-    dir <- dirname(path)
-    if (!file.exists(dir)) { dir.create(dir, recursive = TRUE) }
-  }
-  
-  if (!file.exists(path)) { cat("", file = path) }
-  
-  invisible(path)
-}
-
-extract_only <- function(list, names) {
-  names <- intersect(names(list), names)
-  list[names]
-}
-
-with_wd <- function(dir, expr) {
-  wd <- getwd()
-  on.exit(setwd(wd))
-  setwd(dir)
-  eval(expr, envir = parent.frame())
-}
-
 trim <- function (x) gsub("^\\s+|\\s+$", "", x)
-
-trim_leading <- function (x)  sub("^\\s+", "", x)
-
-trim_trailing <- function (x) sub("\\s+$", "", x)
 
 #' @importFrom magrittr equals
 
-check_external <- function(cmdline) {
-  system(cmdline, ignore.stdout = TRUE, ignore.stderr = TRUE) %>%
-    equals(0)
-}
-
-check_couchapp <- function() {
-  if (!check_external("couchapp")) {
-    stop("Need an installed couchapp")
-  }
-}
-
-check_curl <- function() {
-  if (!check_external("curl --version")) {
-    stop("Need a working 'curl'")
-  }
-}
-
-NA_NULL <- function(x) {
-  if (length(x) == 1 && is.na(x)) NULL else x
-}
-
-NULL_NA <- function(x) {
-  if (is.null(x)) NA else x
-}
-
-unboxx <- function(x) {
-  if (inherits(x, "scalar") ||
-      is.null(x) ||
-      is.list(x) ||
-      length(x) != 1) x else unbox(x)
-}
-
-rsync <- function(from, to, args = "-rtlzv --delete") {
-  cmd <- paste("rsync", args, from, to)
-  system(cmd, ignore.stdout = TRUE, ignore.stderr = TRUE)
+couchdb_uri <- function() {
+  "https://crandb.r-pkg.org/"
 }
 
 query <- function(url, error = TRUE, ...) {
   
-  result <- couchdb_uri()$uri %>%
+  result <- couchdb_uri() %>%
     paste0(url) %>%
     httr::GET(...) %>%
     content(as = "text", encoding = "UTF-8") %>%
@@ -185,15 +117,6 @@ pluck <- function(list, idx) list[[idx]]
   list(lhs) %>%
     c(as.list(rhs)) %>%
     do.call(what = sprintf)
-}
-
-make_id <- function(length = 8) {
-  sample(c(letters, LETTERS, 0:9), length, replace = TRUE) %>%
-    paste(collapse = "")
-}
-
-download_method <- function() {
-  if (is.na(capabilities()["libcurl"])) "internal" else "libcurl"
 }
 
 needs_packages <- function(pkgs) {
