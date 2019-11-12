@@ -40,6 +40,12 @@ library("pkgsearch")
 pkg_search("permutation test")
 ```
 
+## Do it all *clicking*
+
+For the search mentioned above, and other points of entry to CRAN metadata, you can use pkgsearch RStudio add-in!
+
+![screenshot of the search tab of the addin](https://r-hub.github.io/pkgsearch/articles/figures/pkgsearch.png)
+
 ## Get package metadata
 
 Do you want to find the dependencies the first versions of `testthat` had and when each of these versions was released? 

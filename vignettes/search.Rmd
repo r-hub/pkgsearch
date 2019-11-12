@@ -20,7 +20,9 @@ For search of CRAN packages, pkgsearch uses a [web service](https://github.com/m
 and a careful weighting that ranks popular packages before less
 frequently used ones.
 
-# Basic use
+# Basic use...
+
+## From R
 
 Use `pkg_search()` to search for a term or phrase:
 
@@ -49,6 +51,12 @@ ps("google")
 ```{r}
 more()
 ```
+
+## RStudio add-in
+
+The "CRAN package search" add-in features a search tab. It makes the results easier to explore at a glance, or in detail by opening useful links related to each package (homepage, CRAN page, source code, etc.).
+
+![recording of use of the search tab of the addin](figures/pkgsearch.png)
 
 # Features
 
