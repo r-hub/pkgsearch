@@ -15,7 +15,6 @@ URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch
 BugReports: https://github.com/r-hub/pkgsearch/issues
 Imports:
     assertthat,
-    dotenv,
     httr,
     jsonlite,
     methods,
