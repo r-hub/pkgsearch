@@ -48,7 +48,7 @@ s_data <- new.env(parent = emptyenv())
 #'
 #' @export
 #' @examples
-#' \dontshow{ if (pingr::is_online()) withAutoprint(\{ }
+#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
 #' # Example
 #' ps("survival")
 #'

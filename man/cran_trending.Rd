@@ -16,7 +16,7 @@ counts, compared to the average weekly downloads in the previous 24
 weeks. The percentage of increase is also shown in the output.
 }
 \examples{
-\dontshow{ if (FALSE) withAutoprint(\{ }
+\dontshow{ asNamespace("pkgsearch")$exif(FALSE, \{ }
 cran_trending()
 \dontshow{ \}) }
 }

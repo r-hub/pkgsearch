@@ -34,7 +34,7 @@ List of events.
 List of all CRAN events (new, updated, archived packages)
 }
 \examples{
-\dontshow{ if (pingr::is_online()) withAutoprint(\{ }
+\dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
 cran_events()
 cran_events(limit = 5, releases = FALSE)
 cran_events(limit = 5, archivals = FALSE)

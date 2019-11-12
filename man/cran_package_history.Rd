@@ -16,7 +16,7 @@ A tibble, with one row per package version.
 Query the history of a package
 }
 \examples{
-\dontshow{ if (pingr::is_online()) withAutoprint(\{ }
+\dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
 cran_package_history("igraph")
 \dontshow{ \}) }
 }

@@ -74,7 +74,7 @@ previous query, if called without arguments.
 Note that the search needs a working Internet connection.
 }
 \examples{
-\dontshow{ if (pingr::is_online()) withAutoprint(\{ }
+\dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
 # Example
 ps("survival")
 
