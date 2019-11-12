@@ -18,7 +18,7 @@
 #'
 #' @export
 #' @examples
-#' \dontshow{ if (FALSE) withAutoprint(\{ }
+#' \dontshow{ asNamespace("pkgsearch")$exif(FALSE, \{ }
 #' pkg_search_addin()
 #'
 #' # Start with a search query
