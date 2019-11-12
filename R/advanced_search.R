@@ -14,6 +14,7 @@
 #'
 #' @return Search hits.
 #' @export
+#' @importFrom jsonlite unbox
 #' @examples
 #' \dontrun{
 #' # All orphaned packages
