@@ -1,7 +1,7 @@
 
 ## ----------------------------------------------------------------------
 
-s_data <- new.env()
+s_data <- new.env(parent = emptyenv())
 
 #' Search CRAN packages
 #'
@@ -12,7 +12,7 @@ s_data <- new.env()
 #' `ps()` is an alias to `pkg_search()`.
 #'
 #' `more()` retrieves that next page of results for the previous query.
-#' 
+#'
 #' @details
 #' Note that the search needs a working Internet connection.
 #'
@@ -89,7 +89,7 @@ make_pkg_search <- function(query, format, from, size, server, port) {
   rst <- format_result(rsp, query = query, format = format, from = from,
                        size = size, server = server, port = port)
 
-  s_data$prev_q <- rst
+  s_data$prev_q <- list(type = "simple", result = rst)
 
   rst
 }
@@ -98,15 +98,33 @@ make_pkg_search <- function(query, format, from, size, server, port) {
 #' @export
 
 more <- function(format = NULL, size = NULL) {
-  if (is.null(s_data$prev_q)) { stop("No query, start with 'pkg_search'") }
-  make_pkg_search(
-    query = meta(s_data$prev_q)$query,
-    format = format %||% meta(s_data$prev_q)$format,
-    from = meta(s_data$prev_q)$from + meta(s_data$prev_q)$size,
-    size = size %||% meta(s_data$prev_q)$size,
-    server = meta(s_data$prev_q)$server,
-    port = meta(s_data$prev_q)$port
-  )
+  if (is.null(s_data$prev_q)) {
+    stop("No query, start with 'pkg_search()'")
+  }
+
+  rst <- s_data$prev_q$result
+
+  if (s_data$prev_q$type == "simple") {
+    make_pkg_search(
+      query = meta(rst)$query,
+      format = format %||% meta(rst)$format,
+      from = meta(rst)$from + meta(rst)$size,
+      size = size %||% meta(rst)$size,
+      server = meta(rst)$server,
+      port = meta(rst)$port
+    )
+
+  } else if (s_data$prev_q$type == "advanced") {
+    advanced_search(
+      json = meta(rst)$qstr,
+      format = format %||% meta(rst)$format,
+      from = meta(rst)$from + meta(rst)$size,
+      size = size %||% meta(rst)$size
+    )
+
+  } else {
+    stop("Unknown search type, internal pkgsearch error :(")
+  }
 }
 
 #' @importFrom jsonlite toJSON
@@ -188,7 +206,7 @@ do_query <- function(query, server, port, from, size) {
 #' @importFrom parsedate parse_iso_8601
 
 format_result <- function(result, query, format, from, size, server,
-                          port) {
+                          port, ...) {
   result <- fromJSON(result, simplifyVector = FALSE)
 
   meta <- list(
@@ -201,7 +219,8 @@ format_result <- function(result, query, format, from, size, server,
     total = result$hits$total,
     max_score = result$hits$max_score,
     took = result$took,
-    timed_out = result$timed_out
+    timed_out = result$timed_out,
+    ...
   )
 
   sources <- map(result$hits$hits, "[[", "_source")
@@ -242,7 +261,7 @@ format_result <- function(result, query, format, from, size, server,
 
 pkg_search_again <- function() {
   if (is.null(s_data$prev_q)) { stop("No query given, and no previous query") }
-  format <- meta(s_data$prev_q)$format
-  meta(s_data$prev_q)$format <- if (format == "short") "long" else "short"
-  s_data$prev_q
+  format <- meta(s_data$prev_q$result)$format
+  meta(s_data$prev_q$result)$format <- if (format == "short") "long" else "short"
+  s_data$prev_q$result
 }

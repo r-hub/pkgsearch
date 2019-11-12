@@ -45,7 +45,7 @@
 #' }
 #' }'
 #' advanced_search(json = query)
-#' 
+#'
 #' # Regular expressions
 #' advanced_search(Author = "/Joh?nathan/")
 #'
@@ -96,11 +96,12 @@ advanced_search <- function(..., json = NULL, format = c("short", "long"),
     format = format,
     from = from,
     size = size,
-    server,
-    port
+    server = server,
+    port = port,
+    qstr = qstr
   )
 
-  s_data$prev_q <- result
+  s_data$prev_q <- list(type = "advanced", result = result)
 
   result
 }
