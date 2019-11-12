@@ -15,3 +15,8 @@ A tibble, with one row per package version.
 \description{
 Query the history of a package
 }
+\examples{
+\dontshow{ if (pingr::is_online()) withAutoprint(\{ }
+cran_package_history("igraph")
+\dontshow{ \}) }
+}

@@ -15,3 +15,8 @@ during last week, and that substantially increased their download
 counts, compared to the average weekly downloads in the previous 24
 weeks. The percentage of increase is also shown in the output.
 }
+\examples{
+\dontshow{ if (FALSE) withAutoprint(\{ }
+cran_trending()
+\dontshow{ \}) }
+}

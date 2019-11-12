@@ -19,7 +19,7 @@ The package metadata, in a named list.
 Metadata about a CRAN package
 }
 \examples{
-\dontrun{
+\dontshow{ if (pingr::is_online()) withAutoprint(\{ }
 cran_package("pkgsearch")
-}
+\dontshow{ \}) }
 }

@@ -27,3 +27,11 @@ and trending packages.
 \item Package list by maintainer.
 }
 }
+\examples{
+\dontshow{ if (FALSE) withAutoprint(\{ }
+pkg_search_addin()
+
+# Start with a search query
+pkg_search_addin("permutation test")
+\dontshow{ \}) }
+}
