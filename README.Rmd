@@ -16,7 +16,7 @@ options(width = 90)
 options(max.print = 200)
 ```
 
-# pkgsearch
+# pkgsearch: Search and Query CRAN R Packages
 
 > Get/search CRAN metadata about packages by keyword, popularity, recent activity, package name and more.
 

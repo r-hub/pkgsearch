@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pkgsearch
+# pkgsearch: Search and Query CRAN R Packages
 
 > Get/search CRAN metadata about packages by keyword, popularity, recent
 > activity, package name and
@@ -35,7 +35,7 @@ library("pkgsearch")
 pkg_search("permutation test")
 ```
 
-    #> - "permutation test" ----------------------------------- 1830 packages in 0.018 seconds - 
+    #> - "permutation test" ----------------------------------- 1830 packages in 0.013 seconds - 
     #>   #     package        version by                      @ title                           
     #>   1 100 coin           1.3.1   Torsten Hothorn        3M Conditional Inference Procedu...
     #>   2  33 flip           2.5.0   Livio Finos            1y Multivariate Permutation Tests  
@@ -47,6 +47,14 @@ pkg_search("permutation test")
     #>   8  18 permutes       1.0     Cesko C. Voeten        4M Permutation Tests for Time Se...
     #>   9  18 GlobalDeviance 0.4     Frederike Fuhlbrueck   6y Global Deviance Permutation T...
     #>  10  17 AUtests        0.98    Arjun Sondhi           3y Approximate Unconditional and...
+
+## Do it all *clicking*
+
+For the search mentioned above, and other points of entry to CRAN
+metadata, you can use pkgsearch RStudio add-in\!
+
+![recording of use of the search tab of the
+addin](https://r-hub.github.io/pkgsearch/articles/figures/screencast.gif)
 
 ## Get package metadata
 
@@ -129,17 +137,17 @@ cran_events()
 ```
 
     #> CRAN events (events)---------------------------------------------------------------------
-    #>  . When    Package      Version Title                                                    
-    #>  + 3 hours lime         0.5.1   Local Interpretable Model-Agnostic Explanations          
-    #>  + 3 hours bestglm      0.37.1  Best Subset GLM and Regression Utilities                 
-    #>  + 4 hours kernlab      0.9-29  Kernel-Based Machine Learning Lab                        
-    #>  + 4 hours AzureAuth    1.2.3   Authentication Services for Azure Active Directory       
-    #>  + 4 hours CondIndTests 0.1.5   Nonlinear Conditional Independence Tests                 
-    #>  + 4 hours plotKML      0.6-0   Visualization of Spatial and Spatio-Temporal Objects i...
-    #>  + 4 hours surveillance 1.17.2  Temporal and Spatio-Temporal Modeling and Monitoring o...
-    #>  + 5 hours rayshader    0.13.1  Create and Visualize Hillshaded Maps from Elevation Ma...
-    #>  + 5 hours qgcomp       1.2.0   Quantile G-Computation                                   
-    #>  + 6 hours enveomics.R  1.6.0   Various Utilities for Microbial Genomics and Metagenom...
+    #>  . When    Package       Version Title                                                   
+    #>  + 3 hours RcppAnnoy     0.0.14  'Rcpp' Bindings for 'Annoy', a Library for Approximat...
+    #>  + 3 hours rsimsum       0.7.0   Analysis of Simulation Studies Including Monte Carlo ...
+    #>  + 3 hours gtsummary     1.2.3   Presentation-Ready Data Summary and Analytic Result T...
+    #>  + 4 hours Jaya          0.1.9   Jaya, a Gradient-Free Optimization Algorithm            
+    #>  + 4 hours DealGPL570    0.0.1   Dealing GPL570 RAW.tar file                             
+    #>  + 4 hours marindicators 1.0.0   Marine Ecosystem and Fishing Pressure Indicators        
+    #>  + 5 hours comat         0.7.2   Creates Co-Occurrence Matrices of Spatial Data          
+    #>  + 6 hours dtplyr        1.0.0   Data Table Back-End for 'dplyr'                         
+    #>  + 6 hours creditmodel   1.1.6   Toolkit for Credit Modeling                             
+    #>  + 7 hours lime          0.5.1   Local Interpretable Model-Agnostic Explanations
 
 ## More info
 
