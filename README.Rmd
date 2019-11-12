@@ -29,7 +29,7 @@ options(max.print = 200)
 [![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
 <!-- badges: end -->
 
-`pkgsearch` uses three R-hub web services ([crandb](https://github.com/r-hub/crandb), [cranlogs](https://github.com/r-hub/cranlogs.app) and [search](https://github.com/metacran/search)) that munge CRAN metadata and let you access it through several lenses.
+`pkgsearch` uses R-hub web services that munge CRAN metadata and let you access it through several lenses.
 
 ## Search relevant packages
 
@@ -71,16 +71,10 @@ Find out more in [the documentation website](https://r-hub.github.io/pkgsearch/)
 
 ## Installation
 
-You can install the package from CRAN:
+Install the latest pkgsearch release from CRAN:
 
 ```r
 install.packages("pkgsearch")
-```
-
-Or the development version from GitHub:
-
-```r
-remotes::install_github("r-hub/pkgsearch")
 ```
 
 ## License
