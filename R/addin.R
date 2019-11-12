@@ -265,7 +265,7 @@ pkg_search_addin <- function(
 
     result <- pkg_search(query, from = from)
     data$search <<- result
-    format_results(result, "search")
+    format_addin_results(result, "search")
   }
 
   new_search <- function(btn_prev, btn_next) {
@@ -286,7 +286,7 @@ pkg_search_addin <- function(
     result <- rectangle_events(cran_events(archivals = FALSE, from = from))
     attr(result, "metadata") <- list(from = from, size = 10, total = 15000)
     data$new <<- result
-    format_results(result, "new")
+    format_addin_results(result, "new")
   }
 
   topdl_search <- function(btn_prev, btn_next) {
@@ -307,7 +307,7 @@ pkg_search_addin <- function(
     result <- get_topdl(from = from)
     attr(result, "metadata") <- list(from = from, size = 10, total = 100)
     data$topdl <<- result
-    format_results(result, "topdl")
+    format_addin_results(result, "topdl")
   }
 
   cran_top_dl <- memoise::memoise(
@@ -342,7 +342,7 @@ pkg_search_addin <- function(
     result <- get_topdep(from = from)
     attr(result, "metadata") <- list(from = from, size = 10, total = 15000)
     data$topdep <<- result
-    format_results(result, "topdep")
+    format_addin_results(result, "topdep")
   }
 
   dep_list0 <- function() {
@@ -382,7 +382,7 @@ pkg_search_addin <- function(
     result <- get_trend(from = from)
     attr(result, "metadata") <- list(from = from, size = 10, total = 15000)
     data$trend <<- result
-    format_results(result, "trend")
+    format_addin_results(result, "trend")
   }
 
   cran_trending1 <- memoise::memoise(
@@ -420,7 +420,7 @@ pkg_search_addin <- function(
 
     result <- get_maint(query, from = from)
     data$maint <<- result
-    format_results(result, "maint")
+    format_addin_results(result, "maint")
   }
 
   get_maint_data0 <- function(query) {
@@ -539,7 +539,7 @@ addin_styles <- function() {
   )
 }
 
-format_results <- function(results, id) {
+format_addin_results <- function(results, id) {
   if (is.null(results)) return(NULL)
   meta <- attr(results, "metadata")
   took <- format_took(results)
