@@ -35,6 +35,12 @@ here.}
 \item{from}{Where to start listing the results, for pagination.}
 
 \item{size}{The number of results to list.}
+
+\item{object}{Object to summarize.}
+
+\item{...}{Additional arguments, ignored currently.}
+
+\item{x}{Object to print.}
 }
 \value{
 A tibble with columns:

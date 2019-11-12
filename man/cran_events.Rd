@@ -20,6 +20,12 @@ cran_events(releases = TRUE, archivals = TRUE, limit = 10, from = 1)
 \item{limit}{Number of events to list.}
 
 \item{from}{Where to start the list, for pagination.}
+
+\item{object}{Object to summarize.}
+
+\item{...}{Additional arguments are ignored currently.}
+
+\item{x}{Object to print.}
 }
 \value{
 List of events.

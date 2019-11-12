@@ -10,6 +10,8 @@ print_header <- function(result) {
 
 #' @export
 #' @rdname pkg_search
+#' @param object Object to summarize.
+#' @param ... Additional arguments, ignored by `summary()`.
 #' @importFrom utils capture.output
 
 summary.pkg_search_result <- function(object, ...) {
@@ -43,6 +45,8 @@ summary.pkg_search_result <- function(object, ...) {
 }
 
 #' @export
+#' @param x Object to print.
+#' @param ... Additional arguments, ignored currently.
 #' @rdname pkg_search
 
 print.pkg_search_result <- function(x, ...) {
@@ -132,6 +136,8 @@ default_width <- function() {
 ## ----------------------------------------------------------------------
 
 #' @export
+#' @param object Object to summarize.
+#' @param ... Additional arguments are ignored currently.
 #' @rdname cran_events
 
 summary.cran_event_list <- function(object, ...) {
@@ -148,6 +154,8 @@ summary.cran_event_list <- function(object, ...) {
 
 #' @export
 #' @rdname cran_events
+#' @param x Object to print.
+#' @param ... Additional arguments are ignored currently.
 #' @importFrom prettyunits time_ago
 #' @importFrom parsedate parse_date
 
