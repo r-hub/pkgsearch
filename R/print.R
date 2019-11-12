@@ -4,8 +4,8 @@ print_header <- function(result) {
   right <- " " %+% as.character(meta(result)$total) %+% " " %+% pkg %+%
     " in " %+% as.character(round(meta(result)$took / 1000, 3)) %+%
     " seconds " %+% "-"
-  left_right(left, right, fill = "-") %>%
-    cat("\n")
+
+  cat(left_right(left, right, fill = "-"), sep = "\n")
 }
 
 #' @export
@@ -65,38 +65,31 @@ cat_hit <- function(x, no) {
   ago <- time_ago(pkg$date)
   pkg_ver <- as.character(meta(x)$from + no - 1) %+% " " %+%
     pkg$package %+% " @ " %+% as.character(pkg$version)
-  left_right(pkg_ver, pkg$maintainer_name %+% ", " %+% ago) %>%
-    cat("\n")
+  cat(left_right(pkg_ver, pkg$maintainer_name %+% ", " %+% ago), sep = "\n")
 
   cat_line(nchar(pkg_ver), "\n")
 
   ## Title
-  pkg$title %>%
-    sub(pattern = "\\s+", replacement = " ", perl = TRUE) %>%
-    paste("#", .) %>%
-    strwrap(width = default_width(), indent = 2, exdent = 4) %>%
-    cat(sep = "\n")
+  ttl <- strwrap(
+    paste("#", sub("\\s+", " ", pkg$title, perl = TRUE)),
+    indent = 2, exdent = 4)
+  cat(ttl, sep = "\n")
 
   ## Description
-  pkg$description %>%
-    sub(pattern = "\\s+", replacement = " ", perl = TRUE) %>%
-    strwrap(width = default_width(), indent = 2, exdent = 2) %>%
-    cat(sep = "\n")
+  dsc <- strwrap(
+    sub("\\s+", " ", pkg$description, perl = TRUE),
+    indent = 2, exdent = 2)
+  cat(dsc, sep = "\n")
 
   ## URL(s)
   if (!is.na(pkg$url)) {
-    pkg$url %>%
-      strsplit("[,\\s]+", perl = TRUE) %>%
-      extract2(1) %>%
-      paste(" ", .) %>%
-      cat(sep = "\n")
+    url <- paste(" ", strsplit(pkg$url, "[,\\s]+", perl = TRUE)[[1]])
+    cat(url, sep = "\n")
   }
 }
 
 cat_line <- function(length, ...) {
-  rep("-", length) %>%
-    paste(collapse = "") %>%
-    cat()
+  cat(paste0(rep("-", length), collapse = ""))
   cat(...)
 }
 
@@ -104,9 +97,7 @@ right_align <- function(str, width = default_width(), fill = " ") {
 
   nc <- nchar(str)
   no_sp <- max(width - nc, 0)
-  rep(fill, no_sp) %>%
-    paste0(collapse = "") %>%
-    paste0(str)
+  paste0(paste(rep(fill, no_sp), collapse = ""), str)
 }
 
 left_right <- function(left, right, width = default_width(), fill = " ") {
@@ -115,18 +106,18 @@ left_right <- function(left, right, width = default_width(), fill = " ") {
   left_width <- width - nc
   if (left_width <= 20) {
     ## They do not fit in one line
-    right_align(right, width = width, fill = fill) %>%
-      paste0("\n") %>%
+    paste0(
+      right_align(right, width = width, fill = fill), "\n",
       paste0(strwrap(left, width = width))
+    )
   } else {
     ## They do fit in one line
-    left <- paste(left, collapse = " ") %>%
-      strwrap(width = left_width - 1, simplify = FALSE) %>%
-      extract2(1)
-    right <- right_align(right, width = width - nchar(left[1]) - 1,
-                         fill = fill)
-    left[1] <- left[1] %>%
-      paste(right)
+    left <- strwrap(
+      paste(left, collapse = " "),
+      width = left_width - 1, simplify = FALSE)[[1]]
+    right <- right_align(
+      right, width = width - nchar(left[1]) - 1, fill = fill)
+    left[1] <- paste(left[1], right)
     paste(left, collapse = "\n")
   }
 }
@@ -142,28 +133,30 @@ default_width <- function() {
 
 summary.cran_event_list <- function(object, ...) {
   cat("CRAN events (" %+% attr(object, "mode") %+% ")\n")
-  paste0(
+  out <- paste0(
     sapply(object, "[[", "name"),
     "@",
     sapply(object, function(xx) xx$package$Version),
     ifelse(sapply(object, "[[", "event") == "released", "", "-")
-  ) %>% print()
+  )
+  print(out)
   invisible(object)
 }
 
 #' @export
 #' @importFrom prettyunits time_ago
+#' @importFrom parsedate parse_date
 
 print.cran_event_list <- function(x, ...) {
   cat_fill("CRAN events (" %+% attr(x, "mode") %+% ")")
+  when <- time_ago(format = "short", parse_date(sapply(x, "[[", "date")))
   pkgs <- data.frame(
     stringsAsFactors = FALSE, check.names = FALSE,
     "." = ifelse(sapply(x, "[[", "event") == "released", "+", "-"),
-    When = sapply(x, "[[", "date") %>% parse_date() %>% time_ago(format = "short"),
+    When = when,
     Package = sapply(x, "[[", "name"),
     Version = sapply(x, function(xx) xx$package$Version),
-    RTitle = sapply(x, function(xx) xx$package$Title) %>%
-      gsub(pattern = "\\s+", replacement = " ")
+    RTitle = gsub("\\s+", " ", sapply(x, function(xx) xx$package$Title))
   )
   
   tw <- getOption("width") - 7 - 3 -

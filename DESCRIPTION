@@ -18,7 +18,6 @@ Imports:
     dotenv,
     httr,
     jsonlite,
-    magrittr,
     methods,
     parsedate,
     prettyunits,

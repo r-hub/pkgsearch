@@ -59,25 +59,8 @@ meta <- function(x) {
 
 trim <- function (x) gsub("^\\s+|\\s+$", "", x)
 
-#' @importFrom magrittr equals
-
 couchdb_uri <- function() {
   "https://crandb.r-pkg.org/"
-}
-
-query <- function(url, error = TRUE, ...) {
-  
-  result <- couchdb_uri() %>%
-    paste0(url) %>%
-    httr::GET(...) %>%
-    content(as = "text", encoding = "UTF-8") %>%
-    fromJSON(...)
-  
-  if (error && ("error" %in% names(result))) {
-    stop("crandb query: ", result$reason, call. = FALSE)
-  }
-  
-  result
 }
 
 add_class <- function(x, class_name) {
@@ -101,9 +84,11 @@ remove_special <- function(list, level = 1) {
   assert_that(is.count(level), level >= 1)
   
   if (level == 1) {
-    names(list) %>%
-      grepl(pattern = "^_") %>%
-      replace(x = list, values = NULL)
+    replace(
+      grepl(pattern = "^_", names(list)),
+      x = list,
+      values = NULL
+    )
   } else {
     lapply(list, remove_special, level = level - 1)
   }
@@ -111,13 +96,6 @@ remove_special <- function(list, level = 1) {
 }
 
 pluck <- function(list, idx) list[[idx]]
-
-`%s%` <- function(lhs, rhs) {
-  assert_that(is.string(lhs))
-  list(lhs) %>%
-    c(as.list(rhs)) %>%
-    do.call(what = sprintf)
-}
 
 needs_packages <- function(pkgs) {
   has <- map_lgl(pkgs, function(pkg) {

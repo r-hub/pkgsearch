@@ -20,11 +20,11 @@ cran_package <- function(name, version = NULL) {
   assert_that(is_package_name(name))
   assert_that(is.null(version) || is_package_version(version))
 
-  url <- name
-  if (! is.null(version)) url <- paste0(url, "/", version)
-  query(url) %>%
-    remove_special() %>%
-    add_class("cran_package")
+  ept <- name
+  if (! is.null(version)) ept <- paste0(ept, "/", version)
+  rst <- crandb_query(ept)
+  crst <- remove_special(rst)
+  add_class(crst, "cran_package")
 }
 
 #' Metadata about multiple CRAN packages
@@ -47,13 +47,13 @@ cran_package <- function(name, version = NULL) {
 
 cran_packages <- function(names) {
   names <- sub("@", "-", names, fixed = TRUE)
-  url <- paste0(
+  ept <- paste0(
     "/-/versions?keys=[",
     paste0("\"", names, "\"", collapse = ","),
     "]"
   )
 
-  resp <- query(url)
+  resp <- crandb_query(ept)
 
   rectangle_packages(resp)
 }
@@ -94,14 +94,19 @@ cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
   } else {
     "archivals"
   }
-  "/-/" %>%
-    paste0(mode) %>%
-    paste0("?limit=", limit) %>%
-    paste0("&descending=true") %>%
-    paste0("&skip=", from - 1L) %>%
-    query(simplifyDataFrame = FALSE) %>%
-    add_attr("mode", mode) %>%
-    add_class("cran_event_list")
+
+  ept <- paste0(
+    "/-/", mode,
+    "?limit=", limit,
+    "&descending=true",
+    "&skip=", from - 1L
+  )
+
+  structure(
+    crandb_query(ept, simplifyDataFrame = FALSE),
+    "mode" = mode,
+    class = "cran_event_list"
+  )
 }
 
 #' Trending R packages
@@ -116,8 +121,8 @@ cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
 #' @export
 
 cran_trending <- function() {
-  url <- "https://cranlogs.r-pkg.org/trending"
-  resp <- httr::stop_for_status(httr::GET(url))
+  ept <- "https://cranlogs.r-pkg.org/trending"
+  resp <- httr::stop_for_status(httr::GET(ept))
   cnt <- content(resp, as = "text", encoding = "UTF-8")
   tb <- fromJSON(cnt, simplifyDataFrame = TRUE)
   colnames(tb) <- c("package", "score")
@@ -129,24 +134,38 @@ cran_trending <- function() {
 #' Last week.
 #'
 #' @return Tibble of top downloaded packages.
-#' 
-#' @details You can use the [`cranlogs` package](https://r-hub.github.io/cranlogs/) 
+#'
+#' @details You can use the [`cranlogs` package](https://r-hub.github.io/cranlogs/)
 #' to get more flexibility into what is returned.
 #'
 #' @export
 
 cran_top_downloaded <- function() {
-  url <- "http://cranlogs.r-pkg.org/top/last-week/100"
-  resp <- httr::stop_for_status(httr::GET(url))
+  ept <- "http://cranlogs.r-pkg.org/top/last-week/100"
+  resp <- httr::stop_for_status(httr::GET(ept))
   cnt <- content(resp, as = "text", encoding = "UTF-8")
   tb <- fromJSON(cnt, simplifyDataFrame = TRUE)$downloads
   names(tb) <- c("package", "count")
   tibble::as_tibble(tb)
 }
 
+crandb_query <- function(url, error = TRUE, ...) {
+
+  rst <- url0 <- paste0(couchdb_uri(), url)
+  rsp <- httr::GET(url0, ...)
+  cnt <- content(rsp, as = "text", encoding = "UTF-8")
+  rst <- fromJSON(cnt, ...)
+
+  if (error && ("error" %in% names(rst))) {
+    stop("crandb query: ", rst$reason, call. = FALSE)
+  }
+
+  rst
+}
+
 #' @importFrom assertthat assert_that is.count is.flag
 
-do_cran_query <- function(from, limit,
+do_crandb_query <- function(from, limit,
                           format = c("short", "latest", "full"),
                           archived) {
 
@@ -155,16 +174,16 @@ do_cran_query <- function(from, limit,
   format <- match.arg(format)
   assert_that(is.flag(archived))
 
-  url <- switch(
+  ept <- switch(
     format,
     "short" = "/-/desc",
     "latest" = "/-/latest",
     "full" = "/-/all")
 
-  if (archived) url <- "/-/allall"
+  if (archived) ept <- "/-/allall"
 
-  url <- sprintf("%s?start_key=\"%s\"&limit=%d", url, from, limit)
-  resp <- query(url)
+  ept <- sprintf("%s?start_key=\"%s\"&limit=%d", ept, from, limit)
+  resp <- crandb_query(ept)
   remove_special(resp, level = 2)
 }
 
@@ -176,7 +195,7 @@ do_cran_query <- function(from, limit,
 
 cran_package_history <- function(package) {
 
-  resp <- do_cran_query(
+  resp <- do_crandb_query(
     from = package, limit = 1,
     format = "full",
     archived = TRUE
@@ -230,7 +249,7 @@ rectangle_description <- function(description_list) {
 
 idesc_get_deps <- function(description_list) {
 
-  types <- intersect(names(description_list)[lengths(description_list) > 0], 
+  types <- intersect(names(description_list)[lengths(description_list) > 0],
                      dep_types())
   res <- lapply(
     types,
