@@ -82,9 +82,12 @@ pkg_search_addin <- function(
     title = shiny::div(
       shiny::div(
         id = "rhub-logo",
-        shiny::img(src = "https://cdn.jsdelivr.net/gh/r-hub/branding@master/logo/rhub-square.svg",
-            width = "40px",
-            height = "40px"
+        shiny::tags$a(
+          shiny::img(src = "https://cdn.jsdelivr.net/gh/r-hub/branding@master/logo/rhub-square.svg",
+              width = "40px",
+              height = "40px"
+          ),
+          href = "https://docs.r-hub.io"
         )
       )
     ),
