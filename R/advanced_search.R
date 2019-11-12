@@ -16,7 +16,7 @@
 #' @export
 #' @importFrom jsonlite unbox
 #' @examples
-#' \dontrun{
+#' \dontshow{ if (pingr::is_online()) withAutoprint(\{ }
 #' # All orphaned packages
 #' advanced_search(Maintainer = "ORPHANED")
 #'
@@ -51,7 +51,7 @@
 #'
 #' # Fuzzy search
 #' advanced_search(Author = "Johnathan~1")
-#' }
+#' \dontshow{ \}) }
 
 advanced_search <- function(..., json = NULL, format = c("short", "long"),
                             from = 1, size = 10) {

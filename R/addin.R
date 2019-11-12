@@ -17,6 +17,13 @@
 #'   or in a web browser (`"browser"`).
 #'
 #' @export
+#' @examples
+#' \dontshow{ if (FALSE) withAutoprint(\{ }
+#' pkg_search_addin()
+#'
+#' # Start with a search query
+#' pkg_search_addin("permutation test")
+#' \dontshow{ \}) }
 
 pkg_search_addin <- function(
   query = "",

@@ -9,9 +9,9 @@
 #'   version if returned.
 #' @return The package metadata, in a named list.
 #' @examples
-#' \dontrun{
+#' \dontshow{ if (pingr::is_online()) withAutoprint(\{ }
 #' cran_package("pkgsearch")
-#' }
+#' \dontshow{ \}) }
 #' @export
 #' @importFrom assertthat assert_that
 
@@ -33,7 +33,8 @@ cran_package <- function(name, version = NULL) {
 #'   `@@` character.
 #' @return A data frame of package metadata, one package per row.
 #'
-#' @examples \dontrun{
+#' @examples
+#' \dontshow{ if (pingr::is_online()) withAutoprint(\{ }
 #' # Get metadata about one package
 #' cran_packages("rhub")
 #' # Get metadata about two packages
@@ -42,7 +43,7 @@ cran_package <- function(name, version = NULL) {
 #' cran_packages(c("rhub@1.1.1", "testthat@2.2.1", "testthat@2.2.0"))
 #' # If a version does not exist nothing is returned
 #' cran_packages("rhub@notaversion")
-#' }
+#' \dontshow{ \}) }
 #' @export
 
 cran_packages <- function(names) {
@@ -71,11 +72,12 @@ cran_packages <- function(names) {
 #'
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontshow{ if (pingr::is_online()) withAutoprint(\{ }
 #' cran_events()
 #' cran_events(limit = 5, releases = FALSE)
 #' cran_events(limit = 5, archivals = FALSE)
-#' }
+#' summary(cran_events(limit = 10))
+#' \dontshow{ \}) }
 #' @importFrom assertthat assert_that is.count is.flag
 
 cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
@@ -119,6 +121,10 @@ cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
 #' @return Tibble of trending packages.
 #'
 #' @export
+#' @examples
+#' \dontshow{ if (FALSE) withAutoprint(\{ }
+#' cran_trending()
+#' \dontshow{ \}) }
 
 cran_trending <- function() {
   ept <- "https://cranlogs.r-pkg.org/trending"
@@ -139,6 +145,10 @@ cran_trending <- function() {
 #' to get more flexibility into what is returned.
 #'
 #' @export
+#' @examples
+#' \dontshow{ if (FALSE) withAutoprint(\{ }
+#' cran_top_downloaded()
+#' \dontshow{ \}) }
 
 cran_top_downloaded <- function() {
   ept <- "http://cranlogs.r-pkg.org/top/last-week/100"
@@ -192,6 +202,10 @@ do_crandb_query <- function(from, limit,
 #' @param package Package name.
 #' @return A tibble, with one row per package version.
 #' @export
+#' @examples
+#' \dontshow{ if (pingr::is_online()) withAutoprint(\{ }
+#' cran_package_history("igraph")
+#' \dontshow{ \}) }
 
 cran_package_history <- function(package) {
 

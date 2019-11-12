@@ -48,7 +48,7 @@ s_data <- new.env()
 #'
 #' @export
 #' @examples
-#' \donttest{
+#' \dontshow{ if (pingr::is_online()) withAutoprint(\{ }
 #' # Example
 #' ps("survival")
 #'
@@ -63,7 +63,7 @@ s_data <- new.env()
 #' # See the underlying tibble
 #' ps("ropensci")
 #' ps()[]
-#' }
+#' \dontshow{ \}) }
 
 pkg_search <- function(query = NULL, format = c("short", "long"),
                        from = 1, size = 10) {

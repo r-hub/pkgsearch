@@ -9,6 +9,7 @@ print_header <- function(result) {
 }
 
 #' @export
+#' @rdname pkg_search
 #' @importFrom utils capture.output
 
 summary.pkg_search_result <- function(object, ...) {
@@ -42,6 +43,7 @@ summary.pkg_search_result <- function(object, ...) {
 }
 
 #' @export
+#' @rdname pkg_search
 
 print.pkg_search_result <- function(x, ...) {
   if (meta(x)$format == "short") {
@@ -130,6 +132,7 @@ default_width <- function() {
 ## ----------------------------------------------------------------------
 
 #' @export
+#' @rdname cran_events
 
 summary.cran_event_list <- function(object, ...) {
   cat("CRAN events (" %+% attr(object, "mode") %+% ")\n")
@@ -144,6 +147,7 @@ summary.cran_event_list <- function(object, ...) {
 }
 
 #' @export
+#' @rdname cran_events
 #' @importFrom prettyunits time_ago
 #' @importFrom parsedate parse_date
 
