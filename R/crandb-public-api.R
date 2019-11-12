@@ -63,9 +63,10 @@ cran_packages <- function(names) {
 
 #' List of all CRAN events (new, updated, archived packages)
 #'
-#' @param limit Number of events to list.
 #' @param releases Whether to include package releases.
 #' @param archivals Whether to include package archivals.
+#' @param limit Number of events to list.
+#' @param from Where to start the list, for pagination.
 #' @return List of events.
 #'
 #' @export
@@ -77,12 +78,14 @@ cran_packages <- function(names) {
 #' }
 #' @importFrom assertthat assert_that is.count is.flag
 
-cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
+cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
+                        from = 1) {
 
   assert_that(is.count(limit))
   assert_that(is.flag(releases))
   assert_that(is.flag(archivals))
   assert_that(releases || archivals)
+  assert_that(is.count(from))
 
   mode <- if (releases && archivals) {
     "events"
@@ -95,6 +98,7 @@ cran_events <- function(limit = 10, releases = TRUE, archivals = TRUE) {
     paste0(mode) %>%
     paste0("?limit=", limit) %>%
     paste0("&descending=true") %>%
+    paste0("&skip=", from - 1L) %>%
     query(simplifyDataFrame = FALSE) %>%
     add_attr("mode", mode) %>%
     add_class("cran_event_list")

@@ -21,12 +21,18 @@ Imports:
     magrittr,
     methods,
     parsedate,
-    prettyunits
+    prettyunits,
+    tibble,
+    whoami
 Suggests:
     covr,
+    memoise,
     pingr (>= 2.0.0),
-    testthat (>= 2.1.0),
-    tibble
+    rstudioapi,
+    shiny,
+    shinyjs,
+    shinyWidgets,
+    testthat (>= 2.1.0)
 Encoding: UTF-8
 RoxygenNote: 6.1.99.9001
 Roxygen: list(markdown = TRUE)

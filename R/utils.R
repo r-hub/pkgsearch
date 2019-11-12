@@ -1,6 +1,8 @@
 
 `%||%` <- function(l, r) if (is.null(l)) r else l
 
+`%|NA|%` <- function(l, r) ifelse(is.na(l), r, l)
+
 check_count <- function(x) {
   if (!is.numeric(x) || length(x) != 1 || as.integer(x) != x ||
       is.na(x) || x < 0) {
@@ -46,6 +48,10 @@ map_dbl <- function(.x, .f, ...) {
 
 map_chr <- function(.x, .f, ...) {
   map_mold(.x, .f, character(1), ...)
+}
+
+map_lgl <- function(.x, .f, ...) {
+  map_mold(.x, .f, logical(1), ...)
 }
 
 meta <- function(x) {
@@ -190,3 +196,25 @@ download_method <- function() {
   if (is.na(capabilities()["libcurl"])) "internal" else "libcurl"
 }
 
+needs_packages <- function(pkgs) {
+  has <- map_lgl(pkgs, function(pkg) {
+    requireNamespace(pkg, quietly = TRUE)
+  })
+
+  if (!all(has)) {
+    stop(
+      "The ",
+      paste(sQuote(pkgs), collapse = ", "),
+      " packages are needed for this addin.",
+      call. = FALSE
+    )
+  }
+}
+
+clean_description <- function(txt) {
+  gsub("<U+000a>", " ", txt, fixed = TRUE)
+}
+
+zap_null <- function(x) {
+  x[! map_lgl(x, is.null)]
+}
