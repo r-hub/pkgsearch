@@ -19,8 +19,7 @@ Imports:
     jsonlite,
     parsedate,
     prettyunits,
-    tibble,
-    whoami
+    tibble
 Suggests:
     covr,
     DT,
@@ -33,8 +32,8 @@ Suggests:
     shiny,
     shinyjs,
     shinyWidgets,
-    testthat (>= 2.1.0)
->>>>>>> fcc7aa8... Refactor addin
+    testthat (>= 2.1.0),
+    whoami
 Encoding: UTF-8
 RoxygenNote: 6.1.99.9001
 Roxygen: list(markdown = TRUE)
