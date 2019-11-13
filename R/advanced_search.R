@@ -60,7 +60,7 @@ advanced_search <- function(..., json = NULL, format = c("short", "long"),
   format <- match.arg(format)
 
   if (!is.null(json) && length(terms) > 0) {
-    stop("You cannot specify `json` together with search terms.")
+    throw(new_error("You cannot specify `json` together with search terms."))
   }
 
   if (is.null(json)) {
