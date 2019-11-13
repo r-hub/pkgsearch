@@ -17,7 +17,6 @@ Imports:
     assertthat,
     httr,
     jsonlite,
-    methods,
     parsedate,
     prettyunits,
     tibble,
