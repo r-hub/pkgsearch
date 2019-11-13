@@ -167,7 +167,7 @@ crandb_query <- function(url, error = TRUE, ...) {
   rst <- fromJSON(cnt, ...)
 
   if (error && ("error" %in% names(rst))) {
-    stop("crandb query: ", rst$reason, call. = FALSE)
+    throw(new_error("crandb query: ", rst$reason, call. = FALSE))
   }
 
   rst

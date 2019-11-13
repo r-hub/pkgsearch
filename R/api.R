@@ -99,7 +99,7 @@ make_pkg_search <- function(query, format, from, size, server, port) {
 
 more <- function(format = NULL, size = NULL) {
   if (is.null(s_data$prev_q)) {
-    stop("No query, start with 'pkg_search()'")
+    throw(new_error("No query, start with 'pkg_search()'"))
   }
 
   rst <- s_data$prev_q$result
@@ -123,7 +123,7 @@ more <- function(format = NULL, size = NULL) {
     )
 
   } else {
-    stop("Unknown search type, internal pkgsearch error :(")
+    throw(new_error("Unknown search type, internal pkgsearch error :("))
   }
 }
 
@@ -198,9 +198,46 @@ do_query <- function(query, server, port, from, size) {
   result <- POST(
     url, body = query,
     add_headers("Content-Type" = "application/json"))
-  stop_for_status(result)
+  rethrow(
+    stop_for_status(result),
+    new_query_error(result, "search server failure")
+  )
 
   content(result, as = "text")
+}
+
+new_query_error <- function(response, ...) {
+  cond <- new_error(...)
+  class(cond) <- c("pkgsearch_query_error", class(cond))
+  cond$response <- response
+  cond
+}
+
+#' @export
+
+print.pkgsearch_query_error <- function(x, ...) {
+  # The call to the httr method is quite tedious and not very useful,
+  # so we remove it
+  x$parent$call <- NULL
+
+  # default print method for the error itself
+  err$print_this(x, ...)
+
+  # error message from Elastic, if any
+  tryCatch({
+    rsp <- x$response
+    cnt <- fromJSON(content(rsp, as = "text"), simplifyVector = FALSE)
+    if ("error" %in% names(cnt) &&
+        "root_cause" %in% names(cnt$error) &&
+        "reason" %in% names(cnt$error$root_cause[[1]])) {
+      cat("", cnt$error$root_cause[[1]]$reason, "", sep = "\n")
+    }
+  }, error = function(x) NULL)
+
+  # parent error(s)
+  err$print_parents(x, ...)
+
+  invisible(x)
 }
 
 #' @importFrom parsedate parse_iso_8601
@@ -260,7 +297,9 @@ format_result <- function(result, query, format, from, size, server,
 }
 
 pkg_search_again <- function() {
-  if (is.null(s_data$prev_q)) { stop("No query given, and no previous query") }
+  if (is.null(s_data$prev_q)) {
+    throw(new_error("No query given, and no previous query"))
+  }
   format <- meta(s_data$prev_q$result)$format
   meta(s_data$prev_q$result)$format <- if (format == "short") "long" else "short"
   s_data$prev_q$result

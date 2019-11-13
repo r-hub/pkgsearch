@@ -3,6 +3,7 @@
 S3method("[",pkg_search_result)
 S3method(print,cran_event_list)
 S3method(print,pkg_search_result)
+S3method(print,pkgsearch_query_error)
 S3method(summary,cran_event_list)
 S3method(summary,pkg_search_result)
 export(advanced_search)

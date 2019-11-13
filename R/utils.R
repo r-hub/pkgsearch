@@ -6,13 +6,13 @@
 check_count <- function(x) {
   if (!is.numeric(x) || length(x) != 1 || as.integer(x) != x ||
       is.na(x) || x < 0) {
-    stop(x, " is not a count", call. = FALSE)
+    throw(new_error(x, " is not a count", call. = FALSE))
   }
 }
 
 check_string <- function(x) {
   if (!is.character(x) || length(x) != 1 || is.na(x)) {
-    stop(x, " is not a string", call. = FALSE)
+    throw(new_error(x, " is not a string", call. = FALSE))
   }
 }
 
@@ -103,12 +103,12 @@ needs_packages <- function(pkgs) {
   })
 
   if (!all(has)) {
-    stop(
+    throw(new_error(
       "The ",
       paste(sQuote(pkgs), collapse = ", "),
       " packages are needed for this addin.",
       call. = FALSE
-    )
+    ))
   }
 }
 
