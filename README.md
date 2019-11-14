@@ -76,7 +76,7 @@ For the search mentioned above, and other points of entry to CRAN
 metadata, you can use pkgsearch RStudio add-in!
 
 ![addin
-screeenshot](https://cdn.jsdelivr.net/gh/r-hub/pkgsearch@readme/pkgsearch.png)
+screeenshot](https://cdn.jsdelivr.net/gh/r-hub/pkgsearch@master/pkgsearch.png)
 
 Select the “CRAN package search” addin from the menu, or start it with
 `pkg_search_addin()`.
