@@ -22,7 +22,6 @@ Imports:
     tibble
 Suggests:
     covr,
-    DT,
     knitr,
     miniUI,
     memoise,
