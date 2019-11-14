@@ -24,19 +24,15 @@ Imports:
     tibble
 Suggests:
     covr,
-    knitr,
     miniUI,
     memoise,
     pingr (>= 2.0.0),
-    rmarkdown,
     rstudioapi,
     shiny,
     shinyjs,
     shinyWidgets,
     testthat (>= 2.1.0),
     whoami
-VignetteBuilder: rmarkdown, knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.99.9001
 Roxygen: list(markdown = TRUE)
-VignetteBuilder: knitr

@@ -1,7 +1,12 @@
 ---
-output: github_document
+output:
+  md_document:
+    variant: markdown_github
+    toc: true
+    toc_depth: 3
+    includes:
+      before_body: header.md
 ---
-
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -16,63 +21,6 @@ options(width = 90)
 options(max.print = 200)
 ```
 
-# Search and Query CRAN R Packages
-
-<!-- badges: start -->
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Linux Build Status](https://travis-ci.org/r-hub/pkgsearch.svg?branch=master)](https://travis-ci.org/r-hub/pkgsearch)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-hub/pkgsearch?svg=true)](https://ci.appveyor.com/project/gaborcsardi/pkgsearch)
-[![CRAN status](https://www.r-pkg.org/badges/version/pkgsearch)](https://cran.r-project.org/package=pkgsearch)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/pkg/pkgsearch)
-[![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://codecov.io/github/r-hub/pkgsearch?branch=master)
-<!-- badges: end -->
-
-`pkgsearch` uses R-hub web services that munge CRAN metadata and let you access it through several lenses.
-
-## Search relevant packages
-
-Do you need to find packages solving a particular problem, e.g. "permutation test"? 
-
-```{r search}
-library("pkgsearch")
-pkg_search("permutation test")
-```
-
-## Do it all *clicking*
-
-For the search mentioned above, and other points of entry to CRAN metadata, you can use pkgsearch RStudio add-in!
-
-![screenshot of the search tab of the addin](https://r-hub.github.io/pkgsearch/articles/figures/pkgsearch.png)
-
-## Get package metadata
-
-Do you want to find the dependencies the first versions of `testthat` had and when each of these versions was released? 
-
-```{r history}
-cran_package_history("testthat")
-```
-
-## Discover packages
-
-Do you want to know what packages are trending on CRAN these days? `pkgsearch` can help!
-
-```{r trend}
-cran_trending()
-cran_top_downloaded()
-```
-
-## Keep up with CRAN
-
-Are you curious about the latest releases or archivals?
-
-```{r}
-cran_events()
-```
-
-## More info
-
-Find out more in [the documentation website](https://r-hub.github.io/pkgsearch/), in particular the [function reference](https://r-hub.github.io/pkgsearch/reference/index.html) and [the vignette about search features](https://r-hub.github.io/pkgsearch/articles/search.html).
-
 ## Installation
 
 Install the latest pkgsearch release from CRAN:
@@ -81,7 +29,162 @@ Install the latest pkgsearch release from CRAN:
 install.packages("pkgsearch")
 ```
 
+## Usage
+
+### Search relevant packages
+
+Do you need to find packages solving a particular problem, e.g.
+"permutation test"?
+
+```{r search}
+library("pkgsearch")
+pkg_search("permutation test")
+```
+
+pkgsearch uses an [R-hub](https://docs.r-hub.io) web service and a careful
+ranking that puts popular packages before less frequently used ones.
+
+### Do it all *clicking*
+
+For the search mentioned above, and other points of entry to CRAN metadata,
+you can use pkgsearch RStudio add-in!
+
+![addin screeenshot](https://cdn.jsdelivr.net/gh/r-hub/pkgsearch@readme/pkgsearch.png)
+
+Select the "CRAN package search" addin from the menu, or start it with
+`pkg_search_addin()`.
+
+### Get package metadata
+
+Do you want to find the dependencies the first versions of `testthat` had
+and when each of these versions was released?
+
+```{r history}
+cran_package_history("testthat")
+```
+
+### Discover packages
+
+Do you want to know what packages are trending on CRAN these days?
+`pkgsearch` can help!
+
+```{r trend}
+cran_trending()
+cran_top_downloaded()
+```
+
+### Keep up with CRAN
+
+Are you curious about the latest releases or archivals?
+
+```{r}
+cran_events()
+```
+
+## Search features
+
+### More details
+
+By default it returns a short summary of the ten best search hits. Their
+details can be printed by using the `format = "long"` option of `pkg_search()`,
+or just calling `pkg_search()` again, without any arguments, after a search:
+
+```{r}
+library(pkgsearch)
+pkg_search("C++")
+```
+
+```{r}
+pkg_search()
+```
+
+### Pagination
+
+The `more()` function can be used to display the next batch of search hits,
+batches contain ten packages by default. `ps()` is a shorter alias to
+`pkg_search()`:
+
+```{r}
+ps("google")
+```
+
+```{r}
+more()
+```
+
+### Stemming
+
+The search server uses the stems of the words in the indexed metadata, and
+the search phrase. This means that "colour" and "colours" deliver the
+exact same result. So do "coloring", "colored", etc. (Unless one is happen
+to be an exact package name or match another non-stemmed field.)
+
+```{r}
+ps("colour", size = 3)
+ps("colours", size = 3)
+```
+
+### Ranking
+
+The most important feature of a search engine is the ranking of the results.
+The best results should be listed first. pkgsearch uses weighted scoring,
+where a match in the package title gets a higher score than a match in the
+package description. It also uses the number of reverse dependencies and
+the number of downloads to weight the scores:
+
+```{r}
+ps("colour")[, c("score", "package", "revdeps", "downloads_last_month")]
+```
+
+### Preferring Phrases
+
+The search engine prefers matching whole phrases over single words.
+E.g. the search phrase "permutation test" will rank coin higher than
+testthat, even though testthat is a much better result for the single word
+"test". (In fact, at the time of writing testthat is not even on the first
+page of results.)
+
+```{r}
+ps("permutation test")
+```
+
+If the whole phrase does not match, pkgsearch falls back to individual
+matching words. For example, a match from either words is enough here,
+to get on the first page of results:
+
+```{r}
+ps("test http")
+```
+
+### British vs American English
+
+The search engine uses a dictionary to make sure that package metadata
+and queries given in British and American English yield the same results.
+E.g. note the spelling of colour/color in the results:
+
+```{r}
+ps("colour")
+ps("color")
+```
+
+### Ascii Folding
+
+Especially when searching for package maintainer names, it is convenient
+to use the corresponding ASCII letters for non-ASCII characters in search
+phrases. E.g. the following two queries yield the same results. Note that
+case is also ignored.
+
+```{r}
+ps("gabor", size = 5)
+ps("Gábor", size = 5)
+```
+
+## More info
+
+See the [complete documentation](https://r-hub.github.io/pkgsearch/).
+
 ## License
 
 MIT @ [Gábor Csárdi](https://github.com/gaborcsardi),
-      [RStudio](https://github.com/rstudio), [R Consortium](https://www.r-consortium.org/).
+[RStudio](https://github.com/rstudio),
+[R Consortium](https://www.r-consortium.org/).
