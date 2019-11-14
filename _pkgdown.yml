@@ -56,9 +56,6 @@ navbar:
     reference:
       text: Reference
       href: reference/index.html
-    articles:
-      text: Search features
-      href: articles/search.html
     news:
       text: Changelog
       href: news/index.html
