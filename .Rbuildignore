@@ -8,3 +8,5 @@
 ^_pkgdown\.yml$
 ^\.Rprofile$
 ^r-packages$
+^pkgdown$
+^header\.md$

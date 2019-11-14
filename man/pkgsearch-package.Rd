@@ -6,8 +6,8 @@
 \alias{pkgsearch-package}
 \title{pkgsearch: Search and Query CRAN R Packages}
 \description{
-Search CRAN R packages and their metadata. 
-  Uses the 'METACRAN' search server,
+Get/search CRAN metadata about packages by keyword, popularity,
+  recent activity, package name and more. Uses the 'R-hub' search server,
   see <https://r-pkg.org> and the CRAN metadata database, that 
   contains information about CRAN packages. Note that this is _not_ 
   a CRAN project.

@@ -7,16 +7,54 @@ authors:
 
 destination: docs
 
+toc:
+  depth: 2
+
 reference:
-- title: Search CRAN packages
+- title: Search packages by query
   desc: ~
   contents:
   - '`pkg_search`'
-  
-- title: Metadata about CRAN packages
+  - '`advanced_search`'
+- title: Discover packages
+  desc: ~
+  contents:
+  - '`cran_top_downloaded`'
+  - '`cran_trending`'
+- title: Get package metadata
   desc: ~
   contents:
   - '`cran_package`'
+  - '`cran_package_history`'
+  - '`cran_packages`'
+- title: Get CRAN releases/archivals
+  desc: ~
+  contents:
   - '`cran_events`'
-  - '`cran-package-list`'
-  - '`cran_releases`'
+  
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Search features
+      href: articles/search.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/r-hub/pkgsearch

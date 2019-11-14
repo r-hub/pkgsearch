@@ -1,14 +1,16 @@
 Package: pkgsearch
 Title: Search and Query CRAN R Packages
 Version: 2.0.1.9000
-Authors@R: c(person("Gábor", "Csárdi", email = "csardi.gabor@gmail.com",
-	     role = c("aut", "cre")),
-             person("R Consortium", role = c("fnd")))
-Description: Search CRAN R packages and their metadata. 
-  Uses the 'METACRAN' search server,
-  see <https://r-pkg.org> and the CRAN metadata database, that 
-  contains information about CRAN packages. Note that this is _not_ 
-  a CRAN project.
+Authors@R: c(
+    person("Gábor", "Csárdi",, "csardi.gabor@gmail.com", c("aut", "cre")),
+    person("Maëlle", "Salmon", role = "aut",
+           comment = c(ORCID = "0000-0002-2815-0399")),
+    person("R Consortium", role = c("fnd")))
+Description: Search CRAN metadata about packages by keyword, popularity,
+    recent activity, package name and more. Uses the 'R-hub' search server,
+    see <https://r-pkg.org> and the CRAN metadata database, that
+    contains information about CRAN packages. Note that this is _not_
+    a CRAN project.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch
@@ -22,6 +24,7 @@ Imports:
     tibble
 Suggests:
     covr,
+    miniUI,
     memoise,
     pingr (>= 2.0.0),
     rstudioapi,
