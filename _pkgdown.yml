@@ -7,6 +7,9 @@ authors:
 
 destination: docs
 
+development:
+  mode: auto
+
 toc:
   depth: 2
 
