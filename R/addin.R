@@ -112,8 +112,14 @@ pkg_search_addin <- function(
         shiny::tags$link(
           rel = "stylesheet",
           type = "text/css",
-          href = "https://cdn.jsdelivr.net/gh/gaborcsardi/r-font@master/rlogo.css")
+          href = "https://cdn.jsdelivr.net/gh/gaborcsardi/r-font@master/rlogo.css"
         ),
+        shiny::tags$script("
+          Shiny.addCustomMessageHandler('selectSearch', function(message) {
+            $('#query-search').select();
+          });
+        ")
+      ),
       shinyjs::useShinyjs()
     )
   )
@@ -134,6 +140,7 @@ pkg_search_addin <- function(
   )
 
   server <- function(input, output, session) {
+    session$sendCustomMessage("selectSearch", "select")
     output$`results-search` <- shiny::renderUI({
       ret <- simple_search(
         input$`query-search`,
