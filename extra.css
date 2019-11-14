@@ -1,0 +1,5 @@
+#sidebar .nav > li {
+  padding: 0 0 0 20px;
+  display: list-item;
+  line-height: 15px;
+}

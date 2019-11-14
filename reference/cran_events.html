@@ -34,6 +34,8 @@
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="List of all CRAN events (new, updated, archived packages) — cran_events" />
 <meta property="og:description" content="List of all CRAN events (new, updated, archived packages)" />
@@ -83,6 +85,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../articles/search.html">Search features</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -170,40 +175,39 @@
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>))
  })</div><div class='output co'>#&gt; &gt; cran_events()
 #&gt; CRAN events (events)-----------------------------------------------------------
-#&gt;  . When     Package           Version Title                                    
-#&gt;  + 15 hours eq5d              0.4.0   Methods for Calculating 'EQ-5D' Utilit...
-#&gt;  + 16 hours knitr             1.26    A General-Purpose Package for Dynamic ...
-#&gt;  + 16 hours schoRsch          1.7     Tools for Analyzing Factorial Experime...
-#&gt;  + 16 hours ehelp             1.1     Enhanced Help to Enable "Docstring"-Co...
-#&gt;  + 17 hours BIGDAWG           2.3     Case-Control Analysis of Multi-Allelic...
-#&gt;  + 17 hours imagefx           0.3.0   Extract Features from Images             
-#&gt;  + 17 hours rqdatatable       1.2.4   'rquery' for 'data.table'                
-#&gt;  + 17 hours unmarked          0.13-0  Models for Data from Unmarked Animals    
-#&gt;  + 18 hours DiffXTables       0.0.2   Pattern Heterogeneity via Distribution...
-#&gt;  + 18 hours freesurferformats 0.1.5   Read and Write 'FreeSurfer' Neuroimagi...
+#&gt;  . When    Package      Version Title                                          
+#&gt;  + 3 hours DPWeibull    1.4     Dirichlet Process Weibull Mixture Model for ...
+#&gt;  + 3 hours ForestFit    0.4.3   Statistical Modelling with Applications in F...
+#&gt;  + 3 hours RAINBOWR     0.1.14  Genome-Wide Association Study with SNP-Set M...
+#&gt;  + 3 hours idiogramFISH 1.8.3   Idiograms with Marks and Karyotype Indices     
+#&gt;  + 3 hours nlsmsn       0.0-5   Fitting Nonlinear Models with Scale Mixture ...
+#&gt;  + 3 hours AsyK         1.3.2   Kernel Density Estimation and Selection of O...
+#&gt;  + 5 hours CholWishart  1.1.0   Cholesky Decomposition of the Wishart Distri...
+#&gt;  + 5 hours Eagle        2.1.0   Multiple Locus Association Mapping on a Geno...
+#&gt;  + 5 hours ggpubr       0.2.4   'ggplot2' Based Publication Ready Plots        
+#&gt;  + 5 hours rstatix      0.3.0   Pipe-Friendly Framework for Basic Statistica...
 #&gt; &gt; cran_events(limit = 5, releases = FALSE)
 #&gt; CRAN events (archivals)--------------------------------------------------------
 #&gt;  . When  Package  Version Title                                                
-#&gt;  - 2 day dpmixsim 0.0-9   Dirichlet Process Mixture Model Simulation for Clu...
-#&gt;  - 3 day CAM      1.0     Causal Additive Model (CAM)                          
-#&gt;  - 3 day P2C2M    0.7.6   Posterior Predictive Checks of Coalescent Models     
-#&gt;  - 3 day BrailleR 0.29.1  Improved Access for Blind Users                      
-#&gt;  - 4 day bda      13.4.13 Density Estimation for Grouped Data                  
+#&gt;  - 1 day dlstats  0.1.2   Download Stats of R Packages                         
+#&gt;  - 1 day badger   0.0.6   Badge for R Package                                  
+#&gt;  - 3 day dpmixsim 0.0-9   Dirichlet Process Mixture Model Simulation for Clu...
+#&gt;  - 4 day CAM      1.0     Causal Additive Model (CAM)                          
+#&gt;  - 4 day P2C2M    0.7.6   Posterior Predictive Checks of Coalescent Models     
 #&gt; &gt; cran_events(limit = 5, archivals = FALSE)
 #&gt; CRAN events (pkgreleases)------------------------------------------------------
-#&gt;  . When     Package  Version Title                                             
-#&gt;  + 15 hours eq5d     0.4.0   Methods for Calculating 'EQ-5D' Utility Index S...
-#&gt;  + 16 hours knitr    1.26    A General-Purpose Package for Dynamic Report Ge...
-#&gt;  + 16 hours schoRsch 1.7     Tools for Analyzing Factorial Experiments         
-#&gt;  + 16 hours ehelp    1.1     Enhanced Help to Enable "Docstring"-Comments in...
-#&gt;  + 17 hours BIGDAWG  2.3     Case-Control Analysis of Multi-Allelic Loci       
+#&gt;  . When    Package      Version Title                                          
+#&gt;  + 3 hours DPWeibull    1.4     Dirichlet Process Weibull Mixture Model for ...
+#&gt;  + 3 hours ForestFit    0.4.3   Statistical Modelling with Applications in F...
+#&gt;  + 3 hours RAINBOWR     0.1.14  Genome-Wide Association Study with SNP-Set M...
+#&gt;  + 3 hours idiogramFISH 1.8.3   Idiograms with Marks and Karyotype Indices     
+#&gt;  + 3 hours nlsmsn       0.0-5   Fitting Nonlinear Models with Scale Mixture ...
 #&gt; &gt; summary(cran_events(limit = 10))
 #&gt; CRAN events (events)
-#&gt;  [1] "eq5d@0.4.0"              "knitr@1.26"             
-#&gt;  [3] "schoRsch@1.7"            "ehelp@1.1"              
-#&gt;  [5] "BIGDAWG@2.3"             "imagefx@0.3.0"          
-#&gt;  [7] "rqdatatable@1.2.4"       "unmarked@0.13-0"        
-#&gt;  [9] "DiffXTables@0.0.2"       "freesurferformats@0.1.5"</div></pre>
+#&gt;  [1] "DPWeibull@1.4"      "ForestFit@0.4.3"    "RAINBOWR@0.1.14"   
+#&gt;  [4] "idiogramFISH@1.8.3" "nlsmsn@0.0-5"       "AsyK@1.3.2"        
+#&gt;  [7] "CholWishart@1.1.0"  "Eagle@2.1.0"        "ggpubr@0.2.4"      
+#&gt; [10] "rstatix@0.3.0"     </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -219,7 +223,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Gábor Csárdi, <a href='https://www.r-consortium.org/'><img src='https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png' height=24></a>.</p>
+  <p>Developed by Gábor Csárdi, Maëlle Salmon, <a href='https://www.r-consortium.org/'><img src='https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png' height=24></a>.</p>
 </div>
 
 <div class="pkgdown">
