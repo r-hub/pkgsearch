@@ -1,5 +1,5 @@
 
-# pkgsearch (development version)
+# pkgsearch 3.0.0
 
 * New RStudio addin to search for packages in a GUI:
   `pkg_search_addin()`.
