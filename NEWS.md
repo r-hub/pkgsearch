@@ -1,6 +1,12 @@
 
 # development version
 
+* The "My packages" and "Most depended upon" items now work properly
+  in the RStudio addin (#77).
+
+* The RStudio addin has a better window title when running in a
+  browser (#79).
+
 # pkgsearch 3.0.0
 
 * New RStudio addin to search for packages in a GUI:
