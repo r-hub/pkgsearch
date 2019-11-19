@@ -86,6 +86,7 @@ pkg_search_addin <- function(
   }
 
   ui <- shiny::navbarPage(
+    windowTitle = "Search CRAN packages",
     title = shiny::div(
       shiny::div(
         id = "rhub-logo",
