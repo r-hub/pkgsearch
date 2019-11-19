@@ -63,20 +63,6 @@ couchdb_uri <- function() {
   "https://crandb.r-pkg.org/"
 }
 
-query <- function(url, error = TRUE, ...) {
-  
-  request <- httr::GET(paste0(couchdb_uri(), url))
-  
-  content <- content(request, as = "text", encoding = "UTF-8") 
-  result <-  fromJSON(content)
-  
-  if (error && ("error" %in% names(result))) {
-    stop("crandb query: ", result$reason, call. = FALSE)
-  }
-  
-  result
-}
-
 add_class <- function(x, class_name) {
   if (! inherits(x, class_name)) {
     class(x) <- c(class_name, attr(x, "class"))

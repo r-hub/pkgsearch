@@ -353,7 +353,7 @@ pkg_search_addin <- function(
   }
 
   dep_list0 <- function() {
-    deps <- query("/-/deps/devel")
+    deps <- crandb_query("/-/deps/devel")
     tibble::tibble(
       package = names(deps),
       count = unlist(deps)
@@ -436,7 +436,7 @@ pkg_search_addin <- function(
     keys <- map_chr(keys, utils::URLencode)
     keys <- paste0('"', keys, '"', collapse = ",")
     url <- paste0(ep, "?keys=[", keys, "]")
-    ret <- query(url)
+    ret <- crandb_query(url)
     tibble::tibble(email = ret[,1], package = ret[,2])
   }
 
