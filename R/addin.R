@@ -86,16 +86,18 @@ pkg_search_addin <- function(
   }
 
   ui <- shiny::navbarPage(
-    shiny::headerPanel(title = shiny::div(
+    title = shiny::div(
+      shiny::div(
         id = "rhub-logo",
         shiny::tags$a(
           shiny::img(src = "https://cdn.jsdelivr.net/gh/r-hub/branding@master/logo/rhub-square.svg",
-                     width = "40px",
-                     height = "40px"
+              width = "40px",
+              height = "40px"
           ),
           href = "https://docs.r-hub.io"
         )
-    ), windowTitle = "Search CRAN packages with pkgsearch"),
+      )
+    ),
     shiny::tabPanel("Search", searchQuery("search"), searchResults("search")),
     shiny::tabPanel("New packages", searchResults("new")),
     shiny::navbarMenu("Top packages",
@@ -538,7 +540,7 @@ addin_styles <- function() {
           #rhub-logo {
             right: 10px;
             top: 0px;
-            margin-top: -30px;
+            margin-top: -10px;
           }
           "
   )
