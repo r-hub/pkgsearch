@@ -136,7 +136,7 @@
     <p>A data frame of package metadata, one package per row.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'> <span class='fu'><a href='https://rdrr.io/r/base/ns-internal.html'>asNamespace</a></span>(<span class='st'>"pkgsearch"</span>)$<span class='fu'>exif</span>(<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>(), {
+    <pre class="examples"><div class='input'> <span class='kw'>if</span> (<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>()) (<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/numeric_version.html'>getRversion</a></span>() <span class='kw'>&gt;=</span> <span class='fl'>3.4</span>) <span class='no'>withAutoprint</span> <span class='kw'>else</span> <span class='no'>force</span>)({
 <span class='co'># Get metadata about one package</span>
 <span class='fu'>cran_packages</span>(<span class='st'>"rhub"</span>)
 <span class='co'># Get metadata about two packages</span>

@@ -165,46 +165,46 @@
     <p>List of events.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'> <span class='fu'><a href='https://rdrr.io/r/base/ns-internal.html'>asNamespace</a></span>(<span class='st'>"pkgsearch"</span>)$<span class='fu'>exif</span>(<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>(), {
+    <pre class="examples"><div class='input'> <span class='kw'>if</span> (<span class='kw pkg'>pingr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pingr/man/is_online.html'>is_online</a></span>()) (<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/numeric_version.html'>getRversion</a></span>() <span class='kw'>&gt;=</span> <span class='fl'>3.4</span>) <span class='no'>withAutoprint</span> <span class='kw'>else</span> <span class='no'>force</span>)({
 <span class='fu'>cran_events</span>()
 <span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>releases</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>archivals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='fu'>cran_events</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>10</span>))
  })</div><div class='output co'>#&gt; &gt; cran_events()
 #&gt; CRAN events (events)-----------------------------------------------------------
-#&gt;  . When    Package        Version Title                                        
-#&gt;  + 2 hours staRdom        1.1.0   PARAFAC Analysis of EEMs from DOM            
-#&gt;  + 3 hours ggPMX          0.9.8   'ggplot2' Based Tool to Facilitate Diagnos...
-#&gt;  + 3 hours infer          0.5.1   Tidy Statistical Inference                   
-#&gt;  + 4 hours basicMCMCplots 0.2.4   Trace Plots, Density Plots and Chain Compa...
-#&gt;  + 4 hours reproducible   0.2.11  A Set of Tools that Enhance Reproducibilit...
-#&gt;  + 4 hours OncoBayes2     0.5-4   Bayesian Logistic Regression for Oncology ...
-#&gt;  + 4 hours boxr           0.3.5   Interface for the 'Box.com API'              
-#&gt;  + 4 hours catSurv        1.1.3   Computerized Adaptive Testing for Survey R...
-#&gt;  + 4 hours deSolve        1.25    Solvers for Initial Value Problems of Diff...
-#&gt;  + 4 hours hopit          0.10.2  Hierarchical Ordered Probit Models with Ap...
+#&gt;  . When     Package          Version Title                                     
+#&gt;  + 4 hours  GET              0.1-4   Global Envelopes                          
+#&gt;  + 5 hours  OpenMx           2.15.4  Extended Structural Equation Modelling    
+#&gt;  + 5 hours  tidyverse        1.3.0   Easily Install and Load the 'Tidyverse'   
+#&gt;  + 5 hours  Rbeast           0.2.2   Bayesian Change-Point Detection and Tim...
+#&gt;  + 11 hours ConvergenceClubs 2.2.1   Finding Convergence Clubs                 
+#&gt;  + 11 hours NNS              0.4.7.1 Nonlinear Nonparametric Statistics        
+#&gt;  + 11 hours sharpshootR      1.5     A Soil Survey Toolkit                     
+#&gt;  + 13 hours finalfit         0.9.6   Quickly Create Elegant Regression Resul...
+#&gt;  + 13 hours FindIt           1.2.0   Finding Heterogeneous Treatment Effects   
+#&gt;  + 13 hours FuzzyR           2.3     Fuzzy Logic Toolkit for R                 
 #&gt; &gt; cran_events(limit = 5, releases = FALSE)
 #&gt; CRAN events (archivals)--------------------------------------------------------
-#&gt;  . When  Package       Version Title                                           
-#&gt;  - 1 day wtss          1.1.0   An R Client for a Web Time-Series Service       
-#&gt;  - 1 day widenet       0.1-2   Penalized Regression with Polynomial Basis Ex...
-#&gt;  - 1 day relaxnet      0.3-2   Relaxation of glmnet models (as in relaxed la...
-#&gt;  - 3 day ubci          0.0.5   Get Cryptocurrency Related Data by Upbit        
-#&gt;  - 3 day ncdf4.helpers 0.3-3   Helper functions for use with the ncdf4 packa...
+#&gt;  . When  Package  Version Title                                                
+#&gt;  - 1 day sdcMicro 5.4.1   Statistical Disclosure Control Methods for Anonymi...
+#&gt;  - 3 day wtss     1.1.0   An R Client for a Web Time-Series Service            
+#&gt;  - 3 day widenet  0.1-2   Penalized Regression with Polynomial Basis Expansi...
+#&gt;  - 3 day relaxnet 0.3-2   Relaxation of glmnet models (as in relaxed lasso, ...
+#&gt;  - 5 day ubci     0.0.5   Get Cryptocurrency Related Data by Upbit             
 #&gt; &gt; cran_events(limit = 5, archivals = FALSE)
 #&gt; CRAN events (pkgreleases)------------------------------------------------------
-#&gt;  . When    Package        Version Title                                        
-#&gt;  + 2 hours staRdom        1.1.0   PARAFAC Analysis of EEMs from DOM            
-#&gt;  + 3 hours ggPMX          0.9.8   'ggplot2' Based Tool to Facilitate Diagnos...
-#&gt;  + 3 hours infer          0.5.1   Tidy Statistical Inference                   
-#&gt;  + 4 hours basicMCMCplots 0.2.4   Trace Plots, Density Plots and Chain Compa...
-#&gt;  + 4 hours reproducible   0.2.11  A Set of Tools that Enhance Reproducibilit...
+#&gt;  . When     Package          Version Title                                     
+#&gt;  + 4 hours  GET              0.1-4   Global Envelopes                          
+#&gt;  + 5 hours  OpenMx           2.15.4  Extended Structural Equation Modelling    
+#&gt;  + 5 hours  tidyverse        1.3.0   Easily Install and Load the 'Tidyverse'   
+#&gt;  + 5 hours  Rbeast           0.2.2   Bayesian Change-Point Detection and Tim...
+#&gt;  + 11 hours ConvergenceClubs 2.2.1   Finding Convergence Clubs                 
 #&gt; &gt; summary(cran_events(limit = 10))
 #&gt; CRAN events (events)
-#&gt;  [1] "staRdom@1.1.0"        "ggPMX@0.9.8"          "infer@0.5.1"         
-#&gt;  [4] "basicMCMCplots@0.2.4" "reproducible@0.2.11"  "OncoBayes2@0.5-4"    
-#&gt;  [7] "boxr@0.3.5"           "catSurv@1.1.3"        "deSolve@1.25"        
-#&gt; [10] "hopit@0.10.2"        </div></pre>
+#&gt;  [1] "GET@0.1-4"              "OpenMx@2.15.4"          "tidyverse@1.3.0"       
+#&gt;  [4] "Rbeast@0.2.2"           "ConvergenceClubs@2.2.1" "NNS@0.4.7.1"           
+#&gt;  [7] "sharpshootR@1.5"        "finalfit@0.9.6"         "FindIt@1.2.0"          
+#&gt; [10] "FuzzyR@2.3"            </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
