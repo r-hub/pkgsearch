@@ -18,7 +18,7 @@
 #'
 #' @export
 #' @examples
-#' \dontshow{ if (FALSE) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' pkg_search_addin()
 #'
 #' # Start with a search query

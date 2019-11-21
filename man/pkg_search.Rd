@@ -74,7 +74,7 @@ previous query, if called without arguments.
 Note that the search needs a working Internet connection.
 }
 \examples{
-\dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+\dontshow{ if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 # Example
 ps("survival")
 

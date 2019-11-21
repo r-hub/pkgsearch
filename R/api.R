@@ -48,7 +48,7 @@ s_data <- new.env(parent = emptyenv())
 #'
 #' @export
 #' @examples
-#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' # Example
 #' ps("survival")
 #'

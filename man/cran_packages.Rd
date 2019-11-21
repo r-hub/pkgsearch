@@ -17,7 +17,7 @@ A data frame of package metadata, one package per row.
 Metadata about multiple CRAN packages
 }
 \examples{
-\dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+\dontshow{ if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 # Get metadata about one package
 cran_packages("rhub")
 # Get metadata about two packages

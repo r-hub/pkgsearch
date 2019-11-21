@@ -9,7 +9,7 @@
 #'   version if returned.
 #' @return The package metadata, in a named list.
 #' @examples
-#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' cran_package("pkgsearch")
 #' \dontshow{ \}) }
 #' @export
@@ -34,7 +34,7 @@ cran_package <- function(name, version = NULL) {
 #' @return A data frame of package metadata, one package per row.
 #'
 #' @examples
-#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' # Get metadata about one package
 #' cran_packages("rhub")
 #' # Get metadata about two packages
@@ -72,7 +72,7 @@ cran_packages <- function(names) {
 #'
 #' @export
 #' @examples
-#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' cran_events()
 #' cran_events(limit = 5, releases = FALSE)
 #' cran_events(limit = 5, archivals = FALSE)
@@ -122,7 +122,7 @@ cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
 #'
 #' @export
 #' @examples
-#' \dontshow{ if (FALSE) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' cran_trending()
 #' \dontshow{ \}) }
 
@@ -146,7 +146,7 @@ cran_trending <- function() {
 #'
 #' @export
 #' @examples
-#' \dontshow{ if (FALSE) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' cran_top_downloaded()
 #' \dontshow{ \}) }
 
@@ -203,7 +203,7 @@ do_crandb_query <- function(from, limit,
 #' @return A tibble, with one row per package version.
 #' @export
 #' @examples
-#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
+#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
 #' cran_package_history("igraph")
 #' \dontshow{ \}) }
 
