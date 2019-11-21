@@ -17,7 +17,7 @@ You can use the \href{https://r-hub.github.io/cranlogs/}{\code{cranlogs} package
 to get more flexibility into what is returned.
 }
 \examples{
-\dontshow{ asNamespace("pkgsearch")$exif(FALSE, \{ }
+\dontshow{ if (FALSE) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
 cran_top_downloaded()
 \dontshow{ \}) }
 }

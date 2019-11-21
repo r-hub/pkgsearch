@@ -16,7 +16,7 @@
 #' @export
 #' @importFrom jsonlite unbox
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+#' \dontshow{ if (pingr::is_online()) (if (getRversion() >= 3.4) withAutoprint else force)(\{ }
 #' # All orphaned packages
 #' advanced_search(Maintainer = "ORPHANED")
 #'
