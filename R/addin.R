@@ -82,7 +82,14 @@ pkg_search_addin <- function(
   }
 
   searchResults <- function(id) {
-    shiny::htmlOutput(paste0("results-", id))
+    shiny::tags$div(
+      shiny::tags$div(
+        id = paste0("spin-", id),
+        class = "spinner",
+        shiny::HTML(spin_html())
+      ),
+      shiny::htmlOutput(paste0("results-", id))
+    )
   }
 
   ui <- shiny::navbarPage(
@@ -114,6 +121,7 @@ pkg_search_addin <- function(
     header = shiny::tagList(
       shiny::tags$head(
         shiny::tags$style(addin_styles()),
+        shiny::tags$style(spin_css()),
         shiny::tags$link(
           rel = "stylesheet",
           type = "text/css",
@@ -150,58 +158,72 @@ pkg_search_addin <- function(
     shiny::observeEvent(input$done, shiny::stopApp())
 
     output$`results-search` <- shiny::renderUI({
+      if (input$`query-search` != "") {
+        shinyjs::runjs("$(\"#spin-search\").css(\"display\",\"block\");")
+      }
       ret <- simple_search(
         input$`query-search`,
         reactives$`search-prev`,
         reactives$`search-next`
       )
       shinyjs::runjs("window.scrollTo(0, 0)")
+      shinyjs::runjs("$(\"#spin-search\").css(\"display\",\"none\");")
       ret
     })
 
     output$`results-new` <- shiny::renderUI({
+      shinyjs::runjs("$(\"#spin-new\").css(\"display\",\"block\");")
       ret <- new_search(
         reactives$`new-prev`,
         reactives$`new-next`
       )
       shinyjs::runjs("window.scrollTo(0, 0)")
+      shinyjs::runjs("$(\"#spin-new\").css(\"display\",\"none\");")
       ret
     })
 
     output$`results-topdl` <- shiny::renderUI({
+      shinyjs::runjs("$(\"#spin-topdl\").css(\"display\",\"block\");")
       ret <- topdl_search(
         reactives$`topdl-prev`,
         reactives$`topdl-next`
       )
       shinyjs::runjs("window.scrollTo(0, 0)")
+      shinyjs::runjs("$(\"#spin-topdl\").css(\"display\",\"none\");")
       ret
     })
 
     output$`results-topdep` <- shiny::renderUI({
+      shinyjs::runjs("$(\"#spin-topdep\").css(\"display\",\"block\");")
       ret <- topdep_search(
         reactives$`topdep-prev`,
         reactives$`topdep-next`
       )
       shinyjs::runjs("window.scrollTo(0, 0)")
+      shinyjs::runjs("$(\"#spin-topdep\").css(\"display\",\"none\");")
       ret
     })
 
     output$`results-trend` <- shiny::renderUI({
+      shinyjs::runjs("$(\"#spin-trend\").css(\"display\",\"block\");")
       ret <- trend_search(
         reactives$`trend-prev`,
         reactives$`trend-next`
       )
       shinyjs::runjs("window.scrollTo(0, 0)")
+      shinyjs::runjs("$(\"#spin-trend\").css(\"display\",\"none\");")
       ret
     })
 
     output$`results-maint` <- shiny::renderUI({
+      shinyjs::runjs("$(\"#spin-maint\").css(\"display\",\"block\");")
       ret <- maint_search(
         input$`query-maint`,
         reactives$`maint-prev`,
         reactives$`maint-next`
       )
       shinyjs::runjs("window.scrollTo(0, 0)")
+      shinyjs::runjs("$(\"#spin-maint\").css(\"display\",\"none\");")
       ret
     })
 
@@ -556,8 +578,74 @@ addin_styles <- function() {
             top: 10px;
             right: 10px;
           }
+          .spinner {
+            display: none;
+          }
           "
   )
+}
+
+spin_css <- function() {
+  ".lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 13px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #569fde;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+  "
+}
+
+spin_html <- function() {
+  "<div class=\"lds-ellipsis\"><div></div><div></div><div></div><div></div></div>"
 }
 
 format_addin_results <- function(results, id) {
