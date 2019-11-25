@@ -24,7 +24,6 @@ Imports:
     tibble
 Suggests:
     covr,
-    miniUI,
     memoise,
     pingr (>= 2.0.0),
     rstudioapi,
