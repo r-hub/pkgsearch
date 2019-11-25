@@ -8,21 +8,25 @@
 
 <title>pkgsearch: Search and Query CRAN R Packages — pkgsearch-package • pkgsearch</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -32,14 +36,15 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="pkgsearch: Search and Query CRAN R Packages — pkgsearch-package" />
 
-<meta property="og:description" content="Get/search CRAN metadata about packages by keyword, popularity,
-  recent activity, package name and more. Uses the 'R-hub' search server,
-  see &amp;lt;https://r-pkg.org&amp;gt; and the CRAN metadata database, that 
-  contains information about CRAN packages. Note that this is _not_ 
-  a CRAN project." />
+<meta property="og:title" content="pkgsearch: Search and Query CRAN R Packages — pkgsearch-package" />
+<meta property="og:description" content="Search CRAN metadata about packages by keyword, popularity,
+    recent activity, package name and more. Uses the 'R-hub' search server,
+    see &amp;lt;https://r-pkg.org&amp;gt; and the CRAN metadata database, that
+    contains information about CRAN packages. Note that this is _not_
+    a CRAN project." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -51,6 +56,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -69,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.1</span>
       </span>
     </div>
 
@@ -88,7 +94,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/r-hub/pkgsearch">
@@ -103,6 +108,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -114,35 +120,38 @@
     </div>
 
     <div class="ref-description">
-    
-    <p>Get/search CRAN metadata about packages by keyword, popularity,
-  recent activity, package name and more. Uses the 'R-hub' search server,
-  see &lt;https://r-pkg.org&gt; and the CRAN metadata database, that 
-  contains information about CRAN packages. Note that this is _not_ 
-  a CRAN project.</p>
-    
+    <p>Search CRAN metadata about packages by keyword, popularity,
+    recent activity, package name and more. Uses the 'R-hub' search server,
+    see &lt;https://r-pkg.org&gt; and the CRAN metadata database, that
+    contains information about CRAN packages. Note that this is _not_
+    a CRAN project.</p>
     </div>
 
-        
+
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Useful links:</p><ul>
 <li><p><a href='https://github.com/r-hub/pkgsearch'>https://github.com/r-hub/pkgsearch</a></p></li>
 <li><p><a href='https://r-hub.github.io/pkgsearch'>https://r-hub.github.io/pkgsearch</a></p></li>
 <li><p>Report bugs at <a href='https://github.com/r-hub/pkgsearch/issues'>https://github.com/r-hub/pkgsearch/issues</a></p></li>
-</ul></div>
-    
+</ul>
+
+</div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#see-also">See also</a></li>
-          </ul>
+    </ul>
 
     <h2>Author</h2>
     <p><strong>Maintainer</strong>: Gábor Csárdi <a href='mailto:csardi.gabor@gmail.com'>csardi.gabor@gmail.com</a></p>
+<p>Authors:</p><ul>
+<li><p>Maëlle Salmon (<a href='https://orcid.org/0000-0002-2815-0399'>ORCID</a>)</p></li>
+</ul>
+
 <p>Other contributors:</p><ul>
 <li><p>R Consortium [funder]</p></li>
 </ul>
@@ -151,19 +160,23 @@
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by Gábor Csárdi, Maëlle Salmon, <a href='https://www.r-consortium.org/'><img src='https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png' height=24></a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

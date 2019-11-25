@@ -8,21 +8,25 @@
 
 <title>Search CRAN packages — pkg_search • pkgsearch</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -32,13 +36,14 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Search CRAN packages — pkg_search" />
 
+<meta property="og:title" content="Search CRAN packages — pkg_search" />
 <meta property="og:description" content="pkg_search() starts a new search query, or shows the details of the
 previous query, if called without arguments.
 ps() is an alias to pkg_search().
 more() retrieves that next page of results for the previous query." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -50,6 +55,7 @@ more() retrieves that next page of results for the previous query." />
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -68,7 +74,7 @@ more() retrieves that next page of results for the previous query." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.1</span>
       </span>
     </div>
 
@@ -87,7 +93,6 @@ more() retrieves that next page of results for the previous query." />
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/r-hub/pkgsearch">
@@ -102,6 +107,7 @@ more() retrieves that next page of results for the previous query." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -113,26 +119,24 @@ more() retrieves that next page of results for the previous query." />
     </div>
 
     <div class="ref-description">
-    
     <p><code>pkg_search()</code> starts a new search query, or shows the details of the
 previous query, if called without arguments.</p>
 <p><code>ps()</code> is an alias to <code>pkg_search()</code>.</p>
 <p><code>more()</code> retrieves that next page of results for the previous query.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>pkg_search</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"short"</span>, <span class='st'>"long"</span>), <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)
+    <pre class="usage"><span class='fu'>pkg_search</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"short"</span>, <span class='st'>"long"</span>), <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)
 
-<span class='fu'>ps</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"short"</span>, <span class='st'>"long"</span>), <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)
+<span class='fu'>ps</span>(<span class='kw'>query</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"short"</span>, <span class='st'>"long"</span>), <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>)
 
 <span class='fu'>more</span>(<span class='kw'>format</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for pkg_search_result</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for pkg_search_result</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
-    
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -174,7 +178,7 @@ here.</p></td>
       <td><p>Object to print.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A tibble with columns:</p><ul>
@@ -195,65 +199,63 @@ from the RStudio CRAN mirror.</p></li>
 <li><p><code>bugreports</code>: URL of issue tracker, or email address for bug reports.</p></li>
 </ul>
 
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Note that the search needs a working Internet connection.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example</span>
-<span class='fu'>ps</span>(<span class='st'>"survival"</span>)</div><div class='output co'>#&gt; - "survival" ---------------------------------- 796 packages in 0.009 seconds -
+<span class='fu'>ps</span>(<span class='st'>"survival"</span>)</div><div class='output co'>#&gt; - "survival" ---------------------------------- 800 packages in 0.007 seconds -
 #&gt;   #     package         version by                      @ title                
-#&gt;   1 100 survival        3.1.7   Terry M Therneau       5d Survival Analysis    
+#&gt;   1 100 survival        3.1.7   Terry M Therneau      17d Survival Analysis    
 #&gt;   2   8 flexsurv        1.1.1   Christopher Jackson    8M Flexible Parametri...
-#&gt;   3   6 rpart           4.1.15  Beth Atkinson          7M Recursive Partitio...
-#&gt;   4   6 relsurv         2.2.3   Maja Pohar Perme       1y Relative Survival    
-#&gt;   5   6 survminer       0.4.6   Alboukadel Kassambara  2M Drawing Survival C...
+#&gt;   3   6 relsurv         2.2.3   Maja Pohar Perme       1y Relative Survival    
+#&gt;   4   6 rpart           4.1.15  Beth Atkinson          8M Recursive Partitio...
+#&gt;   5   6 survminer       0.4.6   Alboukadel Kassambara  3M Drawing Survival C...
 #&gt;   6   6 timereg         1.9.4   Thomas Scheike         4M Flexible Regressio...
-#&gt;   7   6 randomForestSRC 2.9.1   Udaya B. Kogalur       4M Fast Unified Rando...
+#&gt;   7   6 randomForestSRC 2.9.2   Udaya B. Kogalur       7d Fast Unified Rando...
 #&gt;   8   5 survRM2         1.0.2   Hajime Uno             3y Comparing Restrict...
 #&gt;   9   5 muhaz           1.2.6.1 David Winsemius       10M Hazard Function Es...
-#&gt;  10   5 rstpm2          1.5.1   Mark Clements          9d Smooth Survival Mo...</div><div class='input'>
+#&gt;  10   5 rstpm2          1.5.1   Mark Clements         20d Smooth Survival Mo...</div><div class='input'>
 <span class='co'># Pagination</span>
-<span class='fu'>ps</span>(<span class='st'>"networks"</span>)</div><div class='output co'>#&gt; - "networks" ---------------------------------- 624 packages in 0.009 seconds -
+<span class='fu'>ps</span>(<span class='st'>"networks"</span>)</div><div class='output co'>#&gt; - "networks" ---------------------------------- 624 packages in 0.007 seconds -
 #&gt;   #     package    version   by                    @ title                     
 #&gt;   1 100 igraph     1.2.4.1   Gábor Csárdi         7M Network Analysis and Vi...
 #&gt;   2  48 network    1.15      Carter T. Butts      8M Classes for Relational ...
-#&gt;   3  47 RCurl      1.95.4.12 Duncan Temple Lang   9M General Network (HTTP/F...
+#&gt;   3  46 RCurl      1.95.4.12 Duncan Temple Lang   9M General Network (HTTP/F...
 #&gt;   4  41 nnet       7.3.12    Brian Ripley         4y Feed-Forward Neural Net...
-#&gt;   5  28 sna        2.4       Carter T. Butts      3y Tools for Social Networ...
+#&gt;   5  27 sna        2.4       Carter T. Butts      3y Tools for Social Networ...
 #&gt;   6  27 DiagrammeR 1.0.1     Richard Iannone      7M Graph/Network Visualiza...
 #&gt;   7  22 visNetwork 2.0.8     Benoit Thieurmel     3M Network Visualization u...
 #&gt;   8  22 snow       0.4.3     Luke Tierney         1y Simple Network of Works...
-#&gt;   9  20 neuralnet  1.44.2    Marvin N. Wright     9M Training of Neural Netw...
-#&gt;  10  18 ggraph     2.0.0     Thomas Lin Pedersen  2M An Implementation of Gr...</div><div class='input'><span class='fu'>more</span>()</div><div class='output co'>#&gt; - "networks" ---------------------------------- 624 packages in 0.008 seconds -
+#&gt;   9  20 neuralnet  1.44.2    Marvin N. Wright    10M Training of Neural Netw...
+#&gt;  10  18 ggraph     2.0.0     Thomas Lin Pedersen  3M An Implementation of Gr...</div><div class='input'><span class='fu'>more</span>()</div><div class='output co'>#&gt; - "networks" ---------------------------------- 624 packages in 0.007 seconds -
 #&gt;   #    package        version by                    @ title                    
-#&gt;  11 17 bnlearn        4.5     Marco Scutari        3M Bayesian Network Struc...
-#&gt;  12 17 networkD3      0.4     Christopher Gandrud  3y D3 JavaScript Network ...
-#&gt;  13 17 ergm           3.10.4  Pavel N. Krivitsky   5M Fit, Simulate and Diag...
+#&gt;  11 17 bnlearn        4.5     Marco Scutari        4M Bayesian Network Struc...
+#&gt;  12 17 ergm           3.10.4  Pavel N. Krivitsky   6M Fit, Simulate and Diag...
+#&gt;  13 17 networkD3      0.4     Christopher Gandrud  3y D3 JavaScript Network ...
 #&gt;  14 13 diagram        1.6.4   Karline Soetaert     2y Functions for Visualis...
-#&gt;  15 13 networkDynamic 0.10.0  Skye Bender-deMoll   7M Dynamic Extensions for...
+#&gt;  15 13 networkDynamic 0.10.0  Skye Bender-deMoll   8M Dynamic Extensions for...
 #&gt;  16 12 WGCNA          1.68    Peter Langfelder     6M Weighted Correlation N...
 #&gt;  17 12 intergraph     2.0.2   Michal Bojanowski    4y Coercion Routines for ...
 #&gt;  18 12 RSNNS          0.4.12  Christoph Bergmeir   2M Neural Networks using ...
 #&gt;  19 10 gRain          1.3.0   Søren Højsgaard      3y Graphical Independence...
 #&gt;  20  9 igraphdata     1.0.1   Gabor Csardi         4y A Collection of Networ...</div><div class='input'>
 <span class='co'># Details</span>
-<span class='fu'>ps</span>(<span class='st'>"visualization"</span>)</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1057 packages in 0.013 seconds -
+<span class='fu'>ps</span>(<span class='st'>"visualization"</span>)</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1064 packages in 0.007 seconds -
 #&gt;   #     package    version  by                @ title                          
-#&gt;   1 100 ggplot2    3.2.1    Hadley Wickham   3M Create Elegant Data Visualis...
+#&gt;   1 100 ggplot2    3.2.1    Hadley Wickham   4M Create Elegant Data Visualis...
 #&gt;   2  68 igraph     1.2.4.1  Gábor Csárdi     7M Network Analysis and Visuali...
-#&gt;   3  57 scales     1.0.0    Hadley Wickham   1y Scale Functions for Visualiz...
-#&gt;   4  46 rgl        0.100.30 Duncan Murdoch   3M 3D Visualization Using OpenGL  
+#&gt;   3  57 scales     1.1.0    Hadley Wickham   7d Scale Functions for Visualiz...
+#&gt;   4  45 rgl        0.100.30 Duncan Murdoch   3M 3D Visualization Using OpenGL  
 #&gt;   5  22 ROCR       1.0.7    Tobias Sing      5y Visualizing the Performance ...
 #&gt;   6  20 corrplot   0.84     Taiyun Wei       2y Visualization of a Correlati...
 #&gt;   7  19 vdiffr     0.3.1    Lionel Henry     5M Visual Regression Testing an...
 #&gt;   8  19 DiagrammeR 1.0.1    Richard Iannone  7M Graph/Network Visualization    
 #&gt;   9  19 vcd        1.4.4    David Meyer      2y Visualizing Categorical Data   
-#&gt;  10  19 ggmap      3.0.0    ORPHANED         9M Spatial Visualization with g...</div><div class='input'><span class='fu'>ps</span>()</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1057 packages in 0.013 seconds -
+#&gt;  10  19 ggmap      3.0.0    ORPHANED        10M Spatial Visualization with g...</div><div class='input'><span class='fu'>ps</span>()</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1064 packages in 0.007 seconds -
 #&gt; 
-#&gt; 1 ggplot2 @ 3.2.1                                  Hadley Wickham, 3 months ago
+#&gt; 1 ggplot2 @ 3.2.1                                  Hadley Wickham, 4 months ago
 #&gt; -----------------
 #&gt;   # Create Elegant Data Visualisations Using the Grammar of Graphics
 #&gt;   A system for 'declaratively' creating graphics, based on "The Grammar
@@ -272,7 +274,7 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   more.
 #&gt;   http://igraph.org
 #&gt; 
-#&gt; 3 scales @ 1.0.0                               Hadley Wickham, about a year ago
+#&gt; 3 scales @ 1.1.0                                     Hadley Wickham, 7 days ago
 #&gt; ----------------
 #&gt;   # Scale Functions for Visualization
 #&gt;   Graphical scales map data to aesthetics, and provide methods for
@@ -353,7 +355,7 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   "Discrete Data Analysis with R" by Michael Friendly and David Meyer
 #&gt;   (2015).
 #&gt; 
-#&gt; 10 ggmap @ 3.0.0                                         ORPHANED, 9 months ago
+#&gt; 10 ggmap @ 3.0.0                                        ORPHANED, 10 months ago
 #&gt; ----------------
 #&gt;   # Spatial Visualization with ggplot2
 #&gt;   A collection of functions to visualize spatial data and models on top
@@ -362,48 +364,46 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   functions for geolocation and routing.
 #&gt;   https://github.com/dkahle/ggmap</div><div class='input'>
 <span class='co'># See the underlying tibble</span>
-<span class='fu'>ps</span>(<span class='st'>"ropensci"</span>)</div><div class='output co'>#&gt; - "ropensci" ----------------------------------- 220 packages in 0.01 seconds -
+<span class='fu'>ps</span>(<span class='st'>"ropensci"</span>)</div><div class='output co'>#&gt; - "ropensci" ---------------------------------- 223 packages in 0.008 seconds -
 #&gt;   #     package    version by                  @ title                         
-#&gt;   1 100 webmockr   0.4.0   Scott Chamberlain  3M Stubbing and Setting Expect...
+#&gt;   1 100 webmockr   0.4.0   Scott Chamberlain  4M Stubbing and Setting Expect...
 #&gt;   2  87 RSelenium  1.7.5   Ju Yeong Kim      11M R Bindings for 'Selenium We...
 #&gt;   3  80 wdman      0.2.4   Ju Yeong Kim       1y 'Webdriver'/'Selenium' Bina...
 #&gt;   4  79 chromer    0.1     Matthew Pennell    5y Interface to Chromosome Cou...
-#&gt;   5  79 tabulizer  0.2.2   Tom Paskhalis      1y Bindings for 'Tabula' PDF T...
-#&gt;   6  79 rfisheries 0.2     Karthik Ram        4y 'Programmatic Interface to ...
-#&gt;   7  78 ropenaq    0.2.7   Maëlle Salmon     10M Accesses Air Quality Data f...
-#&gt;   8  69 jsonld     2.1     Jeroen Ooms        9M JSON for Linking Data         
-#&gt;   9  66 solrium    1.1.4   Scott Chamberlain 12d General Purpose R Interface...
-#&gt;  10  66 taxize     0.9.9   Scott Chamberlain 28d Taxonomic Information from ...</div><div class='input'><span class='fu'>ps</span>()[]</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10 x 14</span><span>
+#&gt;   5  79 rfisheries 0.2     Karthik Ram        4y 'Programmatic Interface to ...
+#&gt;   6  78 ropenaq    0.2.7   Maëlle Salmon     10M Accesses Air Quality Data f...
+#&gt;   7  76 tabulizer  0.2.2   Tom Paskhalis      1y Bindings for 'Tabula' PDF T...
+#&gt;   8  68 jsonld     2.1     Jeroen Ooms       10M JSON for Linking Data         
+#&gt;   9  66 solrium    1.1.4   Scott Chamberlain 23d General Purpose R Interface...
+#&gt;  10  65 taxize     0.9.91  Scott Chamberlain 10d Taxonomic Information from ...</div><div class='input'><span class='fu'>ps</span>()[]</div><div class='output co'>#&gt; # A tibble: 10 x 14
 #&gt;    score package version title description date                maintainer_name
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;pckg_&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span>  418. webmoc… 0.4.0   Stub… </span><span style='color: #949494;'>"</span><span>Stubbing … 2019-08-09 </span><span style='color: #949494;'>20:50:02</span><span> Scott Chamberl…
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span>  362. RSelen… 1.7.5   R Bi… </span><span style='color: #949494;'>"</span><span>Provides … 2019-01-03 </span><span style='color: #949494;'>08:20:11</span><span> Ju Yeong Kim   
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span>  335. wdman   0.2.4   'Web… </span><span style='color: #949494;'>"</span><span>There are… 2018-07-21 </span><span style='color: #949494;'>20:50:03</span><span> Ju Yeong Kim   
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span>  332. chromer 0.1     Inte… </span><span style='color: #949494;'>"</span><span>A program… 2015-01-13 </span><span style='color: #949494;'>10:27:09</span><span> Matthew Pennell
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span>  331. tabuli… 0.2.2   Bind… </span><span style='color: #949494;'>"</span><span>Bindings … 2018-06-07 </span><span style='color: #949494;'>18:16:06</span><span> Tom Paskhalis  
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span>  330. rfishe… 0.2     'Pro… </span><span style='color: #949494;'>"</span><span>A program… 2016-02-19 </span><span style='color: #949494;'>08:50:03</span><span> Karthik Ram    
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span>  327. ropenaq 0.2.7   Acce… </span><span style='color: #949494;'>"</span><span>Allows ac… 2019-01-31 </span><span style='color: #949494;'>14:20:03</span><span> Maëlle Salmon  
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span>  288. jsonld  2.1     JSON… </span><span style='color: #949494;'>"</span><span>JSON-LD i… 2019-02-05 </span><span style='color: #949494;'>12:43:19</span><span> Jeroen Ooms    
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span>  277. solrium 1.1.4   Gene… </span><span style='color: #949494;'>"</span><span>Provides … 2019-11-02 </span><span style='color: #949494;'>08:20:02</span><span> Scott Chamberl…
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span>  275. taxize  0.9.9   Taxo… </span><span style='color: #949494;'>"</span><span>Interacts… 2019-10-17 </span><span style='color: #949494;'>20:10:02</span><span> Scott Chamberl…
-#&gt; </span><span style='color: #949494;'># … with 7 more variables: maintainer_email </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, revdeps </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>,
-#&gt; #   downloads_last_month </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, license </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, url </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, bugreports </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,
-#&gt; #   package_data </span><span style='color: #949494;font-style: italic;'>&lt;I&lt;list&gt;&gt;</span><span></div></span></pre>
+#&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;pckg_&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dttm&gt;              &lt;chr&gt;          
+#&gt;  1  419. webmoc… 0.4.0   Stub… "Stubbing … 2019-08-09 20:50:02 Scott Chamberl…
+#&gt;  2  364. RSelen… 1.7.5   R Bi… "Provides … 2019-01-03 08:20:11 Ju Yeong Kim   
+#&gt;  3  336. wdman   0.2.4   'Web… "There are… 2018-07-21 20:50:03 Ju Yeong Kim   
+#&gt;  4  332. chromer 0.1     Inte… "A program… 2015-01-13 10:27:09 Matthew Pennell
+#&gt;  5  330. rfishe… 0.2     'Pro… "A program… 2016-02-19 08:50:03 Karthik Ram    
+#&gt;  6  325. ropenaq 0.2.7   Acce… "Allows ac… 2019-01-31 14:20:03 Maëlle Salmon  
+#&gt;  7  320. tabuli… 0.2.2   Bind… "Bindings … 2018-06-07 18:16:06 Tom Paskhalis  
+#&gt;  8  285. jsonld  2.1     JSON… "JSON-LD i… 2019-02-05 12:43:19 Jeroen Ooms    
+#&gt;  9  277. solrium 1.1.4   Gene… "Provides … 2019-11-02 08:20:02 Scott Chamberl…
+#&gt; 10  273. taxize  0.9.91  Taxo… "Interacts… 2019-11-15 10:40:02 Scott Chamberl…
+#&gt; # … with 7 more variables: maintainer_email &lt;chr&gt;, revdeps &lt;int&gt;,
+#&gt; #   downloads_last_month &lt;int&gt;, license &lt;chr&gt;, url &lt;chr&gt;, bugreports &lt;chr&gt;,
+#&gt; #   package_data &lt;I&lt;list&gt;&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -411,13 +411,16 @@ from the RStudio CRAN mirror.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
