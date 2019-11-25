@@ -549,6 +549,7 @@ addin_styles <- function() {
           .btn-package {
             font-size: 140%;
             color: rgb(51, 122, 183);
+            background-color: #fff;
             border: none;
             padding-left: 0px;
           }
