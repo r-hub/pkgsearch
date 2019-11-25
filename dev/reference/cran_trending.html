@@ -133,9 +133,20 @@ weeks. The percentage of increase is also shown in the output.</p>
     <p>Tibble of trending packages.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'> <span class='kw'>if</span> (<span class='fl'>FALSE</span>) (<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/numeric_version.html'>getRversion</a></span>() <span class='kw'>&gt;=</span> <span class='st'>"3.4"</span>) <span class='no'>withAutoprint</span> <span class='kw'>else</span> <span class='no'>force</span>)({
-<span class='fu'>cran_trending</span>()
- })</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>cran_trending</span>()</div><div class='output co'>#&gt; # A tibble: 100 x 2
+#&gt;    package           score                  
+#&gt;    &lt;chr&gt;             &lt;chr&gt;                  
+#&gt;  1 effectsize        118720.0000000000000000
+#&gt;  2 leaflet.providers 9214.2427281845536600  
+#&gt;  3 farver            2627.1360545632238900  
+#&gt;  4 renv              1084.8484848484848500  
+#&gt;  5 joint.Cox         718.0467091295116800   
+#&gt;  6 rsq               672.9134747197806600   
+#&gt;  7 NNS               600.6872852233677000   
+#&gt;  8 dplyr.teradata    590.3602726387536500   
+#&gt;  9 fable             585.2517985611510800   
+#&gt; 10 lobstr            531.9114027891714500   
+#&gt; # … with 90 more rows</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
