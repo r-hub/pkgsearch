@@ -17,13 +17,13 @@
 #'   or in a web browser (`"browser"`).
 #'
 #' @export
-#' @examples
-#' \dontshow{ if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ }
+#' @section Examples:
+#' ```
 #' pkg_search_addin()
 #'
 #' # Start with a search query
 #' pkg_search_addin("permutation test")
-#' \dontshow{ \}) }
+#' ```
 
 pkg_search_addin <- function(
   query = "",
