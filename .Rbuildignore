@@ -11,3 +11,4 @@
 ^pkgdown$
 ^header\.md$
 ^pkgsearch\.png$
+^docs$
