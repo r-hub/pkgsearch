@@ -491,6 +491,7 @@ pkg_search_addin <- function(
     utils::browseURL(url)
   }
 
+  on.exit(tryCatch(shiny::stopApp(), error = function(e) NULL), add = TRUE)
   shiny::runGadget(ui, server, viewer = viewer)
 }
 
