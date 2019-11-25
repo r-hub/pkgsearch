@@ -107,7 +107,7 @@ pkg_search_addin <- function(
         ),
       shiny::div(
         id = "done-button",
-        shiny::actionButton("done", label = "Done")
+        shiny::actionButton("done", label = "Done", class = "btn btn-primary")
       )
     ),
     shiny::tabPanel("Search", searchQuery("search"), searchResults("search")),
