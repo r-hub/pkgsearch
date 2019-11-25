@@ -1,5 +1,5 @@
 
-# development version
+# pkgsearch 3.0.1
 
 * The "My packages" and "Most depended upon" items now work properly
   in the RStudio addin (#77).
