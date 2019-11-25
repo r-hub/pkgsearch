@@ -97,6 +97,10 @@ pkg_search_addin <- function(
           ),
           href = "https://docs.r-hub.io"
         )
+        ),
+      shiny::div(
+        id = "done-button",
+        shiny::actionButton("done", label = "Done")
       )
     ),
     shiny::tabPanel("Search", searchQuery("search"), searchResults("search")),
@@ -142,6 +146,9 @@ pkg_search_addin <- function(
 
   server <- function(input, output, session) {
     session$sendCustomMessage("selectSearch", "select")
+
+    shiny::observeEvent(input$done, shiny::stopApp())
+
     output$`results-search` <- shiny::renderUI({
       ret <- simple_search(
         input$`query-search`,
@@ -542,6 +549,11 @@ addin_styles <- function() {
             right: 10px;
             top: 0px;
             margin-top: -10px;
+          }
+          #done-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
           }
           "
   )
