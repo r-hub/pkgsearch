@@ -169,7 +169,7 @@ here.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># All orphaned packages</span>
-<span class='fu'>advanced_search</span>(<span class='kw'>Maintainer</span> <span class='kw'>=</span> <span class='st'>"ORPHANED"</span>)</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 58 packages in 0.001 seconds -
+<span class='fu'>advanced_search</span>(<span class='kw'>Maintainer</span> <span class='kw'>=</span> <span class='st'>"ORPHANED"</span>)</div><div class='output co'>#&gt; - "advanced search" -------------------------------- 58 packages in 0 seconds -
 #&gt;   #     package      version   by         @ title                              
 #&gt;   1 100 SDMTools     1.1.221.1 ORPHANED  7M Species Distribution Modelling T...
 #&gt;   2 100 regress      1.3.15    ORPHANED  3y Gaussian Linear Models with Line...
@@ -182,7 +182,7 @@ here.</p></td>
 #&gt;   9  98 caTools      1.17.1.2  ORPHANED  9M Tools: moving window statistics,...
 #&gt;  10  98 DAAG         1.22.1    ORPHANED  9M Data Analysis and Graphics Data ...</div><div class='input'>
 <span class='co'># Packages that match a certain field</span>
-<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"Hester AND NOT Wickham"</span>)</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 21 packages in 0.004 seconds -
+<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"Hester AND NOT Wickham"</span>)</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 21 packages in 0.003 seconds -
 #&gt;   #     package        version by              @ title                         
 #&gt;   1 100 gmailr         1.0.0   Jim Hester     3M Access the 'Gmail' 'RESTful...
 #&gt;   2  98 primerTree     1.0.4   Jim Hester     1y Visually Assessing the Spec...
@@ -208,7 +208,7 @@ here.</p></td>
 #&gt;   9  61 flipscores        0.2     Jesse Hemerik      1y Robust Testing in GLMs 
 #&gt;  10  57 ectotemp          0.1.2   Wouter Beukema     1y Quantitative Estimat...</div><div class='input'>
 <span class='co'># Packages that have a certain field</span>
-<span class='fu'>advanced_search</span>(<span class='st'>"_exists_"</span> <span class='kw'>=</span> <span class='st'>"URL"</span>)</div><div class='output co'>#&gt; - "advanced search" ------------------------------ 7462 packages in 0 seconds -
+<span class='fu'>advanced_search</span>(<span class='st'>"_exists_"</span> <span class='kw'>=</span> <span class='st'>"URL"</span>)</div><div class='output co'>#&gt; - "advanced search" -------------------------- 7462 packages in 0.001 seconds -
 #&gt;   #     package          version by                    @ title                 
 #&gt;   1 100 eyelinker        0.2.0   Austin Hurst         2M Import ASC Files fr...
 #&gt;   2 100 generator        0.1.0   Paul Hendricks       4y Generate Data Conta...
@@ -258,7 +258,7 @@ here.</p></td>
 #&gt;   9 100 SSL              0.1     Junxiang Wang              4y Semi-Supervis...
 #&gt;  10 100 CCA              1.2     Sébastien Déjean           7y Canonical cor...</div><div class='input'>
 <span class='co'># Regular expressions</span>
-<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"/Joh?nathan/"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 185 packages in 0.003 seconds -
+<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"/Joh?nathan/"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 185 packages in 0.001 seconds -
 #&gt;   #     package            version  by                         @ title         
 #&gt;   1 100 ubeR               0.1.4    Andrew Collier            3y Interface t...
 #&gt;   2 100 selectiveInference 1.2.5    Rob Tibshirani            3M Tools for P...
@@ -271,7 +271,7 @@ here.</p></td>
 #&gt;   9 100 fivethirtyeight    0.5.0    Albert Y. Kim             4M Data and Co...
 #&gt;  10 100 smcfcs             1.4.0    Jonathan Bartlett         8M Multiple Im...</div><div class='input'>
 <span class='co'># Fuzzy search</span>
-<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"Johnathan~1"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 186 packages in 0.001 seconds -
+<span class='fu'>advanced_search</span>(<span class='kw'>Author</span> <span class='kw'>=</span> <span class='st'>"Johnathan~1"</span>)</div><div class='output co'>#&gt; - "advanced search" --------------------------- 186 packages in 0.002 seconds -
 #&gt;   #     package       version by                                        @ title
 #&gt;   1 100 UScancer      0.1.2   Jonathan Lee                             5y Cr...
 #&gt;   2 100 mlmi          1.0.0   Jonathan Bartlett                        4M Ma...
