@@ -17,7 +17,7 @@ A data frame of package metadata, one package per row.
 Metadata about multiple CRAN packages
 }
 \examples{
-\dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+\dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Get metadata about one package
 cran_packages("rhub")
 # Get metadata about two packages
@@ -26,5 +26,5 @@ cran_packages(c("rhub", "testthat"))
 cran_packages(c("rhub@1.1.1", "testthat@2.2.1", "testthat@2.2.0"))
 # If a version does not exist nothing is returned
 cran_packages("rhub@notaversion")
-\dontshow{ \}) }
+\dontshow{\}) # examplesIf}
 }

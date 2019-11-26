@@ -16,7 +16,7 @@
 #' @export
 #' @importFrom jsonlite unbox
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+#' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' # All orphaned packages
 #' advanced_search(Maintainer = "ORPHANED")
 #'
@@ -51,7 +51,7 @@
 #'
 #' # Fuzzy search
 #' advanced_search(Author = "Johnathan~1")
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 
 advanced_search <- function(..., json = NULL, format = c("short", "long"),
                             from = 1, size = 10) {

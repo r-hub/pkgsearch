@@ -34,10 +34,10 @@ List of events.
 List of all CRAN events (new, updated, archived packages)
 }
 \examples{
-\dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+\dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 cran_events()
 cran_events(limit = 5, releases = FALSE)
 cran_events(limit = 5, archivals = FALSE)
 summary(cran_events(limit = 10))
-\dontshow{ \}) }
+\dontshow{\}) # examplesIf}
 }

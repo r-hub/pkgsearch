@@ -48,7 +48,7 @@ s_data <- new.env(parent = emptyenv())
 #'
 #' @export
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+#' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' # Example
 #' ps("survival")
 #'
@@ -63,7 +63,7 @@ s_data <- new.env(parent = emptyenv())
 #' # See the underlying tibble
 #' ps("ropensci")
 #' ps()[]
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 
 pkg_search <- function(query = NULL, format = c("short", "long"),
                        from = 1, size = 10) {

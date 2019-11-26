@@ -16,7 +16,7 @@ counts, compared to the average weekly downloads in the previous 24
 weeks. The percentage of increase is also shown in the output.
 }
 \examples{
-\dontshow{ asNamespace("pkgsearch")$exif(FALSE, \{ }
+\dontshow{if (identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 cran_trending()
-\dontshow{ \}) }
+\dontshow{\}) # examplesIf}
 }

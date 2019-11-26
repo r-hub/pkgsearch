@@ -74,7 +74,7 @@ previous query, if called without arguments.
 Note that the search needs a working Internet connection.
 }
 \examples{
-\dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+\dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Example
 ps("survival")
 
@@ -89,5 +89,5 @@ ps()
 # See the underlying tibble
 ps("ropensci")
 ps()[]
-\dontshow{ \}) }
+\dontshow{\}) # examplesIf}
 }

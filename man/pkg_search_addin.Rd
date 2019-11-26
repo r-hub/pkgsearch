@@ -27,11 +27,11 @@ and trending packages.
 \item Package list by maintainer.
 }
 }
-\examples{
-\dontshow{ asNamespace("pkgsearch")$exif(FALSE, \{ }
-pkg_search_addin()
+\section{Examples}{
+\preformatted{pkg_search_addin()
 
 # Start with a search query
 pkg_search_addin("permutation test")
-\dontshow{ \}) }
 }
+}
+

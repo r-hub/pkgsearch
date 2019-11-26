@@ -6,11 +6,11 @@
 \alias{pkgsearch-package}
 \title{pkgsearch: Search and Query CRAN R Packages}
 \description{
-Get/search CRAN metadata about packages by keyword, popularity,
-  recent activity, package name and more. Uses the 'R-hub' search server,
-  see <https://r-pkg.org> and the CRAN metadata database, that 
-  contains information about CRAN packages. Note that this is _not_ 
-  a CRAN project.
+Search CRAN metadata about packages by keyword, popularity,
+    recent activity, package name and more. Uses the 'R-hub' search server,
+    see <https://r-pkg.org> and the CRAN metadata database, that
+    contains information about CRAN packages. Note that this is _not_
+    a CRAN project.
 }
 \seealso{
 Useful links:
@@ -23,6 +23,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Gábor Csárdi \email{csardi.gabor@gmail.com}
+
+Authors:
+\itemize{
+  \item Maëlle Salmon (\href{https://orcid.org/0000-0002-2815-0399}{ORCID})
+}
 
 Other contributors:
 \itemize{

@@ -1,6 +1,6 @@
 Package: pkgsearch
 Title: Search and Query CRAN R Packages
-Version: 3.0.0.9000
+Version: 3.0.1.9000
 Authors@R: c(
     person("Gábor", "Csárdi",, "csardi.gabor@gmail.com", c("aut", "cre")),
     person("Maëlle", "Salmon", role = "aut",
@@ -24,7 +24,6 @@ Imports:
     tibble
 Suggests:
     covr,
-    miniUI,
     memoise,
     pingr (>= 2.0.0),
     rstudioapi,
@@ -34,5 +33,5 @@ Suggests:
     testthat (>= 2.1.0),
     whoami
 Encoding: UTF-8
-RoxygenNote: 6.1.99.9001
+RoxygenNote: 7.0.0
 Roxygen: list(markdown = TRUE)

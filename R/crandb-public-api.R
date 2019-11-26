@@ -9,9 +9,9 @@
 #'   version if returned.
 #' @return The package metadata, in a named list.
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+#' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' cran_package("pkgsearch")
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 #' @export
 #' @importFrom assertthat assert_that
 
@@ -34,7 +34,7 @@ cran_package <- function(name, version = NULL) {
 #' @return A data frame of package metadata, one package per row.
 #'
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+#' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' # Get metadata about one package
 #' cran_packages("rhub")
 #' # Get metadata about two packages
@@ -43,7 +43,7 @@ cran_package <- function(name, version = NULL) {
 #' cran_packages(c("rhub@1.1.1", "testthat@2.2.1", "testthat@2.2.0"))
 #' # If a version does not exist nothing is returned
 #' cran_packages("rhub@notaversion")
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 #' @export
 
 cran_packages <- function(names) {
@@ -72,12 +72,12 @@ cran_packages <- function(names) {
 #'
 #' @export
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+#' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' cran_events()
 #' cran_events(limit = 5, releases = FALSE)
 #' cran_events(limit = 5, archivals = FALSE)
 #' summary(cran_events(limit = 10))
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 #' @importFrom assertthat assert_that is.count is.flag
 
 cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
@@ -122,9 +122,9 @@ cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
 #'
 #' @export
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(FALSE, \{ }
+#' \dontshow{if (identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' cran_trending()
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 
 cran_trending <- function() {
   ept <- "https://cranlogs.r-pkg.org/trending"
@@ -146,9 +146,9 @@ cran_trending <- function() {
 #'
 #' @export
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(FALSE, \{ }
+#' \dontshow{if (identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' cran_top_downloaded()
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 
 cran_top_downloaded <- function() {
   ept <- "http://cranlogs.r-pkg.org/top/last-week/100"
@@ -203,9 +203,9 @@ do_crandb_query <- function(from, limit,
 #' @return A tibble, with one row per package version.
 #' @export
 #' @examples
-#' \dontshow{ asNamespace("pkgsearch")$exif(pingr::is_online(), \{ }
+#' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 #' cran_package_history("igraph")
-#' \dontshow{ \}) }
+#' \dontshow{\}) # examplesIf}
 
 cran_package_history <- function(package) {
 
