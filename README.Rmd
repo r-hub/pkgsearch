@@ -49,7 +49,7 @@ ranking that puts popular packages before less frequently used ones.
 For the search mentioned above, and other points of entry to CRAN metadata,
 you can use pkgsearch RStudio add-in!
 
-![addin screeenshot](https://cdn.jsdelivr.net/gh/r-hub/pkgsearch@master/pkgsearch.png)
+[![Addin screencast](https://raw.githubusercontent.com/r-hub/pkgsearch/master/gifs/addin.gif)](https://vimeo.com/375618736)
 
 Select the "CRAN package search" addin from the menu, or start it with
 `pkg_search_addin()`.
