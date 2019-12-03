@@ -103,12 +103,26 @@ needs_packages <- function(pkgs) {
   })
 
   if (!all(has)) {
-    throw(new_error(
-      "The ",
-      paste(sQuote(pkgs), collapse = ", "),
-      " packages are needed for this addin.",
-      call. = FALSE
-    ))
+    not_installed_pkgs <- pkgs[!has]
+    
+    if (length(not_installed_pkgs) == 1) {
+      
+      throw(new_error(
+        "The ",
+        sQuote(not_installed_pkgs),
+        " package is needed for this addin.",
+        call. = FALSE
+      ))
+    } else {
+      
+      throw(new_error(
+        "The ",
+        paste(sQuote(not_installed_pkgs), collapse = ", "),
+        " packages are needed for this addin.",
+        call. = FALSE
+      ))
+    }
+    
   }
 }
 

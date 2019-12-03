@@ -1,6 +1,8 @@
 
 # development version
 
+* The error message indicating missing dependencies for running the addin now only mentions missing packages instead of all needed packages. (#84, @yonicd)
+
 # pkgsearch 3.0.1
 
 * The "My packages" and "Most depended upon" items now work properly
