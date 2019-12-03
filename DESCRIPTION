@@ -23,6 +23,7 @@ Imports:
     prettyunits,
     tibble
 Suggests:
+    mockery,
     covr,
     memoise,
     pingr (>= 2.0.0),
