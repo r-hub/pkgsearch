@@ -1,7 +1,9 @@
 
 # development version
 
-* The error message indicating missing dependencies for running the addin now only mentions missing packages instead of all needed packages. (#84, @yonicd)
+* The error message indicating missing dependencies for running the addin
+  now only mentions missing packages instead of all needed
+  packages. (#84, @yonicd)
 
 * `cran_package_history()` now errors for non-existing packages, instead
   of returning `NULL` or the data from another package (#88).
