@@ -217,7 +217,11 @@ cran_package_history <- function(package) {
 
   df_list <- lapply(resp, function(p) rectangle_packages(p$versions))
   df_list <- make_col_compatible(df_list)
-  do.call("rbind", df_list)
+  res <- do.call("rbind", df_list)
+
+  if (nrow(res) == 0 || res$Package[1] != package) {
+    throw(new_error("Package not found: ", package))
+  }
 }
 
 add_names <- function(df, all_names) {

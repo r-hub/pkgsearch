@@ -56,3 +56,16 @@ test_that("cran_events() works", {
   expect_equal(names(r4[[1]]), c("date", "name", "event", "package"))
 
 })
+
+test_that("cran_package_history() edge cases", {
+
+  skip_if_offline()
+
+  random_package <- paste(
+    sample(letters, 20, replace = TRUE),
+    collapse = ""
+  )
+  expect_error(cran_package_history(random_package))
+
+  expect_error(cran_package_history("zzzzzzzz"))
+})
