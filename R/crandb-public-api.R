@@ -222,6 +222,8 @@ cran_package_history <- function(package) {
   if (nrow(res) == 0 || res$Package[1] != package) {
     throw(new_error("Package not found: ", package))
   }
+
+  res
 }
 
 add_names <- function(df, all_names) {
