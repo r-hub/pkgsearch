@@ -1,12 +1,11 @@
 
 # development version
 
-* The error message indicating missing dependencies for running the addin
-  now only mentions missing packages instead of all needed
-  packages. (#84, @yonicd)
+* The RStudio addin now gives a better error more missing dependencies
+  (#84, @yonicd)
 
 * `cran_package_history()` now errors for non-existing packages, instead
-  of returning `NULL` or the data from another package (#88).
+  of returning `NULL` or the data for another package (#88).
 
 # pkgsearch 3.0.1
 
