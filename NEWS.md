@@ -1,5 +1,5 @@
 
-# development version
+# pkgsearch 3.0.2
 
 * The RStudio addin now gives a better error more missing dependencies
   (#84, @yonicd)
