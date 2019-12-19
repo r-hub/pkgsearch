@@ -454,6 +454,7 @@ pkg_search_addin <- function(
     }
 
     if (is.null(query) || nchar(query) == 0) return(NULL)
+    if (!grepl("@.", query)) return(NULL)
 
     result <- get_maint(query, from = from)
     data$maint <<- result
@@ -467,7 +468,11 @@ pkg_search_addin <- function(
     keys <- paste0('"', keys, '"', collapse = ",")
     url <- paste0(ep, "?keys=[", keys, "]")
     ret <- crandb_query(url)
-    tibble::tibble(email = ret[,1], package = ret[,2])
+    if (length(ret)) {
+      tibble::tibble(email = ret[,1], package = ret[,2])
+    } else {
+      tibble::tibble(email = character(), package = character())
+    }
   }
 
   get_maint_data <- memoise::memoise(
@@ -653,6 +658,12 @@ format_addin_results <- function(results, id) {
   if (is.null(results)) return(NULL)
   meta <- attr(results, "metadata")
   took <- format_took(results)
+
+  if (nrow(results) == 0) {
+    if (!is.null(took)) return(shiny::div(took))
+    return(shiny::div("No packages found. :("))
+  }
+
   pkgs <- lapply(
     seq_len(nrow(results)),
     function(i) format_pkg(results[i,], id, i, meta$from)
@@ -765,18 +776,18 @@ format_pkg <- function(record, id, num, from) {
 }
 
 rectangle_pkgs <- function(pkgs) {
-  maintainer <- parse_maint(pkgs$Maintainer)
+  maintainer <- parse_maint(pkgs$Maintainer %||% character())
   tibble::tibble(
-    package =          pkgs$Package,
-    version =          pkgs$Version,
-    title =            pkgs$Title,
-    description =      pkgs$Description,
-    date =             parsedate::parse_iso_8601(pkgs$date),
+    package =          pkgs$Package %||% character(),
+    version =          pkgs$Version %||% character(),
+    title =            pkgs$Title %||% character(),
+    description =      pkgs$Description %||% character(),
+    date =             parsedate::parse_iso_8601(pkgs$date %||% character()),
     maintainer_name =  maintainer$maintainer_name,
     maintainer_email = maintainer$maintainer_email,
-    license =          pkgs$License,
-    url =              pkgs$URL,
-    bugreports =       pkgs$BugReports,
+    license =          pkgs$License %||% character(),
+    url =              pkgs$URL %||% character(),
+    bugreports =       pkgs$BugReports %||% character(),
   )
 }
 
