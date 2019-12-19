@@ -220,7 +220,7 @@ cran_package_history <- function(package) {
   res <- do.call("rbind", df_list)
 
   if (nrow(res) == 0 || res$Package[1] != package) {
-    throw(new_error("Package not found: ", package))
+    throw(new_no_package_error("Package not found: ", package))
   }
 
   res
