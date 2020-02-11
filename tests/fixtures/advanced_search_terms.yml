@@ -1,0 +1,135 @@
+http_interactions:
+- request:
+    method: post
+    uri: http://search.r-pkg.org/package/_search?from=0&size=10
+    body:
+      encoding: ''
+      string: '{"query":{"query_string":{"query":"permutation test AND NOT License:
+        GPL OR GNU","default_field":"*"}}}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.15.5
+      date: Tue, 11 Feb 2020 13:56:53 GMT
+      content-type: application/json; charset=UTF-8
+      content-length: '4249'
+      connection: keep-alive
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"took":16,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":255,"max_score":12.893336,"hits":[{"_index":"package","_type":"doc","_id":"phd","_score":12.893336,"_source":{"date":"2019-07-02T14:10:03+00:00","Author":"Jesse
+        Hemerik, Livio Finos","MD5sum":"500a138099b01578732be67a9d720283","NeedsCompilation":"no","Title":"Permutation
+        Testing in High-Dimensional Linear Models","LazyData":"TRUE","Date":"2019-06-28","Packaged":"2019-07-01
+        09:12:23 UTC; Jesse","Date/Publication":"2019-07-02 15:10:03 UTC","Version":"0.1","Maintainer":"Jesse
+        Hemerik <jesse.hemerik@medisin.uio.no>","Enhances":"","Imports":"methods (*),
+        stats (*), glmnet (*), ","revdeps":1,"Suggests":"","Depends":"","LinkingTo":"","Package":"phd","License":"GNU
+        General Public License","crandb_file_date":"2019-07-02 16:44:24","Repository":"CRAN","Type":"Package","Description":"Provides
+        permutation methods for testing in high-dimensional linear models.\nThe tests
+        are often robust against heteroscedasticity and non-normality\nand usually
+        perform well under anti-sparsity.\nSee Hemerik and Goeman (2018) <doi:10.1007/s11749-017-0571-1>.","downloads":344}},{"_index":"package","_type":"doc","_id":"confSAM","_score":12.429166,"_source":{"date":"2018-02-19T09:39:59+00:00","Author":"Jesse
+        Hemerik and Jelle Goeman","MD5sum":"20b9fde94848e21d5fb7366e9287aba0","NeedsCompilation":"no","Title":"Estimates
+        and Bounds for the False Discovery Proportion, by\nPermutation","LazyData":"TRUE","Date":"2018-02-12","VignetteBuilder":"knitr","Packaged":"2018-02-19
+        10:17:52 UTC; Jesse","Date/Publication":"2018-02-19 10:39:59 UTC","Version":"0.2","Maintainer":"Jesse
+        Hemerik <j.b.a.hemerik@lumc.nl>","Enhances":"","Imports":"","revdeps":1,"Suggests":"penalized
+        (*), knitr (*), survival (*), markdown (*), ","Depends":"","LinkingTo":"","Package":"confSAM","License":"GNU
+        General Public License","crandb_file_date":"2018-02-19 10:44:23","Repository":"CRAN","Type":"Package","Description":"For
+        multiple testing.\nComputes estimates and confidence bounds for the\nFalse
+        Discovery Proportion (FDP), the fraction of false positives among\nall rejected
+        hypotheses.\nThe methods in the package use permutations of the data. Doing
+        so, they\ntake into account the dependence structure in the data.","downloads":523}},{"_index":"package","_type":"doc","_id":"permutes","_score":10.970992,"_source":{"date":"2019-07-21T16:00:02+00:00","Author":"Cesko
+        C. Voeten [aut, cre]","MD5sum":"3caf5abde9dc7583abdb1e416b46d02d","NeedsCompilation":"no","Title":"Permutation
+        Tests for Time Series Data","LazyData":"true","VignetteBuilder":"knitr","Encoding":"UTF-8","Packaged":"2019-07-21
+        16:12:20 UTC; cesko","Date/Publication":"2019-07-21 17:00:02 UTC","Version":"1.0","Maintainer":"Cesko
+        C. Voeten <cvoeten@gmail.com>","Enhances":"","Imports":"viridis (*), ggplot2
+        (*), plyr (*), lmPerm (*), ","Authors@R":"person(c(\"Cesko\", \"C.\"), \"Voeten\",
+        email = \"cvoeten@gmail.com\", role = c(\"aut\", \"cre\"))","revdeps":1,"Suggests":"rmarkdown
+        (*), doParallel (*), dplyr (*), knitr (*), tidyr (*), ","BugReports":"https://github.com/cvoeten/permutes/issues","Depends":"R
+        (>= 2.10), ","LinkingTo":"","Package":"permutes","License":"FreeBSD","crandb_file_date":"2019-07-21
+        17:56:25","RoxygenNote":"6.1.1","Repository":"CRAN","Description":"Helps you
+        determine the analysis window to use when analyzing densely-sampled\ntime-series
+        data, such as EEG data, using permutation testing (Maris & Oostenveld 2007)\n<doi:10.1016/j.jneumeth.2007.03.024>.
+        These permutation tests can help identify the timepoints\nwhere significance
+        of an effect begins and ends, and the results can be plotted in various\ntypes
+        of heatmap for reporting.","downloads":368}},{"_index":"package","_type":"doc","_id":"BurStMisc","_score":10.160925,"_source":{"date":"2016-08-13T13:56:08+00:00","Author":"Pat
+        Burns","NeedsCompilation":"no","Title":"Burns Statistics Miscellaneous","LazyData":"TRUE","Packaged":"2016-08-13
+        11:05:49 UTC; pat","Date/Publication":"2016-08-13 13:56:08","Version":"1.1","Maintainer":"Pat
+        Burns <patrick@burns-stat.com>","Enhances":"","Imports":"","revdeps":1,"Suggests":"testthat
+        (*), ","Depends":"","LinkingTo":"","Package":"BurStMisc","License":"Unlimited","crandb_file_date":"2016-08-13
+        07:59:29","Repository":"CRAN","Type":"Package","Description":"Script search,
+        corner, genetic optimization, permutation tests, write expect test.","downloads":3033}},{"_index":"package","_type":"doc","_id":"fdrci","_score":9.915909,"_source":{"date":"2016-11-15T18:45:37+00:00","Author":"Joshua
+        Millstein","NeedsCompilation":"no","Title":"Permutation-Based FDR Point and
+        Confidence Interval Estimation","Packaged":"2016-11-15 15:17:59 UTC; iTeams","Date":"2016-11-14","Date/Publication":"2016-11-15
+        19:45:37","LazyLoad":"yes","Version":"2.1","Maintainer":"Joshua Millstein
+        <joshua.millstein@usc.edu>","Enhances":"","Imports":"","revdeps":1,"Suggests":"","Depends":"","LinkingTo":"","Package":"fdrci","License":"Artistic-2.0","crandb_file_date":"2016-11-15
+        18:48:18","Repository":"CRAN","Type":"Package","Description":"FDR functions
+        for permutation-based estimators, including pi0 as well as FDR\nconfidence
+        intervals. The confidence intervals account for dependencies between\ntests
+        by the incorporation of an overdispersion parameter, which is estimated\nfrom
+        the permuted data.","downloads":1052}},{"_index":"package","_type":"doc","_id":"packager","_score":9.592041,"_source":{"date":"2020-01-13T10:10:06+00:00","Author":"Andreas
+        Dominik Cullmann [aut, cre]","MD5sum":"0a5d34bf829b496ef234586f7ca69d73","NeedsCompilation":"no","URL":"https://gitlab.com/fvafrCU/packager","Title":"Create,
+        Build and Maintain Packages","VignetteBuilder":"knitr","LazyData":"true","Encoding":"UTF-8","Packaged":"2020-01-09
+        07:42:19 UTC; qwer","Date/Publication":"2020-01-13 11:10:06 UTC","Version":"1.0.0","Maintainer":"Andreas
+        Dominik Cullmann <fvafrcu@mailbox.org>","Enhances":"","Imports":"tools (*),
+        pkgload (*), rprojroot (*), withr (*), fakemake (*), pkgbuild (*), utils (*),
+        whoami (*), httr (*), git2r (*), codetools (*), devtools (*), remotes (*),
+        rcmdcheck (*), crayon (*), whisker (*), desc (*), checkmate (*), usethis (*),
+        callr (*), methods (*), cyclocomp (*), ","Authors@R":"\nperson(given = \"Andreas
+        Dominik\",\nfamily = \"Cullmann\",\nrole = c(\"aut\", \"cre\"),\nemail = \"fvafrcu@mailbox.org\")","revdeps":1,"Suggests":"cleanr
+        (*), lintr (*), RUnit (*), roxygen2 (*), testthat (*), covr (*), spelling
+        (*), rmarkdown (*), knitr (*), digest (*), ","Depends":"R (>= 3.3.0), ","LinkingTo":"","Package":"packager","License":"BSD_2_clause
+        + file LICENSE","crandb_file_date":"2020-01-13 12:38:23","RoxygenNote":"7.0.2","Repository":"CRAN","Description":"Helper
+        functions for package creation, building and\nmaintenance. Designed to work
+        with a build system such as ''GNU make'' or\npackage ''fakemake'' to help
+        you to conditionally work through the stages of\npackage development (such
+        as spell checking, linting, testing, before\nbuilding and checking a package).","downloads":1}},{"_index":"package","_type":"doc","_id":"phyloseqGraphTest","_score":9.57248,"_source":{"date":"2020-02-07T15:30:02+00:00","Author":"Julia
+        Fukuyama [aut, cre]","MD5sum":"ca3e93e47a09631fb8c3522ff55b3062","NeedsCompilation":"no","URL":"https://github.com/jfukuyama/phyloseqGraphTest","Title":"Graph-Based
+        Permutation Tests for Microbiome Data","LazyData":"true","VignetteBuilder":"knitr","biocViews":"","Packaged":"2020-02-07
+        13:10:50 UTC; jfukuyam","Date/Publication":"2020-02-07 16:30:02 UTC","Version":"0.1.0","Maintainer":"Julia
+        Fukuyama <julia.fukuyama@gmail.com>","Enhances":"","Imports":"ggnetwork (>=
+        0.5.1), intergraph (>= 2.0.2), igraph (>= 1.1.2), ","revdeps":1,"Suggests":"rmarkdown
+        (*), knitr (*), ","Depends":"R (>= 3.5.0), ggplot2 (>= 2.2.1), phyloseq (>=
+        1.24.0), ","LinkingTo":"","Package":"phyloseqGraphTest","License":"CC0","crandb_file_date":"2020-02-07
+        19:02:32","RoxygenNote":"6.0.1","Repository":"CRAN","Description":"Provides
+        functions for graph-based multiple-sample\ntesting and visualization of microbiome
+        data, in particular data\nstored in ''phyloseq'' objects. The tests are based
+        on those\ndescribed in Friedman and Rafsky (1979)\n<http://www.jstor.org/stable/2958919>,
+        and the tests are described\nin more detail in Callahan et al. (2016)\n<doi:10.12688/f1000research.8986.1>.","downloads":725}},{"_index":"package","_type":"doc","_id":"resample","_score":9.486752,"_source":{"date":"2015-04-12T22:44:23+00:00","Author":"Tim
+        Hesterberg","NeedsCompilation":"no","ByteCompile":"yes","Title":"Resampling
+        Functions","Packaged":"2015-04-12 19:36:34 UTC; rocket","Date":"2015-04-25","Date/Publication":"2015-04-12
+        22:44:23","LazyLoad":"yes","Version":"0.4","Maintainer":"Tim Hesterberg <timhesterberg@gmail.com>","Enhances":"","Imports":"","revdeps":2,"Suggests":"splus2R
+        (*), ","Depends":"R (>= 3.1.0), graphics (*), stats (*), ","LinkingTo":"","Package":"resample","License":"BSD_3_clause
+        + file LICENSE","crandb_file_date":"2015-04-12 16:48:59","Repository":"CRAN","Type":"Package","Description":"Bootstrap,
+        permutation tests, and other resampling functions,\nfeaturing easy-to-use
+        syntax.","downloads":1231}},{"_index":"package","_type":"doc","_id":"shiftR","_score":8.022565,"_source":{"date":"2019-03-22T08:50:03+00:00","Author":"Andrey
+        A Shabalin [aut, cre] (<https://orcid.org/0000-0003-0309-6821>),\nEdwin J
+        C G van den Oord [aut]","MD5sum":"4f3c7a45ca4b7c38680b9e80ba515319","NeedsCompilation":"yes","URL":"https://github.com/andreyshabalin/shiftR","Title":"Fast
+        Enrichment Analysis via Circular Permutations","VignetteBuilder":"knitr","Date":"2019-03-21","Packaged":"2019-03-21
+        20:08:34 UTC; Andrey","Date/Publication":"2019-03-22 09:50:03 UTC","Version":"1.5","Maintainer":"Andrey
+        A Shabalin <andrey.shabalin@gmail.com>","Enhances":"","Imports":"parallel
+        (*), ","Authors@R":"c(person(\"Andrey A\", \"Shabalin\",\nrole = c(\"aut\",
+        \"cre\"),\nemail = \"andrey.shabalin@gmail.com\",\ncomment = c(ORCID = \"0000-0003-0309-6821\")),\nperson(\"Edwin
+        J C G\", \"van den Oord\",\nemail = \"ejvandenoord@vcu.edu\",\nrole = \"aut\"))","revdeps":1,"BugReports":"https://github.com/andreyshabalin/shiftR/issues","Suggests":"rmarkdown
+        (*), knitr (*), pander (*), ","Depends":"","LinkingTo":"","Package":"shiftR","License":"LGPL-3","crandb_file_date":"2019-04-08
+        12:38:46","Repository":"CRAN","Type":"Package","Description":"Fast enrichment
+        analysis for locally correlated statistics\nvia circular permutations.\nThe
+        analysis can be performed at multiple significance thresholds\nfor both primary
+        and auxiliary data sets with\nefficient correction for multiple testing.","downloads":382}},{"_index":"package","_type":"doc","_id":"flipscores","_score":7.8200045,"_source":{"date":"2018-09-12T14:40:03+00:00","Author":"Jesse
+        Hemerik, Jelle Goeman and Livio Finos","MD5sum":"64b3e84c7ecebef8f993c03f8f1c1ca5","NeedsCompilation":"no","Title":"Robust
+        Testing in GLMs","LazyData":"TRUE","Date":"2018-09-04","Packaged":"2018-09-12
+        15:15:22 UTC; Jesse","Date/Publication":"2018-09-12 15:40:03 UTC","Version":"0.2","Maintainer":"Jesse
+        Hemerik <j.b.a.hemerik@lumc.nl>","Enhances":"","Imports":"stats (*), methods
+        (*), ","revdeps":1,"Suggests":"","Depends":"","LinkingTo":"","Package":"flipscores","License":"GNU
+        General Public License","crandb_file_date":"2018-09-12 15:44:36","Repository":"CRAN","Type":"Package","Description":"Provides
+        robust tests for testing in GLMs,\nby sign-flipping score contributions.\nThe
+        tests are often robust against overdispersion,\nheteroscedasticity and, in
+        some cases,\nignored nuisance variables.\nSee Hemerik and Goeman (2017) <doi:10.1007/s11749-017-0571-1>.","downloads":733}}]}}'
+  recorded_at: 2020-02-11 13:56:53 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

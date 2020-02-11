@@ -1,0 +1,171 @@
+http_interactions:
+- request:
+    method: post
+    uri: http://search.r-pkg.org/package/_search?from=0&size=10
+    body:
+      encoding: ''
+      string: |-
+        {
+        "query": {
+          "bool": {
+            "must_not": {
+              "exists": {
+                "field": "URL"
+              }
+            }
+          }
+        }
+        }
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.15.5
+      date: Tue, 11 Feb 2020 13:56:52 GMT
+      content-type: application/json; charset=UTF-8
+      content-length: '5385'
+      connection: keep-alive
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"took":4,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":8353,"max_score":1.0,"hits":[{"_index":"package","_type":"doc","_id":"NRejections","_score":1.0,"_source":{"date":"2018-08-20T08:00:09+00:00","Author":"Maya
+        B. Mathur, Tyler J. VanderWeele","MD5sum":"87c0b6ecd74b4cc0d80fd416ff765fc0","NeedsCompilation":"no","Title":"Metrics
+        for Multiple Testing with Correlated Outcomes","LazyData":"true","Date":"2018-8-16","Packaged":"2018-08-17
+        14:27:50 UTC; mmathur","Date/Publication":"2018-08-20 09:00:09 UTC","Version":"1.0.0","Maintainer":"Maya
+        B. Mathur <mmathur@stanford.edu>","Enhances":"","Imports":"doParallel (*),
+        stats (*), mvtnorm (*), matrixcalc (*), StepwiseTest (*), foreach (*), ","revdeps":1,"Suggests":"testthat
+        (*), ","Depends":"","LinkingTo":"","Package":"NRejections","License":"GPL-2","crandb_file_date":"2018-08-20
+        09:02:37","RoxygenNote":"6.0.1","Type":"Package","Description":"Implements
+        methods in Mathur and VanderWeele (in preparation) to characterize global
+        evidence strength across W correlated ordinary least squares (OLS) hypothesis
+        tests. Specifically, uses resampling to estimate a null interval for the total
+        number of rejections in, for example, 95% of samples generated with no associations
+        (the global null), the excess hits (the difference between the observed number
+        of rejections and the upper limit of the null interval), and a test of the
+        global null based on the number of rejections.","Repository":"CRAN","downloads":8}},{"_index":"package","_type":"doc","_id":"miniparquet","_score":1.0,"_source":{"date":"2019-10-21T15:40:02+00:00","Author":"Hannes
+        Mühleisen [aut, cre] (<https://orcid.org/0000-0001-8552-0029>),\nGoogle Inc.
+        [cph],\nApache Software Foundation [cph],\nDaniel Lemire [cph],\nChad Walters
+        [cph]","SystemRequirements":"C++11","MD5sum":"a1543779ab86c355f04df23ea390fa78","NeedsCompilation":"yes","Title":"Read
+        Parquet Files","Packaged":"2019-10-21 15:04:42 UTC; hannes","Encoding":"UTF-8","Date/Publication":"2019-10-21
+        16:40:02 UTC","Version":"0.1.2","Maintainer":"Hannes Mühleisen <hannes@cwi.nl>","Enhances":"","Collate":"''miniparquet.R''","Imports":"methods
+        (*), ","Authors@R":"c(\nperson(\"Hannes\", \"M\\u00fchleisen\", role = c(\"aut\",
+        \"cre\"), email = \"hannes@cwi.nl\", comment = c(ORCID = \"0000-0001-8552-0029\")),\nperson(\"Google
+        Inc.\", role = \"cph\"),\nperson(\"Apache Software Foundation\", role = \"cph\"),\nperson(\"Daniel\",
+        \"Lemire\", role = \"cph\"),\nperson(\"Chad\", \"Walters\", role = \"cph\"))","revdeps":1,"Suggests":"testthat
+        (*), ","Depends":"R (>= 3.5.0), ","LinkingTo":"","Package":"miniparquet","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-10-21 18:26:38","Repository":"CRAN","Description":"Self-sufficient
+        reader for a subset of Parquet files. Nested tables, compression besides Snappy
+        and encryption are not supported.","downloads":12}},{"_index":"package","_type":"doc","_id":"episode","_score":1.0,"_source":{"date":"2017-10-29T13:27:39+00:00","Author":"Frederik
+        Vissing Mikkelsen [aut, cre]","SystemRequirements":"GNU make","MD5sum":"c94aa4562989957cedd690f6ef41ef51","NeedsCompilation":"yes","Title":"Estimation
+        with Penalisation in Systems of Ordinary Differential\nEquations","LazyData":"TRUE","VignetteBuilder":"knitr","Packaged":"2017-10-24
+        15:23:41 UTC; hmn426","Date/Publication":"2017-10-29 14:27:39 UTC","Version":"1.0.0","Maintainer":"Frederik
+        Vissing Mikkelsen <mifretz@gmail.com>","Enhances":"","Imports":"stats (>=
+        3.4), Matrix (>= 1.2-9), methods (>= 3.4), nnls (>= 1.4), glmnet (>= 2.0-10),
+        Rcpp (>= 0.12.11), ","Authors@R":"person(\"Frederik Vissing\", \"Mikkelsen\",
+        email = \"mifretz@gmail.com\", role = c(\"aut\", \"cre\"))","revdeps":1,"Suggests":"rmarkdown
+        (*), knitr (*), devtools (*), testthat (*), ","Depends":"R (>= 3.4.0), ","LinkingTo":"RcppArmadillo
+        (*), Rcpp (*), ","Package":"episode","License":"GPL-3","crandb_file_date":"2017-10-29
+        14:32:53","RoxygenNote":"6.0.1","Type":"Package","Description":"A set of statistical
+        tools for inferring unknown parameters in continuous time processes governed
+        by ordinary differential equations (ODE). Moreover, variance reduction and
+        model selection can be obtained through various implemented penalisation schemes.
+        The package offers two estimation procedures: exact estimation via least squares
+        and a faster approximate estimation via inverse collocation methods. All estimators
+        can handle multiple data sets arising from the same ODE system, but subjected
+        to different interventions.","Repository":"CRAN","downloads":9}},{"_index":"package","_type":"doc","_id":"snem","_score":1.0,"_source":{"date":"2019-03-04T17:00:03+00:00","Author":"Toshihiro
+        Abe <abetosh@ss.nanzan-u.ac.jp>, Hironori Fujisawa <fujisawa@ism.ac.jp>, Takayuki
+        Kawashima <t-kawa@ism.ac.jp>","MD5sum":"e1d259bb808aeaff2de048b8aa9bdaba","NeedsCompilation":"no","Title":"EM
+        Algorithm for Multivariate Skew-Normal Distribution with\nOverparametrization","LazyData":"true","Date":"2019-02-26","Encoding":"UTF-8","Packaged":"2019-02-25
+        23:47:47 UTC; tkawashima","Date/Publication":"2019-03-04 18:00:03 UTC","Version":"0.1.0","Maintainer":"Takayuki
+        Kawashima <t-kawa@ism.ac.jp>","Enhances":"","Imports":"mvtnorm (*), ","revdeps":1,"Suggests":"DAAG
+        (*), ","Depends":"","LinkingTo":"","Package":"snem","License":"GPL (>= 2)","crandb_file_date":"2019-03-05
+        10:00:15","RoxygenNote":"6.0.1","Type":"Package","Description":"Efficient
+        estimation of multivariate skew-normal distribution in closed form.","Repository":"CRAN","downloads":8}},{"_index":"package","_type":"doc","_id":"SeqKat","_score":1.0,"_source":{"date":"2018-03-29T20:57:09+00:00","Author":"Fouad
+        Yousif, Xihui Lin, Fan Fan, Christopher Lalansingh","MD5sum":"419e2f332f2668ff2898c22e289c6a16","NeedsCompilation":"yes","Title":"Detection
+        of Kataegis","VignetteBuilder":"rmarkdown, knitr","Date":"2018-03-21","Packaged":"2018-03-28
+        15:14:26 UTC; clalansingh","Date/Publication":"2018-03-29 21:57:09 UTC","LazyLoad":"yes","Version":"0.0.6","Maintainer":"Paul
+        C. Boutros <Paul.Boutros@oicr.on.ca>","Enhances":"","Imports":"Rcpp (>= 0.11.0),
+        ","revdeps":1,"Suggests":"doMC (*), rmarkdown (*), knitr (*), testthat (*),
+        ","Depends":"R (>= 2.15.1), doParallel (*), foreach (*), ","LinkingTo":"Rcpp
+        (*), ","Package":"SeqKat","License":"GPL-2","crandb_file_date":"2018-03-29
+        22:15:50","RoxygenNote":"6.0.1","Type":"Package","Description":"Kataegis is
+        a localized hypermutation occurring when a region is enriched in somatic SNVs.
+        Kataegis can result from multiple cytosine deaminations catalyzed by the AID/APOBEC
+        family of proteins. This package contains functions to detect kataegis from
+        SNVs in BED format. This package reports two scores per kataegic event, a
+        hypermutation score and an APOBEC mediated kataegic score. Yousif, F. et al.;
+        The Origins and Consequences of Localized and Global Somatic Hypermutation;
+        Biorxiv 2018 <doi:10.1101/287839>.","Repository":"CRAN","downloads":15}},{"_index":"package","_type":"doc","_id":"FUNLDA","_score":1.0,"_source":{"Date/Publication":"2017-07-10
+        21:35:10 UTC","Type":"Package","Title":"Genomic Latent Dirichlet Allocation","Enhances":"","Packaged":"2017-07-10
+        20:41:37 UTC; db2175","Version":"1.1","Package":"FUNLDA","License":"GPL (>=
+        2)","Maintainer":"Daniel Backenroth <db2175@cumc.columbia.edu>","Repository":"CRAN","MD5sum":"4869f19f519ca2f574b78661993265da","Suggests":"","NeedsCompilation":"yes","Author":"Daniel
+        Backenroth and Iuliana Ionita-Laza","crandb_file_date":"2017-07-10 21:38:53","RoxygenNote":"6.0.1","date":"2017-07-10T20:35:10+00:00","LinkingTo":"RcppArmadillo
+        (*), Rcpp (*), ","Description":"A tool for fitting latent Dirichlet allocation
+        models to genomic annotation data.","Imports":"Rcpp (>= 0.12.2), ","LazyData":"true","revdeps":1,"Depends":"","Date":"2017-06-26","downloads":14}},{"_index":"package","_type":"doc","_id":"diffMeanVar","_score":1.0,"_source":{"date":"2017-10-05T13:32:49+00:00","Author":"Xuan
+        Li [aut, ctb],\nWeiliang Qiu [aut, cre],\nYuejiao Fu [aut, ctb],\nXiaogang
+        Wang [aut, ctb]","MD5sum":"a8ff7f75bf9f701bee99a98a33582312","NeedsCompilation":"no","Title":"Detecting
+        Gene Probes with Different Means or Variances Between\nTwo Groups","Packaged":"2017-10-05
+        13:28:09 UTC; stwxq","Date":"2017-10-05","biocViews":"Bioinformatics, DifferentialExpression","Date/Publication":"2017-10-05
+        14:32:49 UTC","Version":"0.0.6","Maintainer":"Weiliang Qiu <stwxq@channing.harvard.edu>","Enhances":"","Imports":"MASS
+        (*), graphics (*), methylumi (*), grDevices (*), lawstat (*), ","Authors@R":"c(person(\"Xuan\",
+        \"Li\", role=c(\"aut\", \"ctb\"),\nemail = \"lixuan0759@gmail.com\"),\nperson(\"Weiliang\",
+        \"Qiu\", role=c(\"aut\", \"cre\"),\nemail = \"stwxq@channing.harvard.edu\"),\nperson(\"Yuejiao\",
+        \"Fu\", role = c(\"aut\", \"ctb\"),\nemail = \"yuejiao@mathstat.yorku.ca\"),\nperson(\"Xiaogang\",
+        \"Wang\", role = c(\"aut\", \"ctb\"),\nemail = \"stevenw@mathstat.yorku.ca\")\n)","revdeps":1,"Suggests":"","Depends":"R
+        (>= 3.4.0), missMethyl (*), stats (*), Biobase (*), ","LinkingTo":"","Package":"diffMeanVar","License":"GPL
+        (>= 2)","crandb_file_date":"2017-10-05 14:35:54","Repository":"CRAN","Type":"Package","Description":"A
+        collection of functions to detect gene probes with different means or variances
+        between two groups in (epi)-genomic data analysis, including classical F test
+        and Levene''s test for equal variance, likelihood ratio test for equal mean
+        and equal variance, the wrappers for functions in R Bioconductor package ''missMethyl''
+        (Phipson and Oshlack (2014) <doi:10.1186/s13059-014-0465-4>), the implementation
+        of the methods proposed by Ahn and Wang (2013) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3621641/>,
+        and the improved Ahn and Wang''s methods that we proposed recently (Qiu and
+        Li et al. (2017) <http://oprscience.com/wp-content/uploads/2016/07/new-score-tests-for-equality-of-variances-in-the-application-of-dna-methylation-data-analysis.pdf>).","downloads":7}},{"_index":"package","_type":"doc","_id":"CpDyna","_score":1.0,"_source":{"Date/Publication":"2018-12-03
+        09:10:11 UTC","Type":"Package","Title":"Change Point Detection in Dynamic
+        Graphs","Enhances":"","Packaged":"2018-11-22 10:03:36 UTC; margot","VignetteBuilder":"knitr","Version":"1.0","SystemRequirements":"C++11","Package":"CpDyna","License":"GPL
+        (>= 2)","Maintainer":"Margot Selosse <margot.selosse@gmail.com>","Suggests":"knitr
+        (*), mapview (*), sp (*), rmarkdown (*), ","Repository":"CRAN","MD5sum":"4d80f2a4324e184be6834deb7632424e","NeedsCompilation":"yes","Author":"Marco
+        Corneli, Pierre Latouche, Fabrice Rossi, Margot Selosse","crandb_file_date":"2018-12-03
+        09:14:34","RoxygenNote":"6.1.0","date":"2018-12-03T08:10:11+00:00","LinkingTo":"RcppArmadillo
+        (*), Rcpp (*), RcppProgress (*), ","Description":"Implementation of a model-based
+        approach for clustering and multiple change points in dynamic graphs (Marco
+        Corneli, Pierre Latouche and Fabrice Rossi (2018) <doi.org/10.1007/s11222-017-9775-1>).","Imports":"Rcpp
+        (>= 0.12.17), mclust (*), RColorBrewer (*), igraph (*), ","Depends":"R (>=
+        2.10), ","revdeps":1,"Date":"2018-11-08","downloads":6}},{"_index":"package","_type":"doc","_id":"RWeightedKmeans","_score":1.0,"_source":{"revdeps":1,"Imports":"","Date/Publication":"2018-10-26
+        15:00:06 UTC","Title":"Weighted Object k-Means Algorithm","Enhances":"","Packaged":"2018-09-22
+        10:30:09 UTC","Version":"1.1.0","Package":"RWeightedKmeans","License":"GPL-3","MD5sum":"1e824832e98e96eabf23fb961739d76e","Maintainer":"Alexandre
+        Gondeau <alexandre.gondeau@gmail.com>","Repository":"CRAN","Suggests":"","NeedsCompilation":"yes","Author":"Alexandre
+        Gondeau [aut, cre]","crandb_file_date":"2018-10-26 15:02:30","date":"2018-10-26T14:00:06+00:00","LinkingTo":"","Description":"Weighted
+        object version of k-means algorithm, robust against outlier data.","Authors@R":"person(\"Alexandre\",
+        \"Gondeau\", email = \"alexandre.gondeau@gmail.com\", role = c(\"aut\", \"cre\"))","Depends":"fpc
+        (*), R (>= 3.0), clusterCrit (*), ","LazyData":"true","Encoding":"UTF-8","Date":"2018-09-22","downloads":6}},{"_index":"package","_type":"doc","_id":"DevTreatRules","_score":1.0,"_source":{"date":"2019-05-16T10:20:07+00:00","Author":"Jeremy
+        Roth [cre, aut],\nNoah Simon [aut]","MD5sum":"b5aa507800ca43df96e773453d758a79","NeedsCompilation":"no","Title":"Develop
+        Treatment Rules with Observational Data","LazyData":"true","VignetteBuilder":"knitr","Encoding":"UTF-8","Packaged":"2019-05-13
+        20:31:43 UTC; jeremy","Date/Publication":"2019-05-16 11:20:07 UTC","Version":"1.0.0","Maintainer":"Jeremy
+        Roth <jhroth@uw.edu>","Enhances":"","Imports":"DynTxRegime (*), glmnet (*),
+        modelObj (*), ","Authors@R":"c(person(\"Jeremy\", \"Roth\", email = \"jhroth@uw.edu\",
+        role=c(\"cre\", \"aut\")),\nperson(\"Noah\", \"Simon\", email = \"nrsimon@uw.edu\",
+        role=\"aut\"))","revdeps":1,"Suggests":"rmarkdown (*), dplyr (*), knitr (*),
+        ","Depends":"R (>= 3.2.0), ","LinkingTo":"","Package":"DevTreatRules","License":"GPL
+        (>= 2)","crandb_file_date":"2019-05-16 11:56:20","RoxygenNote":"6.0.1","Type":"Package","Description":"Develop
+        and evaluate treatment rules based on: (1) the standard indirect approach
+        of split-regression, which fits regressions separately in both treatment groups
+        and assigns an individual to the treatment option under which predicted outcome
+        is more desirable; (2) the direct approach of outcome-weighted-learning proposed
+        by Yingqi Zhao, Donglin Zeng, A. John Rush, and Michael Kosorok (2012) <doi:10.1080/01621459.2012.695674>;
+        (3) the direct approach, which we refer to as direct-interactions, proposed
+        by Shuai Chen, Lu Tian, Tianxi Cai, and Menggang Yu (2017) <doi:10.1111/biom.12676>.
+        Please see the vignette for a walk-through of how to start with an observational
+        dataset whose design is understood scientifically and end up with a treatment
+        rule that is trustworthy statistically, along with an estimation of rule benefit
+        in an independent sample.","Repository":"CRAN","downloads":6}}]}}'
+  recorded_at: 2020-02-11 13:56:53 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98
