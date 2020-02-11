@@ -2,9 +2,11 @@
 context("search")
 
 test_that("search", {
-  skip_if_offline()
 
-  x <- ps("csardi")
+  vcr::use_cassette("ps_csardi", {
+    x <- ps("csardi")
+  })
+  
   expect_s3_class(x, "tbl_df")
   expect_s3_class(x, "pkg_search_result")
 
@@ -31,8 +33,12 @@ test_that("more w/o previous search", {
 test_that("again", {
   skip_if_offline()
 
-  x <- ps("csardi")
+  vcr::use_cassette("ps_csardi", {
+    x <- ps("csardi")
+  })
   expect_equal(meta(s_data$prev_q$result)$format, "short")
+  
+  
   expect_error(x2 <- ps(), NA)
   expect_equal(meta(s_data$prev_q$result)$format, "long")
   expect_error(x3 <- ps(), NA)
@@ -48,10 +54,13 @@ test_that("again", {
 })
 
 test_that("more", {
-  skip_if_offline()
-
-  x <- ps("csardi")
-  x2 <- more()
+  vcr::use_cassette("ps_csardi", {
+    x <- ps("csardi")
+  })
+  
+  vcr::use_cassette("ps_csardi_more", {
+    x2 <- more()
+  })
 
   expect_s3_class(x2, "tbl_df")
   expect_s3_class(x2, "pkg_search_result")

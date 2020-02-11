@@ -1,0 +1,179 @@
+http_interactions:
+- request:
+    method: post
+    uri: http://search.r-pkg.org/package/_search?from=10&size=10
+    body:
+      encoding: ''
+      string: |-
+        {
+          "query": {
+            "function_score": {
+              "functions": [
+                {
+                  "field_value_factor": {
+                    "field": "revdeps",
+                    "modifier": "sqrt",
+                    "factor": 1
+                  }
+                }
+              ],
+              "query": {
+                "bool": {
+                  "must": [
+                    {
+                      "multi_match": {
+                        "query": "csardi",
+                        "type": "most_fields"
+                      }
+                    }
+                  ],
+                  "should": [
+                    {
+                      "multi_match": {
+                        "query": "csardi",
+                        "fields": ["Title^10", "Description^2", "_all"],
+                        "type": "phrase",
+                        "analyzer": "english_and_synonyms",
+                        "boost": 10
+                      }
+                    },
+                    {
+                      "multi_match": {
+                        "query": "csardi",
+                        "fields": ["Package^20", "Title^10", "Description^2", "Author^5", "Maintainer^6", "_all"],
+                        "operator": "and",
+                        "analyzer": "english_and_synonyms",
+                        "boost": 5
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.15.5
+      date: Tue, 11 Feb 2020 13:39:47 GMT
+      content-type: application/json; charset=UTF-8
+      content-length: '3566'
+      connection: keep-alive
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"took":5,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":72,"max_score":4509.262,"hits":[{"_index":"package","_type":"doc","_id":"clisymbols","_score":785.5295,"_source":{"date":"2017-05-21T16:19:19+00:00","Author":"Gábor
+        Csárdi [aut, cre],\nSindre Sorhus [aut]","NeedsCompilation":"no","URL":"https://github.com/gaborcsardi/clisymbols","Title":"Unicode
+        Symbols at the R Prompt","Packaged":"2017-05-21 10:41:16 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2017-05-21
+        17:19:19 UTC","Version":"1.2.0","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"","Authors@R":"c(\nperson(\"Gábor\",
+        \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")),\nperson(\"Sindre\",
+        \"Sorhus\", role = \"aut\")\n)","revdeps":15,"BugReports":"https://github.com/gaborcsardi/clisymbols/issues","Suggests":"testthat
+        (*), ","Depends":"","LinkingTo":"","Package":"clisymbols","License":"MIT +
+        file LICENSE","crandb_file_date":"2017-05-21 17:26:49","Repository":"CRAN","Description":"A
+        small subset of Unicode symbols, that are useful\nwhen building command line
+        applications. They fall back to\nalternatives on terminals that do not support
+        Unicode.\nMany symbols were taken from the ''figures'' ''npm'' package\n(see
+        <https://github.com/sindresorhus/figures>).","downloads":149442}},{"_index":"package","_type":"doc","_id":"pingr","_score":777.2582,"_source":{"date":"2019-10-21T15:20:02+00:00","Author":"Gábor
+        Csárdi [aut, cre]","MD5sum":"3dc5f4c1364d954a0c595d620553156d","NeedsCompilation":"yes","URL":"https://github.com/r-lib/pingr#readme","Title":"Check
+        if a Remote Computer is Up","LazyData":"true","Packaged":"2019-10-21 14:15:34
+        UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2019-10-21 16:20:02
+        UTC","Version":"2.0.0","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"utils
+        (*), processx (*), ","Authors@R":"person(given = \"Gábor\", family = \"Csárdi\",
+        role = c(\"aut\", \"cre\"),\nemail = \"csardi.gabor@gmail.com\")","revdeps":15,"BugReports":"https://github.com/r-lib/pingr/issues","Suggests":"covr
+        (*), testthat (*), ","Depends":"","LinkingTo":"","Package":"pingr","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-10-21 18:26:39","RoxygenNote":"6.1.99.9001","Repository":"CRAN","Description":"Check
+        if a remote computer is up. It can either\njust call the system ping command,
+        or check a specified\nTCP port.","downloads":14772}},{"_index":"package","_type":"doc","_id":"sessioninfo","_score":752.09143,"_source":{"date":"2018-11-05T16:20:02+00:00","Author":"Gábor
+        Csárdi, R core, Hadley Wickham, Winston Chang,\nRobert M Flight, Kirill Müller,
+        Jim Hester","MD5sum":"c24a1284471f752ba925990304d7268f","NeedsCompilation":"no","URL":"https://github.com/r-lib/sessioninfo#readme","Title":"R
+        Session Information","LazyData":"true","Packaged":"2018-11-05 16:32:45 UTC;
+        gaborcsardi","Encoding":"UTF-8","Date/Publication":"2018-11-05 17:20:02 UTC","Version":"1.1.1","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"tools (*), withr
+        (*), cli (*), utils (*), ","revdeps":15,"BugReports":"https://github.com/r-lib/sessioninfo/issues","Suggests":"covr
+        (*), callr (*), mockery (*), testthat (*), ","Depends":"","LinkingTo":"","Package":"sessioninfo","License":"GPL-2","crandb_file_date":"2018-11-05
+        17:26:25","RoxygenNote":"6.1.0","Repository":"CRAN","Description":"Query and
+        print information about the current R session.\nIt is similar to ''utils::sessionInfo()'',
+        but includes more information\nabout packages, and where they were installed
+        from.","downloads":152780}},{"_index":"package","_type":"doc","_id":"prettyunits","_score":713.748,"_source":{"date":"2020-01-24T05:50:07+00:00","Author":"Gabor
+        Csardi","MD5sum":"0585a928696b8b7c259d2aaf8125762f","NeedsCompilation":"no","URL":"https://github.com/gaborcsardi/prettyunits","Title":"Pretty,
+        Human Readable Formatting of Quantities","LazyData":"true","Packaged":"2020-01-24
+        02:16:46 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2020-01-24
+        06:50:07 UTC","Version":"1.1.1","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Enhances":"","Imports":"","revdeps":11,"BugReports":"https://github.com/gaborcsardi/prettyunits/issues","Suggests":"covr
+        (*), testthat (*), codetools (*), ","Depends":"","LinkingTo":"","Package":"prettyunits","License":"MIT
+        + file LICENSE","crandb_file_date":"2020-01-24 08:50:33","RoxygenNote":"7.0.2","Repository":"CRAN","Description":"Pretty,
+        human readable formatting of quantities.\nTime intervals: ''1337000'' -> ''15d
+        11h 23m 20s''.\nVague time intervals: ''2674000'' -> ''about a month ago''.\nBytes:
+        ''1337'' -> ''1.34 kB''.","downloads":552507}},{"_index":"package","_type":"doc","_id":"shinytest","_score":660.29535,"_source":{"date":"2019-05-06T18:40:02+00:00","Author":"Winston
+        Chang [aut, cre],\nGábor Csárdi [aut]","SystemRequirements":"PhantomJS (http://phantomjs.org/)","MD5sum":"35dbe6dc7a49f1a5e59a1e42046c6053","NeedsCompilation":"no","URL":"https://github.com/rstudio/shinytest","Title":"Test
+        Shiny Apps","LazyData":"true","Packaged":"2019-05-03 22:10:28 UTC; cpsievert","Encoding":"UTF-8","Date/Publication":"2019-05-06
+        19:40:02 UTC","Version":"1.3.1","Maintainer":"Winston Chang <winston@rstudio.com>","Enhances":"","Imports":"debugme
+        (*), pingr (*), assertthat (*), htmlwidgets (*), httpuv (*), crayon (*), testthat
+        (>=\n1.0.0), withr (*), rstudioapi (>= 0.8.0.9002), webdriver (>= 1.0.5),
+        parsedate (*), jsonlite (*), rematch (*), utils (*), R6 (*), callr (>= 2.0.3),
+        httr (*), digest (*), shiny (>= 1.0.4), ","Authors@R":"c(\nperson(\"Winston\",
+        \"Chang\", role = c(\"aut\", \"cre\"), email = \"winston@rstudio.com\"),\nperson(\"Gábor\",
+        \"Csárdi\", role = \"aut\", email = \"gabor@rstudio.com\")\n)","revdeps":17,"BugReports":"https://github.com/rstudio/shinytest/issues","Suggests":"flexdashboard
+        (*), rmarkdown (*), ","Depends":"","LinkingTo":"","Package":"shinytest","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-05-06 22:14:23","RoxygenNote":"6.1.1","Repository":"CRAN","Description":"For
+        automated testing of Shiny applications, using a headless\nbrowser, driven
+        through ''WebDriver''.","downloads":5645}},{"_index":"package","_type":"doc","_id":"debugme","_score":610.48444,"_source":{"date":"2017-10-22T13:18:09+00:00","Author":"Gábor
+        Csárdi","MD5sum":"0b7946be7d9420c63a4d02a937e46227","NeedsCompilation":"no","URL":"https://github.com/r-lib/debugme#readme","Title":"Debug
+        R Packages","LazyData":"true","Packaged":"2017-10-22 09:14:23 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2017-10-22
+        14:18:09 UTC","Version":"1.1.0","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"crayon
+        (*), grDevices (*), ","revdeps":7,"BugReports":"https://github.com/r-lib/debugme/issues","Suggests":"covr
+        (*), R6 (*), mockery (*), withr (*), testthat (*), ","Depends":"","LinkingTo":"","Package":"debugme","License":"MIT
+        + file LICENSE","crandb_file_date":"2017-10-22 16:02:54","RoxygenNote":"6.0.1","Repository":"CRAN","Description":"Specify
+        debug messages as special string constants, and\ncontrol debugging of packages
+        via environment variables.","downloads":7872}},{"_index":"package","_type":"doc","_id":"rematch2","_score":583.0645,"_source":{"date":"2019-07-11T16:32:41+00:00","Author":"Gábor
+        Csárdi [aut, cre],\nMatthew Lincoln [ctb]","MD5sum":"6295dbd6916857c723a11ab294e90e7a","NeedsCompilation":"no","URL":"https://github.com/r-lib/rematch2#readme","Title":"Tidy
+        Output from Regular Expression Matching","LazyData":"true","Packaged":"2019-07-11
+        16:40:34 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2019-07-11
+        17:32:41 UTC","Version":"2.1.0","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"tibble
+        (*), ","Authors@R":"c(\nperson(\"Gábor\", \"Csárdi\", email = \"csardi.gabor@gmail.com\",
+        role = c(\"aut\", \"cre\")),\nperson(\"Matthew\", \"Lincoln\", email = \"matthew.d.lincoln@gmail.com\",
+        role = c(\"ctb\")))","revdeps":10,"BugReports":"https://github.com/r-lib/rematch2/issues","Suggests":"covr
+        (*), testthat (*), ","Depends":"","LinkingTo":"","Package":"rematch2","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-07-11 18:44:21","RoxygenNote":"6.0.1","Repository":"CRAN","Description":"Wrappers
+        on ''regexpr'' and ''gregexpr'' to return the match\nresults in tidy data
+        frames.","downloads":32348}},{"_index":"package","_type":"doc","_id":"pkgconfig","_score":575.6511,"_source":{"date":"2019-09-22T08:20:02+00:00","Author":"Gábor
+        Csárdi","MD5sum":"7b9ca1d45d941238381cb55d13ff4d68","NeedsCompilation":"no","URL":"https://github.com/r-lib/pkgconfig#readme","Title":"Private
+        Configuration for ''R'' Packages","LazyData":"true","Packaged":"2019-09-22
+        08:42:40 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2019-09-22
+        09:20:02 UTC","Version":"2.0.3","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"utils
+        (*), ","revdeps":7,"Suggests":"covr (*), disposables (>= 1.0.3), testthat
+        (*), ","BugReports":"https://github.com/r-lib/pkgconfig/issues","Depends":"","LinkingTo":"","Package":"pkgconfig","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-09-22 10:56:39","Repository":"CRAN","Description":"Set
+        configuration options on a per-package basis.\nOptions set by a given package
+        only apply to that package,\nother packages are unaffected.","downloads":590897}},{"_index":"package","_type":"doc","_id":"whoami","_score":570.7185,"_source":{"date":"2019-03-19T11:00:03+00:00","Author":"Gábor
+        Csárdi [aut, cre],\nMaëlle Salmon [ctb]","MD5sum":"b7514ed03127ef65876cd439f66767bb","NeedsCompilation":"no","URL":"https://github.com/r-lib/whoami#readme","Title":"Username,
+        Full Name, Email Address, ''GitHub'' Username of the\nCurrent User","Packaged":"2019-03-19
+        11:47:24 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2019-03-19
+        12:00:03 UTC","Version":"1.3.0","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"jsonlite
+        (*), httr (*), utils (*), ","Authors@R":"c(person(given = \"Gábor\",\nfamily
+        = \"Csárdi\",\nemail = \"csardi.gabor@gmail.com\",\nrole = c(\"aut\", \"cre\")),\nperson(given
+        = \"Maëlle\",\nfamily = \"Salmon\",\nrole = \"ctb\"))","revdeps":9,"BugReports":"https://github.com/r-lib/whoami/issues","Suggests":"covr
+        (*), mockery (*), withr (*), testthat (*), ","Depends":"","LinkingTo":"","Package":"whoami","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-04-08 12:41:21","RoxygenNote":"6.1.1","Repository":"CRAN","Description":"Look
+        up the username and full name of the current user,\nthe current user''s email
+        address and ''GitHub'' username,\nusing various sources of system and configuration
+        information.","downloads":10621}},{"_index":"package","_type":"doc","_id":"prettycode","_score":569.82043,"_source":{"date":"2019-12-16T13:00:06+00:00","Author":"Gábor
+        Csárdi","MD5sum":"b191610d621d51c774f1c72b4f2faa70","NeedsCompilation":"no","URL":"https://github.com/r-lib/prettycode#readme","Title":"Pretty
+        Print R Code in the Terminal","LazyData":"true","Packaged":"2019-12-16 13:01:04
+        UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2019-12-16 14:00:06
+        UTC","Version":"1.1.0","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"utils
+        (*), crayon (*), ","revdeps":7,"BugReports":"https://github.com/r-lib/prettycode/issues","Suggests":"covr
+        (*), mockery (*), rstudioapi (*), withr (*), testthat (*), ","Depends":"","LinkingTo":"","Package":"prettycode","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-12-16 15:08:32","RoxygenNote":"6.1.0","Repository":"CRAN","Description":"Replace
+        the standard print method for functions with one that\nperforms syntax highlighting,
+        using ANSI colors, if the terminal\nsupports them.","downloads":3403}}]}}'
+  recorded_at: 2020-02-11 13:39:47 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98
