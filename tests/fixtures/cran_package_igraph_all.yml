@@ -1,0 +1,525 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://crandb.r-pkg.org/igraph/all
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.4.6 (Ubuntu)
+      date: Tue, 11 Feb 2020 13:29:50 GMT
+      content-type: application/json
+      content-length: '52629'
+      connection: keep-alive
+      etag: '"972O8V4AAN0K6POZUKBT38AOL"'
+      vary: Accept
+      x-couch-request-id: af1a441181
+      x-couchdb-body-time: '0'
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"_id":"igraph","_rev":"14-4ace53c934b8230d791943ab3405c6d6","name":"igraph","versions":{"0.1.1":{"Package":"igraph","Version":"0.1.1","Date":"Januar
+        25, 2005","Title":"IGraph class","Author":"Gabor Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Description":"Routines for simple graphs.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Tue
+        Feb 28 14:17:08 2006; csardi","crandb_file_date":"2006-03-01 03:41:22","date":"2006-02-28T19:17:08+00:00","releases":[]},"0.1.2":{"Package":"igraph","Version":"0.1.2","Date":"Januar
+        25, 2005","Title":"Routines for network analysis.","Author":"Gabor Csardi
+        <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"The
+        igraph package contains routines for creating and<U+000a>manipulating graphs,
+        and graph visualization. It can handle graphs with<U+000a>millions of vertices
+        and edges.","License":"GPL version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Tue
+        Mar 28 12:36:18 2006; csardi","crandb_file_date":"2006-03-29 02:08:37","date":"2006-03-28T17:36:18+00:00","releases":["2.3.0","2.3.1"]},"0.2":{"Package":"igraph","Version":"0.2","Date":"Januar
+        25, 2005","Title":"IGraph class","Author":"Gabor Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Description":"Routines for simple graphs.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Wed
+        Aug 23 19:56:56 2006; csardi","crandb_file_date":"2006-08-23 16:00:37","date":"2006-08-23T23:56:56+00:00","releases":[]},"0.2.1":{"Package":"igraph","Version":"0.2.1","Date":"Januar
+        25, 2005","Title":"IGraph class","Author":"Gabor Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Description":"Routines for simple graphs.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Wed
+        Aug 23 23:13:10 2006; csardi","crandb_file_date":"2006-08-25 04:17:06","date":"2006-08-24T03:13:10+00:00","releases":"2.4.0"},"0.3.1":{"Package":"igraph","Version":"0.3.1","Date":"December
+        5, 2006","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Wed
+        Dec  6 18:37:50 2006; csardi","crandb_file_date":"2006-12-07 12:52:58","Suggests":{"stats4":"*","rgl":"*"},"date":"2006-12-06T23:37:50+00:00","releases":[]},"0.3.2":{"Package":"igraph","Version":"0.3.2","Date":"December
+        5, 2006","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Thu
+        Dec 14 13:45:22 2006; csardi","crandb_file_date":"2006-12-15 12:56:33","Suggests":{"stats4":"*","rgl":"*"},"date":"2006-12-14T18:45:22+00:00","releases":"2.4.1"},"0.3.3":{"Package":"igraph","Version":"0.3.3","Date":"December
+        5, 2006","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Tue
+        Feb 27 12:32:06 2007; csardi","crandb_file_date":"2007-02-28 03:56:25","Suggests":{"stats4":"*","rgl":"*"},"date":"2007-02-27T17:32:06+00:00","releases":"2.5.0"},"0.4":{"Package":"igraph","Version":"0.4","Date":"May
+        10, 2007","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Mon
+        May 21 16:50:37 2007; csardi","crandb_file_date":"2007-05-22 04:37:32","Suggests":{"stats4":"*","rgl":"*"},"Depends":{"stats":"*"},"date":"2007-05-21T20:50:37+00:00","releases":[]},"0.4.1":{"Package":"igraph","Version":"0.4.1","Date":"May
+        10, 2007","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Tue
+        May 22 23:04:16 2007; csardi","crandb_file_date":"2007-05-23 04:25:01","Suggests":{"stats4":"*","rgl":"*"},"Depends":{"stats":"*"},"date":"2007-05-23T03:04:16+00:00","releases":[]},"0.4.2":{"Package":"igraph","Version":"0.4.2","Date":"May
+        28, 2007","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Wed
+        Jun  6 19:47:34 2007; csardi","crandb_file_date":"2007-06-07 05:21:45","Suggests":{"stats4":"*","rgl":"*"},"Depends":{"stats":"*"},"date":"2007-06-06T23:47:34+00:00","releases":"2.5.1"},"0.4.3":{"Package":"igraph","Version":"0.4.3","Date":"Aug
+        7, 2007","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Thu
+        Aug  9 17:59:04 2007; csardi","crandb_file_date":"2007-08-09 12:48:53","Suggests":{"stats4":"*","rgl":"*","tcltk":"*"},"Depends":{"stats":"*"},"date":"2007-08-09T21:59:04+00:00","releases":"2.6.0"},"0.4.4":{"Package":"igraph","Version":"0.4.4","Date":"Oct
+        3, 2007","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Wed
+        Oct  3 17:09:38 2007; csardi","crandb_file_date":"2007-10-03 14:43:21","Suggests":{"stats4":"*","rgl":"*","tcltk":"*"},"Depends":{"stats":"*"},"date":"2007-10-03T21:09:38+00:00","releases":"2.6.1"},"0.4.5":{"Package":"igraph","Version":"0.4.5","Date":"Oct
+        3, 2007","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        version 2 or later (June, 1991)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Fri
+        Dec 21 19:38:02 2007; csardi","crandb_file_date":"2007-12-24 04:48:18","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*"},"Depends":{"stats":"*"},"date":"2007-12-22T00:38:02+00:00","releases":"2.6.2"},"0.5":{"Package":"igraph","Version":"0.5","Date":"Feb
+        14, 2008","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Wed Feb 13
+        11:20:34 2008; csardi","crandb_file_date":"2008-02-13 06:30:03","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*"},"Depends":{"stats":"*"},"date":"2008-02-13T16:20:34+00:00","releases":["2.7.0","2.7.1"]},"0.5.1":{"Package":"igraph","Version":"0.5.1","Date":"Feb
+        14, 2008","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <csardi@rmki.kfki.hu>","Maintainer":"Gabor Csardi <csardi@rmki.kfki.hu>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Sat Jul 12
+        12:44:04 2008; csardi","crandb_file_date":"2008-07-12 14:35:05","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"date":"2008-07-12T16:44:04+00:00","releases":["2.7.2","2.8.0","2.8.1"]},"0.5.2":{"Package":"igraph","Version":"0.5.2","Date":"Apr
+        10, 2009","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <Gabor.Csardi@unil.ch>","Maintainer":"Gabor Csardi <Gabor.Csardi@unil.ch>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"Sat Apr 11
+        10:33:25 2009; csardi","crandb_file_date":"2009-04-14 13:31:54","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2009-04-14
+        17:31:25","date":"2009-04-14T17:31:25+00:00","releases":"2.9.0"},"0.5.2-2":{"Package":"igraph","Version":"0.5.2-2","Date":"Apr
+        10, 2009","Title":"Routines for simple graphs, network analysis.","Author":"Gabor
+        Csardi <Gabor.Csardi@unil.ch>","Maintainer":"Gabor Csardi <Gabor.Csardi@unil.ch>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://cneurocvs.rmki.kfki.hu/igraph","Packaged":"2009-05-08
+        11:26:59 UTC; csardi","crandb_file_date":"2009-05-08 07:37:05","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2009-05-08
+        11:36:36","date":"2009-05-08T11:36:36+00:00","releases":["2.9.1","2.9.2","2.10.0"]},"0.5.3":{"Package":"igraph","Version":"0.5.3","Date":"Nov
+        22, 2009","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <Gabor.Csardi@unil.ch>","Maintainer":"Gabor Csardi <Gabor.Csardi@unil.ch>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2009-11-22 12:32:44
+        UTC; csardi","crandb_file_date":"2009-11-22 11:20:51","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2009-11-22
+        16:20:35","date":"2009-11-22T16:20:35+00:00","releases":["2.10.1","2.11.0","2.11.1"]},"0.5.4":{"Package":"igraph","Version":"0.5.4","Date":"Nov
+        22, 2009","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <Gabor.Csardi@unil.ch>","Maintainer":"Gabor Csardi <Gabor.Csardi@unil.ch>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2010-08-06 14:25:42
+        UTC; gaborcsardi","crandb_file_date":"2010-08-06 12:36:12","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2010-08-06
+        16:35:45","SystemRequirements":"gmp, libxml2","date":"2010-08-06T16:35:45+00:00","releases":[]},"0.5.4-1":{"Package":"igraph","Version":"0.5.4-1","Date":"Aug
+        19, 2010","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <Gabor.Csardi@unil.ch>","Maintainer":"Gabor Csardi <Gabor.Csardi@unil.ch>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2010-08-19 11:17:23
+        UTC; gaborcsardi","crandb_file_date":"2010-08-19 08:12:39","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2010-08-19
+        12:12:22","SystemRequirements":"gmp, libxml2","date":"2010-08-19T12:12:22+00:00","releases":"2.12.0"},"0.5.5":{"Package":"igraph","Version":"0.5.5","Date":"Nov
+        22, 2009","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <Gabor.Csardi@unil.ch>","Maintainer":"Gabor Csardi <Gabor.Csardi@unil.ch>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2010-10-28 09:04:12
+        UTC; gaborcsardi","crandb_file_date":"2010-10-28 08:58:15","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2010-10-28
+        12:57:58","SystemRequirements":"gmp, libxml2","date":"2010-10-28T12:57:58+00:00","releases":"2.12.1"},"0.5.5-1":{"Package":"igraph","Version":"0.5.5-1","Date":"Dec
+        17, 2010","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <Gabor.Csardi@unil.ch>","Maintainer":"Gabor Csardi <Gabor.Csardi@unil.ch>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2010-12-17 00:24:53
+        UTC; gaborcsardi","crandb_file_date":"2010-12-17 02:35:57","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2010-12-17
+        07:35:39","SystemRequirements":"gmp, libxml2","date":"2010-12-17T07:35:39+00:00","releases":"2.12.2"},"0.5.5-2":{"Package":"igraph","Version":"0.5.5-2","Date":"Mar
+        21 , 2011","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <csardi.gabor@gmail.com>","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2011-03-21 16:13:28
+        UTC; gaborcsardi","crandb_file_date":"2011-03-21 13:32:59","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2011-03-21
+        17:32:37","SystemRequirements":"gmp, libxml2","date":"2011-03-21T17:32:37+00:00","releases":["2.13.0","2.13.1","2.13.2"]},"0.5.5-3":{"Package":"igraph","Version":"0.5.5-3","Date":"Oct
+        18 , 2011","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <csardi.gabor@gmail.com>","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2011-10-19 00:30:59
+        UTC; gaborcsardi","crandb_file_date":"2011-10-20 04:48:02","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2011-10-20
+        08:47:43","SystemRequirements":"gmp, libxml2","date":"2011-10-20T08:47:43+00:00","releases":"2.14.0"},"0.5.5-4":{"Package":"igraph","Version":"0.5.5-4","Date":"Dec
+        12 , 2011","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <csardi.gabor@gmail.com>","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Description":"Routines
+        for simple graphs and network analysis. igraph can<U+000a>handle large graphs
+        very well and provides functions for generating random<U+000a>and regular
+        graphs, graph visualization, centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2011-12-12 14:04:08
+        UTC; gaborcsardi","crandb_file_date":"2011-12-13 03:36:32","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2011-12-13
+        08:36:26","SystemRequirements":"gmp, libxml2","date":"2011-12-13T08:36:26+00:00","releases":["2.14.1","2.14.2","2.15.0"]},"0.6":{"Package":"igraph","Version":"0.6","Date":"Jun
+        11, 2012","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <csardi.gabor@gmail.com>","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2012-06-14 13:43:29
+        UTC; gaborcsardi","crandb_file_date":"2012-06-14 16:21:21","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2012-06-14
+        20:21:10","SystemRequirements":"gmp, libxml2","date":"2012-06-14T20:21:10+00:00","releases":[]},"0.6-1":{"Package":"igraph","Version":"0.6-1","Date":"Jun
+        11, 2012","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <csardi.gabor@gmail.com>","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2012-06-17 01:48:50
+        UTC; gaborcsardi","crandb_file_date":"2012-06-16 22:30:10","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2012-06-17
+        02:30:00","SystemRequirements":"gmp, libxml2","date":"2012-06-17T02:30:00+00:00","releases":[]},"0.6-2":{"Package":"igraph","Version":"0.6-2","Date":"Jun
+        20, 2012","Title":"Network analysis and visualization","Author":"Gabor Csardi
+        <csardi.gabor@gmail.com>","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2012-06-20 13:51:24
+        UTC; gaborcsardi","crandb_file_date":"2012-06-20 10:54:24","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2012-06-20
+        14:54:12","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"date":"2012-06-20T14:54:12+00:00","releases":"2.15.1"},"0.6-3":{"Package":"igraph","Version":"0.6-3","Date":"Oct
+        16, 2012","Title":"Network analysis and visualization","Author":"See AUTHORS
+        file.","Maintainer":"Gabor Csardi <csardi.gabor@gmail.com>","Description":"Routines
+        for simple graphs and network analysis. igraph<U+000a>can handle large graphs
+        very well and provides functions for<U+000a>generating random and regular
+        graphs, graph visualization,<U+000a>centrality indices and much more.","License":"GPL
+        (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2012-10-17 12:55:30
+        UTC; gaborcsardi","crandb_file_date":"2012-10-17 10:09:32","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2012-10-17
+        14:09:19","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"date":"2012-10-17T14:09:19+00:00","releases":"2.15.2"},"0.6.4":{"Package":"igraph","Version":"0.6.4","Date":"2013-02-02","Title":"Network
+        analysis and visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. igraph<U+000a>can handle large graphs very well and
+        provides functions for<U+000a>generating random and regular graphs, graph
+        visualization,<U+000a>centrality indices and much more.","License":"GPL (>=
+        2)","URL":"http://igraph.sourceforge.net","Packaged":"2013-02-04 20:19:36
+        UTC; gaborcsardi","crandb_file_date":"2013-02-04 16:20:39","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*","XML":"*","jpeg":"*","png":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2013-02-04
+        22:20:28","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"date":"2013-02-04T22:20:28+00:00","releases":[]},"0.6.5":{"Package":"igraph","Version":"0.6.5","Date":"2013-02-24","Title":"Network
+        analysis and visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. igraph<U+000a>can handle large graphs very well and
+        provides functions for<U+000a>generating random and regular graphs, graph
+        visualization,<U+000a>centrality indices and much more.","License":"GPL (>=
+        2)","URL":"http://igraph.sourceforge.net","Packaged":"2013-02-25 05:06:43
+        UTC; gaborcsardi","crandb_file_date":"2013-02-25 02:44:02","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*","XML":"*","jpeg":"*","png":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2013-02-25
+        08:43:49","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"NeedsCompilation":"yes","date":"2013-02-25T08:43:49+00:00","releases":[]},"0.6.5-1":{"Package":"igraph","Version":"0.6.5-1","Date":"2013-02-27","Title":"Network
+        analysis and visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. igraph<U+000a>can handle large graphs very well and
+        provides functions for<U+000a>generating random and regular graphs, graph
+        visualization,<U+000a>centrality indices and much more.","License":"GPL (>=
+        2)","URL":"http://igraph.sourceforge.net","Packaged":"2013-02-27 16:49:18
+        UTC; gaborcsardi","crandb_file_date":"2013-02-28 01:57:52","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*","XML":"*","jpeg":"*","png":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2013-02-28
+        07:57:40","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"NeedsCompilation":"yes","date":"2013-02-28T07:57:40+00:00","releases":["2.15.3","3.0.0","3.0.1"]},"0.6.5-2":{"Package":"igraph","Version":"0.6.5-2","Date":"2013-05-16","Title":"Network
+        analysis and visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. igraph<U+000a>can handle large graphs very well and
+        provides functions for<U+000a>generating random and regular graphs, graph
+        visualization,<U+000a>centrality indices and much more.","License":"GPL (>=
+        2)","URL":"http://igraph.sourceforge.net","Packaged":"2013-05-23 13:11:38
+        UTC; gaborcsardi","crandb_file_date":"2013-05-23 11:39:48","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","Matrix":"*","ape":"*","XML":"*","jpeg":"*","png":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2013-05-23
+        17:39:35","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"NeedsCompilation":"yes","date":"2013-05-23T17:39:35+00:00","releases":"3.0.2"},"0.6.6":{"Package":"igraph","Version":"0.6.6","Date":"2013-10-28","Title":"Network
+        analysis and visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. igraph can<U+000a>handle large graphs very well and
+        provides functions for generating random<U+000a>and regular graphs, graph
+        visualization, centrality indices and much more.","License":"GPL (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2013-10-28
+        19:01:56 UTC; gaborcsardi","crandb_file_date":"2013-10-28 16:46:23","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","ape":"*","Matrix":"*"},"Depends":{"methods":"*"},"Repository":"CRAN","Date/Publication":"2013-10-28
+        21:46:12","SystemRequirements":"gmp, libxml2","NeedsCompilation":"yes","date":"2013-10-28T21:46:12+00:00","releases":[]},"0.7.0":{"Package":"igraph","Version":"0.7.0","Date":"2014-02-04","Title":"Network
+        analysis and visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. igraph can<U+000a>handle large graphs very well and
+        provides functions for generating random<U+000a>and regular graphs, graph
+        visualization, centrality indices and much more.","License":"GPL (>= 2)","URL":"http://igraph.org","Packaged":"2014-02-04
+        21:57:23 UTC; gaborcsardi","crandb_file_date":"2014-02-05 02:45:29","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","ape":"*"},"Depends":{"methods":"*"},"Repository":"CRAN","Date/Publication":"2014-02-05
+        08:45:17","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"NeedsCompilation":"yes","BugReports":"https://github.com/igraph/igraph/issues","date":"2014-02-05T08:45:17+00:00","releases":["3.0.3","3.1.0"]},"0.7.1":{"Package":"igraph","Version":"0.7.1","Date":"2014-04-22","Title":"Network
+        analysis and visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. igraph can<U+000a>handle large graphs very well and
+        provides functions for generating random<U+000a>and regular graphs, graph
+        visualization, centrality indices and much more.","License":"GPL (>= 2)","URL":"http://igraph.org","Packaged":"2014-04-22
+        18:00:26 UTC; gaborcsardi","crandb_file_date":"2014-04-22 17:08:41","Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","ape":"*"},"Depends":{"methods":"*"},"Repository":"CRAN","Date/Publication":"2014-04-22
+        23:08:29","SystemRequirements":"gmp, libxml2","Imports":{"Matrix":"*"},"NeedsCompilation":"yes","BugReports":"https://github.com/igraph/igraph/issues","date":"2014-04-22T23:08:29+00:00","releases":"3.1.1"},"1.0.0":{"Package":"igraph","Version":"1.0.0","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can<U+000a>handle large graphs very well and provides
+        functions for generating random<U+000a>and regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"Matrix":"*","magrittr":"*","NMF":"*","irlba":"*"},"Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","ape":"*","scales":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp, libxml2","BugReports":"https://github.com/igraph/igraph/issues","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''<U+000a>''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''<U+000a>''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''printr.R''<U+000a>''community.R'' ''components.R''
+        ''console.R'' ''conversion.R''<U+000a>''data_frame.R'' ''decomposition.R''
+        ''degseq.R'' ''demo.R''<U+000a>''embedding.R'' ''epi.R'' ''fit.R'' ''flow.R''
+        ''foreign.R'' ''games.R''<U+000a>''glet.R'' ''hrg.R'' ''igraph-package.R''
+        ''incidence.R'' ''indexing.R''<U+000a>''interface.R'' ''iterators.R'' ''layout.R''
+        ''layout_drl.R''<U+000a>''lazyeval.R'' ''make.R'' ''mgclust.R'' ''minimum.spanning.tree.R''<U+000a>''motifs.R''
+        ''nexus.R'' ''operators.R'' ''other.R'' ''package.R''<U+000a>''palette.R''
+        ''par.R'' ''paths.R'' ''plot.R'' ''plot.common.R''<U+000a>''plot.shapes.R''
+        ''pp.R'' ''print.R'' ''random_walk.R'' ''rewire.R''<U+000a>''scan.R'' ''scg.R''
+        ''sgm.R'' ''similarity.R'' ''simple.R'' ''sir.R''<U+000a>''socnet.R'' ''sparsedf.R''
+        ''structural.properties.R''<U+000a>''structure.info.R'' ''test.R'' ''tkplot.R''
+        ''topology.R''<U+000a>''triangles.R'' ''utils.R'' ''uuid.R'' ''versions.R''
+        ''weakref.R''<U+000a>''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2015-06-24
+        15:29:44 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2015-06-24
+        18:47:19","crandb_file_date":"2015-06-24 18:59:19","date":"2015-06-24T18:47:19+00:00","releases":[]},"1.0.1":{"Package":"igraph","Version":"1.0.1","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"Matrix":"*","magrittr":"*","NMF":"*","irlba":"*"},"Suggests":{"igraphdata":"*","stats4":"*","rgl":"*","tcltk":"*","graph":"*","ape":"*","scales":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp, libxml2","BugReports":"https://github.com/igraph/igraph/issues","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''printr.R''\u000a''community.R'' ''components.R'' ''console.R''
+        ''conversion.R''\u000a''data_frame.R'' ''decomposition.R'' ''degseq.R'' ''demo.R''\u000a''embedding.R''
+        ''epi.R'' ''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''\u000a''glet.R'' ''hrg.R''
+        ''igraph-package.R'' ''incidence.R'' ''indexing.R''\u000a''interface.R'' ''iterators.R''
+        ''layout.R'' ''layout_drl.R''\u000a''lazyeval.R'' ''make.R'' ''mgclust.R''
+        ''minimum.spanning.tree.R''\u000a''motifs.R'' ''nexus.R'' ''operators.R''
+        ''other.R'' ''package.R''\u000a''palette.R'' ''par.R'' ''paths.R'' ''plot.R''
+        ''plot.common.R''\u000a''plot.shapes.R'' ''pp.R'' ''print.R'' ''random_walk.R''
+        ''rewire.R''\u000a''scan.R'' ''scg.R'' ''sgm.R'' ''similarity.R'' ''simple.R''
+        ''sir.R''\u000a''socnet.R'' ''sparsedf.R'' ''structural.properties.R''\u000a''structure.info.R''
+        ''test.R'' ''tkplot.R'' ''topology.R''\u000a''triangles.R'' ''utils.R'' ''uuid.R''
+        ''versions.R'' ''weakref.R''\u000a''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2015-06-26
+        01:04:44 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2015-06-26
+        11:13:24","crandb_file_date":"2015-06-26 05:15:25","date":"2015-06-26T11:13:24+00:00","releases":[]},"1.1.1":{"Package":"igraph","Version":"1.1.1","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","irlba":"*","magrittr":"*","Matrix":"*","pkgconfig":">=\u000a2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","graph":"*","igraphdata":"*","NMF":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp, libxml2","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''mgclust.R'' ''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R''\u000a''operators.R''
+        ''other.R'' ''package.R'' ''palette.R'' ''par.R''\u000a''paths.R'' ''plot.R''
+        ''plot.common.R'' ''plot.shapes.R'' ''pp.R''\u000a''print.R'' ''printr.R''
+        ''random_walk.R'' ''rewire.R'' ''scan.R''\u000a''scg.R'' ''sgm.R'' ''similarity.R''
+        ''simple.R'' ''sir.R'' ''socnet.R''\u000a''sparsedf.R'' ''structural.properties.R''
+        ''structure.info.R''\u000a''test.R'' ''tkplot.R'' ''topology.R'' ''triangles.R''
+        ''utils.R''\u000a''uuid.R'' ''versions.R'' ''weakref.R'' ''zzz-deprecate.R''","RoxygenNote":"6.0.1.9000","NeedsCompilation":"yes","Packaged":"2017-07-14
+        06:30:21 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2017-07-16
+        16:29:26 UTC","crandb_file_date":"2017-07-16 16:32:51","MD5sum":"b34d5c9ab496061ade55cfbefcc5981c","date":"2017-07-16T15:29:26+00:00","releases":[]},"1.1.2":{"Package":"igraph","Version":"1.1.2","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","irlba":"*","magrittr":"*","Matrix":"*","pkgconfig":">=\u000a2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","graph":"*","igraphdata":"*","NMF":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp, libxml2","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''mgclust.R'' ''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R''\u000a''operators.R''
+        ''other.R'' ''package.R'' ''palette.R'' ''par.R''\u000a''paths.R'' ''plot.R''
+        ''plot.common.R'' ''plot.shapes.R'' ''pp.R''\u000a''print.R'' ''printr.R''
+        ''random_walk.R'' ''rewire.R'' ''scan.R''\u000a''scg.R'' ''sgm.R'' ''similarity.R''
+        ''simple.R'' ''sir.R'' ''socnet.R''\u000a''sparsedf.R'' ''structural.properties.R''
+        ''structure.info.R''\u000a''test.R'' ''tkplot.R'' ''topology.R'' ''triangles.R''
+        ''utils.R''\u000a''uuid.R'' ''versions.R'' ''weakref.R'' ''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2017-07-20
+        21:33:52 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2017-07-21
+        11:39:40 UTC","crandb_file_date":"2017-07-21 11:41:52","MD5sum":"ca1617aea272852d2856c4661ad1c7d8","date":"2017-07-21T10:39:40+00:00","releases":[]},"1.2.1":{"Package":"igraph","Version":"1.2.1","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","magrittr":"*","Matrix":"*","pkgconfig":">=
+        2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","graph":"*","igraphdata":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp (optional), libxml2
+        (optional), glpk (optional)","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\u000a''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\u000a''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\u000a''random_walk.R''
+        ''rewire.R'' ''scan.R'' ''scg.R'' ''sgm.R''\u000a''similarity.R'' ''simple.R''
+        ''sir.R'' ''socnet.R'' ''sparsedf.R''\u000a''structural.properties.R'' ''structure.info.R''
+        ''test.R''\u000a''tkplot.R'' ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\u000a''versions.R''
+        ''weakref.R'' ''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2018-03-10
+        12:30:48 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2018-03-10
+        21:33:20 UTC","crandb_file_date":"2018-03-10 21:44:23","MD5sum":"011d2c5a4b85024cbfa48b37b4a9c355","date":"2018-03-10T20:33:20+00:00","releases":[]},"1.2.2":{"Package":"igraph","Version":"1.2.2","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","magrittr":"*","Matrix":"*","pkgconfig":">=
+        2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","digest":"*","graph":"*","igraphdata":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp (optional), libxml2
+        (optional), glpk (optional)","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\u000a''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\u000a''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\u000a''random_walk.R''
+        ''rewire.R'' ''scan.R'' ''scg.R'' ''sgm.R''\u000a''similarity.R'' ''simple.R''
+        ''sir.R'' ''socnet.R'' ''sparsedf.R''\u000a''structural.properties.R'' ''structure.info.R''
+        ''test.R''\u000a''tkplot.R'' ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\u000a''versions.R''
+        ''weakref.R'' ''zzz-deprecate.R''","RoxygenNote":"6.0.1","NeedsCompilation":"yes","Packaged":"2018-07-27
+        08:53:48 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2018-07-27
+        14:50:02 UTC","crandb_file_date":"2018-07-27 14:56:36","MD5sum":"dd2704f842cc19241c4aa3a4ec3a66f3","date":"2018-07-27T13:50:02+00:00","releases":[]},"1.2.3":{"Package":"igraph","Version":"1.2.3","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","magrittr":"*","Matrix":"*","pkgconfig":">=
+        2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","digest":"*","graph":"*","igraphdata":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp (optional), libxml2
+        (optional), glpk (optional)","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\u000a''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\u000a''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\u000a''random_walk.R''
+        ''rewire.R'' ''scan.R'' ''scg.R'' ''sgm.R''\u000a''similarity.R'' ''simple.R''
+        ''sir.R'' ''socnet.R'' ''sparsedf.R''\u000a''structural.properties.R'' ''structure.info.R''
+        ''test.R''\u000a''tkplot.R'' ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\u000a''versions.R''
+        ''weakref.R'' ''zzz-deprecate.R''","RoxygenNote":"6.1.1","NeedsCompilation":"yes","Packaged":"2019-02-04
+        10:32:21 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2019-02-10
+        14:43:10 UTC","crandb_file_date":"2019-02-10 14:44:30","MD5sum":"80203319d29684b37d22dce94e3c6548","date":"2019-02-10T13:43:10+00:00","releases":[]},"1.2.4":{"Package":"igraph","Version":"1.2.4","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","magrittr":"*","Matrix":"*","pkgconfig":">=
+        2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","digest":"*","graph":"*","igraphdata":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp (optional), libxml2
+        (optional), glpk (optional)","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","RoxygenNote":"6.1.1","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\u000a''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\u000a''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\u000a''random_walk.R''
+        ''rewire.R'' ''scan.R'' ''scg.R'' ''sgm.R''\u000a''similarity.R'' ''simple.R''
+        ''sir.R'' ''socnet.R'' ''sparsedf.R''\u000a''structural.properties.R'' ''structure.info.R''
+        ''test.R''\u000a''tkplot.R'' ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\u000a''versions.R''
+        ''weakref.R'' ''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2019-02-13
+        11:36:26 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2019-02-13
+        17:40:19 UTC","crandb_file_date":"2019-02-13 17:44:31","MD5sum":"85dcb81dd63931e28fa56b0bfaa81f71","date":"2019-02-13T16:40:19+00:00","releases":[]},"1.2.4.1":{"Package":"igraph","Version":"1.2.4.1","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","magrittr":"*","Matrix":"*","pkgconfig":">=
+        2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","digest":"*","graph":"*","igraphdata":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp (optional), libxml2
+        (optional), glpk (optional)","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","RoxygenNote":"6.1.1","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\u000a''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\u000a''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\u000a''random_walk.R''
+        ''rewire.R'' ''scan.R'' ''scg.R'' ''sgm.R''\u000a''similarity.R'' ''simple.R''
+        ''sir.R'' ''socnet.R'' ''sparsedf.R''\u000a''structural.properties.R'' ''structure.info.R''
+        ''test.R''\u000a''tkplot.R'' ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\u000a''versions.R''
+        ''weakref.R'' ''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2019-04-21
+        07:44:54 UTC; ripley","Repository":"CRAN","Date/Publication":"2019-04-22 06:57:32
+        UTC","crandb_file_date":"2019-04-22 08:44:40","MD5sum":"eabac29603d0db7c4ad302f839cfefca","date":"2019-04-22T05:57:32+00:00","releases":[]},"1.2.4.2":{"Package":"igraph","Version":"1.2.4.2","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","magrittr":"*","Matrix":"*","pkgconfig":">=
+        2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","digest":"*","graph":"*","igraphdata":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp (optional), libxml2
+        (optional), glpk (optional)","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","RoxygenNote":"6.1.1","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\u000a''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\u000a''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\u000a''random_walk.R''
+        ''rewire.R'' ''scan.R'' ''scg.R'' ''sgm.R''\u000a''similarity.R'' ''simple.R''
+        ''sir.R'' ''socnet.R'' ''sparsedf.R''\u000a''structural.properties.R'' ''structure.info.R''
+        ''test.R''\u000a''tkplot.R'' ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\u000a''versions.R''
+        ''weakref.R'' ''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2019-11-13
+        08:31:37 UTC; maechler","Repository":"CRAN","Date/Publication":"2019-11-27
+        20:02:16 UTC","crandb_file_date":"2019-11-27 21:50:25","MD5sum":"33425af52de049cee8d3ad508c2c37a9","date":"2019-11-27T19:02:16+00:00","releases":[]}},"timeline":{"0.1.1":"2006-02-28T19:17:08+00:00","0.1.2":"2006-03-28T17:36:18+00:00","0.2":"2006-08-23T23:56:56+00:00","0.2.1":"2006-08-24T03:13:10+00:00","0.3.1":"2006-12-06T23:37:50+00:00","0.3.2":"2006-12-14T18:45:22+00:00","0.3.3":"2007-02-27T17:32:06+00:00","0.4":"2007-05-21T20:50:37+00:00","0.4.1":"2007-05-23T03:04:16+00:00","0.4.2":"2007-06-06T23:47:34+00:00","0.4.3":"2007-08-09T21:59:04+00:00","0.4.4":"2007-10-03T21:09:38+00:00","0.4.5":"2007-12-22T00:38:02+00:00","0.5":"2008-02-13T16:20:34+00:00","0.5.1":"2008-07-12T16:44:04+00:00","0.5.2":"2009-04-14T17:31:25+00:00","0.5.2-2":"2009-05-08T11:36:36+00:00","0.5.3":"2009-11-22T16:20:35+00:00","0.5.4":"2010-08-06T16:35:45+00:00","0.5.4-1":"2010-08-19T12:12:22+00:00","0.5.5":"2010-10-28T12:57:58+00:00","0.5.5-1":"2010-12-17T07:35:39+00:00","0.5.5-2":"2011-03-21T17:32:37+00:00","0.5.5-3":"2011-10-20T08:47:43+00:00","0.5.5-4":"2011-12-13T08:36:26+00:00","0.6":"2012-06-14T20:21:10+00:00","0.6-1":"2012-06-17T02:30:00+00:00","0.6-2":"2012-06-20T14:54:12+00:00","0.6-3":"2012-10-17T14:09:19+00:00","0.6.4":"2013-02-04T22:20:28+00:00","0.6.5":"2013-02-25T08:43:49+00:00","0.6.5-1":"2013-02-28T07:57:40+00:00","0.6.5-2":"2013-05-23T17:39:35+00:00","0.6.6":"2013-10-28T21:46:12+00:00","0.7.0":"2014-02-05T08:45:17+00:00","0.7.1":"2014-04-22T23:08:29+00:00","1.0.0":"2015-06-24T18:47:19+00:00","1.0.1":"2015-06-26T11:13:24+00:00","1.1.1":"2017-07-16T15:29:26+00:00","1.1.2":"2017-07-21T10:39:40+00:00","1.2.1":"2018-03-10T20:33:20+00:00","1.2.2":"2018-07-27T13:50:02+00:00","1.2.3":"2019-02-10T13:43:10+00:00","1.2.4":"2019-02-13T16:40:19+00:00","1.2.4.1":"2019-04-22T05:57:32+00:00","1.2.4.2":"2019-11-27T19:02:16+00:00"},"latest":"1.2.4.2","title":"Network
+        Analysis and Visualization","archived":false,"revdeps":164}'
+  recorded_at: 2020-02-11 13:28:48 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

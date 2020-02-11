@@ -1,0 +1,38 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://crandb.r-pkg.org/igraph/0.5.5
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.4.6 (Ubuntu)
+      date: Tue, 11 Feb 2020 13:29:50 GMT
+      content-type: application/json
+      content-length: '878'
+      connection: keep-alive
+      etag: '"972O8V4AAN0K6POZUKBT38AOL"'
+      vary: Accept
+      x-couch-request-id: a05fcf41d4
+      x-couchdb-body-time: '0'
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"Package":"igraph","Version":"0.5.5","Date":"Nov 22, 2009","Title":"Network
+        analysis and visualization","Author":"Gabor Csardi <Gabor.Csardi@unil.ch>","Maintainer":"Gabor
+        Csardi <Gabor.Csardi@unil.ch>","Description":"Routines for simple graphs and
+        network analysis. igraph<U+000a>can handle large graphs very well and provides
+        functions for<U+000a>generating random and regular graphs, graph visualization,<U+000a>centrality
+        indices and much more.","License":"GPL (>= 2)","URL":"http://igraph.sourceforge.net","Packaged":"2010-10-28
+        09:04:12 UTC; gaborcsardi","crandb_file_date":"2010-10-28 08:58:15","Suggests":{"stats4":"*","rgl":"*","tcltk":"*","RSQLite":"*","digest":"*","graph":"*","Matrix":"*"},"Depends":{"stats":"*"},"Repository":"CRAN","Date/Publication":"2010-10-28
+        12:57:58","SystemRequirements":"gmp, libxml2","date":"2010-10-28T12:57:58+00:00","releases":"2.12.1"}'
+  recorded_at: 2020-02-11 13:28:48 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

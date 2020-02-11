@@ -1,0 +1,63 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://crandb.r-pkg.org/-/archivals?limit=2&descending=true&skip=0
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.4.6 (Ubuntu)
+      date: Tue, 11 Feb 2020 13:29:52 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[ {"date":"2020-02-11T09:20:33+00:00","name":"rray","event":"archived","package":{"Package":"rray","Title":"Simple
+        Arrays","Version":"0.1.0","Authors@R":"\u000ac(person(given = \"Davis\",\u000afamily
+        = \"Vaughan\",\u000arole = c(\"aut\", \"cre\"),\u000aemail = \"davis@rstudio.com\"),\u000aperson(given
+        = \"RStudio\",\u000arole = \"cph\"))","Description":"Provides a toolkit for
+        manipulating arrays in a consistent,\u000apowerful, and intuitive manner through
+        the use of broadcasting and a new\u000aarray class, the ''rray''.","License":"GPL-3","URL":"https://github.com/r-lib/rray","BugReports":"https://github.com/r-lib/rray/issues","Depends":{"R":">=
+        3.2"},"Imports":{"glue":"*","Rcpp":">= 1.0.1","rlang":">= 0.4.0","utils":"*","vctrs":">=\u000a0.2.0"},"Suggests":{"covr":"*","knitr":"*","magrittr":"*","rmarkdown":"*","testthat":">=
+        2.1.0"},"LinkingTo":{"Rcpp":"*","xtensor":">= 0.11.1-0"},"VignetteBuilder":"knitr","Encoding":"UTF-8","LazyData":"true","RoxygenNote":"6.1.1","NeedsCompilation":"yes","Packaged":"2019-07-19
+        13:36:39 UTC; davis","Author":"Davis Vaughan [aut, cre],\u000aRStudio [cph]","Maintainer":"Davis
+        Vaughan <davis@rstudio.com>","Repository":"CRAN","Date/Publication":"2019-07-23
+        12:10:03 UTC","crandb_file_date":"2019-07-23 14:02:23","MD5sum":"5d08e5af3647b8dac123dd609bb48acf","date":"2019-07-23T11:10:03+00:00","releases":[]}},{"date":"2020-02-11T09:20:32+00:00","name":"export","event":"archived","package":{"Package":"export","Type":"Package","Title":"Streamlined
+        Export of Graphs and Data Tables","Version":"0.2.2","Date":"2018-09-18","Authors@R":"c(person(\"Tom\",
+        \"Wenseleers\", role = c(\"aut\", \"cre\"),\u000aemail = \"tom.wenseleers@kuleuven.be\"),\u000aperson(\"Christophe\",
+        \"Vanderaa\", role = c(\"aut\"),\u000aemail = \"christophe.vanderaa@kuleuven.be\"))","Depends":{"R":">=
+        3.0"},"Imports":{"stats":"*","utils":"*","datasets":"*","grDevices":"*","officer":">=
+        0.2.2","rvg":">=\u000a0.1.8","xtable":">= 1.8-2","flextable":">= 0.4.3","rgl":">=\u000a0.99.16","xml2":">=
+        1.2.0","stargazer":">= 5.2.1","openxlsx":">=\u000a4.0.17","broom":">= 0.4.4"},"Suggests":{"ggplot2":">=
+        1.0"},"Description":"Easily export ''R'' graphs and statistical output to
+        ''Microsoft\u000aOffice'' / ''LibreOffice'', ''Latex'' and ''HTML'' Documents,
+        using sensible defaults\u000athat result in publication-quality output with
+        simple, straightforward commands.\u000aOutput to ''Microsoft Office'' is in
+        editable ''DrawingML'' vector format for\u000agraphs, and can use corporate
+        template documents for styling. This enables\u000athe production of standardized
+        reports and also allows for manual tidy-up\u000aof the layout of ''R'' graphs
+        in ''Powerpoint'' before final publication. Export\u000aof graphs is flexible,
+        and functions enable the currently showing R graph\u000aor the currently showing
+        ''R'' stats object to be exported, but also allow the\u000agraphical or tabular
+        output to be passed as objects. The package relies on package\u000a''officer''
+        for export to ''Office'' documents,and output files are also fully compatible\u000awith
+        ''LibreOffice''. Base ''R'', ''ggplot2'' and ''lattice'' plots are supported,
+        as\u000awell as a wide variety of ''R'' stats objects, via wrappers to xtable(),
+        broom::tidy()\u000aand stargazer(), including aov(), lm(), glm(), lme(), glmnet()
+        and coxph() as\u000awell as matrices and data frames and many more...","License":"GPL-2","BugReports":"https://github.com/tomwenseleers/export/issues","RoxygenNote":"6.0.1","NeedsCompilation":"no","Packaged":"2018-10-22
+        15:51:22 UTC; Ento","Author":"Tom Wenseleers [aut, cre],\u000aChristophe Vanderaa
+        [aut]","Maintainer":"Tom Wenseleers <tom.wenseleers@kuleuven.be>","Repository":"CRAN","Date/Publication":"2018-10-30
+        16:30:15 UTC","crandb_file_date":"2018-10-30 16:32:22","MD5sum":"a865049266f75861506560f403efbb3c","date":"2018-10-30T15:30:15+00:00","releases":[]}}
+        ]'
+  recorded_at: 2020-02-11 13:28:50 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

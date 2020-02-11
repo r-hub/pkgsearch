@@ -1,0 +1,35 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://cranlogs.r-pkg.org/trending
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 11 Feb 2020 13:34:55 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+      set-cookie: __cfduid=df869967677f71b9bd339c5270ba774ab1581428095; expires=Thu,
+        12-Mar-20 13:34:55 GMT; path=/; domain=.r-pkg.org; HttpOnly; SameSite=Lax
+      vary: Accept-Encoding
+      x-powered-by: Express
+      content-encoding: gzip
+      cf-cache-status: DYNAMIC
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      server: cloudflare
+      cf-ray: 5636b3fb084e68ee-CDG
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"package":"docstring","increase":"1275.3124580029565900"},{"package":"azuremlsdk","increase":"1253.1328320802005000"},{"package":"configr","increase":"1250.1679731243001100"},{"package":"RcppTOML","increase":"1170.7932060935037600"},{"package":"sdcMicro","increase":"850.0294985250737500"},{"package":"lobstr","increase":"784.6674182638106000"},{"package":"webp","increase":"503.5698444250956900"},{"package":"arrow","increase":"481.9115404168785000"},{"package":"tables","increase":"481.3821440704013500"},{"package":"av","increase":"463.7306736017833200"},{"package":"tidync","increase":"463.4838709677419400"},{"package":"ncdfgeom","increase":"436.5793376173999000"},{"package":"tesseract","increase":"433.0705478067515700"},{"package":"CORElearn","increase":"392.8271085827355900"},{"package":"styler","increase":"366.6595347984228400"},{"package":"tidylog","increase":"366.2909730120980300"},{"package":"effectsize","increase":"364.2750621375310700"},{"package":"rsvg","increase":"354.2041525989123200"},{"package":"psychTools","increase":"342.1613394216133900"},{"package":"binr","increase":"338.6723128658612500"},{"package":"gifski","increase":"338.5481864769391500"},{"package":"rhub","increase":"336.7708632061944400"},{"package":"foghorn","increase":"326.6154806950516100"},{"package":"FactoInvestigate","increase":"322.9855102679036800"},{"package":"RODBCext","increase":"322.1552640907479600"},{"package":"IRdisplay","increase":"317.1956145412579300"},{"package":"fontquiver","increase":"309.1455152029034900"},{"package":"verification","increase":"304.0804257835600200"},{"package":"tempdisagg","increase":"300.7304575353417900"},{"package":"logistf","increase":"296.6511397150023400"},{"package":"countrycode","increase":"293.1477516059957200"},{"package":"mockery","increase":"290.8649195815993700"},{"package":"prettydoc","increase":"281.7975487970948700"},{"package":"svglite","increase":"270.4844559175205500"},{"package":"patchwork","increase":"267.9467680608365000"},{"package":"pdftools","increase":"267.0526308957442300"},{"package":"shinyBS","increase":"267.0062767215500800"},{"package":"TFisher","increase":"263.3840304182509500"},{"package":"shinyjqui","increase":"261.0053797651414400"},{"package":"spelling","increase":"260.1054830093025900"},{"package":"lcmm","increase":"259.8966026587887700"},{"package":"pkgdown","increase":"259.6053781249592500"},{"package":"fastGHQuad","increase":"258.0692840646651300"},{"package":"pglm","increase":"255.3617712955234400"},{"package":"mutoss","increase":"254.8196819233928200"},{"package":"sn","increase":"253.0653511600746100"},{"package":"laeken","increase":"251.6190375574454600"},{"package":"gnm","increase":"249.7109826589595400"},{"package":"lintr","increase":"249.3520835130704900"},{"package":"date","increase":"249.0142993326978100"},{"package":"bbmle","increase":"246.0344559987583400"},{"package":"concaveman","increase":"245.0502988773873700"},{"package":"circular","increase":"244.3165467625899300"},{"package":"gap","increase":"243.7187705042144000"},{"package":"pairwiseComparisons","increase":"243.6928566119081200"},{"package":"arrayhelpers","increase":"243.6523828594313200"},{"package":"fftw","increase":"242.8157675126405200"},{"package":"diveMove","increase":"236.7119963601435700"},{"package":"farver","increase":"233.2073796232488700"},{"package":"ggcorrplot","increase":"232.5862660141516800"},{"package":"clusterSEs","increase":"231.6668146701003500"},{"package":"keyring","increase":"231.5839020946105000"},{"package":"splm","increase":"229.6038198477222900"},{"package":"treemapify","increase":"229.1839742730805300"},{"package":"VIM","increase":"228.9104726297395100"},{"package":"leaflet.providers","increase":"227.6123903275945500"},{"package":"Factoshiny","increase":"225.8109816037073400"},{"package":"rmapshaper","increase":"224.4599092284417500"},{"package":"BMA","increase":"223.5577632420203600"},{"package":"magick","increase":"223.0561022713425300"},{"package":"Matching","increase":"221.6004051658647800"},{"package":"palr","increase":"220.6154451807624200"},{"package":"qtl","increase":"220.2162792203587400"},{"package":"betareg","increase":"219.5525675205749400"},{"package":"cartogram","increase":"216.2179538696455800"},{"package":"renv","increase":"215.4274675412192800"},{"package":"GoodmanKruskal","increase":"211.3422115816250200"},{"package":"fable","increase":"208.9540317105315700"},{"package":"optimx","increase":"207.8195138969647600"},{"package":"RItools","increase":"207.3020870360026400"},{"package":"vcfR","increase":"206.5329666644308800"},{"package":"drake","increase":"206.4891704477356400"},{"package":"ggfittext","increase":"203.7184774525049000"},{"package":"biclust","increase":"202.6917380385086000"},{"package":"fabletools","increase":"202.0270793036750500"},{"package":"directlabels","increase":"201.8295026520101500"},{"package":"clustree","increase":"200.9340659340659300"},{"package":"Runuran","increase":"199.9693955623565400"},{"package":"jmvcore","increase":"198.6848952173707400"},{"package":"statsExpressions","increase":"198.6241752070756700"},{"package":"fftwtools","increase":"198.3899469860593000"},{"package":"leiden","increase":"198.0551766621199500"},{"package":"spatialreg","increase":"197.8064767343760100"},{"package":"feasts","increase":"197.5509432178147600"},{"package":"rredlist","increase":"197.4272839000409700"},{"package":"tolerance","increase":"197.1505332573475500"},{"package":"shades","increase":"196.9655696683665400"},{"package":"tidycensus","increase":"195.2919369786839700"},{"package":"dslabs","increase":"194.9432210301775500"},{"package":"mapproj","increase":"194.1442097596504000"}]'
+  recorded_at: 2020-02-11 13:34:55 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

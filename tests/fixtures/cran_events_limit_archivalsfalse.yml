@@ -1,0 +1,62 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://crandb.r-pkg.org/-/pkgreleases?limit=2&descending=true&skip=0
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.4.6 (Ubuntu)
+      date: Tue, 11 Feb 2020 13:29:52 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[ {"date":"2020-02-11T10:00:02+00:00","name":"Tendril","event":"released","package":{"Package":"Tendril","Type":"Package","Title":"Compute
+        and Display Tendril Plots","License":"GPL-2","Authors@R":"c(\u000aperson(\"Martin\",
+        \"Karpefors\", email = \"martin.karpefors@astrazeneca.com\", role = \"aut\"),\u000aperson(\"Stefano\",
+        \"Borini\", email = \"stefano.borini@astrazeneca.com\", role = c(\"ctb\",
+        \"cre\")),\u000aperson(\"Mark\", \"Edmondson-Jones\", email = \"mark.edmondson-jones@astrazeneca.com\",
+        role = \"ctb\"),\u000aperson(\"Hielke\", \"Bijlsma\", email = \"Hielke.Bijlsma@tessella.com\",
+        role = \"ctb\"))","Version":"2.0.4","Description":"Compute the coordinates
+        to produce a tendril plot.\u000aIn the tendril plot, each tendril (branch)
+        represents a type of events,\u000aand the direction of the tendril is dictated
+        by on which treatment arm the\u000aevent is occurring. If an event is occurring
+        on the first of the two\u000aspecified treatment arms, the tendril bends in
+        a clockwise direction.\u000aIf an event is occurring on the second of the
+        treatment arms, the\u000atendril bends in an anti-clockwise direction.\u000aRef:
+        Karpefors, M and Weatherall, J., \"The Tendril Plot - a novel visual summary\u000aof
+        the incidence, significance and temporal aspects of adverse events in\u000aclinical
+        trials\" - JAMIA 2018; 25(8): 1069-1073 <doi:10.1093/jamia/ocy016>.","URL":"https://github.com/Karpefors/Tendril","BugReports":"https://github.com/Karpefors/Tendril/issues","Encoding":"UTF-8","LazyData":"true","Depends":{"R":">=
+        3.5"},"Imports":{"ggplot2":"*","dplyr":"*","plyr":"*","reshape2":"*","magrittr":"*","scales":"*","graphics":"*","grDevices":"*","plotly":"*"},"RoxygenNote":"6.1.1","Suggests":{"testthat":"*","knitr":"*","rmarkdown":"*","devtools":"*"},"VignetteBuilder":"knitr","NeedsCompilation":"no","Packaged":"2020-02-03
+        08:51:46 UTC; ktwg434","Author":"Martin Karpefors [aut],\u000aStefano Borini
+        [ctb, cre],\u000aMark Edmondson-Jones [ctb],\u000aHielke Bijlsma [ctb]","Maintainer":"Stefano
+        Borini <stefano.borini@astrazeneca.com>","Repository":"CRAN","Date/Publication":"2020-02-11
+        11:00:02 UTC","crandb_file_date":"2020-02-11 12:02:32","MD5sum":"567af458ac8bfdddc31af97a035c57a8","date":"2020-02-11T10:00:02+00:00","releases":[]}},{"date":"2020-02-11T09:50:14+00:00","name":"FCPS","event":"released","package":{"Package":"FCPS","Type":"Package","Title":"Fundamental
+        Clustering Problems Suite","Version":"1.0.0","Date":"2020-02-02","Authors@R":"c(person(\"Michael\",
+        \"Thrun\", email= \"m.thrun@gmx.net\",role=c(\"aut\",\"cre\",\"cph\")),person(\"Peter\",
+        \"Nahrgang\",role=c(\"ctr\",\"ctb\")),person(\"Alfred\", \"Ultsch\",role=c(\"dtc\",\"ctb\")))","Maintainer":"Michael
+        Thrun <m.thrun@gmx.net>","Description":"Many conventional Clustering Algorithms
+        are provided in this package with consistent input and output, which enables
+        the user to tryout algorithms swiftly. Moreover, the fundamental clustering
+        problems suite (FCPS) offers a variety of clustering challenges any algorithm
+        should handle when facing real world data. The datasets were introduced in
+        Ultsch, A.: \"Clustering with SOM: U*C\", In Workshop on Self-Organizing Maps,
+        2005.","Imports":{"mclust":"*"},"Suggests":{"DataVisualizations":"*","kernlab":"*","cclust":"*","vegan":"*","dbscan":"*","kohonen":"*","MCL":"*","ADPclust":"*","cluster":"*","DatabionicSwarm":"*","orclus":"*","subspace":"*","flexclust":"*","ABCanalysis":"*","apcluster":"*","pracma":"*","EMCluster":"*","pdfCluster":"*","parallelDist":"*","plotly":"*","ProjectionBasedClustering":"*","GeneralizedUmatrix":"*","mstknnclust":"*","densityClust":"*","parallel":"*","energy":"*","R.utils":"*","tclust":"*"},"Depends":{"R":">=
+        2.10"},"License":"GPL-3","LazyData":"TRUE","LazyLoad":"yes","RoxygenNote":"7.0.2","NeedsCompilation":"no","Packaged":"2020-02-03
+        09:17:57 UTC; MT","Author":"Michael Thrun [aut, cre, cph],\u000aPeter Nahrgang
+        [ctr, ctb],\u000aAlfred Ultsch [dtc, ctb]","Repository":"CRAN","Date/Publication":"2020-02-11
+        10:50:14 UTC","crandb_file_date":"2020-02-11 12:02:26","MD5sum":"00d015a5fad3d9a31a9e77001f95e273","date":"2020-02-11T09:50:14+00:00","releases":[]}}
+        ]'
+  recorded_at: 2020-02-11 13:28:50 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

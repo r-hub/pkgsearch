@@ -1,0 +1,33 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://cranlogs.r-pkg.org/top/last-week/100
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Tue, 11 Feb 2020 13:34:56 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+      vary: Accept-Encoding
+      x-powered-by: Express
+      content-encoding: gzip
+      cf-cache-status: DYNAMIC
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      server: cloudflare
+      cf-ray: 5636b402ee8a68ee-CDG
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"start":"2020-02-03T00:00:00.000Z","end":"2020-02-09T00:00:00.000Z","downloads":[{"package":"magrittr","downloads":"1058149"},{"package":"aws.ec2metadata","downloads":"913043"},{"package":"rsconnect","downloads":"902210"},{"package":"rlang","downloads":"415336"},{"package":"dplyr","downloads":"335750"},{"package":"vctrs","downloads":"301695"},{"package":"ggplot2","downloads":"256803"},{"package":"ellipsis","downloads":"254649"},{"package":"Rcpp","downloads":"243899"},{"package":"pillar","downloads":"242269"},{"package":"tibble","downloads":"230150"},{"package":"tidyr","downloads":"229143"},{"package":"stringi","downloads":"224372"},{"package":"purrr","downloads":"223246"},{"package":"jsonlite","downloads":"220328"},{"package":"lifecycle","downloads":"216994"},{"package":"digest","downloads":"211522"},{"package":"knitr","downloads":"207201"},{"package":"fansi","downloads":"207102"},{"package":"mime","downloads":"205239"},{"package":"markdown","downloads":"201747"},{"package":"plyr","downloads":"200939"},{"package":"hms","downloads":"197857"},{"package":"tidyselect","downloads":"195782"},{"package":"cli","downloads":"194493"},{"package":"glue","downloads":"189592"},{"package":"yaml","downloads":"183072"},{"package":"stringr","downloads":"174747"},{"package":"xfun","downloads":"171034"},{"package":"farver","downloads":"168078"},{"package":"R6","downloads":"167612"},{"package":"utf8","downloads":"166054"},{"package":"htmltools","downloads":"165569"},{"package":"rmarkdown","downloads":"165470"},{"package":"scales","downloads":"164644"},{"package":"httr","downloads":"164618"},{"package":"evaluate","downloads":"158216"},{"package":"BH","downloads":"155712"},{"package":"pkgconfig","downloads":"155212"},{"package":"tinytex","downloads":"153208"},{"package":"tidyverse","downloads":"151765"},{"package":"highr","downloads":"150698"},{"package":"haven","downloads":"150666"},{"package":"reshape2","downloads":"149021"},{"package":"assertthat","downloads":"148885"},{"package":"curl","downloads":"148736"},{"package":"lubridate","downloads":"146592"},{"package":"crayon","downloads":"144754"},{"package":"xml2","downloads":"143660"},{"package":"broom","downloads":"140613"},{"package":"lazyeval","downloads":"139834"},{"package":"callr","downloads":"139712"},{"package":"zoo","downloads":"137461"},{"package":"colorspace","downloads":"136058"},{"package":"prettyunits","downloads":"133845"},{"package":"munsell","downloads":"133458"},{"package":"data.table","downloads":"126702"},{"package":"processx","downloads":"122435"},{"package":"rvest","downloads":"120226"},{"package":"shiny","downloads":"119949"},{"package":"withr","downloads":"119113"},{"package":"RColorBrewer","downloads":"118930"},{"package":"readr","downloads":"117389"},{"package":"openssl","downloads":"115117"},{"package":"backports","downloads":"114781"},{"package":"later","downloads":"114338"},{"package":"gtable","downloads":"113898"},{"package":"promises","downloads":"113564"},{"package":"httpuv","downloads":"113230"},{"package":"viridisLite","downloads":"112566"},{"package":"readxl","downloads":"110197"},{"package":"rstudioapi","downloads":"109413"},{"package":"testthat","downloads":"108339"},{"package":"labeling","downloads":"108326"},{"package":"selectr","downloads":"108259"},{"package":"ps","downloads":"107688"},{"package":"sys","downloads":"104577"},{"package":"fastmap","downloads":"104454"},{"package":"modelr","downloads":"102106"},{"package":"plogr","downloads":"101811"},{"package":"clipr","downloads":"101784"},{"package":"dbplyr","downloads":"100779"},{"package":"reprex","downloads":"98931"},{"package":"askpass","downloads":"98672"},{"package":"base64enc","downloads":"98243"},{"package":"progress","downloads":"93208"},{"package":"sourcetools","downloads":"92854"},{"package":"DBI","downloads":"91141"},{"package":"devtools","downloads":"89229"},{"package":"pkgload","downloads":"87950"},{"package":"xtable","downloads":"87599"},{"package":"remotes","downloads":"86867"},{"package":"pkgbuild","downloads":"86310"},{"package":"DT","downloads":"85510"},{"package":"forcats","downloads":"85249"},{"package":"htmlwidgets","downloads":"83465"},{"package":"fs","downloads":"83405"},{"package":"cellranger","downloads":"81437"},{"package":"rprojroot","downloads":"80634"},{"package":"covr","downloads":"80384"}]}'
+  recorded_at: 2020-02-11 13:34:56 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

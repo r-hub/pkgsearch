@@ -1,0 +1,56 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://crandb.r-pkg.org//-/allall?start_key="qeayjdrzqoxgdyentzro"&limit=1
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.4.6 (Ubuntu)
+      date: Tue, 11 Feb 2020 13:29:53 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{ "qfa":{"_id":"qfa","_rev":"2-07db06f30e40832b4bd5529030ac6d8f","name":"qfa","versions":{"0.0-10":{"Package":"qfa","Version":"0.0-10","Date":"2013-06-13","Title":"Tools
+        for modelling the growth dynamics of arrays of large<U+000a>numbers of colonies
+        and performing quantitative fitness<U+000a>analysis (QFA).","Author":"Conor
+        Lawless <conor.lawless@ncl.ac.uk>, with contributions<U+000a>from Alexander
+        Young <alextisyoung@gmail.com> and Darren<U+000a>Wilkinson <d.j.wilkinson@ncl.ac.uk>","Maintainer":"Conor
+        Lawless <conor.lawless@ncl.ac.uk>","Depends":{"R":">= 2.10.1","sp":"*","DEoptim":"*"},"Suggests":{},"Description":"Quantitative
+        Fitness Analysis (QFA) is a complementary<U+000a>series of experimental and
+        computational methods for estimating<U+000a>the fitness of thousands of microbial
+        cultures in parallel.<U+000a>QFA is suitable for focussed, high-quality studies
+        of the<U+000a>effect of genetic mutations or drug interventions on growth
+        in<U+000a>model microbial organisms such as brewer''s yeast.  Culture<U+000a>growth
+        is observed by time-lapse photography of solid agar<U+000a>plates inoculated
+        with cultures in rectangular arrays.  Growth<U+000a>curves are constructed
+        by analysing image series using<U+000a>Colonyzer image analysis software<U+000a>(http://research.ncl.ac.uk/colonyzer)
+        which converts images to<U+000a>arrays of cell density estimates.  This R
+        package is for a)<U+000a>fitting the generalised logistic model to potentially
+        thousands<U+000a>of parallel growth curves, b) using inferred parameter values<U+000a>to
+        calculate fitnesses for each culture and c) comparing<U+000a>fitnesses between
+        QFA experiments with different genetic<U+000a>backgrounds or treatments to
+        deduce interaction strengths.<U+000a>This package facilitates quantifying
+        the fitness of thousands<U+000a>of independent microbial strains and tracking
+        them throughout<U+000a>growth curve experiments.  With appropriately designed<U+000a>experiments,
+        qfa can also estimate genetic interaction<U+000a>strengths and produce epistasis
+        plots.","License":"Artistic-2.0","URL":"http://qfa.r-forge.r-project.org/","BugReports":"conor.lawless@ncl.ac.uk","Repository":"CRAN","Repository/R-Forge/Project":"qfa","Repository/R-Forge/Revision":"399","Repository/R-Forge/DateTimeStamp":"2013-06-20
+        11:39:56","Date/Publication":"2013-06-21 14:28:37","Packaged":"2013-06-20
+        14:36:31 UTC; rforge","NeedsCompilation":"no","crandb_file_date":"2013-06-21
+        08:28:39","date":"2013-06-21T14:28:37+00:00","releases":["3.0.2","3.0.3","3.1.0","3.1.1"]}},"timeline":{"0.0-10":"2013-06-21T14:28:37+00:00","archived":"2014-09-19T05:04:21+00:00"},"latest":"0.0-10","title":"Tools
+        for modelling the growth dynamics of arrays of large<U+000a>numbers of colonies
+        and performing quantitative fitness<U+000a>analysis (QFA).","archived":true}
+        }'
+  recorded_at: 2020-02-11 13:28:51 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

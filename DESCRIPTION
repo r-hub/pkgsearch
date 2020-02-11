@@ -32,7 +32,8 @@ Suggests:
     shinyjs,
     shinyWidgets,
     testthat (>= 2.1.0),
-    whoami
+    whoami,
+    vcr
 Encoding: UTF-8
 RoxygenNote: 7.0.0
 Roxygen: list(markdown = TRUE)

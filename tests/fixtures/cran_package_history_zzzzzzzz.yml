@@ -1,0 +1,27 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://crandb.r-pkg.org//-/allall?start_key="zzzzzzzz"&limit=1
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.4.6 (Ubuntu)
+      date: Tue, 11 Feb 2020 13:29:53 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{  }'
+  recorded_at: 2020-02-11 13:28:51 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98
