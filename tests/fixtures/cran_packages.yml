@@ -1,0 +1,59 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://crandb.r-pkg.org//-/versions?keys=["igraph","pkgconfig-1.0.0"]
+    body:
+      encoding: ''
+      string: no
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.4.6 (Ubuntu)
+      date: Tue, 11 Feb 2020 14:05:54 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{ "igraph":{"Package":"igraph","Version":"1.2.4.2","Title":"Network
+        Analysis and Visualization","Author":"See AUTHORS file.","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Description":"Routines for simple graphs
+        and network analysis. It can\u000ahandle large graphs very well and provides
+        functions for generating random\u000aand regular graphs, graph visualization,
+        centrality methods and much more.","Depends":{"methods":"*"},"Imports":{"graphics":"*","grDevices":"*","magrittr":"*","Matrix":"*","pkgconfig":">=
+        2.0.0","stats":"*","utils":"*"},"Suggests":{"ape":"*","digest":"*","graph":"*","igraphdata":"*","rgl":"*","scales":"*","stats4":"*","tcltk":"*","testthat":"*"},"License":"GPL
+        (>= 2)","URL":"http://igraph.org","SystemRequirements":"gmp (optional), libxml2
+        (optional), glpk (optional)","BugReports":"https://github.com/igraph/igraph/issues","Encoding":"UTF-8","RoxygenNote":"6.1.1","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\u000a''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\u000a''cliques.R'' ''cocitation.R''
+        ''cohesive.blocks.R'' ''community.R''\u000a''components.R'' ''console.R''
+        ''conversion.R'' ''data_frame.R''\u000a''decomposition.R'' ''degseq.R'' ''demo.R''
+        ''embedding.R'' ''epi.R''\u000a''fit.R'' ''flow.R'' ''foreign.R'' ''games.R''
+        ''glet.R'' ''hrg.R''\u000a''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\u000a''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\u000a''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\u000a''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\u000a''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\u000a''random_walk.R''
+        ''rewire.R'' ''scan.R'' ''scg.R'' ''sgm.R''\u000a''similarity.R'' ''simple.R''
+        ''sir.R'' ''socnet.R'' ''sparsedf.R''\u000a''structural.properties.R'' ''structure.info.R''
+        ''test.R''\u000a''tkplot.R'' ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\u000a''versions.R''
+        ''weakref.R'' ''zzz-deprecate.R''","NeedsCompilation":"yes","Packaged":"2019-11-13
+        08:31:37 UTC; maechler","Repository":"CRAN","Date/Publication":"2019-11-27
+        20:02:16 UTC","crandb_file_date":"2019-11-27 21:50:25","MD5sum":"33425af52de049cee8d3ad508c2c37a9","date":"2019-11-27T19:02:16+00:00","releases":[]},"pkgconfig-1.0.0":{"Package":"pkgconfig","Title":"Private
+        Configuration for ''R'' Packages","Version":"1.0.0","Author":"Gabor Csardi","Maintainer":"Gabor
+        Csardi <csardi.gabor@gmail.com>","Description":"Set configuration options
+        on a per-package basis.<U+000a>Options set by a given package only apply to
+        that package,<U+000a>other packages are unaffected.","License":"MIT + file
+        LICENSE","LazyData":"true","Imports":{"utils":"*"},"Suggests":{"testthat":"*","disposables":"*"},"URL":"https://github.com/gaborcsardi/pkgconfig","BugReports":"https://github.com/gaborcsardi/pkgconfig/issues","NeedsCompilation":"no","Packaged":"2015-07-13
+        01:45:01 UTC; gaborcsardi","Repository":"CRAN","Date/Publication":"2015-07-13
+        08:30:36","crandb_file_date":"2015-07-13 02:31:15","date":"2015-07-13T08:30:36+00:00","releases":[]}
+        }'
+  recorded_at: 2020-02-11 14:04:52 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

@@ -2,9 +2,9 @@
 context("print")
 
 test_that("short", {
-  skip_if_offline()
-
-  x <- ps("csardi")
+  vcr::use_cassette("ps_csardi", {
+    x <- ps("csardi")
+  })
   out <- capture.output(print(x))
   expect_equal(length(out), 12)
   expect_match(out[1], "csardi.*packages in.*seconds")
@@ -13,9 +13,9 @@ test_that("short", {
 })
 
 test_that("long", {
-  skip_if_offline()
-
-  x <- ps("csardi", "long")
+  vcr::use_cassette("ps_csardi_long", {
+    x <- ps("csardi", "long")
+  })
   out <- capture.output(print(x))
   expect_match(out[1], "csardi.*packages in.*seconds")
   expect_match(out[3], "^1 igraph")

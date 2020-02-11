@@ -1,0 +1,232 @@
+http_interactions:
+- request:
+    method: post
+    uri: http://search.r-pkg.org/package/_search?from=0&size=10
+    body:
+      encoding: ''
+      string: |-
+        {
+          "query": {
+            "function_score": {
+              "functions": [
+                {
+                  "field_value_factor": {
+                    "field": "revdeps",
+                    "modifier": "sqrt",
+                    "factor": 1
+                  }
+                }
+              ],
+              "query": {
+                "bool": {
+                  "must": [
+                    {
+                      "multi_match": {
+                        "query": "csardi",
+                        "type": "most_fields"
+                      }
+                    }
+                  ],
+                  "should": [
+                    {
+                      "multi_match": {
+                        "query": "csardi",
+                        "fields": ["Title^10", "Description^2", "_all"],
+                        "type": "phrase",
+                        "analyzer": "english_and_synonyms",
+                        "boost": 10
+                      }
+                    },
+                    {
+                      "multi_match": {
+                        "query": "csardi",
+                        "fields": ["Package^20", "Title^10", "Description^2", "Author^5", "Maintainer^6", "_all"],
+                        "operator": "and",
+                        "analyzer": "english_and_synonyms",
+                        "boost": 5
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: application/json
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      server: nginx/1.15.5
+      date: Tue, 11 Feb 2020 14:13:09 GMT
+      content-type: application/json; charset=UTF-8
+      content-length: '5609'
+      connection: keep-alive
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"took":7,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":72,"max_score":4509.986,"hits":[{"_index":"package","_type":"doc","_id":"igraph","_score":4509.986,"_source":{"date":"2019-11-27T19:02:16+00:00","Author":"See
+        AUTHORS file.","SystemRequirements":"gmp (optional), libxml2 (optional), glpk
+        (optional)","MD5sum":"33425af52de049cee8d3ad508c2c37a9","NeedsCompilation":"yes","URL":"http://igraph.org","Title":"Network
+        Analysis and Visualization","Packaged":"2019-11-13 08:31:37 UTC; maechler","Encoding":"UTF-8","Date/Publication":"2019-11-27
+        20:02:16 UTC","Version":"1.2.4.2","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Collate":"''adjacency.R''
+        ''auto.R'' ''assortativity.R'' ''attributes.R''\n''basic.R'' ''bipartite.R''
+        ''centrality.R'' ''centralization.R''\n''cliques.R'' ''cocitation.R'' ''cohesive.blocks.R''
+        ''community.R''\n''components.R'' ''console.R'' ''conversion.R'' ''data_frame.R''\n''decomposition.R''
+        ''degseq.R'' ''demo.R'' ''embedding.R'' ''epi.R''\n''fit.R'' ''flow.R'' ''foreign.R''
+        ''games.R'' ''glet.R'' ''hrg.R''\n''igraph-package.R'' ''incidence.R'' ''indexing.R''
+        ''interface.R''\n''iterators.R'' ''layout.R'' ''layout_drl.R'' ''lazyeval.R''
+        ''make.R''\n''minimum.spanning.tree.R'' ''motifs.R'' ''nexus.R'' ''operators.R''\n''other.R''
+        ''package.R'' ''palette.R'' ''par.R'' ''paths.R'' ''plot.R''\n''plot.common.R''
+        ''plot.shapes.R'' ''pp.R'' ''print.R'' ''printr.R''\n''random_walk.R'' ''rewire.R''
+        ''scan.R'' ''scg.R'' ''sgm.R''\n''similarity.R'' ''simple.R'' ''sir.R'' ''socnet.R''
+        ''sparsedf.R''\n''structural.properties.R'' ''structure.info.R'' ''test.R''\n''tkplot.R''
+        ''topology.R'' ''triangles.R'' ''utils.R'' ''uuid.R''\n''versions.R'' ''weakref.R''
+        ''zzz-deprecate.R''","Imports":"grDevices (*), stats (*), utils (*), pkgconfig
+        (>= 2.0.0), Matrix (*), graphics (*), magrittr (*), ","revdeps":567,"Suggests":"igraphdata
+        (*), stats4 (*), tcltk (*), rgl (*), ape (*), graph (*), testthat (*), scales
+        (*), digest (*), ","BugReports":"https://github.com/igraph/igraph/issues","Depends":"methods
+        (*), ","LinkingTo":"","Package":"igraph","License":"GPL (>= 2)","crandb_file_date":"2019-11-27
+        21:50:25","RoxygenNote":"6.1.1","Repository":"CRAN","Description":"Routines
+        for simple graphs and network analysis. It can\nhandle large graphs very well
+        and provides functions for generating random\nand regular graphs, graph visualization,
+        centrality methods and much more.","downloads":199259}},{"_index":"package","_type":"doc","_id":"crayon","_score":2695.881,"_source":{"date":"2017-09-16T18:49:46+00:00","Author":"Gábor
+        Csárdi [aut, cre],\nBrodie Gaslam [ctb]","MD5sum":"77c7c2906c59a3141306d86c89ffc7d3","NeedsCompilation":"no","URL":"https://github.com/r-lib/crayon#readme","Title":"Colored
+        Terminal Output","LazyData":"true","Packaged":"2017-09-15 18:14:04 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2017-09-16
+        19:49:46 UTC","Version":"1.3.4","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Collate":"''ansi-256.r''
+        ''combine.r'' ''string.r'' ''utils.r''\n''crayon-package.r'' ''disposable.r''
+        ''has_ansi.r'' ''has_color.r''\n''styles.r'' ''machinery.r'' ''parts.r'' ''print.r''
+        ''style-var.r''\n''show.r'' ''string_operations.r''","Imports":"methods (*),
+        grDevices (*), utils (*), ","Authors@R":"c(\nperson(\"Gábor\", \"Csárdi\",
+        , \"csardi.gabor@gmail.com\",\nrole = c(\"aut\", \"cre\")),\nperson(\n\"Brodie\",
+        \"Gaslam\", email=\"brodie.gaslam@yahoo.com\",\nrole=c(\"ctb\"))\n)","revdeps":210,"BugReports":"https://github.com/r-lib/crayon/issues","Suggests":"mockery
+        (*), rstudioapi (*), withr (*), testthat (*), ","Depends":"","LinkingTo":"","Package":"crayon","License":"MIT
+        + file LICENSE","crandb_file_date":"2017-09-16 20:14:54","RoxygenNote":"6.0.1.9000","Repository":"CRAN","Description":"Colored
+        terminal output on terminals that support ''ANSI''\ncolor and highlight codes.
+        It also works in ''Emacs'' ''ESS''. ''ANSI''\ncolor support is automatically
+        detected. Colors and highlighting can\nbe combined and nested. New styles
+        can also be created easily.\nThis package was inspired by the ''chalk'' ''JavaScript''
+        project.","downloads":559495}},{"_index":"package","_type":"doc","_id":"cli","_score":1746.678,"_source":{"date":"2020-01-08T22:01:45+00:00","Author":"Gábor
+        Csárdi [aut, cre],\nHadley Wickham [ctb],\nKirill Müller [ctb]","MD5sum":"6f0ec39ebd7fd4898d58f6519bfbabd9","NeedsCompilation":"no","URL":"https://github.com/r-lib/cli#readme","Title":"Helpers
+        for Developing Command Line Interfaces","LazyData":"true","VignetteBuilder":"cli","Encoding":"UTF-8","Packaged":"2020-01-07
+        21:33:38 UTC; gaborcsardi","Date/Publication":"2020-01-08 23:01:45 UTC","Version":"2.0.1","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"assertthat (*),
+        utils (*), crayon (>= 1.3.4), methods (*), glue (*), fansi (*), ","Authors@R":"c(\nperson(\"Gábor\",
+        \"Csárdi\", , \"csardi.gabor@gmail.com\", c(\"aut\", \"cre\")),\nperson(\"Hadley\",
+        \"Wickham\", role = c(\"ctb\")),\nperson(\"Kirill\", \"Müller\", role = c(\"ctb\"))\n)","revdeps":85,"BugReports":"https://github.com/r-lib/cli/issues","Suggests":"prettycode
+        (>= 1.1.0), mockery (*), htmlwidgets (*), testthat (*), covr (*), callr (*),
+        knitr (*), rmarkdown (*), rstudioapi (*), withr (*), ","Depends":"R (>= 2.10),
+        ","LinkingTo":"","Package":"cli","License":"MIT + file LICENSE","crandb_file_date":"2020-01-09
+        00:32:33","RoxygenNote":"7.0.2","Repository":"CRAN","Description":"A suite
+        of tools to build attractive command line interfaces\n(''CLIs''), from semantic
+        elements: headings, lists, alerts, paragraphs,\netc. Supports custom themes
+        via a ''CSS''-like language. It also contains a\nnumber of lower level ''CLI''
+        elements: rules, boxes, trees, and\n''Unicode'' symbols with ''ASCII'' alternatives.
+        It integrates with the\n''crayon'' package to support ''ANSI'' terminal colors.","downloads":760790}},{"_index":"package","_type":"doc","_id":"progress","_score":1713.2158,"_source":{"date":"2019-05-16T20:30:03+00:00","Author":"Gábor
+        Csárdi [aut, cre], Rich FitzJohn [aut]","MD5sum":"d1d31b3a7bde43cd6b141bdd7297d523","NeedsCompilation":"no","URL":"https://github.com/r-lib/progress#readme","Title":"Terminal
+        Progress Bars","LazyData":"true","Packaged":"2019-05-15 20:28:47 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2019-05-16
+        21:30:03 UTC","Version":"1.2.2","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"prettyunits
+        (*), R6 (*), hms (*), crayon (*), ","revdeps":92,"BugReports":"https://github.com/r-lib/progress/issues","Suggests":"testthat
+        (*), withr (*), Rcpp (*), ","Depends":"","LinkingTo":"","Package":"progress","License":"MIT
+        + file LICENSE","crandb_file_date":"2019-05-16 22:44:22","RoxygenNote":"6.1.0","Repository":"CRAN","Description":"Configurable
+        Progress bars, they may include percentage,\nelapsed time, and/or the estimated
+        completion time. They work in\nterminals, in ''Emacs'' ''ESS'', ''RStudio'',
+        ''Windows'' ''Rgui'' and the\n''macOS'' ''R.app''. The package also provides
+        a ''C++'' ''API'', that works\nwith or without ''Rcpp''.","downloads":355058}},{"_index":"package","_type":"doc","_id":"roxygen2","_score":1501.3523,"_source":{"date":"2019-12-02T08:30:02+00:00","Language":"en-GB","Author":"Hadley
+        Wickham [aut, cre, cph]\n(<https://orcid.org/0000-0003-4757-117X>),\nPeter
+        Danenberg [aut, cph],\nGábor Csárdi [aut],\nManuel Eugster [aut, cph],\nRStudio
+        [cph]","MD5sum":"95a793d446f18c00d2e885b2a0d289ea","NeedsCompilation":"yes","URL":"https://roxygen2.r-lib.org/,
+        https://github.com/r-lib/roxygen2","Title":"In-Line Documentation for R","VignetteBuilder":"knitr","Packaged":"2019-12-02
+        08:45:40 UTC; hadley","Encoding":"UTF-8","Date/Publication":"2019-12-02 09:30:02
+        UTC","Version":"7.0.2","Maintainer":"Hadley Wickham <hadley@rstudio.com>","Enhances":"","Imports":"xml2
+        (*), commonmark (*), rlang (*), pkgload (>= 1.0.2), purrr (>= 0.3.3), stringr
+        (>= 1.0.0), desc (>= 1.2.0), stringi (*), brew (*), utils (*), R6 (>= 2.1.2),
+        methods (*), digest (*), Rcpp (>= 0.11.0), ","Authors@R":"\nc(person(given
+        = \"Hadley\",\nfamily = \"Wickham\",\nrole = c(\"aut\", \"cre\", \"cph\"),\nemail
+        = \"hadley@rstudio.com\",\ncomment = c(\"ORCID\" = \"0000-0003-4757-117X\")),\nperson(given
+        = \"Peter\",\nfamily = \"Danenberg\",\nrole = c(\"aut\", \"cph\"),\nemail
+        = \"pcd@roxygen.org\"),\nperson(given = \"Gábor\",\nfamily = \"Csárdi\",\nrole
+        = c(\"aut\"),\nemail = \"csardi.gabor@gmail.com\"),\nperson(given = \"Manuel\",\nfamily
+        = \"Eugster\",\nrole = c(\"aut\", \"cph\")),\nperson(given = \"RStudio\",\nrole
+        = \"cph\"))","revdeps":257,"BugReports":"https://github.com/r-lib/roxygen2/issues","Suggests":"devtools
+        (*), R.methodsS3 (*), testthat (>= 2.1.0), covr (*), rmarkdown (*), knitr
+        (*), R.oo (*), ","Depends":"R (>= 3.2), ","LinkingTo":"Rcpp (*), ","Package":"roxygen2","License":"GPL
+        (>= 2)","crandb_file_date":"2019-12-02 11:08:26","RoxygenNote":"7.0.1.9000","Repository":"CRAN","Description":"Generate
+        your Rd documentation, ''NAMESPACE'' file,\nand collation field using specially
+        formatted comments. Writing\ndocumentation in-line with code makes it easier
+        to keep your\ndocumentation up-to-date as your requirements change. ''Roxygen2''
+        is\ninspired by the ''Doxygen'' system for C++.","downloads":241638}},{"_index":"package","_type":"doc","_id":"lpSolve","_score":1457.6344,"_source":{"date":"2020-01-24T21:20:02+00:00","Author":"Michel
+        Berkelaar and others","MD5sum":"3b8d780f703e0da2e4863939add164bc","NeedsCompilation":"yes","URL":"https://github.com/gaborcsardi/lpSolve","Title":"Interface
+        to ''Lp_solve'' v. 5.5 to Solve Linear/Integer Programs","Packaged":"2020-01-24
+        12:33:04 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2020-01-24
+        22:20:02 UTC","Version":"5.6.15","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"","revdeps":67,"Suggests":"","Depends":"","LinkingTo":"","Package":"lpSolve","License":"LGPL-2","crandb_file_date":"2020-01-24
+        23:56:32","Repository":"CRAN","Description":"Lp_solve is freely available
+        (under LGPL 2) software for\nsolving linear, integer and mixed integer programs.
+        In this\nimplementation we supply a \"wrapper\" function in C and some R\nfunctions
+        that solve general linear/integer problems,\nassignment problems, and transportation
+        problems. This version\ncalls lp_solve version 5.5.","downloads":51453}},{"_index":"package","_type":"doc","_id":"callr","_score":1285.5854,"_source":{"date":"2020-01-24T16:00:11+00:00","Language":"en-US","Author":"Gábor
+        Csárdi [aut, cre, cph] (<https://orcid.org/0000-0001-7098-9676>),\nWinston
+        Chang [aut],\nRStudio [cph, fnd],\nMango Solutions [cph, fnd]","MD5sum":"747dd8169acb5b755854d67d7b2f089d","NeedsCompilation":"no","URL":"https://github.com/r-lib/callr#readme","Title":"Call
+        R from R","LazyData":"true","Packaged":"2020-01-24 12:12:17 UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2020-01-24
+        17:00:11 UTC","Version":"3.4.1","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"R6
+        (*), utils (*), processx (>= 3.4.0), ","Authors@R":"c(\nperson(\"Gábor\",
+        \"Csárdi\", role = c(\"aut\", \"cre\", \"cph\"),\nemail = \"csardi.gabor@gmail.com\",\ncomment
+        = c(ORCID = \"0000-0001-7098-9676\")),\nperson(\"Winston\", \"Chang\", role
+        = \"aut\"),\nperson(\"RStudio\", role = c(\"cph\", \"fnd\")),\nperson(\"Mango
+        Solutions\", role  = c(\"cph\", \"fnd\")))","revdeps":42,"BugReports":"https://github.com/r-lib/callr/issues","Suggests":"pingr
+        (*), tibble (*), crayon (*), testthat (*), covr (*), spelling (*), ps (*),
+        rprojroot (*), withr (*), cliapp (*), fansi (*), ","Depends":"","LinkingTo":"","Package":"callr","License":"MIT
+        + file LICENSE","crandb_file_date":"2020-01-24 17:56:25","RoxygenNote":"7.0.2","Repository":"CRAN","Description":"It
+        is sometimes useful to perform a computation in a\nseparate R process, without
+        affecting the current R process at all.\nThis packages does exactly that.","downloads":568567}},{"_index":"package","_type":"doc","_id":"processx","_score":1150.1996,"_source":{"date":"2020-02-09T15:40:05+00:00","Author":"Gábor
+        Csárdi [aut, cre, cph] (<https://orcid.org/0000-0001-7098-9676>),\nWinston
+        Chang [aut],\nRStudio [cph, fnd],\nMango Solutions [cph, fnd]","MD5sum":"f90d8ef42511d08b402d39d72ac2a3df","NeedsCompilation":"yes","URL":"https://processx.r-lib.org,\nhttps://github.com/r-lib/processx#readme","Title":"Execute
+        and Control System Processes","LazyData":"true","Packaged":"2020-02-07 12:01:19
+        UTC; gaborcsardi","Encoding":"UTF-8","Date/Publication":"2020-02-09 16:40:05
+        UTC","Version":"3.4.2","Maintainer":"Gábor Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"R6
+        (*), ps (>= 1.2.0), utils (*), ","Authors@R":"c(\nperson(\"Gábor\", \"Csárdi\",
+        role = c(\"aut\", \"cre\", \"cph\"),\nemail = \"csardi.gabor@gmail.com\",\ncomment
+        = c(ORCID = \"0000-0001-7098-9676\")),\nperson(\"Winston\", \"Chang\", role
+        = \"aut\"),\nperson(\"RStudio\", role = c(\"cph\", \"fnd\")),\nperson(\"Mango
+        Solutions\", role  = c(\"cph\", \"fnd\")))","revdeps":38,"BugReports":"https://github.com/r-lib/processx/issues","Suggests":"debugme
+        (*), curl (*), crayon (*), testthat (*), covr (*), callr (>= 3.2.0), withr
+        (*), parallel (*), codetools (*), ","Depends":"","LinkingTo":"","Package":"processx","License":"MIT
+        + file LICENSE","crandb_file_date":"2020-02-09 18:14:31","RoxygenNote":"7.0.2","Repository":"CRAN","Description":"Tools
+        to run system processes in the background.\nIt can check if a background process
+        is running; wait on a background\nprocess to finish; get the exit status of
+        finished processes; kill\nbackground processes. It can read the standard output
+        and error of\nthe processes, using non-blocking connections. ''processx''
+        can poll\na process for standard output or error, with a timeout. It can also\npoll
+        several processes at once.","downloads":493795}},{"_index":"package","_type":"doc","_id":"desc","_score":1052.8971,"_source":{"date":"2018-05-01T19:48:05+00:00","Author":"Gábor
+        Csárdi [aut, cre],\nKirill Müller [aut],\nJim Hester [aut]","MD5sum":"d885cbcbbe96497662122932253a3475","NeedsCompilation":"no","URL":"https://github.com/r-lib/desc#readme","Title":"Manipulate
+        DESCRIPTION Files","LazyData":"true","Packaged":"2018-05-01 20:22:08 UTC;
+        gaborcsardi","Encoding":"UTF-8","Date/Publication":"2018-05-01 20:48:05 UTC","Version":"1.2.0","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Enhances":"","Collate":"''assertions.R''
+        ''authors-at-r.R'' ''built.R'' ''classes.R''\n''collate.R'' ''constants.R''
+        ''deps.R'' ''description.R'' ''encoding.R''\n''latex.R'' ''non-oo-api.R''
+        ''package-archives.R'' ''read.R''\n''remotes.R'' ''str.R'' ''syntax_checks.R''
+        ''urls.R'' ''utils.R''\n''validate.R'' ''version.R''","Imports":"R6 (*), rprojroot
+        (*), assertthat (*), utils (*), crayon (*), ","Authors@R":"c(\nperson(\"Gábor\",
+        \"Csárdi\",, \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")),\nperson(\"Kirill\",
+        \"Müller\", role = c(\"aut\")),\nperson(\"Jim\", \"Hester\", email = \"james.f.hester@gmail.com\",
+        role = c(\"aut\")))","revdeps":31,"BugReports":"https://github.com/r-lib/desc/issues","Suggests":"covr
+        (*), whoami (*), withr (*), testthat (*), ","Depends":"R (>= 3.1.0), ","LinkingTo":"","Package":"desc","License":"MIT
+        + file LICENSE","crandb_file_date":"2018-05-01 20:50:19","RoxygenNote":"6.0.1.9000","Repository":"CRAN","Description":"Tools
+        to read, write, create, and manipulate DESCRIPTION files.\nIt is intended
+        for packages that create or manipulate other packages.","downloads":321130}},{"_index":"package","_type":"doc","_id":"zip","_score":863.35986,"_source":{"date":"2019-09-01T07:50:02+00:00","Author":"Gábor
+        Csárdi, Kuba Podgórski, Rich Geldreich","MD5sum":"665c263694712d63163c072b23506a27","NeedsCompilation":"yes","URL":"https://github.com/r-lib/zip#readme","Title":"Cross-Platform
+        ''zip'' Compression","LazyData":"true","Packaged":"2019-09-01 08:28:20 UTC;
+        gaborcsardi","Encoding":"UTF-8","Date/Publication":"2019-09-01 08:50:02 UTC","Version":"2.0.4","Maintainer":"Gábor
+        Csárdi <csardi.gabor@gmail.com>","Enhances":"","Imports":"","revdeps":20,"BugReports":"https://github.com/r-lib/zip/issues","Suggests":"covr
+        (*), R6 (*), testthat (*), withr (*), processx (*), ","Depends":"","LinkingTo":"","Package":"zip","License":"CC0","crandb_file_date":"2019-09-01
+        10:26:30","RoxygenNote":"6.1.1","Repository":"CRAN","Description":"Cross-Platform
+        ''zip'' Compression Library. A replacement\nfor the ''zip'' function, that
+        does not require any additional\nexternal tools on any platform.","downloads":168278}}]}}'
+  recorded_at: 2020-02-11 14:13:09 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.1.98

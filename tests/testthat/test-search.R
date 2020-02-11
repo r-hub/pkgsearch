@@ -31,8 +31,6 @@ test_that("more w/o previous search", {
 })
 
 test_that("again", {
-  skip_if_offline()
-
   vcr::use_cassette("ps_csardi", {
     x <- ps("csardi")
   })
