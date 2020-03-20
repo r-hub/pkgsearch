@@ -184,7 +184,6 @@ make_query <- function(query) {
   toJSON(query_object, auto_unbox = TRUE, pretty = TRUE)
 }
 
-#' @importFrom httr POST add_headers stop_for_status content
 #' @importFrom jsonlite fromJSON
 
 do_query <- function(query, server, port, from, size) {
@@ -195,15 +194,15 @@ do_query <- function(query, server, port, from, size) {
   url <- "http://" %+% server %+% ":" %+% as.character(port) %+%
     "/package/_search?from=" %+% as.character(from - 1) %+%
     "&size=" %+% as.character(size)
-  result <- POST(
+  result <- http_post(
     url, body = query,
-    add_headers("Content-Type" = "application/json"))
+    headers = c("Content-Type" = "application/json"))
   rethrow(
-    stop_for_status(result),
+    http_stop_for_status(result),
     new_query_error(result, "search server failure")
   )
 
-  content(result, as = "text")
+  rawToChar(result$content)
 }
 
 new_query_error <- function(response, ...) {
@@ -216,7 +215,7 @@ new_query_error <- function(response, ...) {
 #' @export
 
 print.pkgsearch_query_error <- function(x, ...) {
-  # The call to the httr method is quite tedious and not very useful,
+  # The call to the http method is quite tedious and not very useful,
   # so we remove it
   x$parent$call <- NULL
 
@@ -226,7 +225,7 @@ print.pkgsearch_query_error <- function(x, ...) {
   # error message from Elastic, if any
   tryCatch({
     rsp <- x$response
-    cnt <- fromJSON(content(rsp, as = "text"), simplifyVector = FALSE)
+    cnt <- fromJSON(rawToChar(rsp$content), simplifyVector = FALSE)
     if ("error" %in% names(cnt) &&
         "root_cause" %in% names(cnt$error) &&
         "reason" %in% names(cnt$error$root_cause[[1]])) {

@@ -128,8 +128,9 @@ cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
 
 cran_trending <- function() {
   ept <- "https://cranlogs.r-pkg.org/trending"
-  resp <- httr::stop_for_status(httr::GET(ept))
-  cnt <- content(resp, as = "text", encoding = "UTF-8")
+  resp <- http_stop_for_status(http_get(ept))
+  cnt <- rawToChar(resp$content)
+  Encoding(cnt) <- "UTF-8"
   tb <- fromJSON(cnt, simplifyDataFrame = TRUE)
   colnames(tb) <- c("package", "score")
   tibble::as_tibble(tb)
@@ -152,8 +153,9 @@ cran_trending <- function() {
 
 cran_top_downloaded <- function() {
   ept <- "http://cranlogs.r-pkg.org/top/last-week/100"
-  resp <- httr::stop_for_status(httr::GET(ept))
-  cnt <- content(resp, as = "text", encoding = "UTF-8")
+  resp <- http_stop_for_status(http_get(ept))
+  cnt <- rawToChar(resp$content)
+  Encoding(cnt) <- "UTF-8"
   tb <- fromJSON(cnt, simplifyDataFrame = TRUE)$downloads
   names(tb) <- c("package", "count")
   tibble::as_tibble(tb)
@@ -162,8 +164,9 @@ cran_top_downloaded <- function() {
 crandb_query <- function(url, error = TRUE, ...) {
 
   rst <- url0 <- paste0(couchdb_uri(), url)
-  rsp <- httr::GET(url0, ...)
-  cnt <- content(rsp, as = "text", encoding = "UTF-8")
+  rsp <- http_get(url0)
+  cnt <- rawToChar(rsp$content)
+  Encoding(cnt) <- "UTF-8"
   rst <- fromJSON(cnt, ...)
 
   if (error && ("error" %in% names(rst))) {

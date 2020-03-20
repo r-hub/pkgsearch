@@ -8,7 +8,7 @@ cran_packages(names)
 }
 \arguments{
 \item{names}{Package names. May also contain versions, separated by a
-\verb{@} character.}
+\code{@} character.}
 }
 \value{
 A data frame of package metadata, one package per row.
