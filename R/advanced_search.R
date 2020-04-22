@@ -1,7 +1,7 @@
 
 #' Advanced CRAN package search
 #'
-#' See the Elastic documentation for the syntax and features:
+#' Refer to the Elastic documentation for the syntax and features:
 #' https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 #'
 #' @param ... Search terms. For named terms, the name specifies the field
