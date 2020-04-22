@@ -51,7 +51,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: r-lib/actions/setup-r@master
       - name: Install dependencies
-        run: Rscript -e 'install.packages("rmarkdown")' -e 'remotes::install_deps(dependencies = TRUE)' -e 'remotes::install_local()'
+        run: Rscript -e 'install.packages(c("remotes", "rmarkdown"))' -e 'remotes::install_deps(dependencies = TRUE)' -e 'remotes::install_local()'
       - name: Render README
         run: Rscript -e 'rmarkdown::render("README.Rmd")'
       - name: commit
