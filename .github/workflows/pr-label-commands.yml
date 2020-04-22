@@ -53,7 +53,7 @@ jobs:
       - name: Install dependencies
         run: Rscript -e 'install.packages(c("remotes", "roxygen2"))' -e 'remotes::install_deps(dependencies = TRUE)' -e 'remotes::install_local()'
       - name: Render README
-        run: Rscript -e 'rmarkdown::render("README.Rmd", output_format = "github_document")
+        run: Rscript -e 'rmarkdown::render("README.Rmd")
       - name: commit
         run: |
           git add README.md
