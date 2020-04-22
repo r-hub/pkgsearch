@@ -33,8 +33,8 @@ install.packages("pkgsearch")
 
 ### Search relevant packages
 
-Do you need to find packages solving a particular problem, e.g.
-"permutation test"?
+Do you need to find packages solving a particular problem, 
+e.g. "permutation test"?
 
 ```{r search}
 library("pkgsearch")
