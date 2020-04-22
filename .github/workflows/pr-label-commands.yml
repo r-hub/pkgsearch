@@ -1,0 +1,69 @@
+on: 
+  pull_request: 
+    types: [labeled]
+    
+name: Commands
+jobs:
+  document:
+    if: contains(github.event.pull_request.labels.*.name, 'needs-document')
+    name: document
+    runs-on: macOS-latest
+    steps:
+      - name: Get PR number
+        run: |
+          PR=$(jq --raw-output .pull_request.number "${GITHUB_EVENT_PATH}")
+          echo "::set-env name=PR::$PR"
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/pr-fetch@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: r-lib/actions/setup-r@master
+      - name: Install dependencies
+        run: Rscript -e 'install.packages(c("remotes", "roxygen2"))' -e 'remotes::install_deps(dependencies = TRUE)'
+      - name: Document
+        run: Rscript -e 'roxygen2::roxygenise()'
+      - name: commit
+        run: |
+          git add man/\* NAMESPACE
+          git commit -m 'Document'
+      - uses: r-lib/actions/pr-push@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Delete label
+        if: always()
+        run: |
+          curl --request DELETE \
+          --url https://api.github.com/repos/${{ github.repository }}/issues/${{ env.PR }}/labels/needs-document \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+
+  readme:
+    if: contains(github.event.pull_request.labels.*.name, 'needs-readme-knit')
+    name: readme
+    runs-on: macOS-latest
+    steps:
+      - name: Get PR number
+        run: |
+          PR=$(jq --raw-output .pull_request.number "${GITHUB_EVENT_PATH}")
+          echo "::set-env name=PR::$PR"
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/pr-fetch@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: r-lib/actions/setup-r@master
+      - name: Install dependencies
+        run: Rscript -e 'install.packages(c("remotes", "roxygen2"))' -e 'remotes::install_deps(dependencies = TRUE)' -e 'remotes::install_local()'
+      - name: Render README
+        run: Rscript -e 'rmarkdown::render("README.Rmd", output_format = "github_document")
+      - name: commit
+        run: |
+          git add README.md
+          git commit -m 'Render README'
+      - uses: r-lib/actions/pr-push@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Delete label
+        if: success()
+        run: |
+          curl --request DELETE \
+          --url https://api.github.com/repos/${{ github.repository }}/issues/${{ env.PR }}/labels/needs-readme-knit \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
