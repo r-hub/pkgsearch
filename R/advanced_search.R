@@ -24,11 +24,14 @@
 #' advanced_search(Author = "Hester", Author = "Wickham")
 #' advanced_search("Author: Hester AND Author: Wickham")
 #' 
+#' Packages with Hester but not Wickham as author
+#' advanced_search(Author = "Hester", Author = "NOT Wickham")
+#' 
 #' # Packages with Hester as an Author, and Wickham in any field
-#' advanced_search(Author = "Hester AND Wickham")
+#' advanced_search(Author = "Hester", "Wickham")
 #' 
 #' # Packages with Hester as an Author and Wickham nowhere in the metadata
-#' advanced_search(Author = "Hester AND NOT Wickham")
+#' advanced_search(Author = "Hester", "NOT Wickham")
 #'
 #' # Packages for permutation tests and permissive licenses
 #' advanced_search("permutation test AND NOT License: GPL OR GNU")
