@@ -44,7 +44,14 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-
 # All orphaned packages
 advanced_search(Maintainer = "ORPHANED")
 
-# Packages that match a certain field
+# Packages with both Hester and Wickham as authors
+advanced_search(Author = "Hester", Author = "Wickham")
+advanced_search("Author: Hester AND Author: Wickham")
+
+# Packages with Hester as an Author, and Wickham in any field
+advanced_search(Author = "Hester AND Wickham")
+
+# Packages with Hester as an Author and Wickham nowhere in the metadata
 advanced_search(Author = "Hester AND NOT Wickham")
 
 # Packages for permutation tests and permissive licenses
