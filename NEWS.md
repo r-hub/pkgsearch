@@ -1,6 +1,8 @@
 
 # pkgsearch 3.0.2.9000
 
+* Fix dependency handling in the add-in (@salim-b, #101)
+
 # pkgsearch 3.0.2
 
 * The RStudio addin now gives a better error more missing dependencies

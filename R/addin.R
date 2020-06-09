@@ -29,6 +29,8 @@ pkg_search_addin <- function(
   query = "",
   viewer = c("dialog", "browser")) {
 
+  needs_packages(c("memoise", "shiny", "shinyjs", "shinyWidgets", "whoami"))
+
   query
   maint <- whoami::email_address(fallback = "")
 
@@ -47,8 +49,6 @@ pkg_search_addin <- function(
     `cnt-maint-prev` = 0L,
     `cnt-maint-next` = 0L
   )
-
-  needs_packages(c("memoise", "shiny", "shinyjs", "shinyWidgets", "whoami"))
 
   if (is.character(viewer)) {
     mode <- match.arg(viewer)
