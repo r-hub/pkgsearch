@@ -3,6 +3,9 @@
 
 * Fix dependency handling in the add-in (@salim-b, #101)
 
+* pkgsearch uses curl now for the HTTP calls, instead of httr, which makes
+  it a bit more lightweight.
+
 # pkgsearch 3.0.2
 
 * The RStudio addin now gives a better error more missing dependencies
