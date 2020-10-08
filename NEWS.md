@@ -1,5 +1,5 @@
 
-# pkgsearch 3.0.2.9000
+# pkgsearch 3.0.3
 
 * Fix dependency handling in the add-in (@salim-b, #101)
 
