@@ -1,7 +1,8 @@
-pandoc: '2.2'
-pkgdown: 1.4.1.9000
-pkgdown_sha: 3efb5c9288929bda9aa73e0cd88ae6461e4b6565
-articles: []
+pandoc: 2.7.3
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles: {}
+last_built: 2020-10-08T16:57Z
 urls:
   reference: https://r-hub.github.io/pkgsearch/reference
   article: https://r-hub.github.io/pkgsearch/articles

@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -49,7 +53,6 @@
 during last week, and that substantially increased their download
 counts, compared to the average weekly downloads in the previous 24
 weeks. The percentage of increase is also shown in the output." />
-<meta name="twitter:card" content="summary" />
 
 
 <meta name="robots" content="noindex">
@@ -67,7 +70,7 @@ weeks. The percentage of increase is also shown in the output." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -81,7 +84,7 @@ weeks. The percentage of increase is also shown in the output." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.0.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.0.2.9000</span>
       </span>
     </div>
 
@@ -132,7 +135,7 @@ counts, compared to the average weekly downloads in the previous 24
 weeks. The percentage of increase is also shown in the output.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cran_trending</span>()</pre>
+    <pre class="usage"><span class='fu'>cran_trending</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -140,28 +143,26 @@ weeks. The percentage of increase is also shown in the output.</p>
     <p>Tibble of trending packages.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>cran_trending</span>()</div><div class='output co'>#&gt; # A tibble: 100 x 2
-#&gt;    package    score                
-#&gt;    &lt;chr&gt;      &lt;chr&gt;                
-#&gt;  1 TFisher    2384.4705882352941200
-#&gt;  2 mutoss     1751.3868613138686100
-#&gt;  3 DELTD      1618.2524271844660200
-#&gt;  4 patchwork  1546.1365341335333800
-#&gt;  5 caseMatch  1009.1903719912472600
-#&gt;  6 tempdisagg 866.2927447077980800 
-#&gt;  7 ashr       703.8679731820526000 
-#&gt;  8 etrunct    626.8464996788696200 
-#&gt;  9 effectsize 605.2998605299860500 
-#&gt; 10 renv       581.4652621612025100 
-#&gt; # … with 90 more rows</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>cran_trending</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 100 x 2</span><span>
+#&gt;    package         score                 
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                 
+#&gt; </span><span style='color: #555555;'> 1</span><span> rle             67724.3697478991596600
+#&gt; </span><span style='color: #555555;'> 2</span><span> textshaping     19279.0588235294117600
+#&gt; </span><span style='color: #555555;'> 3</span><span> rbibutils       6403.3444816053511700 
+#&gt; </span><span style='color: #555555;'> 4</span><span> terra           1563.3817127715740100 
+#&gt; </span><span style='color: #555555;'> 5</span><span> doMPI           1105.0630923084978300 
+#&gt; </span><span style='color: #555555;'> 6</span><span> onehot          758.5070285991274800  
+#&gt; </span><span style='color: #555555;'> 7</span><span> downlit         689.2727536652634600  
+#&gt; </span><span style='color: #555555;'> 8</span><span> Rmpi            685.6523962814765800  
+#&gt; </span><span style='color: #555555;'> 9</span><span> opendatatoronto 683.2201745877788600  
+#&gt; </span><span style='color: #555555;'>10</span><span> Bolstad         644.4472778273619800  
+#&gt; </span><span style='color: #555555;'># … with 90 more rows</span><span></div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -172,7 +173,7 @@ weeks. The percentage of increase is also shown in the output.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
