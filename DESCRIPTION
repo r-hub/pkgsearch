@@ -13,7 +13,7 @@ Description: Search CRAN metadata about packages by keyword, popularity,
     a CRAN project.
 License: MIT + file LICENSE
 LazyData: true
-URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch
+URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch/
 BugReports: https://github.com/r-hub/pkgsearch/issues
 Imports:
     assertthat,

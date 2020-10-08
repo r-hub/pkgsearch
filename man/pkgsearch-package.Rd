@@ -16,7 +16,7 @@ Search CRAN metadata about packages by keyword, popularity,
 Useful links:
 \itemize{
   \item \url{https://github.com/r-hub/pkgsearch}
-  \item \url{https://r-hub.github.io/pkgsearch}
+  \item \url{https://r-hub.github.io/pkgsearch/}
   \item Report bugs at \url{https://github.com/r-hub/pkgsearch/issues}
 }
 
