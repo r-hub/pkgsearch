@@ -216,7 +216,7 @@ from the RStudio CRAN mirror.</p></li>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Example</span>
 <span class='fu'>ps</span><span class='op'>(</span><span class='st'>"survival"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; - "survival" ----------------------------------- 876 packages in 0.01 seconds -
+</div><div class='output co'>#&gt; - "survival" ---------------------------------- 876 packages in 0.011 seconds -
 #&gt;   #     package         version   by                      @ title              
 #&gt;   1 100 survival        3.2.7     Terry M Therneau      11d Survival Analysis  
 #&gt;   2   8 flexsurv        1.1.1     Christopher Jackson    2y Flexible Paramet...
@@ -256,19 +256,19 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;  20  9 ggnetwork      0.5.8   François Briatte     8M Geometries to Plot Net...</div><div class='input'>
 <span class='co'># Details</span>
 <span class='fu'>ps</span><span class='op'>(</span><span class='st'>"visualization"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1232 packages in 0.008 seconds -
+</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1232 packages in 0.007 seconds -
 #&gt;   #     package    version  by                    @ title                      
 #&gt;   1 100 ggplot2    3.3.2    Thomas Lin Pedersen  4M Create Elegant Data Visu...
 #&gt;   2  64 igraph     1.2.6    Gábor Csárdi         3d Network Analysis and Vis...
 #&gt;   3  57 scales     1.1.1    Hadley Wickham       5M Scale Functions for Visu...
 #&gt;   4  42 rgl        0.100.54 Duncan Murdoch       6M 3D Visualization Using O...
-#&gt;   5  23 vdiffr     0.3.3    Lionel Henry         2d Visual Regression Testin...
+#&gt;   5  23 vdiffr     0.3.3    Lionel Henry         3d Visual Regression Testin...
 #&gt;   6  20 ROCR       1.0.11   Felix G.M. Ernst     5M Visualizing the Performa...
 #&gt;   7  20 DiagrammeR 1.0.6.1  Richard Iannone      5M Graph/Network Visualization
 #&gt;   8  19 corrplot   0.84     Taiyun Wei           3y Visualization of a Corre...
-#&gt;   9  17 vcd        1.4.8    David Meyer         18d Visualizing Categorical ...
-#&gt;  10  17 ggmap      3.0.0    ORPHANED             2y Spatial Visualization wi...</div><div class='input'><span class='fu'>ps</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1232 packages in 0.008 seconds -
+#&gt;   9  17 ggmap      3.0.0    ORPHANED             2y Spatial Visualization wi...
+#&gt;  10  17 vcd        1.4.8    David Meyer         18d Visualizing Categorical ...</div><div class='input'><span class='fu'>ps</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; - "visualization" ---------------------------- 1232 packages in 0.007 seconds -
 #&gt; 
 #&gt; 1 ggplot2 @ 3.3.2                             Thomas Lin Pedersen, 4 months ago
 #&gt; -----------------
@@ -308,7 +308,7 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   well as 2D image formats, including PNG, Postscript, SVG, PGF.
 #&gt;   https://r-forge.r-project.org/projects/rgl/
 #&gt; 
-#&gt; 5 vdiffr @ 0.3.3                                       Lionel Henry, 2 days ago
+#&gt; 5 vdiffr @ 0.3.3                                       Lionel Henry, 3 days ago
 #&gt; ----------------
 #&gt;   # Visual Regression Testing and Graphical Diffing
 #&gt;   An extension to the 'testthat' package that makes it easy to add
@@ -357,8 +357,17 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   color labels, layout, etc.
 #&gt;   https://github.com/taiyun/corrplot
 #&gt; 
-#&gt; 9 vcd @ 1.4.8                                          David Meyer, 18 days ago
-#&gt; -------------
+#&gt; 9 ggmap @ 3.0.0                                           ORPHANED, 2 years ago
+#&gt; ---------------
+#&gt;   # Spatial Visualization with ggplot2
+#&gt;   A collection of functions to visualize spatial data and models on top
+#&gt;   of static maps from various online sources (e.g Google Maps and
+#&gt;   Stamen Maps). It includes tools common to those tasks, including
+#&gt;   functions for geolocation and routing.
+#&gt;   https://github.com/dkahle/ggmap
+#&gt; 
+#&gt; 10 vcd @ 1.4.8                                         David Meyer, 18 days ago
+#&gt; --------------
 #&gt;   # Visualizing Categorical Data
 #&gt;   Visualization techniques, data sets, summary and inference procedures
 #&gt;   aimed particularly at categorical data. Special emphasis is given to
@@ -366,16 +375,7 @@ from the RStudio CRAN mirror.</p></li>
 #&gt;   originally inspired by the book "Visualizing Categorical Data" by
 #&gt;   Michael Friendly and is now the main support package for a new book,
 #&gt;   "Discrete Data Analysis with R" by Michael Friendly and David Meyer
-#&gt;   (2015).
-#&gt; 
-#&gt; 10 ggmap @ 3.0.0                                          ORPHANED, 2 years ago
-#&gt; ----------------
-#&gt;   # Spatial Visualization with ggplot2
-#&gt;   A collection of functions to visualize spatial data and models on top
-#&gt;   of static maps from various online sources (e.g Google Maps and
-#&gt;   Stamen Maps). It includes tools common to those tasks, including
-#&gt;   functions for geolocation and routing.
-#&gt;   https://github.com/dkahle/ggmap</div><div class='input'>
+#&gt;   (2015).</div><div class='input'>
 <span class='co'># See the underlying tibble</span>
 <span class='fu'>ps</span><span class='op'>(</span><span class='st'>"ropensci"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; - "ropensci" ---------------------------------- 249 packages in 0.008 seconds -
@@ -402,7 +402,7 @@ from the RStudio CRAN mirror.</p></li>
 #&gt; </span><span style='color: #555555;'> 7</span><span>  337. rfishe… 0.2     </span><span style='color: #555555;'>"</span><span>'Pr… </span><span style='color: #555555;'>"</span><span>A program… 2016-02-19 </span><span style='color: #555555;'>08:50:03</span><span> Karthik Ram    
 #&gt; </span><span style='color: #555555;'> 8</span><span>  317. chromer 0.1     </span><span style='color: #555555;'>"</span><span>Int… </span><span style='color: #555555;'>"</span><span>A program… 2015-01-13 </span><span style='color: #555555;'>10:27:09</span><span> Matthew Pennell
 #&gt; </span><span style='color: #555555;'> 9</span><span>  313. google… 0.3.0   </span><span style='color: #555555;'>"</span><span>Cal… </span><span style='color: #555555;'>"</span><span>Call 'Goo… 2020-04-19 </span><span style='color: #555555;'>12:40:02</span><span> Mark Edmondson 
-#&gt; </span><span style='color: #555555;'>10</span><span>  297. jsonld  2.2     </span><span style='color: #555555;'>"</span><span>JSO… </span><span style='color: #555555;'>"</span><span>JSON-LD i… 2020-05-27 </span><span style='color: #555555;'>06:20:03</span><span> Jeroen Ooms    
+#&gt; </span><span style='color: #555555;'>10</span><span>  298. jsonld  2.2     </span><span style='color: #555555;'>"</span><span>JSO… </span><span style='color: #555555;'>"</span><span>JSON-LD i… 2020-05-27 </span><span style='color: #555555;'>06:20:03</span><span> Jeroen Ooms    
 #&gt; </span><span style='color: #555555;'># … with 7 more variables: maintainer_email </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, revdeps </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   downloads_last_month </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, license </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, url </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, bugreports </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
 #&gt; </span><span style='color: #555555;'>#   package_data </span><span style='color: #555555;font-style: italic;'>&lt;I&lt;list&gt;&gt;</span><span></div></span></pre>
