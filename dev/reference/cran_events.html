@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.0.2.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.0.3.9000</span>
       </span>
     </div>
 
@@ -177,35 +177,36 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (events)-----------------------------------------------------------
-#&gt;  . When    Package  Version Title                                              
-#&gt;  + 3 hours mixsmsn  1.1-8   Fitting Finite Mixture of Scale Mixture of Skew-...
-#&gt;  + 4 hours brms     2.14.0  Bayesian Regression Models using 'Stan'            
-#&gt;  + 4 hours clipr    0.7.1   Read and Write from the System Clipboard           
-#&gt;  + 4 hours waldo    0.2.1   Find Differences Between R Objects                 
-#&gt;  + 4 hours gratis   0.2.1   Generating Time Series with Diverse and Controll...
-#&gt;  + 4 hours treeclim 2.0.5.1 Numerical Calibration of Proxy-Climate Relations...
-#&gt;  + 4 hours prim     1.0.19  Patient Rule Induction Method (PRIM)               
-#&gt;  + 5 hours omicwas  0.8.0   Cell-Type-Specific Association Testing in Bulk O...
-#&gt;  + 5 hours GALLO    1.0     Genomic Annotation in Livestock for Positional C...
-#&gt;  + 6 hours gglm     0.1.0   Grammar of Graphics for Linear Model Diagnostic ...</div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, releases <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+#&gt;  . When     Package     Version Title                                          
+#&gt;  - 3 hours  PRIMME      3.1-2   Eigenvalues and Singular Values and Vectors ...
+#&gt;  + 4 hours  rTorch      0.4.0   R Bindings to 'PyTorch'                        
+#&gt;  + 5 hours  iCellR      1.5.8   Analyzing High-Throughput Single Cell Sequen...
+#&gt;  + 5 hours  MTPS        1.0.1   Multi-Task Prediction using Stacking Algorit...
+#&gt;  + 5 hours  fishflux    0.0.1.2 Model Elemental Fluxes in Fishes               
+#&gt;  + 13 hours workflows   0.2.1   Modeling Workflows                             
+#&gt;  + 14 hours textshaping 0.1.2   Bindings to the 'HarfBuzz' and 'Fribidi' Lib...
+#&gt;  + 14 hours callr       3.5.0   Call R from R                                  
+#&gt;  + 15 hours RNifti      1.2.3   Fast R and C++ Access to NIfTI Images          
+#&gt;  + 16 hours pkgsearch   3.0.3   Search and Query CRAN R Packages               </div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, releases <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (archivals)--------------------------------------------------------
-#&gt;  . When     Package      Version Title                                         
-#&gt;  - 11 hours MissMech     1.0.2   Testing Homoscedasticity, Multivariate Norm...
-#&gt;  - 11 hours CryptRndTest 1.2.2   Statistical Tests for Cryptographic Randomn...
-#&gt;  - 11 hours irt          0.1.1   Item Response Theory and Computerized Adapt...
-#&gt;  - 1 day    genBart      1.0.1   Generate 'BART' File                          
-#&gt;  - 1 day    icesTAF      3.5-0   Functions to Support the ICES Transparent A...</div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, archivals <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+#&gt;  . When    Package      Version Title                                          
+#&gt;  - 3 hours PRIMME       3.1-2   Eigenvalues and Singular Values and Vectors ...
+#&gt;  - 1 day   MissMech     1.0.2   Testing Homoscedasticity, Multivariate Norma...
+#&gt;  - 1 day   CryptRndTest 1.2.2   Statistical Tests for Cryptographic Randomne...
+#&gt;  - 1 day   irt          0.1.1   Item Response Theory and Computerized Adapti...
+#&gt;  - 1 day   genBart      1.0.1   Generate 'BART' File                           </div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, archivals <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (pkgreleases)------------------------------------------------------
-#&gt;  . When    Package Version Title                                               
-#&gt;  + 3 hours mixsmsn 1.1-8   Fitting Finite Mixture of Scale Mixture of Skew-N...
-#&gt;  + 4 hours brms    2.14.0  Bayesian Regression Models using 'Stan'             
-#&gt;  + 4 hours clipr   0.7.1   Read and Write from the System Clipboard            
-#&gt;  + 4 hours waldo   0.2.1   Find Differences Between R Objects                  
-#&gt;  + 4 hours gratis  0.2.1   Generating Time Series with Diverse and Controlla...</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+#&gt;  . When     Package   Version Title                                            
+#&gt;  + 4 hours  rTorch    0.4.0   R Bindings to 'PyTorch'                          
+#&gt;  + 5 hours  iCellR    1.5.8   Analyzing High-Throughput Single Cell Sequenci...
+#&gt;  + 5 hours  MTPS      1.0.1   Multi-Task Prediction using Stacking Algorithm...
+#&gt;  + 5 hours  fishflux  0.0.1.2 Model Elemental Fluxes in Fishes                 
+#&gt;  + 13 hours workflows 0.2.1   Modeling Workflows                               </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (events)
-#&gt;  [1] "mixsmsn@1.1-8"    "brms@2.14.0"      "clipr@0.7.1"      "waldo@0.2.1"     
-#&gt;  [5] "gratis@0.2.1"     "treeclim@2.0.5.1" "prim@1.0.19"      "omicwas@0.8.0"   
-#&gt;  [9] "GALLO@1.0"        "gglm@0.1.0"      </div></pre>
+#&gt;  [1] "PRIMME@3.1-2-"     "rTorch@0.4.0"      "iCellR@1.5.8"     
+#&gt;  [4] "MTPS@1.0.1"        "fishflux@0.0.1.2"  "workflows@0.2.1"  
+#&gt;  [7] "textshaping@0.1.2" "callr@3.5.0"       "RNifti@1.2.3"     
+#&gt; [10] "pkgsearch@3.0.3"  </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
