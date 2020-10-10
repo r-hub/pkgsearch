@@ -25,7 +25,7 @@
 #' advanced_search("Author: Hester AND Author: Wickham")
 #' 
 #' # Packages with Hester but not Wickham as author
-#' advanced_search(Author = "Hester", Author = "NOT Wickham")
+#' advanced_search(Author = "Hester AND NOT Wickham")
 #' 
 #' # Packages with Hester as an Author, and Wickham in any field
 #' advanced_search(Author = "Hester", "Wickham")
