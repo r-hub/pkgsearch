@@ -219,8 +219,19 @@ here.</p></td>
 #&gt;   9  59 fs          1.5.0   Jim Hester    2M Cross-Platform File System Oper...
 #&gt;  10  59 remotes     2.2.0   Jim Hester    3M R Package Installation from Rem...</div><div class='input'>
 <span class='co'># Packages with Hester but not Wickham as author</span>
-<span class='fu'>advanced_search</span><span class='op'>(</span>Author <span class='op'>=</span> <span class='st'>"Hester"</span>, Author <span class='op'>=</span> <span class='st'>"NOT Wickham"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in do_query(qstr, server, port, from, size): search server failure</span></div><div class='input'>
+<span class='fu'>advanced_search</span><span class='op'>(</span>Author <span class='op'>=</span> <span class='st'>"Hester AND NOT Wickham"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 25 packages in 0.004 seconds -
+#&gt;   #     package        version by              @ title                         
+#&gt;   1 100 gmailr         1.0.0   Jim Hester     1y Access the 'Gmail' 'RESTful...
+#&gt;   2  95 primerTree     1.0.5   Jim Hester     9M Visually Assessing the Spec...
+#&gt;   3  89 knitrBootstrap 1.0.2   Jim Hester     2y 'knitr' Bootstrap Framework   
+#&gt;   4  86 types          1.0.0   Jim Hester     4y Type Annotations              
+#&gt;   5  85 glue           1.4.2   Jim Hester     1M Interpreted String Literals   
+#&gt;   6  71 pak            0.1.2   Gábor Csárdi   2y Another Approach to Package...
+#&gt;   7  69 dplyr.teradata 0.3.2   Koji Makiyama  1y A 'Teradata' Backend for 'd...
+#&gt;   8  66 lintr          2.0.1   Jim Hester     8M A 'Linter' for R Code         
+#&gt;   9  65 decor          1.0.0   Jim Hester     3M Retrieve Code Decorations     
+#&gt;  10  63 mockery        0.4.2   Jim Hester     1y Mocking Library for R         </div><div class='input'>
 <span class='co'># Packages with Hester as an Author, and Wickham in any field</span>
 <span class='fu'>advanced_search</span><span class='op'>(</span>Author <span class='op'>=</span> <span class='st'>"Hester"</span>, <span class='st'>"Wickham"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; - "advanced search" ---------------------------- 17 packages in 0.007 seconds -
@@ -251,7 +262,7 @@ here.</p></td>
 #&gt;  10  63 mockery        0.4.2   Jim Hester     1y Mocking Library for R         </div><div class='input'>
 <span class='co'># Packages for permutation tests and permissive licenses</span>
 <span class='fu'>advanced_search</span><span class='op'>(</span><span class='st'>"permutation test AND NOT License: GPL OR GNU"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; - "advanced search" ---------------------------- 299 packages in 0.02 seconds -
+</div><div class='output co'>#&gt; - "advanced search" --------------------------- 299 packages in 0.026 seconds -
 #&gt;   #     package           version by                         @ title           
 #&gt;   1 100 phd               0.1     Jesse Hemerik             1y Permutation T...
 #&gt;   2  97 confSAM           0.2     Jesse Hemerik             3y Estimates and...
@@ -318,7 +329,7 @@ here.</p></td>
 #&gt;  10 100 gridExtra     2.3     Baptiste Auguie       3y Miscellaneous Functio...</div><div class='input'>
 <span class='co'># Regular expressions</span>
 <span class='fu'>advanced_search</span><span class='op'>(</span>Author <span class='op'>=</span> <span class='st'>"/Joh?nathan/"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; - "advanced search" --------------------------- 202 packages in 0.002 seconds -
+</div><div class='output co'>#&gt; - "advanced search" --------------------------- 202 packages in 0.001 seconds -
 #&gt;   #     package         version by                         @ title             
 #&gt;   1 100 xtable          1.8.4   David Scott               1y Export Tables t...
 #&gt;   2 100 knitr           1.30    Yihui Xie                18d A General-Purpo...
