@@ -9,7 +9,7 @@ test_that("short", {
   expect_equal(length(out), 12)
   expect_match(out[1], "csardi.*packages in.*seconds")
   expect_match(out[2], "#\\s+package\\s+version\\s+by\\s+@\\s+title")
-  expect_match(out[3], "100\\s+igraph.*Gábor Csárdi.*Network Analysis")
+  expect_match(out[3], "100\\s+igraph.*G.*bor Cs.*rdi.*Network Analysis")
 })
 
 test_that("long", {
@@ -20,7 +20,7 @@ test_that("long", {
   expect_match(out[1], "csardi.*packages in.*seconds")
   expect_match(out[3], "^1 igraph")
   expect_true(any(grepl("igraph.org", out, fixed = TRUE)))
-  expect_true(any(grepl("G.bor Cs.rdi", out)))
+  expect_true(any(grepl("G.*bor Cs.*rdi", out)))
 })
 
 test_that("left_right if they do not fit", {
