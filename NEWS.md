@@ -1,6 +1,8 @@
 
 # pkgsearch development version
 
+* New `cran_new()` function to query new packages on CRAN.
+
 # pkgsearch 3.0.3
 
 * Fix dependency handling in the add-in (@salim-b, #101)
