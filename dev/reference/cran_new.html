@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • pkgsearch</title>
+<title>New CRAN packages — cran_new • pkgsearch</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="New CRAN packages — cran_new" />
+<meta property="og:description" content="New CRAN packages" />
 
 
 <meta name="robots" content="noindex">
@@ -67,7 +68,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -117,142 +118,61 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>New CRAN packages</h1>
+    <small class="dont-index">Source: <a href='https://github.com/r-hub/pkgsearch/blob/master/R/crandb-public-api.R'><code>R/crandb-public-api.R</code></a></small>
+    <div class="hidden name"><code>cran_new.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>New CRAN packages</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='st'>"last-week"</span>, last <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-search-packages-by-query" class="hasAnchor"><a href="#section-search-packages-by-query" class="anchor"></a>Search packages by query</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="pkg_search.html">pkg_search()</a></code> <code><a href="pkg_search.html">ps()</a></code> <code><a href="pkg_search.html">more()</a></code> <code><a href="pkg_search.html">summary(<i>&lt;pkg_search_result&gt;</i>)</a></code> <code><a href="pkg_search.html">print(<i>&lt;pkg_search_result&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Search CRAN packages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="advanced_search.html">advanced_search()</a></code> </p>
-        </td>
-        <td><p>Advanced CRAN package search</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-discover-packages" class="hasAnchor"><a href="#section-discover-packages" class="anchor"></a>Discover packages</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="cran_top_downloaded.html">cran_top_downloaded()</a></code> </p>
-        </td>
-        <td><p>Top downloaded packages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cran_trending.html">cran_trending()</a></code> </p>
-        </td>
-        <td><p>Trending R packages</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-get-package-metadata" class="hasAnchor"><a href="#section-get-package-metadata" class="anchor"></a>Get package metadata</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="cran_package.html">cran_package()</a></code> </p>
-        </td>
-        <td><p>Metadata about a CRAN package</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cran_package_history.html">cran_package_history()</a></code> </p>
-        </td>
-        <td><p>Query the history of a package</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cran_packages.html">cran_packages()</a></code> </p>
-        </td>
-        <td><p>Metadata about multiple CRAN packages</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-get-cran-releases-archivals" class="hasAnchor"><a href="#section-get-cran-releases-archivals" class="anchor"></a>Get CRAN releases/archivals</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="cran_events.html">cran_events()</a></code> <code><a href="cran_events.html">summary(<i>&lt;cran_event_list&gt;</i>)</a></code> <code><a href="cran_events.html">print(<i>&lt;cran_event_list&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>List of all CRAN events (new, updated, archived packages)</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-rstudio-addin" class="hasAnchor"><a href="#section-rstudio-addin" class="anchor"></a>RStudio addin</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="pkg_search_addin.html">pkg_search_addin()</a></code> </p>
-        </td>
-        <td><p>RStudio addin to search CRAN packages</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>from</th>
+      <td><p>Time interval to query. Possible values:</p><ul>
+<li><p><code>"last-week"</code></p></li>
+<li><p><code>"last-month"</code></p></li>
+<li><p>A <a href='https://rdrr.io/r/base/Dates.html'>Date</a> object to be used as a start date.</p></li>
+<li><p>A <a href='https://rdrr.io/r/base/DateTimeClasses.html'>POSIXt</a> object to be used as the start date.</p></li>
+<li><p>A <a href='https://rdrr.io/r/base/difftime.html'>difftime</a> object to used as the time interval until now.</p></li>
+<li><p>An integer scalar, the number of days until today.</p></li>
+<li><p>A character string that is converted to a start date using
+<code><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct()</a></code>.</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>last</th>
+      <td><p>Integer to limit the number of returned packages.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Tibble of package descriptions.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='co'># Last week</span>
+<span class='fu'>cran_new</span><span class='op'>(</span><span class='st'>"last-week"</span><span class='op'>)</span>
+
+<span class='co'># Last month</span>
+<span class='fu'>cran_new</span><span class='op'>(</span><span class='st'>"last-month"</span><span class='op'>)</span>
+
+<span class='co'># Last 5 days</span>
+<span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+
+<span class='co'># From a given date, but only the last 10</span>
+<span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='st'>"2021-04-06"</span>, last <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

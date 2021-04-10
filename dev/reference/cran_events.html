@@ -89,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -103,7 +103,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/r-hub/pkgsearch">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -177,37 +177,36 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (events)-----------------------------------------------------------
-#&gt;  . When    Package              Version  Title                                 
-#&gt;  + 3 hours shadow               0.6.9    Geometric Shadow Calculations         
-#&gt;  + 3 hours comat                0.9.0    Creates Co-Occurrence Matrices of S...
-#&gt;  + 4 hours discoverableresearch 0.0.1    Checks Title, Abstract and Keywords...
-#&gt;  + 4 hours vasicek              0.0.1    Miscellaneous Functions for Vasicek...
-#&gt;  + 4 hours mappoly              0.2.0    Genetic Linkage Maps in Autopolyplo...
-#&gt;  + 4 hours shattering           1.0.2    Estimate the Shattering Coefficient...
-#&gt;  + 4 hours tidyCpp              0.0.1    Tidy C++ Header-Only Definitions fo...
-#&gt;  + 4 hours cmdfun               1.0.2    Framework for Building Interfaces t...
-#&gt;  - 5 hours APSIM                0.9.3    General Utility Functions for the '...
-#&gt;  + 7 hours fastmatrix           0.2-3571 Fast Computation of some Matrices U...</div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, releases <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+#&gt;  . When     Package    Version Title                                           
+#&gt;  - 1 hour   sigora     3.0.5   Signature Overrepresentation Analysis           
+#&gt;  - 1 hour   SoupX      1.5.0   Single Cell mRNA Soup eXterminator              
+#&gt;  - 1 hour   DealGPL570 0.2.0   Dealing GPL570 RAW.tar file                     
+#&gt;  + 5 hours  DescTools  0.99.41 Tools for Descriptive Statistics                
+#&gt;  + 5 hours  RxODE      1.0.8   Facilities for Simulating from ODE-Based Mode...
+#&gt;  + 5 hours  disaggR    0.2.0.2 Two-Steps Benchmarks for Time Series Disaggre...
+#&gt;  + 5 hours  noaaoceans 0.3.0   Collect Ocean Data from NOAA                    
+#&gt;  + 10 hours ClimInd    0.1-3   Climate Indices                                 
+#&gt;  + 10 hours RBF        2.1.0   Robust Backfitting                              
+#&gt;  + 10 hours hawkesbow  1.0.2   Estimation of Hawkes Processes from Binned Ob...</div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, releases <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (archivals)--------------------------------------------------------
-#&gt;  . When    Package           Version Title                                     
-#&gt;  - 5 hours APSIM             0.9.3   General Utility Functions for the 'Agri...
-#&gt;  - 8 hours CoordinateCleaner 2.0-17  Automated Cleaning of Occurrence Record...
-#&gt;  - 1 day   PRIMME            3.1-2   Eigenvalues and Singular Values and Vec...
-#&gt;  - 2 day   MissMech          1.0.2   Testing Homoscedasticity, Multivariate ...
-#&gt;  - 2 day   CryptRndTest      1.2.2   Statistical Tests for Cryptographic Ran...</div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, archivals <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+#&gt;  . When   Package    Version Title                                             
+#&gt;  - 1 hour sigora     3.0.5   Signature Overrepresentation Analysis             
+#&gt;  - 1 hour SoupX      1.5.0   Single Cell mRNA Soup eXterminator                
+#&gt;  - 1 hour DealGPL570 0.2.0   Dealing GPL570 RAW.tar file                       
+#&gt;  - 2 day  sclero     0.2     Measure Growth Patterns and Align Sampling Spot...
+#&gt;  - 2 day  SunsVoc    0.1.1   Constructing Suns-Voc from Outdoor Time-Series ...</div><div class='input'><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>5</span>, archivals <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (pkgreleases)------------------------------------------------------
-#&gt;  . When    Package              Version Title                                  
-#&gt;  + 3 hours shadow               0.6.9   Geometric Shadow Calculations          
-#&gt;  + 3 hours comat                0.9.0   Creates Co-Occurrence Matrices of Sp...
-#&gt;  + 4 hours discoverableresearch 0.0.1   Checks Title, Abstract and Keywords ...
-#&gt;  + 4 hours vasicek              0.0.1   Miscellaneous Functions for Vasicek ...
-#&gt;  + 4 hours mappoly              0.2.0   Genetic Linkage Maps in Autopolyploi...</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+#&gt;  . When     Package    Version Title                                           
+#&gt;  + 5 hours  DescTools  0.99.41 Tools for Descriptive Statistics                
+#&gt;  + 5 hours  RxODE      1.0.8   Facilities for Simulating from ODE-Based Mode...
+#&gt;  + 5 hours  disaggR    0.2.0.2 Two-Steps Benchmarks for Time Series Disaggre...
+#&gt;  + 5 hours  noaaoceans 0.3.0   Collect Ocean Data from NOAA                    
+#&gt;  + 10 hours ClimInd    0.1-3   Climate Indices                                 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'>cran_events</span><span class='op'>(</span>limit <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; CRAN events (events)
-#&gt;  [1] "shadow@0.6.9"               "comat@0.9.0"               
-#&gt;  [3] "discoverableresearch@0.0.1" "vasicek@0.0.1"             
-#&gt;  [5] "mappoly@0.2.0"              "shattering@1.0.2"          
-#&gt;  [7] "tidyCpp@0.0.1"              "cmdfun@1.0.2"              
-#&gt;  [9] "APSIM@0.9.3-"               "fastmatrix@0.2-3571"       </div></pre>
+#&gt;  [1] "sigora@3.0.5-"     "SoupX@1.5.0-"      "DealGPL570@0.2.0-"
+#&gt;  [4] "DescTools@0.99.41" "RxODE@1.0.8"       "disaggR@0.2.0.2"  
+#&gt;  [7] "noaaoceans@0.3.0"  "ClimInd@0.1-3"     "RBF@2.1.0"        
+#&gt; [10] "hawkesbow@1.0.2"  </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
