@@ -49,7 +49,7 @@
   
 
 <meta property="og:title" content="New CRAN packages — cran_new" />
-<meta property="og:description" content="New CRAN packages" />
+<meta property="og:description" content="List the latest new CRAN packages." />
 
 
 <meta name="robots" content="noindex">
@@ -126,17 +126,17 @@
     </div>
 
     <div class="ref-description">
-    <p>New CRAN packages</p>
+    <p>List the latest new CRAN packages.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='st'>"last-week"</span>, last <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='st'>"last-week"</span>, to <span class='op'>=</span> <span class='st'>"now"</span>, last <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>from</th>
-      <td><p>Time interval to query. Possible values:</p><ul>
+      <td><p>Start of the time interval to query. Possible values:</p><ul>
 <li><p><code>"last-week"</code></p></li>
 <li><p><code>"last-month"</code></p></li>
 <li><p>A <a href='https://rdrr.io/r/base/Dates.html'>Date</a> object to be used as a start date.</p></li>
@@ -146,6 +146,12 @@
 <li><p>A character string that is converted to a start date using
 <code><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct()</a></code>.</p></li>
 </ul></td>
+    </tr>
+    <tr>
+      <th>to</th>
+      <td><p>End of the time interval to query. It accepts the same kinds
+of values as <code>from</code>, and additionally it can also be the string <code>"now"</code>,
+to specify the current date and time.</p></td>
     </tr>
     <tr>
       <th>last</th>
@@ -168,8 +174,11 @@
 <span class='co'># Last 5 days</span>
 <span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
 
-<span class='co'># From a given date, but only the last 10</span>
+<span class='co'># From a given date, but at most 10</span>
 <span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='st'>"2021-04-06"</span>, last <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+
+<span class='co'># March of 2021</span>
+<span class='fu'>cran_new</span><span class='op'>(</span>from <span class='op'>=</span> <span class='st'>"2021-03-01"</span>, to <span class='op'>=</span> <span class='st'>"2021-04-01"</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
