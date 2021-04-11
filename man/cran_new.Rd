@@ -4,10 +4,10 @@
 \alias{cran_new}
 \title{New CRAN packages}
 \usage{
-cran_new(from = "last-week", last = Inf)
+cran_new(from = "last-week", to = "now", last = Inf)
 }
 \arguments{
-\item{from}{Time interval to query. Possible values:
+\item{from}{Start of the time interval to query. Possible values:
 \itemize{
 \item \code{"last-week"}
 \item \code{"last-month"}
@@ -19,13 +19,17 @@ cran_new(from = "last-week", last = Inf)
 \code{\link[=as.POSIXct]{as.POSIXct()}}.
 }}
 
+\item{to}{End of the time interval to query. It accepts the same kinds
+of values as \code{from}, and additionally it can also be the string \code{"now"},
+to specify the current date and time.}
+
 \item{last}{Integer to limit the number of returned packages.}
 }
 \value{
 Tibble of package descriptions.
 }
 \description{
-New CRAN packages
+List the latest new CRAN packages.
 }
 \examples{
 \dontrun{
@@ -38,7 +42,10 @@ cran_new("last-month")
 # Last 5 days
 cran_new(from = 5)
 
-# From a given date, but only the last 10
+# From a given date, but at most 10
 cran_new(from = "2021-04-06", last = 10)
+
+# March of 2021
+cran_new(from = "2021-03-01", to = "2021-04-01")
 }
 }

@@ -165,7 +165,7 @@ cran_top_downloaded <- function() {
 #'
 #' List the latest new CRAN packages.
 #'
-#' @param from Time interval to query. Possible values:
+#' @param from Start of the time interval to query. Possible values:
 #' * `"last-week"`
 #' * `"last-month"`
 #' * A [Date] object to be used as a start date.
@@ -174,6 +174,9 @@ cran_top_downloaded <- function() {
 #' * An integer scalar, the number of days until today.
 #' * A character string that is converted to a start date using
 #'   [as.POSIXct()].
+#' @param to End of the time interval to query. It accepts the same kinds
+#' of values as `from`, and additionally it can also be the string `"now"`,
+#' to specify the current date and time.
 #' @param last Integer to limit the number of returned packages.
 #' @return Tibble of package descriptions.
 #'
@@ -192,34 +195,23 @@ cran_top_downloaded <- function() {
 #'
 #' # From a given date, but at most 10
 #' cran_new(from = "2021-04-06", last = 10)
+#'
+#' # March of 2021
+#' cran_new(from = "2021-03-01", to = "2021-04-01")
 #' }
 
-cran_new <- function(from = "last-week", last = Inf) {
+cran_new <- function(from = "last-week", to = "now", last = Inf) {
 
-  if (inherits(from, "Date") || inherits(from, "POSIXt")) {
-    from <- as.POSIXct(from)
-
-  } else if (inherits(from, "difftime")) {
-    from <- Sys.time() - from
-
-  } else if (identical(from, "last-week")) {
-    from <- Sys.time() - as.difftime(7, units = "days")
-
-  } else if (identical(from, "last-month")) {
-    from <- Sys.time() - as.difftime(30, units = "days")
-
-  } else if (is.numeric(from)) {
-    from <- Sys.time() - as.difftime(from, units = "days")
-
-  } else if (is.character(from)) {
-    from <- as.POSIXct(from)
-
+  from <- interpret_date(from, "from")
+  if (identical(to, "now")) {
+    to <- NULL
   } else {
-    stop("Invalid 'from' argument, please see the docs.")
+    to <- interpret_date(to, "to")
   }
 
   param <- c(
     end_key = paste0('"', format_iso_8601(from), '"'),
+    start_key = if (!is.null(to)) paste0('"', format_iso_8601(to), '"'),
     limit = if (is.finite(last)) last,
     descending = "true"
   )
@@ -248,6 +240,33 @@ cran_new <- function(from = "last-week", last = Inf) {
   }
 
   dsc
+}
+
+interpret_date <- function(d, arg = "from") {
+
+  if (inherits(d, "Date") || inherits(d, "POSIXt")) {
+    d <- as.POSIXct(d)
+
+  } else if (inherits(d, "difftime")) {
+    d <- Sys.time() - d
+
+  } else if (identical(d, "last-week")) {
+    d <- Sys.time() - as.difftime(7, units = "days")
+
+  } else if (identical(d, "last-month")) {
+    d <- Sys.time() - as.difftime(30, units = "days")
+
+  } else if (is.numeric(d)) {
+    d <- Sys.time() - as.difftime(d, units = "days")
+
+  } else if (is.character(d)) {
+    d <- as.POSIXct(d)
+
+  } else {
+    stop("Invalid '", arg, "' argument, please see the docs.")
+  }
+
+  d
 }
 
 crandb_query <- function(url, error = TRUE, ...) {
