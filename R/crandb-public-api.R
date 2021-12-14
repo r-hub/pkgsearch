@@ -7,6 +7,8 @@
 #' @param name Name of the package.
 #' @param version The package version to query. If `NULL`, the latest
 #'   version if returned.
+#' @param check_version Whether the package version should be checked
+#'   for compliance with version naming rules.
 #' @return The package metadata, in a named list.
 #' @examples
 #' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
@@ -15,13 +17,13 @@
 #' @export
 #' @importFrom assertthat assert_that
 
-cran_package <- function(name, version = NULL) {
+cran_package <- function(name, version = NULL, check_version = TRUE) {
 
   assert_that(is_package_name(name))
-  assert_that(is.null(version) || is_package_version(version))
+  assert_that(!check_version || is.null(version) || is_package_version(version))
 
   ept <- name
-  if (! is.null(version)) ept <- paste0(ept, "/", version)
+  if (!is.null(version)) ept <- paste0(ept, "/", version)
   rst <- crandb_query(ept)
   crst <- remove_special(rst)
   add_class(crst, "cran_package")

@@ -4,13 +4,16 @@
 \alias{cran_package}
 \title{Metadata about a CRAN package}
 \usage{
-cran_package(name, version = NULL)
+cran_package(name, version = NULL, check_version = TRUE)
 }
 \arguments{
 \item{name}{Name of the package.}
 
 \item{version}{The package version to query. If \code{NULL}, the latest
 version if returned.}
+
+\item{check_version}{Whether the package version should be checked
+for compliance with version naming rules.}
 }
 \value{
 The package metadata, in a named list.

@@ -29,6 +29,34 @@ test_that("cran_package() works", {
 
 })
 
+test_that("cran_package() fails for non-standard version names", {
+  
+  skip_if_offline()
+  
+  expect_equal(FALSE, is_package_version("1.8-3"))
+  expect_error(cran_package("xtable", version = "1.8-3"))
+  expect_error(cran_package("xtable", version = "1.8-3", check_version = TRUE))
+  
+})
+
+test_that("cran_package() works with non-standard version names when check_version = FALSE", {
+  
+  skip_if_offline()
+  
+  r1 <- cran_package("xtable", version = "1.8-3", check_version = FALSE)
+  
+  expect_equal(
+    sort(names(r1)),
+    c("Author", "Authors@R", "crandb_file_date", "date", "Date",
+      "Date/Publication", "Depends", "Description", "Imports", "License",
+      "Maintainer", "MD5sum", "NeedsCompilation", "Package", "Packaged",
+      "releases", "Repository", "Suggests", "Title", "URL", "Version",
+      "VignetteBuilder")
+  )
+  
+  expect_equal(r1[["Version"]], "1.8-3")
+})
+
 test_that("cran_events() works", {
 
   skip_if_offline()
