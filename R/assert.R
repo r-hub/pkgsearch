@@ -14,13 +14,13 @@ on_failure(is_package_name) <- function(call, env) {
 
 #' @importFrom assertthat assert_that is.string noNA
 
-is_string <- function(string) {
+is_string_no_missing <- function(string) {
   assert_that(is.string(string))
   assert_that(noNA(string))
 }
 
 #' @importFrom assertthat  "on_failure<-"
 
-on_failure(is_string) <- function(call, env) {
+on_failure(is_string_no_missing) <- function(call, env) {
   paste0(deparse(call$x), " must be a single string with no missing values")
 }

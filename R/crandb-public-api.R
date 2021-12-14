@@ -18,7 +18,7 @@
 cran_package <- function(name, version = NULL) {
 
   assert_that(is_package_name(name))
-  assert_that(is.null(version) || is_string(version))
+  assert_that(is.null(version) || is_string_no_missing(version))
 
   ept <- name
   if (!is.null(version)) ept <- paste0(ept, "/", version)
