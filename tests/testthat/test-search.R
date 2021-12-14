@@ -15,7 +15,7 @@ test_that("search", {
         colnames(x))
   )
 
-  expect_equal(x$package[1], "igraph")
+  expect_equal(x$package[1], "crayon")
 })
 
 test_that("again w/o previous search", {
