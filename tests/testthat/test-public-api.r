@@ -26,27 +26,11 @@ test_that("cran_package() works", {
 
   expect_equal(sort(names(r3)), c("archived", "latest", "name", "revdeps",
     "timeline", "title", "versions"))
-
-})
-
-test_that("cran_package() fails for non-standard version names", {
   
-  skip_if_offline()
-  
-  expect_equal(FALSE, is_package_version("1.8-3"))
-  expect_error(cran_package("xtable", version = "1.8-3"))
-  expect_error(cran_package("xtable", version = "1.8-3", check_version = TRUE))
-  
-})
-
-test_that("cran_package() works with non-standard version names when check_version = FALSE", {
-  
-  skip_if_offline()
-  
-  r1 <- cran_package("xtable", version = "1.8-3", check_version = FALSE)
+  r4 <- cran_package("xtable", version = "1.8-3")
   
   expect_equal(
-    sort(names(r1)),
+    sort(names(r4)),
     c("Author", "Authors@R", "crandb_file_date", "date", "Date",
       "Date/Publication", "Depends", "Description", "Imports", "License",
       "Maintainer", "MD5sum", "NeedsCompilation", "Package", "Packaged",
@@ -54,7 +38,16 @@ test_that("cran_package() works with non-standard version names when check_versi
       "VignetteBuilder")
   )
   
-  expect_equal(r1[["Version"]], "1.8-3")
+  expect_equal(r4[["Version"]], "1.8-3")
+
+})
+
+test_that("cran_package() fails for incorrect version names", {
+  
+  expect_error(cran_package("xtable", version = 7))
+  expect_error(cran_package("xtable", version = letters))
+  expect_error(cran_package("igraph", version = NA_character))
+  
 })
 
 test_that("cran_events() works", {

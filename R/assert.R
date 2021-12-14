@@ -12,15 +12,15 @@ on_failure(is_package_name) <- function(call, env) {
   paste0(deparse(call$x), " is not a valid package name")
 }
 
-#' @importFrom assertthat assert_that is.string
+#' @importFrom assertthat assert_that is.string noNA
 
-is_package_version <- function(string) {
+is_string <- function(string) {
   assert_that(is.string(string))
-  grepl("^[0-9a-zA-Z._]*$", string)
+  assert_that(noNA(string))
 }
 
 #' @importFrom assertthat  "on_failure<-"
 
-on_failure(is_package_version) <- function(call, env) {
-  paste0(deparse(call$x), " is not a valid (package or R) version")
+on_failure(is_string) <- function(call, env) {
+  paste0(deparse(call$x), " must be a single string with no missing values")
 }
