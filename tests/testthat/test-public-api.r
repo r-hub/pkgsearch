@@ -31,11 +31,11 @@ test_that("cran_package() works", {
   
   expect_equal(
     sort(names(r4)),
-    c("Author", "Authors@R", "crandb_file_date", "date", "Date",
+    sort(c("Author", "Authors@R", "crandb_file_date", "date", "Date",
       "Date/Publication", "Depends", "Description", "Imports", "License",
       "Maintainer", "MD5sum", "NeedsCompilation", "Package", "Packaged",
       "releases", "Repository", "Suggests", "Title", "URL", "Version",
-      "VignetteBuilder")
+      "VignetteBuilder"))
   )
   
   expect_equal(r4[["Version"]], "1.8-3")
