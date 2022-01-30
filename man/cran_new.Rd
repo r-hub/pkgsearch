@@ -26,7 +26,7 @@ to specify the current date and time.}
 \item{last}{Integer to limit the number of returned packages.}
 }
 \value{
-Tibble of package descriptions.
+Data frame of package descriptions.
 }
 \description{
 List the latest new CRAN packages.

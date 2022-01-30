@@ -10,7 +10,7 @@ cran_package_history(package)
 \item{package}{Package name.}
 }
 \value{
-A tibble, with one row per package version.
+A data frame, with one row per package version.
 }
 \description{
 Query the history of a package

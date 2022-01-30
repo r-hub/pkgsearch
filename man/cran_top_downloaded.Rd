@@ -7,7 +7,7 @@
 cran_top_downloaded()
 }
 \value{
-Tibble of top downloaded packages.
+Data frame of top downloaded packages.
 }
 \description{
 Last week.

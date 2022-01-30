@@ -43,7 +43,7 @@ here.}
 \item{x}{Object to print.}
 }
 \value{
-A tibble with columns:
+A data frame with columns:
 \itemize{
 \item \code{score}: Score of the hit. See Section \emph{Scoring} for some details.
 \item \code{package}: Package name.
@@ -86,7 +86,7 @@ more()
 ps("visualization")
 ps()
 
-# See the underlying tibble
+# See the underlying data frame
 ps("ropensci")
 ps()[]
 \dontshow{\}) # examplesIf}

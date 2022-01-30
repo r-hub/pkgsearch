@@ -29,7 +29,7 @@ s_data <- new.env(parent = emptyenv())
 #'   here.
 #' @param from Where to start listing the results, for pagination.
 #' @param size The number of results to list.
-#' @return A tibble with columns:
+#' @return A data frame with columns:
 #'   * `score`: Score of the hit. See Section _Scoring_ for some details.
 #'   * `package`: Package name.
 #'   * `version`: Latest package version.
@@ -60,7 +60,7 @@ s_data <- new.env(parent = emptyenv())
 #' ps("visualization")
 #' ps()
 #'
-#' # See the underlying tibble
+#' # See the underlying data frame
 #' ps("ropensci")
 #' ps()[]
 #' \dontshow{\}) # examplesIf}
@@ -262,8 +262,7 @@ format_result <- function(result, query, format, from, size, server,
   sources <- map(result$hits$hits, "[[", "_source")
   maintainer <- map_chr(sources, "[[", "Maintainer")
 
-  df <- data.frame(
-    stringsAsFactors = FALSE,
+  df <- data_frame(
     score = map_dbl(result$hits$hits, "[[", "_score"),
     package = map_chr(result$hits$hits, "[[", "_id"),
     version = package_version(map_chr(sources, "[[", "Version")),
@@ -282,8 +281,7 @@ format_result <- function(result, query, format, from, size, server,
 
   attr(df, "metadata") <- meta
 
-  requireNamespace("tibble", quietly = TRUE)
-  class(df) <- unique(c("pkg_search_result", "tbl_df", "tbl", class(df)))
+  class(df) <- unique(c("pkg_search_result", class(df)))
 
   df
 }

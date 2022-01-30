@@ -7,7 +7,7 @@
 cran_trending()
 }
 \value{
-Tibble of trending packages.
+Data frame of trending packages.
 }
 \description{
 Trending packages are the ones that were downloaded at least 1000 times

@@ -118,7 +118,7 @@ cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
 #' counts, compared to the average weekly downloads in the previous 24
 #' weeks. The percentage of increase is also shown in the output.
 #'
-#' @return Tibble of trending packages.
+#' @return Data frame of trending packages.
 #'
 #' @export
 #' @examples
@@ -133,14 +133,14 @@ cran_trending <- function() {
   Encoding(cnt) <- "UTF-8"
   tb <- fromJSON(cnt, simplifyDataFrame = TRUE)
   colnames(tb) <- c("package", "score")
-  tibble::as_tibble(tb)
+  as_data_frame(tb)
 }
 
 #' Top downloaded packages
 #'
 #' Last week.
 #'
-#' @return Tibble of top downloaded packages.
+#' @return Data frame of top downloaded packages.
 #'
 #' @details You can use the [`cranlogs` package](https://r-hub.github.io/cranlogs/)
 #' to get more flexibility into what is returned.
@@ -158,7 +158,7 @@ cran_top_downloaded <- function() {
   Encoding(cnt) <- "UTF-8"
   tb <- fromJSON(cnt, simplifyDataFrame = TRUE)$downloads
   names(tb) <- c("package", "count")
-  tibble::as_tibble(tb)
+  as_data_frame(tb)
 }
 
 #' New CRAN packages
@@ -178,7 +178,7 @@ cran_top_downloaded <- function() {
 #' of values as `from`, and additionally it can also be the string `"now"`,
 #' to specify the current date and time.
 #' @param last Integer to limit the number of returned packages.
-#' @return Tibble of package descriptions.
+#' @return Data frame of package descriptions.
 #'
 #' @export
 #' @importFrom parsedate format_iso_8601
@@ -233,7 +233,7 @@ cran_new <- function(from = "last-week", to = "now", last = Inf) {
   if (dpc %in% colnames(dsc)) {
     dsc <- dsc[, c(dpc, setdiff(colnames(dsc), dpc))]
   } else {
-    pub <- tibble::tibble(
+    pub <- data_frame(
       "Date/Publication" = map_chr(rst$rows, "[[", "key")
     )
     dsc <- cbind(pub, dsc)
@@ -311,7 +311,7 @@ do_crandb_query <- function(from, limit,
 #' Query the history of a package
 #'
 #' @param package Package name.
-#' @return A tibble, with one row per package version.
+#' @return A data frame, with one row per package version.
 #' @export
 #' @examples
 #' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
@@ -375,7 +375,7 @@ rectangle_description <- function(description_list) {
 
   description_list[dep_types()] <- NULL
 
-  tibble::as_tibble(description_list)
+  as_data_frame(description_list)
 }
 
 idesc_get_deps <- function(description_list) {

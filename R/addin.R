@@ -384,7 +384,7 @@ pkg_search_addin <- function(
 
   dep_list0 <- function() {
     deps <- crandb_query("/-/deps/devel")
-    tibble::tibble(
+    data_frame(
       package = names(deps),
       count = unlist(deps)
     )
@@ -469,9 +469,9 @@ pkg_search_addin <- function(
     url <- paste0(ep, "?keys=[", keys, "]")
     ret <- crandb_query(url)
     if (length(ret)) {
-      tibble::tibble(email = ret[,1], package = ret[,2])
+      data_frame(email = ret[,1], package = ret[,2])
     } else {
-      tibble::tibble(email = character(), package = character())
+      data_frame(email = character(), package = character())
     }
   }
 
@@ -777,7 +777,7 @@ format_pkg <- function(record, id, num, from) {
 
 rectangle_pkgs <- function(pkgs) {
   maintainer <- parse_maint(pkgs$Maintainer %||% character())
-  tibble::tibble(
+  data_frame(
     package =          pkgs$Package %||% character(),
     version =          pkgs$Version %||% character(),
     title =            pkgs$Title %||% character(),
@@ -787,12 +787,12 @@ rectangle_pkgs <- function(pkgs) {
     maintainer_email = maintainer$maintainer_email,
     license =          pkgs$License %||% character(),
     url =              pkgs$URL %||% character(),
-    bugreports =       pkgs$BugReports %||% character(),
+    bugreports =       pkgs$BugReports %||% character()
   )
 }
 
 parse_maint <- function(x) {
-  tibble::tibble(
+  data_frame(
     maintainer_name = gsub("\\s*<.*$", "", x),
     maintainer_email = gsub("^.*<([^>]+)>.*$", "\\1", x, perl = TRUE)
   )
@@ -800,7 +800,7 @@ parse_maint <- function(x) {
 
 rectangle_events <- function(ev) {
   maintainer <- parse_maint(map_chr(ev, function(x) x$package$Maintainer %||% NA_character_))
-  tibble::tibble(
+  data_frame(
     package =          map_chr(ev, function(x) x$package$Package),
     version =          map_chr(ev, function(x) x$package$Version),
     title =            map_chr(ev, function(x) x$package$Title),

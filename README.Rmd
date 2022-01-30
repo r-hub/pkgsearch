@@ -38,6 +38,7 @@ Do you need to find packages solving a particular problem, e.g.
 
 ```{r search}
 library("pkgsearch")
+library("pillar") # nicer data frame printing
 pkg_search("permutation test")
 ```
 

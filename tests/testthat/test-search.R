@@ -5,7 +5,7 @@ test_that("search", {
   skip_if_offline()
 
   x <- ps("csardi")
-  expect_s3_class(x, "tbl_df")
+  expect_s3_class(x, "tbl")
   expect_s3_class(x, "pkg_search_result")
 
   expect_true(
@@ -38,11 +38,11 @@ test_that("again", {
   expect_error(x3 <- ps(), NA)
   expect_equal(meta(s_data$prev_q$result)$format, "short")
 
-  expect_s3_class(x2, "tbl_df")
+  expect_s3_class(x2, "tbl")
   expect_s3_class(x2, "pkg_search_result")
   expect_equal(x$package, x2$package)
 
-  expect_s3_class(x3, "tbl_df")
+  expect_s3_class(x3, "tbl")
   expect_s3_class(x3, "pkg_search_result")
   expect_equal(x$package, x3$package)
 })
@@ -53,7 +53,7 @@ test_that("more", {
   x <- ps("csardi")
   x2 <- more()
 
-  expect_s3_class(x2, "tbl_df")
+  expect_s3_class(x2, "tbl")
   expect_s3_class(x2, "pkg_search_result")
   expect_true(max(x2$score) <= min(x$score))
 

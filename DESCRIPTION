@@ -20,13 +20,13 @@ Imports:
     curl,
     jsonlite,
     parsedate,
-    prettyunits,
-    tibble
+    prettyunits
 Remotes: gaborcsardi/parsedate
 Suggests:
     mockery,
     covr,
     memoise,
+    pillar,
     pingr (>= 2.0.0),
     rstudioapi,
     shiny,
@@ -35,5 +35,5 @@ Suggests:
     testthat (>= 2.1.0),
     whoami
 Encoding: UTF-8
-RoxygenNote: 7.1.1.9001
+RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
