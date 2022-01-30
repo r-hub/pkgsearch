@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://r-hub.github.io/pkgsearch/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/header.html</loc>
+  </url>
+  <url>
     <loc>https://r-hub.github.io/pkgsearch/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/news/index.html</loc>
   </url>
   <url>
     <loc>https://r-hub.github.io/pkgsearch/reference/advanced_search.html</loc>
@@ -26,6 +38,9 @@
   </url>
   <url>
     <loc>https://r-hub.github.io/pkgsearch/reference/cran_trending.html</loc>
+  </url>
+  <url>
+    <loc>https://r-hub.github.io/pkgsearch/reference/index.html</loc>
   </url>
   <url>
     <loc>https://r-hub.github.io/pkgsearch/reference/pkg_search.html</loc>

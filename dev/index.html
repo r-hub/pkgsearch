@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -64,7 +66,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/r-hub/pkgsearch">
+  <a href="https://github.com/r-hub/pkgsearch" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -81,9 +83,9 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="search-and-query-cran-r-packages" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#search-and-query-cran-r-packages" class="anchor"></a>Search and Query CRAN R Packages</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="search-and-query-cran-r-packages">Search and Query CRAN R Packages<a class="anchor" aria-label="anchor" href="#search-and-query-cran-r-packages"></a>
+</h1></div>
 <!-- badges: start -->
 
 <p><code>pkgsearch</code> uses R-hub web services that munge CRAN metadata and let you access it through several lenses.</p>
@@ -114,496 +116,514 @@
 <li><a href="#more-info">More info</a></li>
 <li><a href="#license">License</a></li>
 </ul>
-<!-- README.md is generated from README.Rmd. Please edit that file --><div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<!-- README.md is generated from README.Rmd. Please edit that file --><div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>Install the latest pkgsearch release from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pkgsearch"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pkgsearch"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
-<div id="search-relevant-packages" class="section level3">
-<h3 class="hasAnchor">
-<a href="#search-relevant-packages" class="anchor"></a>Search relevant packages</h3>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<div class="section level3">
+<h3 id="search-relevant-packages">Search relevant packages<a class="anchor" aria-label="anchor" href="#search-relevant-packages"></a>
+</h3>
 <p>Do you need to find packages solving a particular problem, e.g. “permutation test”?</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/r-hub/pkgsearch">"pkgsearch"</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/r-hub/pkgsearch" class="external-link">"pkgsearch"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://pillar.r-lib.org/" class="external-link">"pillar"</a></span><span class="op">)</span> <span class="co"># nicer data frame printing</span>
 <span class="fu"><a href="reference/pkg_search.html">pkg_search</a></span><span class="op">(</span><span class="st">"permutation test"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#&gt; - "permutation test" ----------------------------------- 1835 packages in 0.014 seconds -</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt;   #     package        version by                      @ title                           </span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt;   1 100 coin           1.3.1   Torsten Hothorn        3M Conditional Inference Procedu...</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt;   2  33 flip           2.5.0   Livio Finos            1y Multivariate Permutation Tests  </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt;   3  31 exactRankTests 0.8.30  Torsten Hothorn        7M Exact Distributions for Rank ...</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt;   4  30 perm           1.0.0.0 Michael Fay            9y Exact or Asymptotic permutati...</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;   5  25 jmuOutlier     2.2     Steven T. Garren       4M Permutation Tests for Nonpara...</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;   6  21 wPerm          1.0.1   Neil A. Weiss          4y Permutation Tests               </span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;   7  18 cpt            1.0.2   Johann Gagnon-Bartsch  1y Classification Permutation Test </span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;   8  18 GlobalDeviance 0.4     Frederike Fuhlbrueck   6y Global Deviance Permutation T...</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt;   9  18 permutes       1.0     Cesko C. Voeten        4M Permutation Tests for Time Se...</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;  10  17 AUtests        0.98    Arjun Sondhi           3y Approximate Unconditional and...</span></span></code></pre></div>
-<p>pkgsearch uses an <a href="https://docs.r-hub.io">R-hub</a> web service and a careful ranking that puts popular packages before less frequently used ones.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "permutation test" ------------------------------------ 2229 packages in 0.01 seconds -</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package        version by                      @ title                           </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 100 coin           1.4.2   Torsten Hothorn        4M Conditional Inference Procedu...</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2  31 perm           1.0.0.2 Michael P. Fay         4M Exact or Asymptotic Permutati...</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3  30 exactRankTests 0.8.34  Torsten Hothorn        4M Exact Distributions for Rank ...</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4  29 flip           2.5.0   Livio Finos            3y Multivariate Permutation Tests  </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5  22 jmuOutlier     2.2     Steven T. Garren       2y Permutation Tests for Nonpara...</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6  19 wPerm          1.0.1   Neil A. Weiss          6y Permutation Tests               </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7  16 cpt            1.0.2   Johann Gagnon-Bartsch  3y Classification Permutation Test </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8  16 GlobalDeviance 0.4     Frederike Fuhlbrueck   8y Global Deviance Permutation T...</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9  16 AUtests        0.99    Arjun Sondhi           1y Approximate Unconditional and...</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10  16 permutes       2.3.2   Cesko C. Voeten        2M Permutation Tests for Time Se...</span></span></code></pre></div>
+<p>pkgsearch uses an <a href="https://docs.r-hub.io" class="external-link">R-hub</a> web service and a careful ranking that puts popular packages before less frequently used ones.</p>
 </div>
-<div id="do-it-all-clicking" class="section level3">
-<h3 class="hasAnchor">
-<a href="#do-it-all-clicking" class="anchor"></a>Do it all <em>clicking</em>
+<div class="section level3">
+<h3 id="do-it-all-clicking">Do it all <em>clicking</em>
+<a class="anchor" aria-label="anchor" href="#do-it-all-clicking"></a>
 </h3>
 <p>For the search mentioned above, and other points of entry to CRAN metadata, you can use pkgsearch RStudio add-in!</p>
-<p><a href="https://vimeo.com/375618736"><img src="https://raw.githubusercontent.com/r-hub/pkgsearch/master/gifs/addin.gif" alt="Addin screencast"></a></p>
+<p><a href="https://vimeo.com/375618736" class="external-link"><img src="https://raw.githubusercontent.com/r-hub/pkgsearch/master/gifs/addin.gif" alt="Addin screencast"></a></p>
 <p>Select the “CRAN package search” addin from the menu, or start it with <code><a href="reference/pkg_search_addin.html">pkg_search_addin()</a></code>.</p>
 </div>
-<div id="get-package-metadata" class="section level3">
-<h3 class="hasAnchor">
-<a href="#get-package-metadata" class="anchor"></a>Get package metadata</h3>
+<div class="section level3">
+<h3 id="get-package-metadata">Get package metadata<a class="anchor" aria-label="anchor" href="#get-package-metadata"></a>
+</h3>
 <p>Do you want to find the dependencies the first versions of <code>testthat</code> had and when each of these versions was released?</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/cran_package_history.html">cran_package_history</a></span><span class="op">(</span><span class="st">"testthat"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#&gt; # A tibble: 25 x 25</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt;    Package Type  Title Version Author Maintainer Description URL   License LazyData</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt;  * &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   </span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt;  1 testth… Pack… Tool… 0.1     Hadle… Hadley Wi… Test_that … http… GPL     true    </span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt;  2 testth… Pack… Test… 0.1.1   Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt;  3 testth… Pack… Test… 0.2     Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt;  4 testth… Pack… Test… 0.3     Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt;  5 testth… Pack… Test… 0.4     Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt;  6 testth… Pack… Test… 0.5     Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt;  7 testth… Pack… Test… 0.6     Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">#&gt;  8 testth… Pack… Test… 0.7     Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">#&gt;  9 testth… Pack… Test… 0.7.1   Hadle… Hadley Wi… A testing … http… GPL     true    </span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">#&gt; 10 testth… Pack… Test… 0.8     Hadle… Hadley Wi… A testing … http… MIT + … true    </span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co">#&gt; # … with 15 more rows, and 15 more variables: Collate &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="co">#&gt; #   Repository &lt;chr&gt;, `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;, date &lt;chr&gt;,</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="co">#&gt; #   dependencies &lt;list&gt;, NeedsCompilation &lt;chr&gt;, Roxygen &lt;chr&gt;, `Authors@R` &lt;chr&gt;,</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="co">#&gt; #   BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="co">#&gt; #   MD5sum &lt;chr&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A data frame: 35 × 29</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Package  Type    Title  Version Author  Maintainer  Description  URL   License LazyData</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  * &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 testthat Package Tools… 0.1     Hadley… Hadley Wic… Test_that c… http… GPL     true    </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 testthat Package Testt… 0.1.1   Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 testthat Package Testt… 0.2     Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 testthat Package Testt… 0.3     Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 testthat Package Testt… 0.4     Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 testthat Package Testt… 0.5     Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 testthat Package Testt… 0.6     Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 testthat Package Testt… 0.7     Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 testthat Package Testt… 0.7.1   Hadley… Hadley Wic… A testing p… http… GPL     true    </span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 testthat Package Testt… 0.8     Hadley… Hadley Wic… A testing p… http… MIT + … true    </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 25 more rows, and 19 more variables: Collate &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   Repository &lt;chr&gt;, Date/Publication &lt;chr&gt;, crandb_file_date &lt;chr&gt;, date &lt;chr&gt;,</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   dependencies &lt;list&gt;, NeedsCompilation &lt;chr&gt;, Roxygen &lt;chr&gt;, Authors@R &lt;chr&gt;,</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   MD5sum &lt;chr&gt;, Config/testthat/edition &lt;chr&gt;, Config/testthat/parallel &lt;chr&gt;,</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   Config/testthat/start-first &lt;chr&gt;, Config/Needs/website &lt;chr&gt;</span></span></code></pre></div>
 </div>
-<div id="discover-packages" class="section level3">
-<h3 class="hasAnchor">
-<a href="#discover-packages" class="anchor"></a>Discover packages</h3>
+<div class="section level3">
+<h3 id="discover-packages">Discover packages<a class="anchor" aria-label="anchor" href="#discover-packages"></a>
+</h3>
 <p>Do you want to know what packages are trending on CRAN these days? <code>pkgsearch</code> can help!</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/cran_trending.html">cran_trending</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#&gt; # A tibble: 100 x 2</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt;    package           score                 </span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;                 </span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt;  1 effectsize        62015.4696132596685100</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;  2 leaflet.providers 6643.3748373908195500 </span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;  3 farver            2829.3291388772503400 </span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt;  4 renv              1054.6458141674333000 </span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt;  5 joint.Cox         713.9481572914829800  </span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt;  6 rsq               605.0799623706491100  </span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt;  7 NNS               604.4613918017159200  </span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="co">#&gt;  8 fable             575.6197740941763200  </span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#&gt;  9 lobstr            558.1014729950900200  </span></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="co">#&gt; 10 feasts            523.3285233285233300  </span></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt; # … with 90 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A data frame: 100 × 2</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    package              score                 </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;                &lt;chr&gt;                 </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 SensusR              16654.8262548262548300</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 RcppTOML             1309.7784342688330900 </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 rgeoda               532.0293398533007300  </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 tvm                  434.1362258733450300  </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 admisc               429.4332034686439600  </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 reproj               423.8073602907769200  </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 tsfeatures           418.6191305636882500  </span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 maditr               411.6492038610675700  </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 GameTheoryAllocation 406.8326012689116600  </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 crsmeta              389.7779639715123600  </span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 90 more rows</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/cran_top_downloaded.html">cran_top_downloaded</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#&gt; # A tibble: 100 x 2</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt;    package         count </span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt; </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt;  1 magrittr        865875</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt;  2 aws.s3          727198</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt;  3 aws.ec2metadata 719639</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt;  4 rsconnect       700497</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt;  5 rlang           351085</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt;  6 Rcpp            268809</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt;  7 dplyr           264531</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt;  8 ellipsis        243197</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt;  9 ggplot2         237589</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#&gt; 10 purrr           229599</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="co">#&gt; # … with 90 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A data frame: 100 × 2</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    package   count </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt; </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 ggplot2   520098</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 rlang     484204</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 glue      388030</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 pillar    383501</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 cli       374950</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 lifecycle 354413</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 dplyr     347728</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 vctrs     340291</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 ellipsis  326946</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 magrittr  320002</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 90 more rows</span></span></code></pre></div>
 </div>
-<div id="keep-up-with-cran" class="section level3">
-<h3 class="hasAnchor">
-<a href="#keep-up-with-cran" class="anchor"></a>Keep up with CRAN</h3>
+<div class="section level3">
+<h3 id="keep-up-with-cran">Keep up with CRAN<a class="anchor" aria-label="anchor" href="#keep-up-with-cran"></a>
+</h3>
 <p>Are you curious about the latest releases or archivals?</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/cran_events.html">cran_events</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#&gt; CRAN events (events)---------------------------------------------------------------------</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#&gt;  . When     Package      Version    Title                                                </span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt;  + 3 hours  kohonen      3.0.10     Supervised and Unsupervised Self-Organising Maps     </span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt;  + 3 hours  atable       0.1.4      Create Tables for Reporting Clinical Trials          </span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#&gt;  + 4 hours  rbiouml      1.9        Interact with BioUML Server                          </span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="co">#&gt;  + 5 hours  lillies      0.2.5      Estimation of Life Years Lost                        </span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="co">#&gt;  + 6 hours  CovTools     0.5.3      Statistical Tools for Covariance Analysis            </span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="co">#&gt;  + 6 hours  quanteda     1.5.2      Quantitative Analysis of Textual Data                </span></span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="co">#&gt;  + 6 hours  sptm         2019.11-25 SemiParametric Transformation Model Methods          </span></span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="co">#&gt;  + 7 hours  IPDFileCheck 0.6.0      Basic Functions to Check Readability, Consistency,...</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="co">#&gt;  + 14 hours lcc          1.0.3      Longitudinal Concordance Correlation                 </span></span>
-<span id="cb11-12"><a href="#cb11-12"></a><span class="co">#&gt;  + 14 hours MLeval       0.1        Machine Learning Model Evaluation</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; CRAN events (events)---------------------------------------------------------------------</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  . When     Package         Version  Title                                               </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 8 hours  mrgsim.parallel 0.2.0    Simulate with 'mrgsolve' in Parallel                </span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 9 hours  report          0.5.0    Automated Reporting of Results and Statistical Mo...</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 11 hours ivsacim         2.1.0    Structural Additive Cumulative Intensity Models w...</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 16 hours bootcluster     0.3.2    Bootstrapping Estimates of Clustering Stability     </span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 18 hours gtsummary       1.5.2    Presentation-Ready Data Summary and Analytic Resu...</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 18 hours vegawidget      0.4.1    'Htmlwidget' for 'Vega' and 'Vega-Lite'             </span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 1 day    HDMT            1.0.5    A Multiple Testing Procedure for High-Dimensional...</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 1 day    RavenR          2.1.6    Raven Hydrological Modelling Framework R Support ...</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 1 day    braQCA          1.2.1.29 Bootstrapped Robustness Assessment for Qualitativ...</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  + 1 day    comat           0.9.3    Creates Co-Occurrence Matrices of Spatial Data</span></span></code></pre></div>
 </div>
 </div>
-<div id="search-features" class="section level2">
-<h2 class="hasAnchor">
-<a href="#search-features" class="anchor"></a>Search features</h2>
-<div id="more-details" class="section level3">
-<h3 class="hasAnchor">
-<a href="#more-details" class="anchor"></a>More details</h3>
+<div class="section level2">
+<h2 id="search-features">Search features<a class="anchor" aria-label="anchor" href="#search-features"></a>
+</h2>
+<div class="section level3">
+<h3 id="more-details">More details<a class="anchor" aria-label="anchor" href="#more-details"></a>
+</h3>
 <p>By default it returns a short summary of the ten best search hits. Their details can be printed by using the <code>format = "long"</code> option of <code><a href="reference/pkg_search.html">pkg_search()</a></code>, or just calling <code><a href="reference/pkg_search.html">pkg_search()</a></code> again, without any arguments, after a search:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-hub/pkgsearch">pkgsearch</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-hub/pkgsearch" class="external-link">pkgsearch</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/pkg_search.html">pkg_search</a></span><span class="op">(</span><span class="st">"C++"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#&gt; - "C++" ------------------------------------------------- 7973 packages in 0.01 seconds -</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="co">#&gt;   #     package      version  by                    @ title                              </span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#&gt;   1 100 Rcpp         1.0.3    Dirk Eddelbuettel   18d Seamless R and C++ Integration     </span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co">#&gt;   2  30 BH           1.69.0.1 Dirk Eddelbuettel   11M Boost C++ Header Files             </span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt;   3  16 markdown     1.1      Yihui Xie            4M Render Markdown with the C Libra...</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt;   4  14 StanHeaders  2.19.0   Ben Goodrich         3M C++ Header Files for Stan          </span></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co">#&gt;   5  12 inline       0.3.15   Dirk Eddelbuettel    2y Functions to Inline C, C++, Fort...</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="co">#&gt;   6  11 RcppProgress 0.4.1    Karl Forner          2y An Interruptible Progress Bar wi...</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="co">#&gt;   7  10 SnowballC    0.6.0    Milan Bouchet-Valat 10M Snowball Stemmers Based on the C...</span></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#&gt;   8  10 covr         3.3.2    Jim Hester           1M Test Coverage for Packages         </span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="co">#&gt;   9   7 glpkAPI      1.3.1    Mayo Roettger        1y R Interface to C API of GLPK       </span></span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="co">#&gt;  10   6 RNifti       1.0.0    Jon Clayden          5d Fast R and C++ Access to NIfTI I...</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "C++" ----------------------------------------------- 11735 packages in 0.006 seconds -</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package      version  by                    @ title                              </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 100 Rcpp         1.0.8    Dirk Eddelbuettel   17d Seamless R and C++ Integration     </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2  36 markdown     1.1      Yihui Xie            2y Render Markdown with the C Libra...</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3  32 BH           1.78.0.0 Dirk Eddelbuettel    2M Boost C++ Header Files             </span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4  18 StanHeaders  2.21.0.7 Ben Goodrich         1y C++ Header Files for Stan          </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5  13 RcppProgress 0.4.2    Karl Forner          2y An Interruptible Progress Bar wi...</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6  12 cpp11        0.4.2    Romain François      2M A C++11 Interface for R's C Inte...</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7  12 covr         3.5.1    Jim Hester           1y Test Coverage for Packages         </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8  10 inline       0.3.19   Dirk Eddelbuettel    8M Functions to Inline C, C++, Fort...</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9   9 SnowballC    0.7.0    Milan Bouchet-Valat  2y Snowball Stemmers Based on the C...</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10   8 RcppThread   2.0.1    Thomas Nagler        3d R-Friendly Threading in C++</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">pkg_search</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#&gt; - "C++" ------------------------------------------------- 7973 packages in 0.01 seconds -</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="co">#&gt; </span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="co">#&gt; 1 Rcpp @ 1.0.3                                             Dirk Eddelbuettel, 18 days ago</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co">#&gt; --------------</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="co">#&gt;   # Seamless R and C++ Integration</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="co">#&gt;   The 'Rcpp' package provides R functions as well as C++ classes which offer a</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co">#&gt;   seamless integration of R and C++. Many R data types and objects can be mapped</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a><span class="co">#&gt;   back and forth to C++ equivalents which facilitates both writing of new code</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="co">#&gt;   as well as easier integration of third-party libraries. Documentation about</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="co">#&gt;   'Rcpp' is provided by several vignettes included in this package, via the</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="co">#&gt;   'Rcpp Gallery' site at &lt;http://gallery.rcpp.org&gt;, the paper by Eddelbuettel</span></span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="co">#&gt;   and Francois (2011, &lt;doi:10.18637/jss.v040.i08&gt;), the book by Eddelbuettel</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a><span class="co">#&gt;   (2013, &lt;doi:10.1007/978-1-4614-6868-4&gt;) and the paper by Eddelbuettel and</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a><span class="co">#&gt;   Balamuta (2018, &lt;doi:10.1080/00031305.2017.1375990&gt;); see 'citation("Rcpp")'</span></span>
-<span id="cb15-15"><a href="#cb15-15"></a><span class="co">#&gt;   for details.</span></span>
-<span id="cb15-16"><a href="#cb15-16"></a><span class="co">#&gt;   http://www.rcpp.org</span></span>
-<span id="cb15-17"><a href="#cb15-17"></a><span class="co">#&gt;   http://dirk.eddelbuettel.com/code/rcpp.html</span></span>
-<span id="cb15-18"><a href="#cb15-18"></a><span class="co">#&gt;   https://github.com/RcppCore/Rcpp</span></span>
-<span id="cb15-19"><a href="#cb15-19"></a><span class="co">#&gt; </span></span>
-<span id="cb15-20"><a href="#cb15-20"></a><span class="co">#&gt; 2 BH @ 1.69.0.1                                          Dirk Eddelbuettel, 11 months ago</span></span>
-<span id="cb15-21"><a href="#cb15-21"></a><span class="co">#&gt; ---------------</span></span>
-<span id="cb15-22"><a href="#cb15-22"></a><span class="co">#&gt;   # Boost C++ Header Files</span></span>
-<span id="cb15-23"><a href="#cb15-23"></a><span class="co">#&gt;   Boost provides free peer-reviewed portable C++ source libraries.  A large part</span></span>
-<span id="cb15-24"><a href="#cb15-24"></a><span class="co">#&gt;   of Boost is provided as C++ template code which is resolved entirely at</span></span>
-<span id="cb15-25"><a href="#cb15-25"></a><span class="co">#&gt;   compile-time without linking.  This package aims to provide the most useful</span></span>
-<span id="cb15-26"><a href="#cb15-26"></a><span class="co">#&gt;   subset of Boost libraries for template use among CRAN package. By placing</span></span>
-<span id="cb15-27"><a href="#cb15-27"></a><span class="co">#&gt;   these libraries in this package, we offer a more efficient distribution system</span></span>
-<span id="cb15-28"><a href="#cb15-28"></a><span class="co">#&gt;   for CRAN as replication of this code in the sources of other packages is</span></span>
-<span id="cb15-29"><a href="#cb15-29"></a><span class="co">#&gt;   avoided. As of release 1.69.0-1, the following Boost libraries are included:</span></span>
-<span id="cb15-30"><a href="#cb15-30"></a><span class="co">#&gt;   'algorithm' 'align' 'any' 'atomic' 'bimap' 'bind' 'circular_buffer' 'compute'</span></span>
-<span id="cb15-31"><a href="#cb15-31"></a><span class="co">#&gt;   'concept' 'config' 'container' 'date_time' 'detail' 'dynamic_bitset'</span></span>
-<span id="cb15-32"><a href="#cb15-32"></a><span class="co">#&gt;   'exception' 'filesystem' 'flyweight' 'foreach' 'functional' 'fusion'</span></span>
-<span id="cb15-33"><a href="#cb15-33"></a><span class="co">#&gt;   'geometry' 'graph' 'heap' 'icl' 'integer' 'interprocess' 'intrusive' 'io'</span></span>
-<span id="cb15-34"><a href="#cb15-34"></a><span class="co">#&gt;   'iostreams' 'iterator' 'math' 'move' 'mpl' 'multiprcecision' 'numeric'</span></span>
-<span id="cb15-35"><a href="#cb15-35"></a><span class="co">#&gt;   'pending' 'phoenix' 'preprocessor' 'propery_tree' 'random' 'range'</span></span>
-<span id="cb15-36"><a href="#cb15-36"></a><span class="co">#&gt;   'scope_exit' 'smart_ptr' 'sort' 'spirit' 'tuple' 'type_traits' 'typeof'</span></span>
-<span id="cb15-37"><a href="#cb15-37"></a><span class="co">#&gt;   'unordered' 'utility' 'uuid'.</span></span>
-<span id="cb15-38"><a href="#cb15-38"></a><span class="co">#&gt; </span></span>
-<span id="cb15-39"><a href="#cb15-39"></a><span class="co">#&gt; 3 markdown @ 1.1                                                  Yihui Xie, 4 months ago</span></span>
-<span id="cb15-40"><a href="#cb15-40"></a><span class="co">#&gt; ----------------</span></span>
-<span id="cb15-41"><a href="#cb15-41"></a><span class="co">#&gt;   # Render Markdown with the C Library 'Sundown'</span></span>
-<span id="cb15-42"><a href="#cb15-42"></a><span class="co">#&gt;   Provides R bindings to the 'Sundown' Markdown rendering library</span></span>
-<span id="cb15-43"><a href="#cb15-43"></a><span class="co">#&gt;   (&lt;https://github.com/vmg/sundown&gt;). Markdown is a plain-text formatting syntax</span></span>
-<span id="cb15-44"><a href="#cb15-44"></a><span class="co">#&gt;   that can be converted to 'XHTML' or other formats. See</span></span>
-<span id="cb15-45"><a href="#cb15-45"></a><span class="co">#&gt;   &lt;http://en.wikipedia.org/wiki/Markdown&gt; for more information about Markdown.</span></span>
-<span id="cb15-46"><a href="#cb15-46"></a><span class="co">#&gt;   https://github.com/rstudio/markdown</span></span>
-<span id="cb15-47"><a href="#cb15-47"></a><span class="co">#&gt; </span></span>
-<span id="cb15-48"><a href="#cb15-48"></a><span class="co">#&gt; 4 StanHeaders @ 2.19.0                                         Ben Goodrich, 3 months ago</span></span>
-<span id="cb15-49"><a href="#cb15-49"></a><span class="co">#&gt; ----------------------</span></span>
-<span id="cb15-50"><a href="#cb15-50"></a><span class="co">#&gt;   # C++ Header Files for Stan</span></span>
-<span id="cb15-51"><a href="#cb15-51"></a><span class="co">#&gt;   The C++ header files of the Stan project are provided by this package, but it</span></span>
-<span id="cb15-52"><a href="#cb15-52"></a><span class="co">#&gt;   contains no R code or function documentation. There is a shared object</span></span>
-<span id="cb15-53"><a href="#cb15-53"></a><span class="co">#&gt;   containing part of the 'CVODES' library, but it is not accessible from R.</span></span>
-<span id="cb15-54"><a href="#cb15-54"></a><span class="co">#&gt;   'StanHeaders' is only useful for developers who want to utilize the</span></span>
-<span id="cb15-55"><a href="#cb15-55"></a><span class="co">#&gt;   'LinkingTo' directive of their package's DESCRIPTION file to build on the Stan</span></span>
-<span id="cb15-56"><a href="#cb15-56"></a><span class="co">#&gt;   library without incurring unnecessary dependencies. The Stan project develops</span></span>
-<span id="cb15-57"><a href="#cb15-57"></a><span class="co">#&gt;   a probabilistic programming language that implements full or approximate</span></span>
-<span id="cb15-58"><a href="#cb15-58"></a><span class="co">#&gt;   Bayesian statistical inference via Markov Chain Monte Carlo or 'variational'</span></span>
-<span id="cb15-59"><a href="#cb15-59"></a><span class="co">#&gt;   methods and implements (optionally penalized) maximum likelihood estimation</span></span>
-<span id="cb15-60"><a href="#cb15-60"></a><span class="co">#&gt;   via optimization. The Stan library includes an advanced automatic</span></span>
-<span id="cb15-61"><a href="#cb15-61"></a><span class="co">#&gt;   differentiation scheme, 'templated' statistical and linear algebra functions</span></span>
-<span id="cb15-62"><a href="#cb15-62"></a><span class="co">#&gt;   that can handle the automatically 'differentiable' scalar types (and doubles,</span></span>
-<span id="cb15-63"><a href="#cb15-63"></a><span class="co">#&gt;   'ints', etc.), and a parser for the Stan language. The 'rstan' package</span></span>
-<span id="cb15-64"><a href="#cb15-64"></a><span class="co">#&gt;   provides user-facing R functions to parse, compile, test, estimate, and</span></span>
-<span id="cb15-65"><a href="#cb15-65"></a><span class="co">#&gt;   analyze Stan models.</span></span>
-<span id="cb15-66"><a href="#cb15-66"></a><span class="co">#&gt;   http://mc-stan.org/</span></span>
-<span id="cb15-67"><a href="#cb15-67"></a><span class="co">#&gt; </span></span>
-<span id="cb15-68"><a href="#cb15-68"></a><span class="co">#&gt; 5 inline @ 0.3.15                                          Dirk Eddelbuettel, 2 years ago</span></span>
-<span id="cb15-69"><a href="#cb15-69"></a><span class="co">#&gt; -----------------</span></span>
-<span id="cb15-70"><a href="#cb15-70"></a><span class="co">#&gt;   # Functions to Inline C, C++, Fortran Function Calls from R</span></span>
-<span id="cb15-71"><a href="#cb15-71"></a><span class="co">#&gt;   Functionality to dynamically define R functions and S4 methods with 'inlined'</span></span>
-<span id="cb15-72"><a href="#cb15-72"></a><span class="co">#&gt;   C, C++ or Fortran code supporting the .C and .Call calling conventions.</span></span>
-<span id="cb15-73"><a href="#cb15-73"></a><span class="co">#&gt; </span></span>
-<span id="cb15-74"><a href="#cb15-74"></a><span class="co">#&gt; 6 RcppProgress @ 0.4.1                                           Karl Forner, 2 years ago</span></span>
-<span id="cb15-75"><a href="#cb15-75"></a><span class="co">#&gt; ----------------------</span></span>
-<span id="cb15-76"><a href="#cb15-76"></a><span class="co">#&gt;   # An Interruptible Progress Bar with OpenMP Support for C++ in R Packages</span></span>
-<span id="cb15-77"><a href="#cb15-77"></a><span class="co">#&gt;   Allows to display a progress bar in the R console for long running</span></span>
-<span id="cb15-78"><a href="#cb15-78"></a><span class="co">#&gt;   computations taking place in c++ code, and support for interrupting those</span></span>
-<span id="cb15-79"><a href="#cb15-79"></a><span class="co">#&gt;   computations even in multithreaded code, typically using OpenMP.</span></span>
-<span id="cb15-80"><a href="#cb15-80"></a><span class="co">#&gt;   https://github.com/kforner/rcpp_progress</span></span>
-<span id="cb15-81"><a href="#cb15-81"></a><span class="co">#&gt; </span></span>
-<span id="cb15-82"><a href="#cb15-82"></a><span class="co">#&gt; 7 SnowballC @ 0.6.0                                    Milan Bouchet-Valat, 10 months ago</span></span>
-<span id="cb15-83"><a href="#cb15-83"></a><span class="co">#&gt; -------------------</span></span>
-<span id="cb15-84"><a href="#cb15-84"></a><span class="co">#&gt;   # Snowball Stemmers Based on the C 'libstemmer' UTF-8 Library</span></span>
-<span id="cb15-85"><a href="#cb15-85"></a><span class="co">#&gt;   An R interface to the C 'libstemmer' library that implements Porter's word</span></span>
-<span id="cb15-86"><a href="#cb15-86"></a><span class="co">#&gt;   stemming algorithm for collapsing words to a common root to aid comparison of</span></span>
-<span id="cb15-87"><a href="#cb15-87"></a><span class="co">#&gt;   vocabulary. Currently supported languages are Danish, Dutch, English, Finnish,</span></span>
-<span id="cb15-88"><a href="#cb15-88"></a><span class="co">#&gt;   French, German, Hungarian, Italian, Norwegian, Portuguese, Romanian, Russian,</span></span>
-<span id="cb15-89"><a href="#cb15-89"></a><span class="co">#&gt;   Spanish, Swedish and Turkish.</span></span>
-<span id="cb15-90"><a href="#cb15-90"></a><span class="co">#&gt;   https://r-forge.r-project.org/projects/r-temis/</span></span>
-<span id="cb15-91"><a href="#cb15-91"></a><span class="co">#&gt; </span></span>
-<span id="cb15-92"><a href="#cb15-92"></a><span class="co">#&gt; 8 covr @ 3.3.2                                              Jim Hester, about a month ago</span></span>
-<span id="cb15-93"><a href="#cb15-93"></a><span class="co">#&gt; --------------</span></span>
-<span id="cb15-94"><a href="#cb15-94"></a><span class="co">#&gt;   # Test Coverage for Packages</span></span>
-<span id="cb15-95"><a href="#cb15-95"></a><span class="co">#&gt;   Track and report code coverage for your package and (optionally) upload the</span></span>
-<span id="cb15-96"><a href="#cb15-96"></a><span class="co">#&gt;   results to a coverage service like 'Codecov' &lt;http://codecov.io&gt; or</span></span>
-<span id="cb15-97"><a href="#cb15-97"></a><span class="co">#&gt;   'Coveralls' &lt;http://coveralls.io&gt;. Code coverage is a measure of the amount of</span></span>
-<span id="cb15-98"><a href="#cb15-98"></a><span class="co">#&gt;   code being exercised by a set of tests. It is an indirect measure of test</span></span>
-<span id="cb15-99"><a href="#cb15-99"></a><span class="co">#&gt;   quality and completeness. This package is compatible with any testing</span></span>
-<span id="cb15-100"><a href="#cb15-100"></a><span class="co">#&gt;   methodology or framework and tracks coverage of both R code and compiled</span></span>
-<span id="cb15-101"><a href="#cb15-101"></a><span class="co">#&gt;   C/C++/FORTRAN code.</span></span>
-<span id="cb15-102"><a href="#cb15-102"></a><span class="co">#&gt;   https://covr.r-lib.org</span></span>
-<span id="cb15-103"><a href="#cb15-103"></a><span class="co">#&gt;   https://github.com/r-lib/covr</span></span>
-<span id="cb15-104"><a href="#cb15-104"></a><span class="co">#&gt; </span></span>
-<span id="cb15-105"><a href="#cb15-105"></a><span class="co">#&gt; 9 glpkAPI @ 1.3.1                                         Mayo Roettger, about a year ago</span></span>
-<span id="cb15-106"><a href="#cb15-106"></a><span class="co">#&gt; -----------------</span></span>
-<span id="cb15-107"><a href="#cb15-107"></a><span class="co">#&gt;   # R Interface to C API of GLPK</span></span>
-<span id="cb15-108"><a href="#cb15-108"></a><span class="co">#&gt;   R Interface to C API of GLPK, depends on GLPK Version &gt;= 4.42.</span></span>
-<span id="cb15-109"><a href="#cb15-109"></a><span class="co">#&gt; </span></span>
-<span id="cb15-110"><a href="#cb15-110"></a><span class="co">#&gt; 10 RNifti @ 1.0.0                                                 Jon Clayden, 5 days ago</span></span>
-<span id="cb15-111"><a href="#cb15-111"></a><span class="co">#&gt; -----------------</span></span>
-<span id="cb15-112"><a href="#cb15-112"></a><span class="co">#&gt;   # Fast R and C++ Access to NIfTI Images</span></span>
-<span id="cb15-113"><a href="#cb15-113"></a><span class="co">#&gt;   Provides very fast read and write access to images stored in the NIfTI-1 and</span></span>
-<span id="cb15-114"><a href="#cb15-114"></a><span class="co">#&gt;   ANALYZE-7.5 formats, with seamless synchronisation between compiled C and</span></span>
-<span id="cb15-115"><a href="#cb15-115"></a><span class="co">#&gt;   interpreted R code. Also provides a simple image viewer, and a C/C++ API that</span></span>
-<span id="cb15-116"><a href="#cb15-116"></a><span class="co">#&gt;   can be used by other packages. Not to be confused with 'RNiftyReg', which</span></span>
-<span id="cb15-117"><a href="#cb15-117"></a><span class="co">#&gt;   performs image registration.</span></span>
-<span id="cb15-118"><a href="#cb15-118"></a><span class="co">#&gt;   https://github.com/jonclayden/RNifti</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "C++" ----------------------------------------------- 11735 packages in 0.006 seconds -</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Rcpp @ 1.0.8                                             Dirk Eddelbuettel, 17 days ago</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; --------------</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # Seamless R and C++ Integration</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   The 'Rcpp' package provides R functions as well as C++ classes which offer a</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   seamless integration of R and C++. Many R data types and objects can be mapped</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   back and forth to C++ equivalents which facilitates both writing of new code</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   as well as easier integration of third-party libraries. Documentation about</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'Rcpp' is provided by several vignettes included in this package, via the</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'Rcpp Gallery' site at &lt;https://gallery.rcpp.org&gt;, the paper by Eddelbuettel</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   and Francois (2011, &lt;doi:10.18637/jss.v040.i08&gt;), the book by Eddelbuettel</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   (2013, &lt;doi:10.1007/978-1-4614-6868-4&gt;) and the paper by Eddelbuettel and</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Balamuta (2018, &lt;doi:10.1080/00031305.2017.1375990&gt;); see 'citation("Rcpp")'</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   for details.</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   http://www.rcpp.org</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://dirk.eddelbuettel.com/code/rcpp.html</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/RcppCore/Rcpp</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 markdown @ 1.1                                                   Yihui Xie, 2 years ago</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ----------------</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # Render Markdown with the C Library 'Sundown'</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Provides R bindings to the 'Sundown' Markdown rendering library</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   (&lt;https://github.com/vmg/sundown&gt;). Markdown is a plain-text formatting syntax</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   that can be converted to 'XHTML' or other formats. See</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;http://en.wikipedia.org/wiki/Markdown&gt; for more information about Markdown.</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/rstudio/markdown</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 BH @ 1.78.0.0                                           Dirk Eddelbuettel, 2 months ago</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---------------</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # Boost C++ Header Files</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Boost provides free peer-reviewed portable C++ source libraries.  A large part</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   of Boost is provided as C++ template code which is resolved entirely at</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   compile-time without linking.  This package aims to provide the most useful</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   subset of Boost libraries for template use among CRAN packages. By placing</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   these libraries in this package, we offer a more efficient distribution system</span></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   for CRAN as replication of this code in the sources of other packages is</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   avoided. As of release 1.78.0-0, the following Boost libraries are included:</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'accumulators' 'algorithm' 'align' 'any' 'atomic' 'beast' 'bimap' 'bind'</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'circular_buffer' 'compute' 'concept' 'config' 'container' 'date_time'</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'detail' 'dynamic_bitset' 'exception' 'flyweight' 'foreach' 'functional'</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'fusion' 'geometry' 'graph' 'heap' 'icl' 'integer' 'interprocess' 'intrusive'</span></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'io' 'iostreams' 'iterator' 'lambda2' 'math' 'move' 'mp11' 'mpl'</span></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'multiprecision' 'numeric' 'pending' 'phoenix' 'polygon' 'preprocessor'</span></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'process' 'propery_tree' 'random' 'range' 'scope_exit' 'smart_ptr' 'sort'</span></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'spirit' 'tuple' 'type_traits' 'typeof' 'unordered' 'utility' 'uuid'.</span></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/eddelbuettel/bh</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://dirk.eddelbuettel.com/code/bh.html</span></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 StanHeaders @ 2.21.0.7                                   Ben Goodrich, about a year ago</span></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ------------------------</span></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # C++ Header Files for Stan</span></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   The C++ header files of the Stan project are provided by this package, but it</span></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   contains little R code or documentation. The main reference is the vignette.</span></span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   There is a shared object containing part of the 'CVODES' library, but its</span></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   functionality is not accessible from R. 'StanHeaders' is primarily useful for</span></span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   developers who want to utilize the 'LinkingTo' directive of their package's</span></span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   DESCRIPTION file to build on the Stan library without incurring unnecessary</span></span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   dependencies. The Stan project develops a probabilistic programming language</span></span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   that implements full or approximate Bayesian statistical inference via Markov</span></span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Chain Monte Carlo or 'variational' methods and implements (optionally</span></span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   penalized) maximum likelihood estimation via optimization. The Stan library</span></span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   includes an advanced automatic differentiation scheme, 'templated' statistical</span></span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   and linear algebra functions that can handle the automatically</span></span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'differentiable' scalar types (and doubles, 'ints', etc.), and a parser for</span></span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   the Stan language. The 'rstan' package provides user-facing R functions to</span></span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   parse, compile, test, estimate, and analyze Stan models.</span></span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://mc-stan.org/</span></span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 RcppProgress @ 0.4.2                                           Karl Forner, 2 years ago</span></span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ----------------------</span></span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # An Interruptible Progress Bar with OpenMP Support for C++ in R Packages</span></span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Allows to display a progress bar in the R console for long running</span></span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   computations taking place in c++ code, and support for interrupting those</span></span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   computations even in multithreaded code, typically using OpenMP.</span></span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/kforner/rcpp_progress</span></span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 cpp11 @ 0.4.2                                             Romain François, 2 months ago</span></span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---------------</span></span>
+<span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # A C++11 Interface for R's C Interface</span></span>
+<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Provides a header only, C++11 interface to R's C interface.  Compared to other</span></span>
+<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   approaches 'cpp11' strives to be safe against long jumps from the C API as</span></span>
+<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   well as C++ exceptions, conform to normal R function semantics and supports</span></span>
+<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   interaction with 'ALTREP' vectors.</span></span>
+<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://cpp11.r-lib.org</span></span>
+<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/r-lib/cpp11</span></span>
+<span id="cb15-87"><a href="#cb15-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-88"><a href="#cb15-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 covr @ 3.5.1                                               Jim Hester, about a year ago</span></span>
+<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; --------------</span></span>
+<span id="cb15-90"><a href="#cb15-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # Test Coverage for Packages</span></span>
+<span id="cb15-91"><a href="#cb15-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Track and report code coverage for your package and (optionally) upload the</span></span>
+<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   results to a coverage service like 'Codecov' &lt;https://codecov.io&gt; or</span></span>
+<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   'Coveralls' &lt;https://coveralls.io&gt;. Code coverage is a measure of the amount</span></span>
+<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   of code being exercised by a set of tests. It is an indirect measure of test</span></span>
+<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   quality and completeness. This package is compatible with any testing</span></span>
+<span id="cb15-96"><a href="#cb15-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   methodology or framework and tracks coverage of both R code and compiled</span></span>
+<span id="cb15-97"><a href="#cb15-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   C/C++/FORTRAN code.</span></span>
+<span id="cb15-98"><a href="#cb15-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://covr.r-lib.org</span></span>
+<span id="cb15-99"><a href="#cb15-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/r-lib/covr</span></span>
+<span id="cb15-100"><a href="#cb15-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-101"><a href="#cb15-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 inline @ 0.3.19                                         Dirk Eddelbuettel, 8 months ago</span></span>
+<span id="cb15-102"><a href="#cb15-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -----------------</span></span>
+<span id="cb15-103"><a href="#cb15-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # Functions to Inline C, C++, Fortran Function Calls from R</span></span>
+<span id="cb15-104"><a href="#cb15-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Functionality to dynamically define R functions and S4 methods with 'inlined'</span></span>
+<span id="cb15-105"><a href="#cb15-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   C, C++ or Fortran code supporting the .C and .Call calling conventions.</span></span>
+<span id="cb15-106"><a href="#cb15-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/eddelbuettel/inline</span></span>
+<span id="cb15-107"><a href="#cb15-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://dirk.eddelbuettel.com/code/inline.html</span></span>
+<span id="cb15-108"><a href="#cb15-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9 SnowballC @ 0.7.0                                      Milan Bouchet-Valat, 2 years ago</span></span>
+<span id="cb15-110"><a href="#cb15-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span>
+<span id="cb15-111"><a href="#cb15-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # Snowball Stemmers Based on the C 'libstemmer' UTF-8 Library</span></span>
+<span id="cb15-112"><a href="#cb15-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   An R interface to the C 'libstemmer' library that implements Porter's word</span></span>
+<span id="cb15-113"><a href="#cb15-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   stemming algorithm for collapsing words to a common root to aid comparison of</span></span>
+<span id="cb15-114"><a href="#cb15-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   vocabulary. Currently supported languages are Danish, Dutch, English, Finnish,</span></span>
+<span id="cb15-115"><a href="#cb15-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   French, German, Hungarian, Italian, Norwegian, Portuguese, Romanian, Russian,</span></span>
+<span id="cb15-116"><a href="#cb15-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Spanish, Swedish and Turkish.</span></span>
+<span id="cb15-117"><a href="#cb15-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/nalimilan/R.TeMiS</span></span>
+<span id="cb15-118"><a href="#cb15-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 RcppThread @ 2.0.1                                           Thomas Nagler, 3 days ago</span></span>
+<span id="cb15-120"><a href="#cb15-120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---------------------</span></span>
+<span id="cb15-121"><a href="#cb15-121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   # R-Friendly Threading in C++</span></span>
+<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Provides a C++11-style thread class and thread pool that can safely be</span></span>
+<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   interrupted from R. See Nagler (2021) &lt;doi:10.18637/jss.v097.c01&gt;.</span></span>
+<span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   https://github.com/tnagler/RcppThread</span></span></code></pre></div>
 </div>
-<div id="pagination" class="section level3">
-<h3 class="hasAnchor">
-<a href="#pagination" class="anchor"></a>Pagination</h3>
+<div class="section level3">
+<h3 id="pagination">Pagination<a class="anchor" aria-label="anchor" href="#pagination"></a>
+</h3>
 <p>The <code><a href="reference/pkg_search.html">more()</a></code> function can be used to display the next batch of search hits, batches contain ten packages by default. <code><a href="reference/pkg_search.html">ps()</a></code> is a shorter alias to <code><a href="reference/pkg_search.html">pkg_search()</a></code>:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">#&gt; - "google" ---------------------------------------------- 126 packages in 0.008 seconds -</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="co">#&gt;   #     package             version by               @ title                             </span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#&gt;   1 100 googleVis           0.6.4   Markus Gesmann  6M R Interface to Google Charts      </span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="co">#&gt;   2  77 googleAuthR         1.1.1   Mark Edmondson  3M Authenticate and Create Google ...</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="co">#&gt;   3  66 lubridate           1.7.4   Vitalie Spinu   2y Make Dealing with Dates a Littl...</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="co">#&gt;   4  63 gargle              0.4.0   Jennifer Bryan  2M Utilities for Working with Goog...</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a><span class="co">#&gt;   5  52 googledrive         1.0.0   Jennifer Bryan  3M An Interface to Google Drive      </span></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="co">#&gt;   6  49 googleCloudStorageR 0.5.1   Mark Edmondson  3M Interface with Google Cloud Sto...</span></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="co">#&gt;   7  48 googlesheets        0.3.0   Jennifer Bryan  1y Manage Google Spreadsheets from R </span></span>
-<span id="cb17-10"><a href="#cb17-10"></a><span class="co">#&gt;   8  44 plotKML             0.6.0   Tomislav Hengl 14d Visualization of Spatial and Sp...</span></span>
-<span id="cb17-11"><a href="#cb17-11"></a><span class="co">#&gt;   9  40 cld2                1.2     Jeroen Ooms     2y Google's Compact Language Detec...</span></span>
-<span id="cb17-12"><a href="#cb17-12"></a><span class="co">#&gt;  10  37 gsheet              0.4.2   Max Conway      3y Download Google Sheets Using Ju...</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "google" ---------------------------------------------- 155 packages in 0.005 seconds -</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package             version by               @ title                             </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 100 googledrive         2.0.0   Jennifer Bryan  7M An Interface to Google Drive      </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2  97 googleVis           0.6.11  Markus Gesmann 20d R Interface to Google Charts      </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3  97 googleAuthR         2.0.0   Mark Edmondson  2d Authenticate and Create Google ...</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4  90 lubridate           1.8.0   Vitalie Spinu   4M Make Dealing with Dates a Littl...</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5  85 gargle              1.2.0   Jennifer Bryan  7M Utilities for Working with Goog...</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6  61 googleCloudStorageR 0.7.0   Mark Edmondson  2M Interface with Google Cloud Sto...</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7  59 gsheet              0.4.5   Max Conway      2y Download Google Sheets Using Ju...</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8  56 googlesheets4       1.0.0   Jennifer Bryan  6M Access Google Sheets using the ...</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9  52 googlePolylines     0.8.2   David Cooley    1y Encoding Coordinates into 'Goog...</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10  50 cld2                1.2.1   Jeroen Ooms     1y Google's Compact Language Detec...</span></span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">more</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">#&gt; - "google" ---------------------------------------------- 126 packages in 0.008 seconds -</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="co">#&gt;   #    package          version by                     @ title                           </span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co">#&gt;  11 36 bigQueryR        0.5.0   Mark Edmondson        2M Interface with Google BigQuer...</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="co">#&gt;  12 34 ggmap            3.0.0   ORPHANED             10M Spatial Visualization with gg...</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="co">#&gt;  13 34 googlePolylines  0.7.2   David Cooley          1y Encoding Coordinates into 'Go...</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co">#&gt;  14 34 googleAnalyticsR 0.7.1   Mark Edmondson       22d Google Analytics API into R     </span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="co">#&gt;  15 28 V8               2.3     Jeroen Ooms           5M Embedded JavaScript Engine for R</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a><span class="co">#&gt;  16 27 gcite            0.10.1  John Muschelli        9M Google Citation Parser          </span></span>
-<span id="cb19-9"><a href="#cb19-9"></a><span class="co">#&gt;  17 27 rgoogleslides    0.3.1   Hairizuan Noorazman   1y R Interface to Google Slides    </span></span>
-<span id="cb19-10"><a href="#cb19-10"></a><span class="co">#&gt;  18 26 plusser          0.4.0   Christoph Waldhauser  6y A Google+ Interface for R       </span></span>
-<span id="cb19-11"><a href="#cb19-11"></a><span class="co">#&gt;  19 26 ganalytics       0.10.7  Johann de Boer        9M Interact with 'Google Analytics'</span></span>
-<span id="cb19-12"><a href="#cb19-12"></a><span class="co">#&gt;  20 26 adwordsR         0.3.1   Sean Longthorpe       1y Access the 'Google Adwords' API</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "google" ---------------------------------------------- 155 packages in 0.005 seconds -</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #    package          version by                  @ title                              </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  11 47 bigrquery        1.4.0   Hadley Wickham     6M An Interface to Google's 'BigQue...</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  12 41 googleAnalyticsR 1.0.1   Mark Edmondson     4M Google Analytics API into R        </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  13 39 cld3             1.4.2   Jeroen Ooms        6M Google's Compact Language Detect...</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  14 39 googlesheets     0.3.0   Jennifer Bryan     4y Manage Google Spreadsheets from R  </span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  15 38 plotKML          0.8.2   Tomislav Hengl     3M Visualization of Spatial and Spa...</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  16 35 bigQueryR        0.5.0   Mark Edmondson     2y Interface with Google BigQuery w...</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  17 33 ggmap            3.0.0   ORPHANED           3y Spatial Visualization with ggplot2 </span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  18 33 V8               4.0.0   Jeroen Ooms        1M Embedded JavaScript and WebAssem...</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  19 31 googleway        2.7.6   David Cooley       6d Accesses Google Maps APIs to Ret...</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  20 29 tensorflow       2.7.0   Tomasz Kalinowski  3M R Interface to 'TensorFlow'</span></span></code></pre></div>
 </div>
-<div id="stemming" class="section level3">
-<h3 class="hasAnchor">
-<a href="#stemming" class="anchor"></a>Stemming</h3>
+<div class="section level3">
+<h3 id="stemming">Stemming<a class="anchor" aria-label="anchor" href="#stemming"></a>
+</h3>
 <p>The search server uses the stems of the words in the indexed metadata, and the search phrase. This means that “colour” and “colours” deliver the exact same result. So do “coloring”, “colored”, etc. (Unless one is happen to be an exact package name or match another non-stemmed field.)</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"colour"</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#&gt; - "colour" ---------------------------------------------- 201 packages in 0.009 seconds -</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#&gt;   #     package    version by              @ title                                       </span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="co">#&gt;  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     </span></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="co">#&gt;  2   71 colorspace 1.4.1   Achim Zeileis  8M A Toolbox for Manipulating and Assessing ...</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="co">#&gt;  3   67 viridis    0.5.1   Simon Garnier  2y Default Color Maps from 'matplotlib'</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "colour" ---------------------------------------------- 269 packages in 0.006 seconds -</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package    version by              @ title                                       </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  100 crayon     1.4.2   Gábor Csárdi   3M Colored Terminal Output                     </span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2   60 colorspace 2.0.2   Achim Zeileis  7M A Toolbox for Manipulating and Assessing ...</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3   57 viridis    0.6.2   Simon Garnier  4M Colorblind-Friendly Color Maps for R</span></span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"colours"</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">#&gt; - "colours" --------------------------------------------- 198 packages in 0.007 seconds -</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="co">#&gt;   #     package    version by              @ title                                       </span></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="co">#&gt;  1  100 crayon     1.3.4   Gábor Csárdi   2y Colored Terminal Output                     </span></span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="co">#&gt;  2   71 colorspace 1.4.1   Achim Zeileis  8M A Toolbox for Manipulating and Assessing ...</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a><span class="co">#&gt;  3   67 viridis    0.5.1   Simon Garnier  2y Default Color Maps from 'matplotlib'</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "colours" --------------------------------------------- 267 packages in 0.004 seconds -</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package    version by              @ title                                       </span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  100 crayon     1.4.2   Gábor Csárdi   3M Colored Terminal Output                     </span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2   60 colorspace 2.0.2   Achim Zeileis  7M A Toolbox for Manipulating and Assessing ...</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3   57 viridis    0.6.2   Simon Garnier  4M Colorblind-Friendly Color Maps for R</span></span></code></pre></div>
 </div>
-<div id="ranking" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ranking" class="anchor"></a>Ranking</h3>
+<div class="section level3">
+<h3 id="ranking">Ranking<a class="anchor" aria-label="anchor" href="#ranking"></a>
+</h3>
 <p>The most important feature of a search engine is the ranking of the results. The best results should be listed first. pkgsearch uses weighted scoring, where a match in the package title gets a higher score than a match in the package description. It also uses the number of reverse dependencies and the number of downloads to weight the scores:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"colour"</span><span class="op">)</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"score"</span>, <span class="st">"package"</span>, <span class="st">"revdeps"</span>, <span class="st">"downloads_last_month"</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">#&gt; # A tibble: 10 x 4</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="co">#&gt;     score package      revdeps downloads_last_month</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;int&gt;                &lt;int&gt;</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co">#&gt;  1 13168. crayon           203               570439</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="co">#&gt;  2  9408. colorspace       141               567057</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a><span class="co">#&gt;  3  8765. viridis          109               240556</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a><span class="co">#&gt;  4  5944. pillar            36               783872</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="co">#&gt;  5  5730. colourpicker      31                25273</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="co">#&gt;  6  4974. viridisLite       47               466781</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="co">#&gt;  7  4837. shape             34                48705</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="co">#&gt;  8  3887. RColorBrewer     451               517685</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="co">#&gt;  9  3617. colorRamps        15                 4968</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="co">#&gt; 10  3432. dichromat         12                23156</span></span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"colour"</span><span class="op">)</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"score"</span>, <span class="st">"package"</span>, <span class="st">"revdeps"</span>, <span class="st">"downloads_last_month"</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A data frame: 10 × 4</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     score package      revdeps downloads_last_month</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;int&gt;                &lt;int&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 17553. crayon           339               947171</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 10570. colorspace       177               564716</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3  9967. viridis          162               344712</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4  7337. pillar            63              1354547</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5  6804. viridisLite       79               646038</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6  6385. colourpicker      43                28126</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7  4763. shape             34                60102</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8  4382. RColorBrewer     571               560462</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9  4089. colorRamps        19                 4723</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  3494. ggnewscale        18                 5600</span></span></code></pre></div>
 </div>
-<div id="preferring-phrases" class="section level3">
-<h3 class="hasAnchor">
-<a href="#preferring-phrases" class="anchor"></a>Preferring Phrases</h3>
+<div class="section level3">
+<h3 id="preferring-phrases">Preferring Phrases<a class="anchor" aria-label="anchor" href="#preferring-phrases"></a>
+</h3>
 <p>The search engine prefers matching whole phrases over single words. E.g. the search phrase “permutation test” will rank coin higher than testthat, even though testthat is a much better result for the single word “test”. (In fact, at the time of writing testthat is not even on the first page of results.)</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"permutation test"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">#&gt; - "permutation test" ----------------------------------- 1835 packages in 0.015 seconds -</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="co">#&gt;   #     package        version by                      @ title                           </span></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="co">#&gt;   1 100 coin           1.3.1   Torsten Hothorn        3M Conditional Inference Procedu...</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="co">#&gt;   2  33 flip           2.5.0   Livio Finos            1y Multivariate Permutation Tests  </span></span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="co">#&gt;   3  31 exactRankTests 0.8.30  Torsten Hothorn        7M Exact Distributions for Rank ...</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="co">#&gt;   4  30 perm           1.0.0.0 Michael Fay            9y Exact or Asymptotic permutati...</span></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="co">#&gt;   5  25 jmuOutlier     2.2     Steven T. Garren       4M Permutation Tests for Nonpara...</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="co">#&gt;   6  21 wPerm          1.0.1   Neil A. Weiss          4y Permutation Tests               </span></span>
-<span id="cb27-9"><a href="#cb27-9"></a><span class="co">#&gt;   7  18 cpt            1.0.2   Johann Gagnon-Bartsch  1y Classification Permutation Test </span></span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="co">#&gt;   8  18 GlobalDeviance 0.4     Frederike Fuhlbrueck   6y Global Deviance Permutation T...</span></span>
-<span id="cb27-11"><a href="#cb27-11"></a><span class="co">#&gt;   9  18 permutes       1.0     Cesko C. Voeten        4M Permutation Tests for Time Se...</span></span>
-<span id="cb27-12"><a href="#cb27-12"></a><span class="co">#&gt;  10  17 AUtests        0.98    Arjun Sondhi           3y Approximate Unconditional and...</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "permutation test" ----------------------------------- 2229 packages in 0.009 seconds -</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package        version by                      @ title                           </span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 100 coin           1.4.2   Torsten Hothorn        4M Conditional Inference Procedu...</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2  31 perm           1.0.0.2 Michael P. Fay         4M Exact or Asymptotic Permutati...</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3  30 exactRankTests 0.8.34  Torsten Hothorn        4M Exact Distributions for Rank ...</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4  29 flip           2.5.0   Livio Finos            3y Multivariate Permutation Tests  </span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5  22 jmuOutlier     2.2     Steven T. Garren       2y Permutation Tests for Nonpara...</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6  19 wPerm          1.0.1   Neil A. Weiss          6y Permutation Tests               </span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7  16 cpt            1.0.2   Johann Gagnon-Bartsch  3y Classification Permutation Test </span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8  16 GlobalDeviance 0.4     Frederike Fuhlbrueck   8y Global Deviance Permutation T...</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9  16 AUtests        0.99    Arjun Sondhi           1y Approximate Unconditional and...</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10  16 permutes       2.3.2   Cesko C. Voeten        2M Permutation Tests for Time Se...</span></span></code></pre></div>
 <p>If the whole phrase does not match, pkgsearch falls back to individual matching words. For example, a match from either words is enough here, to get on the first page of results:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"test http"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co">#&gt; - "test http" ------------------------------------------ 5860 packages in 0.018 seconds -</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="co">#&gt;   #     package   version   by                   @ title                                 </span></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="co">#&gt;   1 100 httptest  3.2.2     Neal Richardson     1y A Test Environment for HTTP Requests  </span></span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="co">#&gt;   2  83 covr      3.3.2     Jim Hester          1M Test Coverage for Packages            </span></span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="co">#&gt;   3  33 testthat  2.3.0     Hadley Wickham     21d Unit Testing for R                    </span></span>
-<span id="cb29-6"><a href="#cb29-6"></a><span class="co">#&gt;   4  16 psych     1.8.12    William Revelle    11M Procedures for Psychological, Psych...</span></span>
-<span id="cb29-7"><a href="#cb29-7"></a><span class="co">#&gt;   5  13 vcr       0.3.0     Scott Chamberlain   3M Record 'HTTP' Calls to Disk           </span></span>
-<span id="cb29-8"><a href="#cb29-8"></a><span class="co">#&gt;   6  10 httr      1.4.1     Hadley Wickham      4M Tools for Working with URLs and HTTP  </span></span>
-<span id="cb29-9"><a href="#cb29-9"></a><span class="co">#&gt;   7   8 webmockr  0.4.0     Scott Chamberlain   4M Stubbing and Setting Expectations o...</span></span>
-<span id="cb29-10"><a href="#cb29-10"></a><span class="co">#&gt;   8   8 bnlearn   4.5       Marco Scutari       4M Bayesian Network Structure Learning...</span></span>
-<span id="cb29-11"><a href="#cb29-11"></a><span class="co">#&gt;   9   7 RCurl     1.95.4.12 Duncan Temple Lang  9M General Network (HTTP/FTP/...) Clie...</span></span>
-<span id="cb29-12"><a href="#cb29-12"></a><span class="co">#&gt;  10   6 oompaBase 3.2.9     Kevin R. Coombes    3M Class Unions, Matrix Operations, an...</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "test http" ------------------------------------------ 6342 packages in 0.011 seconds -</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package   version by                  @ title                                    </span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 100 httptest  4.1.0   Neal Richardson    4M A Test Environment for HTTP Requests     </span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2  77 covr      3.5.1   Jim Hester         1y Test Coverage for Packages               </span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3  36 webfakes  1.1.3   Gábor Csárdi       9M Fake Web Apps for HTTP Testing           </span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4  15 testthat  3.1.2   Hadley Wickham    10d Unit Testing for R                       </span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5  14 vcr       1.0.2   Scott Chamberlain  8M Record 'HTTP' Calls to Disk              </span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6  13 psych     2.1.9   William Revelle    4M Procedures for Psychological, Psychome...</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7   9 webmockr  0.8.0   Scott Chamberlain 11M Stubbing and Setting Expectations on '...</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8   8 httr      1.4.2   Hadley Wickham     2y Tools for Working with URLs and HTTP     </span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9   6 rmarkdown 2.11    Yihui Xie          5M Dynamic Documents for R                  </span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10   6 bnlearn   4.7     Marco Scutari      5M Bayesian Network Structure Learning, P...</span></span></code></pre></div>
 </div>
-<div id="british-vs-american-english" class="section level3">
-<h3 class="hasAnchor">
-<a href="#british-vs-american-english" class="anchor"></a>British vs American English</h3>
+<div class="section level3">
+<h3 id="british-vs-american-english">British vs American English<a class="anchor" aria-label="anchor" href="#british-vs-american-english"></a>
+</h3>
 <p>The search engine uses a dictionary to make sure that package metadata and queries given in British and American English yield the same results. E.g. note the spelling of colour/color in the results:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"colour"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">#&gt; - "colour" ---------------------------------------------- 201 packages in 0.007 seconds -</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="co">#&gt;   #     package      version by                 @ title                                  </span></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="co">#&gt;   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                </span></span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="co">#&gt;   2  71 colorspace   1.4.1   Achim Zeileis     8M A Toolbox for Manipulating and Asses...</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="co">#&gt;   3  67 viridis      0.5.1   Simon Garnier     2y Default Color Maps from 'matplotlib'   </span></span>
-<span id="cb31-6"><a href="#cb31-6"></a><span class="co">#&gt;   4  45 pillar       1.4.2   Kirill Müller     5M Coloured Formatting for Columns        </span></span>
-<span id="cb31-7"><a href="#cb31-7"></a><span class="co">#&gt;   5  44 colourpicker 1.0     Dean Attali       2y A Colour Picker Tool for Shiny and f...</span></span>
-<span id="cb31-8"><a href="#cb31-8"></a><span class="co">#&gt;   6  38 viridisLite  0.3.0   Simon Garnier     2y Default Color Maps from 'matplotlib'...</span></span>
-<span id="cb31-9"><a href="#cb31-9"></a><span class="co">#&gt;   7  37 shape        1.4.4   Karline Soetaert  2y Functions for Plotting Graphical Sha...</span></span>
-<span id="cb31-10"><a href="#cb31-10"></a><span class="co">#&gt;   8  30 RColorBrewer 1.1.2   Erich Neuwirth    5y ColorBrewer Palettes                   </span></span>
-<span id="cb31-11"><a href="#cb31-11"></a><span class="co">#&gt;   9  27 colorRamps   2.3     Tim Keitt         7y Builds color tables                    </span></span>
-<span id="cb31-12"><a href="#cb31-12"></a><span class="co">#&gt;  10  26 dichromat    2.0.0   Thomas Lumley     7y Color Schemes for Dichromats</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "colour" ---------------------------------------------- 269 packages in 0.005 seconds -</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package      version by                 @ title                                  </span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 100 crayon       1.4.2   Gábor Csárdi      3M Colored Terminal Output                </span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2  60 colorspace   2.0.2   Achim Zeileis     7M A Toolbox for Manipulating and Asses...</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3  57 viridis      0.6.2   Simon Garnier     4M Colorblind-Friendly Color Maps for R   </span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4  42 pillar       1.6.5   Kirill Müller     5d Coloured Formatting for Columns        </span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5  39 viridisLite  0.4.0   Simon Garnier    10M Colorblind-Friendly Color Maps (Lite...</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6  36 colourpicker 1.1.1   Dean Attali       4M A Colour Picker Tool for Shiny and f...</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7  27 shape        1.4.6   Karline Soetaert  9M Functions for Plotting Graphical Sha...</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8  25 RColorBrewer 1.1.2   Erich Neuwirth    7y ColorBrewer Palettes                   </span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9  23 colorRamps   2.3     Tim Keitt         9y Builds color tables                    </span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10  20 ggnewscale   0.4.5   Elio Campitelli   1y Multiple Fill and Colour Scales in '...</span></span></code></pre></div>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"color"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co">#&gt; - "color" ----------------------------------------------- 198 packages in 0.007 seconds -</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="co">#&gt;   #     package      version by                 @ title                                  </span></span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#&gt;   1 100 crayon       1.3.4   Gábor Csárdi      2y Colored Terminal Output                </span></span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="co">#&gt;   2  71 colorspace   1.4.1   Achim Zeileis     8M A Toolbox for Manipulating and Asses...</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="co">#&gt;   3  67 viridis      0.5.1   Simon Garnier     2y Default Color Maps from 'matplotlib'   </span></span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="co">#&gt;   4  45 pillar       1.4.2   Kirill Müller     5M Coloured Formatting for Columns        </span></span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="co">#&gt;   5  44 colourpicker 1.0     Dean Attali       2y A Colour Picker Tool for Shiny and f...</span></span>
-<span id="cb33-8"><a href="#cb33-8"></a><span class="co">#&gt;   6  38 viridisLite  0.3.0   Simon Garnier     2y Default Color Maps from 'matplotlib'...</span></span>
-<span id="cb33-9"><a href="#cb33-9"></a><span class="co">#&gt;   7  37 shape        1.4.4   Karline Soetaert  2y Functions for Plotting Graphical Sha...</span></span>
-<span id="cb33-10"><a href="#cb33-10"></a><span class="co">#&gt;   8  30 RColorBrewer 1.1.2   Erich Neuwirth    5y ColorBrewer Palettes                   </span></span>
-<span id="cb33-11"><a href="#cb33-11"></a><span class="co">#&gt;   9  27 colorRamps   2.3     Tim Keitt         7y Builds color tables                    </span></span>
-<span id="cb33-12"><a href="#cb33-12"></a><span class="co">#&gt;  10  26 dichromat    2.0.0   Thomas Lumley     7y Color Schemes for Dichromats</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "color" ----------------------------------------------- 268 packages in 0.005 seconds -</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package      version by                 @ title                                  </span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 100 crayon       1.4.2   Gábor Csárdi      3M Colored Terminal Output                </span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2  60 colorspace   2.0.2   Achim Zeileis     7M A Toolbox for Manipulating and Asses...</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3  57 viridis      0.6.2   Simon Garnier     4M Colorblind-Friendly Color Maps for R   </span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4  42 pillar       1.6.5   Kirill Müller     5d Coloured Formatting for Columns        </span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5  39 viridisLite  0.4.0   Simon Garnier    10M Colorblind-Friendly Color Maps (Lite...</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6  36 colourpicker 1.1.1   Dean Attali       4M A Colour Picker Tool for Shiny and f...</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7  27 shape        1.4.6   Karline Soetaert  9M Functions for Plotting Graphical Sha...</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8  25 RColorBrewer 1.1.2   Erich Neuwirth    7y ColorBrewer Palettes                   </span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9  23 colorRamps   2.3     Tim Keitt         9y Builds color tables                    </span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10  20 ggnewscale   0.4.5   Elio Campitelli   1y Multiple Fill and Colour Scales in '...</span></span></code></pre></div>
 </div>
-<div id="ascii-folding" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ascii-folding" class="anchor"></a>Ascii Folding</h3>
+<div class="section level3">
+<h3 id="ascii-folding">Ascii Folding<a class="anchor" aria-label="anchor" href="#ascii-folding"></a>
+</h3>
 <p>Especially when searching for package maintainer names, it is convenient to use the corresponding ASCII letters for non-ASCII characters in search phrases. E.g. the following two queries yield the same results. Note that case is also ignored.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"gabor"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">#&gt; - "gabor" ------------------------------------------------ 87 packages in 0.008 seconds -</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="co">#&gt;   #     package  version by              @ title                                         </span></span>
-<span id="cb35-3"><a href="#cb35-3"></a><span class="co">#&gt;  1  100 igraph   1.2.4.1 Gábor Csárdi   7M Network Analysis and Visualization            </span></span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="co">#&gt;  2   58 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       </span></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="co">#&gt;  3   39 zoo      1.8.6   Achim Zeileis  6M S3 Infrastructure for Regular and Irregular...</span></span>
-<span id="cb35-6"><a href="#cb35-6"></a><span class="co">#&gt;  4   38 cli      1.1.0   Gábor Csárdi   8M Helpers for Developing Command Line Interfaces</span></span>
-<span id="cb35-7"><a href="#cb35-7"></a><span class="co">#&gt;  5   37 progress 1.2.2   Gábor Csárdi   6M Terminal Progress Bars</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "gabor" ----------------------------------------------- 101 packages in 0.005 seconds -</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package  version by              @ title                                         </span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  100 crayon   1.4.2   Gábor Csárdi   3M Colored Terminal Output                       </span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2   85 cli      3.1.1   Gábor Csárdi  10d Helpers for Developing Command Line Interfaces</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3   77 progress 1.2.2   Gábor Csárdi   3y Terminal Progress Bars                        </span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4   61 zoo      1.8.9   Achim Zeileis 11M S3 Infrastructure for Regular and Irregular...</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5   60 fs       1.5.2   Gábor Csárdi   2M Cross-Platform File System Operations Based...</span></span></code></pre></div>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/pkg_search.html">ps</a></span><span class="op">(</span><span class="st">"Gábor"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#&gt; - "Gábor" ------------------------------------------------ 87 packages in 0.008 seconds -</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="co">#&gt;   #     package  version by              @ title                                         </span></span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="co">#&gt;  1  100 igraph   1.2.4.1 Gábor Csárdi   7M Network Analysis and Visualization            </span></span>
-<span id="cb37-4"><a href="#cb37-4"></a><span class="co">#&gt;  2   58 crayon   1.3.4   Gábor Csárdi   2y Colored Terminal Output                       </span></span>
-<span id="cb37-5"><a href="#cb37-5"></a><span class="co">#&gt;  3   39 zoo      1.8.6   Achim Zeileis  6M S3 Infrastructure for Regular and Irregular...</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a><span class="co">#&gt;  4   38 cli      1.1.0   Gábor Csárdi   8M Helpers for Developing Command Line Interfaces</span></span>
-<span id="cb37-7"><a href="#cb37-7"></a><span class="co">#&gt;  5   37 progress 1.2.2   Gábor Csárdi   6M Terminal Progress Bars</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; - "Gábor" ----------------------------------------------- 101 packages in 0.004 seconds -</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   #     package  version by              @ title                                         </span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  100 crayon   1.4.2   Gábor Csárdi   3M Colored Terminal Output                       </span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2   85 cli      3.1.1   Gábor Csárdi  10d Helpers for Developing Command Line Interfaces</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3   77 progress 1.2.2   Gábor Csárdi   3y Terminal Progress Bars                        </span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4   61 zoo      1.8.9   Achim Zeileis 11M S3 Infrastructure for Regular and Irregular...</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5   60 fs       1.5.2   Gábor Csárdi   2M Cross-Platform File System Operations Based...</span></span></code></pre></div>
 </div>
 </div>
-<div id="more-info" class="section level2">
-<h2 class="hasAnchor">
-<a href="#more-info" class="anchor"></a>More info</h2>
+<div class="section level2">
+<h2 id="more-info">More info<a class="anchor" aria-label="anchor" href="#more-info"></a>
+</h2>
 <p>See the <a href="https://r-hub.github.io/pkgsearch/">complete documentation</a>.</p>
 </div>
-<div id="license" class="section level2">
-<h2 class="hasAnchor">
-<a href="#license" class="anchor"></a>License</h2>
-<p>MIT @ <a href="https://github.com/gaborcsardi">Gábor Csárdi</a>, <a href="https://github.com/rstudio">RStudio</a>, <a href="https://www.r-consortium.org/">R Consortium</a>.</p>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p>MIT @ <a href="https://github.com/gaborcsardi" class="external-link">Gábor Csárdi</a>, <a href="https://github.com/rstudio" class="external-link">RStudio</a>, <a href="https://www.r-consortium.org/" class="external-link">R Consortium</a>.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=pkgsearch">https://​cloud.r-project.org/​package=pkgsearch</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/r-hub/pkgsearch/">https://​github.com/​r-hub/​pkgsearch/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/r-hub/pkgsearch/issues">https://​github.com/​r-hub/​pkgsearch/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li>
-<a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
-</li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Gábor Csárdi <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Maëlle Salmon <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2815-0399" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://www.r-consortium.org/"><img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" height="24"></a> <br><small class="roles"> Funder </small>  </li>
+<li><a href="https://cloud.r-project.org/package=pkgsearch" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/r-hub/pkgsearch/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/r-hub/pkgsearch/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
-<li><a href="https://github.com/r-hub/pkgsearch/actions"><img src="https://github.com/r-hub/pkgsearch/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://cran.r-project.org/package=pkgsearch"><img src="https://www.r-pkg.org/badges/version/pkgsearch" alt="CRAN status"></a></li>
-<li><a href="https://www.r-pkg.org/pkg/pkgsearch"><img src="https://cranlogs.r-pkg.org/badges/pkgsearch" alt="CRAN RStudio mirror downloads"></a></li>
-<li><a href="https://codecov.io/github/r-hub/pkgsearch?branch=master"><img src="https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
+<li>
+<a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
+</li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing pkgsearch</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Gábor Csárdi <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Maëlle Salmon <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2815-0399" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://www.r-consortium.org/" class="external-link"><img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" height="24"></a> <br><small class="roles"> Funder </small>  </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
+<li><a href="https://github.com/r-hub/pkgsearch/actions" class="external-link"><img src="https://github.com/r-hub/pkgsearch/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://cran.r-project.org/package=pkgsearch" class="external-link"><img src="https://www.r-pkg.org/badges/version/pkgsearch" alt="CRAN status"></a></li>
+<li><a href="https://www.r-pkg.org/pkg/pkgsearch" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/pkgsearch" alt="CRAN RStudio mirror downloads"></a></li>
+<li><a href="https://codecov.io/github/r-hub/pkgsearch?branch=master" class="external-link"><img src="https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Gábor Csárdi, Maëlle Salmon, <a href="https://www.r-consortium.org/"><img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" height="24"></a>.</p>
+  <p></p>
+<p>Developed by Gábor Csárdi, Maëlle Salmon, <a href="https://www.r-consortium.org/" class="external-link"><img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" height="24"></a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -611,6 +631,8 @@
 
   
 
+
+  
 
   </body>
 </html>
