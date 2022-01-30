@@ -12,5 +12,5 @@ test_that("cran_package_histories works", {
   expect_is(tab, "tbl_df")
   expect_true(nrow(tab) >= 45)
   expect_true(all(tab$Package == "igraph"))
-  expect_false(is.unsorted(tab$Version))
+  expect_false(is.unsorted(package_version(tab$Version)))
 })
