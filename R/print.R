@@ -188,10 +188,8 @@ print.cran_event_list <- function(x, ...) {
 ## ----------------------------------------------------------------------
 ## Utilities
 
-#' @importFrom assertthat assert_that is.string
-
 cat_fill <- function(text) {
-  assert_that(is.string(text))
+  assert_that(is_string(text))
   width <- getOption("width") - nchar(text) - 1
   cat(text, paste(rep("-", width, collapse = "")), sep = "", "\n")
 }

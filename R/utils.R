@@ -81,7 +81,7 @@ isin <- function(x, y) x %in% y
 
 remove_special <- function(list, level = 1) {
   
-  assert_that(is.count(level), level >= 1)
+  assert_that(is_positive_count(level))
   
   if (level == 1) {
     replace(

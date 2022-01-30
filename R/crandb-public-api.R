@@ -13,12 +13,13 @@
 #' cran_package("pkgsearch")
 #' \dontshow{\}) # examplesIf}
 #' @export
-#' @importFrom assertthat assert_that
 
 cran_package <- function(name, version = NULL) {
 
-  assert_that(is_package_name(name))
-  assert_that(is.null(version) || is_package_version(version))
+  assert_that(
+    is_package_name(name),
+    is.null(version) || is_package_version(version)
+  )
 
   ept <- name
   if (! is.null(version)) ept <- paste0(ept, "/", version)
@@ -78,16 +79,17 @@ cran_packages <- function(names) {
 #' cran_events(limit = 5, archivals = FALSE)
 #' summary(cran_events(limit = 10))
 #' \dontshow{\}) # examplesIf}
-#' @importFrom assertthat assert_that is.count is.flag
 
 cran_events <- function(releases = TRUE, archivals = TRUE, limit = 10,
                         from = 1) {
 
-  assert_that(is.count(limit))
-  assert_that(is.flag(releases))
-  assert_that(is.flag(archivals))
-  assert_that(releases || archivals)
-  assert_that(is.count(from))
+  assert_that(
+    is_positive_count(limit),
+    is_flag(releases),
+    is_flag(archivals),
+    releases || archivals,
+    is_positive_count(from)
+  )
 
   mode <- if (releases && archivals) {
     "events"
@@ -284,16 +286,16 @@ crandb_query <- function(url, error = TRUE, ...) {
   rst
 }
 
-#' @importFrom assertthat assert_that is.count is.flag
-
 do_crandb_query <- function(from, limit,
-                          format = c("short", "latest", "full"),
-                          archived) {
+                            format = c("short", "latest", "full"),
+                            archived) {
 
-  assert_that(is_package_name(from))
-  assert_that(is.count(limit))
+  assert_that(
+    is_package_name(from),
+    is_positive_count(limit),
+    is_flag(archived)
+  )
   format <- match.arg(format)
-  assert_that(is.flag(archived))
 
   ept <- switch(
     format,
