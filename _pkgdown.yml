@@ -33,6 +33,7 @@ reference:
 - title: Get CRAN releases/archivals
   desc: ~
   contents:
+  - '`cran_new`'
   - '`cran_events`'
 - title: RStudio addin
   desc: ~
