@@ -12,7 +12,6 @@ Description: Search CRAN metadata about packages by keyword, popularity,
     contains information about CRAN packages. Note that this is _not_
     a CRAN project.
 License: MIT + file LICENSE
-LazyData: true
 URL: https://github.com/r-hub/pkgsearch, https://r-hub.github.io/pkgsearch/
 BugReports: https://github.com/r-hub/pkgsearch/issues
 Imports:
