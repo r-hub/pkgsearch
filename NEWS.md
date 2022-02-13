@@ -1,6 +1,11 @@
 
 # pkgsearch development version
 
+* pkgsearch functions return data frames now, instead of tibbles.
+  The data frames have a `tbl` class, so they are still printed the
+  same way as tibbles, as long as the pillar package is available.
+  Otherwise they behave as data frames.
+
 * New `cran_new()` function to query new packages on CRAN.
 
 # pkgsearch 3.0.3
