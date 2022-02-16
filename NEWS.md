@@ -1,4 +1,6 @@
 
+# pkgsearch development version
+
 # pkgsearch 3.1.0
 
 * pkgsearch functions return data frames now, instead of tibbles.
