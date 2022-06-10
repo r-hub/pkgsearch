@@ -197,7 +197,7 @@ do_query <- function(query, server, port, from, size) {
   result <- http_post(
     url, body = query,
     headers = c("Content-Type" = "application/json"))
-  rethrow(
+  chain_error(
     http_stop_for_status(result),
     new_query_error(result, "search server failure")
   )
