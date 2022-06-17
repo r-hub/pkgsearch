@@ -72,61 +72,76 @@
     <h2>Arguments</h2>
     <dl><dt>releases</dt>
 <dd><p>Whether to include package releases.</p></dd>
+
+
 <dt>archivals</dt>
 <dd><p>Whether to include package archivals.</p></dd>
+
+
 <dt>limit</dt>
 <dd><p>Number of events to list.</p></dd>
+
+
 <dt>from</dt>
 <dd><p>Where to start the list, for pagination.</p></dd>
+
+
 <dt>object</dt>
 <dd><p>Object to summarize.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Additional arguments are ignored currently.</p></dd>
+
+
 <dt>x</dt>
 <dd><p>Object to print.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>List of events.</p>
+    
+
+<p>List of events.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">cran_events</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (events)-----------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package       Version Title                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours plgp          1.1-11  Particle Learning of Gaussian Processes       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours nanonext      0.5.1   NNG (Nanomsg Next Gen) Lightweight Messagin...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours nominatimlite 0.1.6   Interface with 'Nominatim' API Service        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours systemicrisk  0.4.2   A Toolbox for Systemic Risk                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours fontMPlus     0.1.1   Additional 'ggplot2' Themes Using 'M+' Font...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours fontHind      0.1.1   Additional 'ggplot2' Themes Using 'Hind' Fo...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours VicmapR       0.1.9   Access Victorian Spatial Data Through Web F...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours bamlss        1.1-8   Bayesian Additive Models for Location, Scal...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours metan         1.17.0  Multi Environment Trials Analysis             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours rgl           0.109.2 3D Visualization Using OpenGL                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package       Version   Title                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 1 hour  fBasics       3042.89.2 Rmetrics - Markets and Basic Statistics     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours asypow        2015.6.25 Calculate Power Utilizing Asymptotic Like...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours NFP           0.99.4    Network Fingerprint Framework in R          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours CEDA          1.0.2     CRISPR Screen and Gene Expression Differe...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours mlrpro        0.1.1     Stepwise Regression with Assumptions Chec...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours spatialsample 0.2.0     Spatial Resampling Infrastructure           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours adaptr        1.1.0     Adaptive Trial Simulator                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours geosapi       0.6-3     GeoServer REST API R Interface              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ibawds        0.5.0     Functions and Datasets for the Data Scien...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours restoptr      1.0.1     Ecological Restoration Planning             </span>
 <span class="r-in"><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, releases <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (archivals)--------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package      Version Title                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours systemicrisk 0.4.2   A Toolbox for Systemic Risk                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours fontMPlus    0.1.1   Additional 'ggplot2' Themes Using 'M+' Fonts   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours fontHind     0.1.1   Additional 'ggplot2' Themes Using 'Hind' Fon...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 1 day   urlshorteneR 1.5.4   R Wrapper for the 'Bit.ly' and 'Is.gd'/'v.gd...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 1 day   SLC          0.3     Slope and level change                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package  Version   Title                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours asypow   2015.6.25 Calculate Power Utilizing Asymptotic Likelihoo...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours NFP      0.99.4    Network Fingerprint Framework in R               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours CEDA     1.0.2     CRISPR Screen and Gene Expression Differential...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 day   WilcoxCV 1.0-2     Wilcoxon-based variable selection in cross-val...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 day   tlemix   0.1.3     Trimmed Maximum Likelihood Estimation            </span>
 <span class="r-in"><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, archivals <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (pkgreleases)------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package       Version Title                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours plgp          1.1-11  Particle Learning of Gaussian Processes       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours nanonext      0.5.1   NNG (Nanomsg Next Gen) Lightweight Messagin...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours nominatimlite 0.1.6   Interface with 'Nominatim' API Service        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours VicmapR       0.1.9   Access Victorian Spatial Data Through Web F...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours bamlss        1.1-8   Bayesian Additive Models for Location, Scal...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package       Version   Title                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 1 hour  fBasics       3042.89.2 Rmetrics - Markets and Basic Statistics     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours mlrpro        0.1.1     Stepwise Regression with Assumptions Chec...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours spatialsample 0.2.0     Spatial Resampling Infrastructure           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours adaptr        1.1.0     Adaptive Trial Simulator                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours geosapi       0.6-3     GeoServer REST API R Interface              </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (events)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "plgp@1.1-11"         "nanonext@0.5.1"      "nominatimlite@0.1.6"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "systemicrisk@0.4.2-" "fontMPlus@0.1.1-"    "fontHind@0.1.1-"    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "VicmapR@0.1.9"       "bamlss@1.1-8"        "metan@1.17.0"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "rgl@0.109.2"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "fBasics@3042.89.2"   "asypow@2015.6.25-"   "NFP@0.99.4-"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "CEDA@1.0.2-"         "mlrpro@0.1.1"        "spatialsample@0.2.0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "adaptr@1.1.0"        "geosapi@0.6-3"       "ibawds@0.5.0"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "restoptr@1.0.1"     </span>
 </code></pre></div>
     </div>
   </div>
@@ -141,7 +156,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>
