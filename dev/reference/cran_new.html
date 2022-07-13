@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"last-week"</span>, to <span class="op">=</span> <span class="st">"now"</span>, last <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"last-week"</span>, to <span class="op">=</span> <span class="st">"now"</span>, last <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -95,22 +95,120 @@ to specify the current date and time.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co"># Last week</span></span>
-<span class="r-in"><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-week"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Last month</span></span>
-<span class="r-in"><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-month"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Last 5 days</span></span>
-<span class="r-in"><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># From a given date, but at most 10</span></span>
-<span class="r-in"><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2021-04-06"</span>, last <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># March of 2021</span></span>
-<span class="r-in"><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2021-03-01"</span>, to <span class="op">=</span> <span class="st">"2021-04-01"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Last week</span></span></span>
+<span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-week"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 11 × 30</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`   Package Title Description Version Maintainer `Authors@R`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-07-13 07:30:06… TrenchR <span style="color: #949494;">"</span>Too… <span style="color: #949494;">"</span>Tools for… 0.1.0   Lauren Bu… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022-07-13 07:30:02… render… <span style="color: #949494;">"</span>Ren… <span style="color: #949494;">"</span>Render sl… 0.1.0   John Helv… <span style="color: #949494;">"</span>\nc(perso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022-07-08 15:20:05… visaOTR <span style="color: #949494;">"</span>Val… <span style="color: #949494;">"</span>Valid Imp… 0.1.0   Zishu Zha… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022-07-08 15:20:02… xadmix  <span style="color: #949494;">"</span>Sub… <span style="color: #949494;">"</span>A few fun… 1.0.0   Lukas Sch… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022-07-08 14:50:02… Hurrec… <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>The HURRE… 1.0     Emery Boo… <span style="color: #949494;">"</span>c( person…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022-07-08 14:30:06… Famili… <span style="color: #949494;">"</span>Kin… <span style="color: #949494;">"</span>Tools to … 1.0.1   Frans Wil… <span style="color: #949494;">"</span>person(\"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022-07-08 14:20:05… Thresh… <span style="color: #949494;">"</span>Thr… <span style="color: #949494;">"</span>We focus … 1.0.1   Sara Pere… <span style="color: #949494;">"</span>c(person(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-07-08 14:20:02… ivgets  <span style="color: #949494;">"</span>Gen… <span style="color: #949494;">"</span>Provides … 0.1.0   Kurle Jon… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-07-08 14:10:05… rKenya… <span style="color: #949494;">"</span>His… <span style="color: #949494;">"</span>Exchange … 0.1.0   Mutua Kil…  <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-07-07 08:50:06… distil… <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>Provides … 0.1.0.9 Theo Saar… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 2022-07-07 08:40:02… nested… <span style="color: #949494;">"</span>Nes… <span style="color: #949494;">"</span>Implement… 0.2.3   Myles Lew… <span style="color: #949494;">"</span>\nc(perso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 23 more variables: License &lt;chr&gt;, Date &lt;chr&gt;, URL &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BugReports &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, RdMacros &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;, Author &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, `Config/testthat/edition` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/Needs/website` &lt;chr&gt;, Type &lt;chr&gt;, LazyData &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BuildResaveData &lt;chr&gt;, Collate &lt;chr&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Last month</span></span></span>
+<span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-month"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 158 × 41</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`   Package Title Description Version Maintainer `Authors@R`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-07-13 07:30:06… TrenchR <span style="color: #949494;">"</span>Too… <span style="color: #949494;">"</span>Tools for… 0.1.0   Lauren Bu… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022-07-13 07:30:02… render… <span style="color: #949494;">"</span>Ren… <span style="color: #949494;">"</span>Render sl… 0.1.0   John Helv… <span style="color: #949494;">"</span>\nc(perso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022-07-08 15:20:05… visaOTR <span style="color: #949494;">"</span>Val… <span style="color: #949494;">"</span>Valid Imp… 0.1.0   Zishu Zha… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022-07-08 15:20:02… xadmix  <span style="color: #949494;">"</span>Sub… <span style="color: #949494;">"</span>A few fun… 1.0.0   Lukas Sch… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022-07-08 14:50:02… Hurrec… <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>The HURRE… 1.0     Emery Boo… <span style="color: #949494;">"</span>c( person…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022-07-08 14:30:06… Famili… <span style="color: #949494;">"</span>Kin… <span style="color: #949494;">"</span>Tools to … 1.0.1   Frans Wil… <span style="color: #949494;">"</span>person(\"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022-07-08 14:20:05… Thresh… <span style="color: #949494;">"</span>Thr… <span style="color: #949494;">"</span>We focus … 1.0.1   Sara Pere… <span style="color: #949494;">"</span>c(person(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-07-08 14:20:02… ivgets  <span style="color: #949494;">"</span>Gen… <span style="color: #949494;">"</span>Provides … 0.1.0   Kurle Jon… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-07-08 14:10:05… rKenya… <span style="color: #949494;">"</span>His… <span style="color: #949494;">"</span>Exchange … 0.1.0   Mutua Kil…  <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-07-07 08:50:06… distil… <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>Provides … 0.1.0.9 Theo Saar… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 148 more rows, and 34 more variables: License &lt;chr&gt;, Date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   URL &lt;chr&gt;, BugReports &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, RdMacros &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Encoding &lt;chr&gt;, RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Author &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, `Config/testthat/edition` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/Needs/website` &lt;chr&gt;, Type &lt;chr&gt;, LazyData &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BuildResaveData &lt;chr&gt;, Collate &lt;chr&gt;, LazyDataCompression &lt;chr&gt;, …</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Last 5 days</span></span></span>
+<span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 9 × 29</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `Date/Publication`    Package Title Description Version Maintainer `Authors@R`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2022-07-13 07:30:06 … TrenchR <span style="color: #949494;">"</span>Too… <span style="color: #949494;">"</span>Tools for… 0.1.0   Lauren Bu… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2022-07-13 07:30:02 … render… <span style="color: #949494;">"</span>Ren… <span style="color: #949494;">"</span>Render sl… 0.1.0   John Helv… <span style="color: #949494;">"</span>\nc(perso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2022-07-08 15:20:05 … visaOTR <span style="color: #949494;">"</span>Val… <span style="color: #949494;">"</span>Valid Imp… 0.1.0   Zishu Zha… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 2022-07-08 15:20:02 … xadmix  <span style="color: #949494;">"</span>Sub… <span style="color: #949494;">"</span>A few fun… 1.0.0   Lukas Sch… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 2022-07-08 14:50:02 … Hurrec… <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>The HURRE… 1.0     Emery Boo… <span style="color: #949494;">"</span>c( person…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 2022-07-08 14:30:06 … Famili… <span style="color: #949494;">"</span>Kin… <span style="color: #949494;">"</span>Tools to … 1.0.1   Frans Wil… <span style="color: #949494;">"</span>person(\"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 2022-07-08 14:20:05 … Thresh… <span style="color: #949494;">"</span>Thr… <span style="color: #949494;">"</span>We focus … 1.0.1   Sara Pere… <span style="color: #949494;">"</span>c(person(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 2022-07-08 14:20:02 … ivgets  <span style="color: #949494;">"</span>Gen… <span style="color: #949494;">"</span>Provides … 0.1.0   Kurle Jon… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 2022-07-08 14:10:05 … rKenya… <span style="color: #949494;">"</span>His… <span style="color: #949494;">"</span>Exchange … 0.1.0   Mutua Kil…  <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 22 more variables: License &lt;chr&gt;, Date &lt;chr&gt;, URL &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BugReports &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, RdMacros &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;, Author &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, `Config/testthat/edition` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/Needs/website` &lt;chr&gt;, Type &lt;chr&gt;, LazyData &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BuildResaveData &lt;chr&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># From a given date, but at most 10</span></span></span>
+<span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2021-04-06"</span>, last <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 10 × 30</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`   Package Title Description Version Maintainer `Authors@R`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-07-13 07:30:06… TrenchR <span style="color: #949494;">"</span>Too… <span style="color: #949494;">"</span>Tools for… 0.1.0   Lauren Bu… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022-07-13 07:30:02… render… <span style="color: #949494;">"</span>Ren… <span style="color: #949494;">"</span>Render sl… 0.1.0   John Helv… <span style="color: #949494;">"</span>\nc(perso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022-07-08 15:20:05… visaOTR <span style="color: #949494;">"</span>Val… <span style="color: #949494;">"</span>Valid Imp… 0.1.0   Zishu Zha… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022-07-08 15:20:02… xadmix  <span style="color: #949494;">"</span>Sub… <span style="color: #949494;">"</span>A few fun… 1.0.0   Lukas Sch… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022-07-08 14:50:02… Hurrec… <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>The HURRE… 1.0     Emery Boo… <span style="color: #949494;">"</span>c( person…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022-07-08 14:30:06… Famili… <span style="color: #949494;">"</span>Kin… <span style="color: #949494;">"</span>Tools to … 1.0.1   Frans Wil… <span style="color: #949494;">"</span>person(\"…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022-07-08 14:20:05… Thresh… <span style="color: #949494;">"</span>Thr… <span style="color: #949494;">"</span>We focus … 1.0.1   Sara Pere… <span style="color: #949494;">"</span>c(person(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-07-08 14:20:02… ivgets  <span style="color: #949494;">"</span>Gen… <span style="color: #949494;">"</span>Provides … 0.1.0   Kurle Jon… <span style="color: #949494;">"</span>\nperson(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-07-08 14:10:05… rKenya… <span style="color: #949494;">"</span>His… <span style="color: #949494;">"</span>Exchange … 0.1.0   Mutua Kil…  <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-07-07 08:50:06… distil… <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>Provides … 0.1.0.9 Theo Saar… <span style="color: #949494;">"</span>c(\nperso…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 23 more variables: License &lt;chr&gt;, Date &lt;chr&gt;, URL &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BugReports &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, RdMacros &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;, Author &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, `Config/testthat/edition` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/Needs/website` &lt;chr&gt;, Type &lt;chr&gt;, LazyData &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BuildResaveData &lt;chr&gt;, Collate &lt;chr&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># March of 2021</span></span></span>
+<span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2021-03-01"</span>, to <span class="op">=</span> <span class="st">"2021-04-01"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 231 × 48</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package    Type  Title Version `Authors@R` Maintainer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021-03-31 12:00:05 UTC ClustAsse… Pack… <span style="color: #949494;">"</span>Too… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Arash Sh…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021-03-31 11:00:02 UTC complexNet Pack… <span style="color: #949494;">"</span>Com… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Marco Sm…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021-03-31 09:40:02 UTC BayesRGMM  Pack… <span style="color: #949494;">"</span>Bay… 1.0     <span style="color: #949494;">"</span>\nc(perso… <span style="color: #949494;">"</span>Kuo-Jung…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021-03-31 09:20:02 UTC ggfx       <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Pix… 1.0.0   <span style="color: #949494;">"</span>\nc(perso… <span style="color: #949494;">"</span>Thomas L…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021-03-31 09:10:09 UTC codeColle… Pack… <span style="color: #949494;">"</span>Col… 0.1.2   <span style="color: #949494;">"</span>\nperson(… <span style="color: #949494;">"</span>Jari Hau…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021-03-31 09:10:02 UTC kindisper… <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Sim… 0.9.2   <span style="color: #949494;">"</span>\nperson(… <span style="color: #949494;">"</span>Moshe-El…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021-03-31 09:00:05 UTC NonParRol… Pack… <span style="color: #949494;">"</span>a N… 0.4.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Josue M.…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021-03-31 09:00:02 UTC forplo     Pack… <span style="color: #949494;">"</span>Fle… 0.1.0   <span style="color: #949494;">"</span>person(\"… <span style="color: #949494;">"</span>\"Vincen…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021-03-31 08:50:16 UTC OpenSpecy  Pack… <span style="color: #949494;">"</span>Ana… 0.8.2   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Win Cowg…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021-03-31 08:50:13 UTC cmR        Pack… <span style="color: #949494;">"</span>Ana… 1.0.1   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Volker S…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 221 more rows, and 41 more variables: Description &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   License &lt;chr&gt;, Encoding &lt;chr&gt;, RoxygenNote &lt;chr&gt;, URL &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Author &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, LazyData &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Date &lt;chr&gt;, RdMacros &lt;chr&gt;, Language &lt;chr&gt;, LazyLoad &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, SystemRequirements &lt;chr&gt;, Collate &lt;chr&gt;, …</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -125,7 +223,7 @@ to specify the current date and time.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

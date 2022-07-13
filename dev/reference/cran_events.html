@@ -59,13 +59,13 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cran_events</span><span class="op">(</span>releases <span class="op">=</span> <span class="cn">TRUE</span>, archivals <span class="op">=</span> <span class="cn">TRUE</span>, limit <span class="op">=</span> <span class="fl">10</span>, from <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-
-<span class="co"># S3 method for cran_event_list</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for cran_event_list</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cran_events</span><span class="op">(</span>releases <span class="op">=</span> <span class="cn">TRUE</span>, archivals <span class="op">=</span> <span class="cn">TRUE</span>, limit <span class="op">=</span> <span class="fl">10</span>, from <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for cran_event_list</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for cran_event_list</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -107,41 +107,41 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">cran_events</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cran_events</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (events)-----------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package       Version   Title                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 1 hour  fBasics       3042.89.2 Rmetrics - Markets and Basic Statistics     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours asypow        2015.6.25 Calculate Power Utilizing Asymptotic Like...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours NFP           0.99.4    Network Fingerprint Framework in R          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours CEDA          1.0.2     CRISPR Screen and Gene Expression Differe...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours mlrpro        0.1.1     Stepwise Regression with Assumptions Chec...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours spatialsample 0.2.0     Spatial Resampling Infrastructure           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours adaptr        1.1.0     Adaptive Trial Simulator                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours geosapi       0.6-3     GeoServer REST API R Interface              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ibawds        0.5.0     Functions and Datasets for the Data Scien...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours restoptr      1.0.1     Ecological Restoration Planning             </span>
-<span class="r-in"><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, releases <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package      Version Title                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours text2sdg     0.1.3   Detecting UN Sustainable Development Goals i...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours skpr         1.1.4   Design of Experiments Suite: Generate and Ev...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours portalr      0.3.9   Create Useful Summaries of the Portal Data     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours mptools      1.0.1   RAMAS Metapop Tools                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours mRpostman    1.0.0   An IMAP Client for R                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours jmvReadWrite 0.3.2   Read and Write 'jamovi' Files ('.omv')         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours OpasnetUtils 1.3     Opasnet Modelling Environment Utility Functi...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours BullsEyeR    0.2.0   Topic Modelling                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours arabicStemR  1.2     Arabic Stemmer for Text Analysis               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours TrenchR      0.1.0   Tools for Microclimate and Biophysical Ecolo...</span>
+<span class="r-in"><span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, releases <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (archivals)--------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package  Version   Title                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours asypow   2015.6.25 Calculate Power Utilizing Asymptotic Likelihoo...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours NFP      0.99.4    Network Fingerprint Framework in R               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 3 hours CEDA     1.0.2     CRISPR Screen and Gene Expression Differential...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 day   WilcoxCV 1.0-2     Wilcoxon-based variable selection in cross-val...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 day   tlemix   0.1.3     Trimmed Maximum Likelihood Estimation            </span>
-<span class="r-in"><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, archivals <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package   Version Title                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours text2sdg  0.1.3   Detecting UN Sustainable Development Goals in T...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours skpr      1.1.4   Design of Experiments Suite: Generate and Evalu...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours portalr   0.3.9   Create Useful Summaries of the Portal Data        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours mptools   1.0.1   RAMAS Metapop Tools                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 2 hours mRpostman 1.0.0   An IMAP Client for R                              </span>
+<span class="r-in"><span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, archivals <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (pkgreleases)------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package       Version   Title                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 1 hour  fBasics       3042.89.2 Rmetrics - Markets and Basic Statistics     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours mlrpro        0.1.1     Stepwise Regression with Assumptions Chec...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours spatialsample 0.2.0     Spatial Resampling Infrastructure           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours adaptr        1.1.0     Adaptive Trial Simulator                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours geosapi       0.6-3     GeoServer REST API R Interface              </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package    Version Title                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours TrenchR    0.1.0   Tools for Microclimate and Biophysical Ecology   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours renderthis 0.1.0   Render Slides to Different Formats               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours RGMM       1.1.0   Robust Mixture Model                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours lessR      4.2.2   Less Code, More Results                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours tidymodels 1.0.0   Easily Install and Load the 'Tidymodels' Packa...</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (events)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "fBasics@3042.89.2"   "asypow@2015.6.25-"   "NFP@0.99.4-"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "CEDA@1.0.2-"         "mlrpro@0.1.1"        "spatialsample@0.2.0"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "adaptr@1.1.0"        "geosapi@0.6-3"       "ibawds@0.5.0"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "restoptr@1.0.1"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "text2sdg@0.1.3-"     "skpr@1.1.4-"         "portalr@0.3.9-"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "mptools@1.0.1-"      "mRpostman@1.0.0-"    "jmvReadWrite@0.3.2-"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "OpasnetUtils@1.3-"   "BullsEyeR@0.2.0-"    "arabicStemR@1.2-"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "TrenchR@0.1.0"      </span>
 </code></pre></div>
     </div>
   </div>
@@ -156,7 +156,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
