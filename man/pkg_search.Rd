@@ -74,7 +74,7 @@ previous query, if called without arguments.
 Note that the search needs a working Internet connection.
 }
 \examples{
-\dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Example
 ps("survival")
 

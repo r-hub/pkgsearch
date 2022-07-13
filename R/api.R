@@ -47,8 +47,7 @@ s_data <- new.env(parent = emptyenv())
 #'   * `bugreports`: URL of issue tracker, or email address for bug reports.
 #'
 #' @export
-#' @examples
-#' \dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+#' @examplesIf identical(Sys.getenv("IN_PKGDOWN"), "true")
 #' # Example
 #' ps("survival")
 #'
@@ -63,7 +62,6 @@ s_data <- new.env(parent = emptyenv())
 #' # See the underlying data frame
 #' ps("ropensci")
 #' ps()[]
-#' \dontshow{\}) # examplesIf}
 
 pkg_search <- function(query = NULL, format = c("short", "long"),
                        from = 1, size = 10) {

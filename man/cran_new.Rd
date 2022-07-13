@@ -32,7 +32,7 @@ Data frame of package descriptions.
 List the latest new CRAN packages.
 }
 \examples{
-\dontrun{
+\dontshow{if (identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Last week
 cran_new("last-week")
 
@@ -47,5 +47,5 @@ cran_new(from = "2021-04-06", last = 10)
 
 # March of 2021
 cran_new(from = "2021-03-01", to = "2021-04-01")
-}
+\dontshow{\}) # examplesIf}
 }

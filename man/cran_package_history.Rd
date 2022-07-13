@@ -16,7 +16,7 @@ A data frame, with one row per package version.
 Query the history of a package
 }
 \examples{
-\dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 cran_package_history("igraph")
 \dontshow{\}) # examplesIf}
 }

@@ -28,10 +28,12 @@ and trending packages.
 }
 }
 \section{Examples}{
-\preformatted{pkg_search_addin()
+
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{pkg_search_addin()
 
 # Start with a search query
 pkg_search_addin("permutation test")
-}
+}\if{html}{\out{</div>}}
 }
 

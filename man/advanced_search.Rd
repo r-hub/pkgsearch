@@ -40,7 +40,7 @@ See the Elastic documentation for the syntax and features:
 https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 }
 \examples{
-\dontshow{if (pingr::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # All orphaned packages
 advanced_search(Maintainer = "ORPHANED")
 
