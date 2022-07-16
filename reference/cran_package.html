@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.1</span>
       </span>
     </div>
 
@@ -59,25 +59,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cran_package</span><span class="op">(</span><span class="va">name</span>, version <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cran_package</span><span class="op">(</span><span class="va">name</span>, version <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>name</dt>
 <dd><p>Name of the package.</p></dd>
+
+
 <dt>version</dt>
 <dd><p>The package version to query. If <code>NULL</code>, the latest
 version if returned.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The package metadata, in a named list.</p>
+    
+
+<p>The package metadata, in a named list.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">cran_package</span><span class="op">(</span><span class="st">"pkgsearch"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cran_package</span><span class="op">(</span><span class="st">"pkgsearch"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Package</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "pkgsearch"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -85,7 +90,7 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Search and Query CRAN R Packages"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Version</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3.0.3"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3.1.1"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`Authors@R`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c(\nperson(\"Gábor\", \"Csárdi\",, \"csardi.gabor@gmail.com\", c(\"aut\", \"cre\")),\nperson(\"Maëlle\", \"Salmon\", role = \"aut\",\ncomment = c(ORCID = \"0000-0002-2815-0399\")),\nperson(\"R Consortium\", role = c(\"fnd\")))"</span>
@@ -96,9 +101,6 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $License</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MIT + file LICENSE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $LazyData</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $URL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://github.com/r-hub/pkgsearch,\nhttps://r-hub.github.io/pkgsearch/"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -106,9 +108,6 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://github.com/r-hub/pkgsearch/issues"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Imports</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$assertthat</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$curl</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -116,12 +115,9 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$parsedate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&gt;= 1.3.0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$prettyunits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$tibble</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -133,6 +129,9 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$memoise</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$pillar</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$pingr</span>
@@ -161,13 +160,13 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "UTF-8"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $RoxygenNote</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "7.1.1"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "7.2.0.9000"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $NeedsCompilation</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "no"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Packaged</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-10-08 16:38:15 UTC; gaborcsardi"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-07-14 17:13:45 UTC; gaborcsardi"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Author</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Gábor Csárdi [aut, cre],\nMaëlle Salmon [aut] (&lt;https://orcid.org/0000-0002-2815-0399&gt;),\nR Consortium [fnd]"</span>
@@ -179,16 +178,16 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "CRAN"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`Date/Publication`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-10-08 17:40:12 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-07-16 07:30:25 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $crandb_file_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-10-08 19:02:39"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-07-16 10:08:50"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $MD5sum</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "d3f8da070b25bb7dfb14a58e13fb7ed7"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "0542837fd4ef1b37afaece4ac863fa8e"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-10-08T16:40:12+00:00"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-07-16T06:30:25+00:00"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $releases</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> list()</span>
@@ -209,7 +208,7 @@ version if returned.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>

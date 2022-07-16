@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.1</span>
       </span>
     </div>
 
@@ -59,74 +59,89 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">cran_events</span><span class="op">(</span>releases <span class="op">=</span> <span class="cn">TRUE</span>, archivals <span class="op">=</span> <span class="cn">TRUE</span>, limit <span class="op">=</span> <span class="fl">10</span>, from <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-
-<span class="co"># S3 method for cran_event_list</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for cran_event_list</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cran_events</span><span class="op">(</span>releases <span class="op">=</span> <span class="cn">TRUE</span>, archivals <span class="op">=</span> <span class="cn">TRUE</span>, limit <span class="op">=</span> <span class="fl">10</span>, from <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for cran_event_list</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for cran_event_list</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>releases</dt>
 <dd><p>Whether to include package releases.</p></dd>
+
+
 <dt>archivals</dt>
 <dd><p>Whether to include package archivals.</p></dd>
+
+
 <dt>limit</dt>
 <dd><p>Number of events to list.</p></dd>
+
+
 <dt>from</dt>
 <dd><p>Where to start the list, for pagination.</p></dd>
+
+
 <dt>object</dt>
 <dd><p>Object to summarize.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Additional arguments are ignored currently.</p></dd>
+
+
 <dt>x</dt>
 <dd><p>Object to print.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>List of events.</p>
+    
+
+<p>List of events.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">cran_events</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cran_events</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (events)-----------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package         Version Title                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours Numero          1.9.0   Statistical Framework to Define Subgroups...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours leaflet         2.1.0   Create Interactive Web Maps with the Java...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ctsem           3.5.5   Continuous Time Structural Equation Model...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours mlr3proba       0.4.4   Probabilistic Supervised Learning for 'ml...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ordinalNet      2.11    Penalized Ordinal Regression                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours surveillance    1.20.0  Temporal and Spatio-Temporal Modeling and...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 5 hours newsmd          0.4.0   Creation of NEWS.md File                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 5 hours BiasCorrector   0.2.1   A GUI to Correct Measurement Bias in DNA ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 5 hours spatstat.linnet 2.3-2   Linear Networks Functionality of the 'spa...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 5 hours sumR            0.4.4   Approximates Summation of Discrete Series   </span>
-<span class="r-in"><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, releases <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package      Version Title                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours DySS         1.0     Dynamic Screening Systems                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours ptools       1.0.0   Tools for Poisson Data                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours detectnorm   1.0.0   Detect Nonnormality in Meta-Analysis without...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours tramvs       0.0-1   Optimal Subset Selection for Transformation ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ino          0.1.0   Initialization of Numerical Optimization       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours etree        0.1.0   Classification and Regression with Structure...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ganDataModel 1.0.2   Create a Hierarchical, Categorical Data Mode...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 5 hours webTRISr     0.2.0   A Wrapper Around 'WebTRIS' Traffic Flow API ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 5 hours rgovcan      1.0.3   Easy Access to the Canadian Open Government ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 5 hours GeoModels    1.0.1   Procedures for Gaussian and Non Gaussian Geo...</span>
+<span class="r-in"><span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, releases <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (archivals)--------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package        Version Title                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 6 hours fdacluster     0.1.0   Joint Clustering and Alignment of Function...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 6 hours PCObw          0.0.0   Bandwidth Selector with Penalized Comparis...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 6 hours DrInsight      0.1.2   Drug Repurposing: Integration and Systemat...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 1 day   SWMPrExtension 2.1.0   Functions for Analyzing and Plotting Estua...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  - 1 day   eRTG3D         0.6.4   Empirically Informed Random Trajectory Gen...</span>
-<span class="r-in"><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, archivals <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package   Version Title                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 5 hours webTRISr  0.2.0   A Wrapper Around 'WebTRIS' Traffic Flow API fro...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 5 hours rgovcan   1.0.3   Easy Access to the Canadian Open Government Por...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 5 hours GeoModels 1.0.1   Procedures for Gaussian and Non Gaussian Geosta...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 5 hours GENLIB    1.1.5   Genealogical Data Analysis                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  - 1 day   rsat      0.1.18  Dealing with Multiplatform Satellite Images       </span>
+<span class="r-in"><span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span>, archivals <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (pkgreleases)------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  . When    Package    Version Title                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours Numero     1.9.0   Statistical Framework to Define Subgroups in C...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours leaflet    2.1.0   Create Interactive Web Maps with the JavaScrip...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ctsem      3.5.5   Continuous Time Structural Equation Modelling    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours mlr3proba  0.4.4   Probabilistic Supervised Learning for 'mlr3'     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ordinalNet 2.11    Penalized Ordinal Regression                     </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours DySS       1.0     Dynamic Screening Systems                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours ptools     1.0.0   Tools for Poisson Data                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours detectnorm 1.0.0   Detect Nonnormality in Meta-Analysis without R...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 3 hours tramvs     0.0-1   Optimal Subset Selection for Transformation Mo...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  + 4 hours ino        0.1.0   Initialization of Numerical Optimization         </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu">cran_events</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRAN events (events)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Numero@1.9.0"          "leaflet@2.1.0"         "ctsem@3.5.5"          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "mlr3proba@0.4.4"       "ordinalNet@2.11"       "surveillance@1.20.0"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "newsmd@0.4.0"          "BiasCorrector@0.2.1"   "spatstat.linnet@2.3-2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "sumR@0.4.4"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "DySS@1.0"           "ptools@1.0.0"       "detectnorm@1.0.0"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "tramvs@0.0-1"       "ino@0.1.0"          "etree@0.1.0"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "ganDataModel@1.0.2" "webTRISr@0.2.0-"    "rgovcan@1.0.3-"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "GeoModels@1.0.1-"  </span>
 </code></pre></div>
     </div>
   </div>
@@ -141,7 +156,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
