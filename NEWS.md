@@ -1,4 +1,6 @@
 
+# pkgsearch development version
+
 # pkgsearch 3.1.1
 
 * pkgsearch gives nicer error messages now.
