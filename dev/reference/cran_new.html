@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.2.9000</span>
       </span>
     </div>
 
@@ -97,7 +97,7 @@ to specify the current date and time.</p></dd>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Last week</span></span></span>
 <span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-week"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 21 × 31</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 14 × 27</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date/…¹ Package Title Version Autho…² Descr…³ License Encod…⁴ Roxyg…⁵ Needs…⁶</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-1… IGCiti… <span style="color: #949494;">"</span>Sim… 0.2.0   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Devel… MIT + … UTF-8   7.2.1   no     </span>
@@ -110,17 +110,21 @@ to specify the current date and time.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-1… crossu… <span style="color: #949494;">"</span>Cro… 1.0.6   <span style="color: #949494;">"</span>c(per… <span style="color: #949494;">"</span>Doubl… MIT + … UTF-8   7.2.1   no     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-1… Shaple… <span style="color: #949494;">"</span>Mul… 0.1.0   <span style="color: #949494;">"</span>\nc(\… <span style="color: #949494;">"</span>Based… GPL-3   UTF-8   7.2.1   no     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-1… NestMR… <span style="color: #949494;">"</span>Sin… 1.0     <span style="color: #949494;">"</span>\nper… <span style="color: #949494;">"</span>This … CC0     UTF-8   7.2.1   yes    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11 more rows, 21 more variables: Packaged &lt;chr&gt;, Author &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Maintainer &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, Type &lt;chr&gt;, URL &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 2022-1… exams2… <span style="color: #949494;">"</span>Int… 0.1-0   <span style="color: #949494;">"</span>perso… <span style="color: #949494;">"</span>Autom… GPL-2 … <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      no     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 2022-1… ktweed… <span style="color: #949494;">"</span>'Tw… 1.0.0   <span style="color: #949494;">"</span>\nc(p… <span style="color: #949494;">"</span>Kerne… GPL-3   UTF-8   7.2.0   yes    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> 2022-1… pqrfe   <span style="color: #949494;">"</span>Pen… 1.0     <span style="color: #949494;">"</span>perso… <span style="color: #949494;">"</span>Quant… GPL (&gt;… <span style="color: #BB0000;">NA</span>      7.2.1   yes    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> 2022-1… Polycr… <span style="color: #949494;">"</span>Pol… 1.0.0   <span style="color: #949494;">"</span>c(per… <span style="color: #949494;">"</span>A pol… GPL (&gt;… UTF-8   7.2.0   no     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 17 more variables: Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, Type &lt;chr&gt;, URL &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VignetteBuilder &lt;chr&gt;, LazyData &lt;chr&gt;, `Config/testthat/edition` &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ByteCompile &lt;chr&gt;, RdMacros &lt;chr&gt;, Date &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/parallel` &lt;chr&gt;, SystemRequirements &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/Needs/website` &lt;chr&gt;, and abbreviated variable names …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ByteCompile &lt;chr&gt;, RdMacros &lt;chr&gt;, Date &lt;chr&gt;, and abbreviated variable</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   names ¹​`Date/Publication`, ²​`Authors@R`, ³​Description, ⁴​Encoding,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁵​RoxygenNote, ⁶​NeedsCompilation</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Last month</span></span></span>
 <span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-month"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 179 × 41</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 178 × 41</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date/…¹ Package Title Version Autho…² Descr…³ License Encod…⁴ Roxyg…⁵ Needs…⁶</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-1… IGCiti… <span style="color: #949494;">"</span>Sim… 0.2.0   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Devel… MIT + … UTF-8   7.2.1   no     </span>
@@ -133,7 +137,7 @@ to specify the current date and time.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-1… crossu… <span style="color: #949494;">"</span>Cro… 1.0.6   <span style="color: #949494;">"</span>c(per… <span style="color: #949494;">"</span>Doubl… MIT + … UTF-8   7.2.1   no     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-1… Shaple… <span style="color: #949494;">"</span>Mul… 0.1.0   <span style="color: #949494;">"</span>\nc(\… <span style="color: #949494;">"</span>Based… GPL-3   UTF-8   7.2.1   no     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-1… NestMR… <span style="color: #949494;">"</span>Sin… 1.0     <span style="color: #949494;">"</span>\nper… <span style="color: #949494;">"</span>This … CC0     UTF-8   7.2.1   yes    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 169 more rows, 31 more variables: Packaged &lt;chr&gt;, Author &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 168 more rows, 31 more variables: Packaged &lt;chr&gt;, Author &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Maintainer &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, Type &lt;chr&gt;, URL &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VignetteBuilder &lt;chr&gt;, LazyData &lt;chr&gt;, `Config/testthat/edition` &lt;chr&gt;,</span></span>

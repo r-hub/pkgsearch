@@ -18,7 +18,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.2.9000</span>
       </span>
     </div>
 
@@ -112,7 +112,7 @@ here.</p></dd>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># All orphaned packages</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Maintainer <span class="op">=</span> <span class="st">"ORPHANED"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 3 packages in 0.002 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 3 packages in 0.001 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package   version  by         @ title                             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  100 ggmap     3.0.0    ORPHANED  4y Spatial Visualization with ggplot2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  2   99 distances 0.1.8    ORPHANED  3y Tools for Distance Metrics        </span>
@@ -133,7 +133,7 @@ here.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   9  68 meltr       1.0.1   Duncan Garmonsway  2M Read Non-Rectangular Text ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  10  67 pkgload     1.3.0   Lionel Henry       4M Simulate Package Installat...</span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"Author: Hester AND Author: Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 19 packages in 0.004 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 19 packages in 0.001 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by                  @ title                        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 pkgbuild    1.3.1   Gábor Csárdi      10M Find Tools Needed to Build...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  96 mockery     0.4.3   Hadley Wickham     8M Mocking Library for R        </span>
@@ -158,12 +158,12 @@ here.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   6  74 decor          1.0.1   Romain François 11M Retrieve Code Decorations   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   7  71 rex            1.2.1   Kevin Ushey     11M Friendly Regular Expressions</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   8  66 bench          1.1.2   Davis Vaughan   11M High Precision Timing of ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  66 roger          1.2.0   Vincent Goulet  10d Automated Grading of R Sc...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  66 roger          1.2.0   Vincent Goulet  11d Automated Grading of R Sc...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  10  64 spelling       2.2     Jeroen Ooms      2y Tools for Spell Checking ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with Hester as an Author, and Wickham in any field</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, <span class="st">"Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 19 packages in 0.006 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 19 packages in 0.009 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by               @ title                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 mockery     0.4.3   Hadley Wickham  8M Mocking Library for R           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  92 pkgbuild    1.3.1   Gábor Csárdi   10M Find Tools Needed to Build R ...</span>
@@ -178,7 +178,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with Hester as an Author and Wickham nowhere in the metadata</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, <span class="st">"NOT Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 26 packages in 0.004 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 26 packages in 0.003 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version by                @ title                       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 knitrBootstrap 1.0.2   Jim Hester       4y 'knitr' Bootstrap Framework </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  96 types          1.0.0   Jim Hester       6y Type Annotations            </span>
@@ -188,12 +188,12 @@ here.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   6  74 decor          1.0.1   Romain François 11M Retrieve Code Decorations   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   7  71 rex            1.2.1   Kevin Ushey     11M Friendly Regular Expressions</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   8  66 bench          1.1.2   Davis Vaughan   11M High Precision Timing of ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  66 roger          1.2.0   Vincent Goulet  10d Automated Grading of R Sc...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  66 roger          1.2.0   Vincent Goulet  11d Automated Grading of R Sc...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  10  64 spelling       2.2     Jeroen Ooms      2y Tools for Spell Checking ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages for permutation tests and permissive licenses</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"permutation test AND NOT License: GPL OR GNU"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 398 packages in 0.018 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 398 packages in 0.015 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package           version by                         @ title           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 phd               0.2     Jesse Hemerik            10M Permutation T...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  93 confSAM           0.2     Jesse Hemerik             5y Estimates and...</span>
@@ -208,7 +208,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages that have a certain field</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"_exists_"</span> <span class="op">=</span> <span class="st">"URL"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ------------------------- 10373 packages in 0.001 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ------------------------- 10373 packages in 0.002 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package            version by                           @ title        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 epi2me2r           0.1.0   Quentin D. Read             5M Process Na...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 picR               1.0.0   Javier Flores               2d Predictive...</span>
@@ -226,7 +226,7 @@ here.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 8706 packages in 0.002 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package       version  by                      @ title                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 WLogit        1.0      Wencan Zhu             4M Whitening Logistic ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 blockcpd      1.0.0    Lucas Prates           2M Change Point Detect...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 blockcpd      1.0.0    Lucas Prates           3M Change Point Detect...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   3 100 boxplotdbl    1.4.0    Shinichiro Tomizono    6M Double Box Plot for...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4 100 filebin       0.0.5    Andrew B. Collier     10M Wrapper for the Fil...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5 100 icrf          2.0.0    Hunyong Cho            1y Interval Censored R...</span>
@@ -252,7 +252,7 @@ here.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 8706 packages in 0.001 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package       version  by                      @ title                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 WLogit        1.0      Wencan Zhu             4M Whitening Logistic ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 blockcpd      1.0.0    Lucas Prates           2M Change Point Detect...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 blockcpd      1.0.0    Lucas Prates           3M Change Point Detect...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   3 100 boxplotdbl    1.4.0    Shinichiro Tomizono    6M Double Box Plot for...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4 100 filebin       0.0.5    Andrew B. Collier     10M Wrapper for the Fil...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5 100 icrf          2.0.0    Hunyong Cho            1y Interval Censored R...</span>
@@ -279,7 +279,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fuzzy search</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Johnathan~1"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 239 packages in 0.004 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 239 packages in 0.012 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package               version by                           @ title     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 lda                   1.4.2   Jonathan Chang              7y Collaps...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  99 mlmi                  1.1.1   Jonathan Bartlett           1y Maximum...</span>
