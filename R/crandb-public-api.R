@@ -207,7 +207,7 @@ cran_new <- function(from = "last-week", to = "now", last = Inf) {
   )
 
   url <- paste0(
-    "https://crandb.r-pkg.org:6984/cran/_design/internal/_view/new?",
+    "https://crandb.r-pkg.org:2053/cran/_design/internal/_view/new?",
     paste0(names(param), "=", param, collapse = "&")
   )
 
