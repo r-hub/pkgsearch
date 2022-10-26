@@ -1,5 +1,6 @@
+# pkgsearch 3.1.2
 
-# pkgsearch development version
+* `cran_new()` works again.
 
 # pkgsearch 3.1.1
 
