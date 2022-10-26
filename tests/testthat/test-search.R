@@ -15,7 +15,7 @@ test_that("search", {
         colnames(x))
   )
 
-  expect_equal(x$package[1], "crayon")
+  expect_true("cli" %in% x$package)
 })
 
 test_that("again w/o previous search", {

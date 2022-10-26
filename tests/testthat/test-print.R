@@ -9,7 +9,6 @@ test_that("short", {
   expect_equal(length(out), 12)
   expect_match(out[1], "csardi.*packages in.*seconds")
   expect_match(out[2], "#\\s+package\\s+version\\s+by\\s+@\\s+title")
-  expect_match(out[3], "100\\s+crayon.*G.*bor Cs.*rdi.*Colored Terminal")
 })
 
 test_that("long", {
@@ -18,7 +17,6 @@ test_that("long", {
   x <- ps("csardi", "long")
   out <- capture.output(print(x))
   expect_match(out[1], "csardi.*packages in.*seconds")
-  expect_match(out[3], "^1 crayon")
   expect_true(any(grepl("github.com/r-lib/crayon", out, fixed = TRUE)))
   expect_true(any(grepl("G.*bor Cs.*rdi", out)))
 })
