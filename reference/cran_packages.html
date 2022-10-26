@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.2</span>
       </span>
     </div>
 
@@ -80,41 +80,43 @@
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Get metadata about one package</span></span></span>
 <span class="r-in"><span><span class="fu">cran_packages</span><span class="op">(</span><span class="st">"rhub"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 1 × 22</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Package Title           Version `Authors@R` Description License LazyData URL  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> rhub    Connect to 'R-… 1.1.1   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Run 'R CM… MIT + … true     http…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 14 more variables: BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Encoding &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 1 × 21</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Package Title    Version Autho…¹ Descr…² License URL   BugRe…³ Roxyg…⁴ Encod…⁵</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> rhub    Connect… 1.1.2   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Run '… MIT + … http… https:… 7.2.1.… UTF-8  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11 more variables: VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;, Repository &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, and abbreviated variable names ¹​`Authors@R`,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​Description, ³​BugReports, ⁴​RoxygenNote, ⁵​Encoding</span></span>
 <span class="r-in"><span><span class="co"># Get metadata about two packages</span></span></span>
 <span class="r-in"><span><span class="fu">cran_packages</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rhub"</span>, <span class="st">"testthat"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 2 × 25</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Package  Title          Version `Authors@R` Description License LazyData URL  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> rhub     Connect to 'R… 1.1.1   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Run 'R CM… MIT + … true     http…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> testthat Unit Testing … 3.1.4   <span style="color: #949494;">"</span>\nc(perso… <span style="color: #949494;">"</span>Software … MIT + … <span style="color: #BB0000;">NA</span>       http…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 17 more variables: BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Encoding &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 2 × 24</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Package  Title   Version Autho…¹ Descr…² License URL   BugRe…³ Roxyg…⁴ Encod…⁵</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> rhub     Connec… 1.1.2   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Run '… MIT + … http… https:… 7.2.1.… UTF-8  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> testthat Unit T… 3.1.5   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Softw… MIT + … http… https:… 7.2.1.… UTF-8  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 14 more variables: VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;, Repository &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, `Config/testthat/edition` &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/start-first` &lt;chr&gt;, `Config/Needs/website` &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, `Config/Needs/website` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, `Config/testthat/start-first` &lt;chr&gt;, and</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​`Authors@R`, ²​Description, ³​BugReports,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​RoxygenNote, ⁵​Encoding</span></span>
 <span class="r-in"><span><span class="co"># Get metadata about two packages at given versions</span></span></span>
 <span class="r-in"><span><span class="fu">cran_packages</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rhub@1.1.1"</span>, <span class="st">"testthat@2.2.1"</span>, <span class="st">"testthat@2.2.0"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 3 × 23</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Package  Title          Version `Authors@R` Description License LazyData URL  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> rhub     Connect to 'R… 1.1.1   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Run 'R CM… MIT + … true     http…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> testthat Unit Testing … 2.2.1   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Software … MIT + … <span style="color: #BB0000;">NA</span>       http…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> testthat Unit Testing … 2.2.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Software … MIT + … <span style="color: #BB0000;">NA</span>       http…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 15 more variables: BugReports &lt;chr&gt;, RoxygenNote &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Encoding &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, NeedsCompilation &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;, Repository &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;, date &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dependencies &lt;list&gt;, Collate &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Package  Title   Version Autho…¹ Descr…² License LazyD…³ URL   BugRe…⁴ Roxyg…⁵</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> rhub     Connec… 1.1.1   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Run '… MIT + … true    http… https:… 6.1.1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> testthat Unit T… 2.2.1   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Softw… MIT + … <span style="color: #BB0000;">NA</span>      http… https:… 6.1.1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> testthat Unit T… 2.2.0   <span style="color: #949494;">"</span>c(\np… <span style="color: #949494;">"</span>Softw… MIT + … <span style="color: #BB0000;">NA</span>      http… https:… 6.1.1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 13 more variables: Encoding &lt;chr&gt;, VignetteBuilder &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;, Author &lt;chr&gt;, Maintainer &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Repository &lt;chr&gt;, `Date/Publication` &lt;chr&gt;, crandb_file_date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   MD5sum &lt;chr&gt;, date &lt;chr&gt;, dependencies &lt;list&gt;, Collate &lt;chr&gt;, and</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​`Authors@R`, ²​Description, ³​LazyData,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​BugReports, ⁵​RoxygenNote</span></span>
 <span class="r-in"><span><span class="co"># If a version does not exist nothing is returned</span></span></span>
 <span class="r-in"><span><span class="fu">cran_packages</span><span class="op">(</span><span class="st">"rhub@notaversion"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
@@ -132,7 +134,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
