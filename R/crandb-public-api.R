@@ -308,13 +308,10 @@ do_crandb_query <- function(from, limit,
 
 cran_package_history <- function(package) {
 
-  resp <- do_crandb_query(
-    from = package, limit = 1,
-    format = "full",
-    archived = TRUE
-  )
+  ept <- paste0(package, "/all")
+  resp <- crandb_query(ept)
 
-  df_list <- lapply(resp, function(p) rectangle_packages(p$versions))
+  df_list <- list(rectangle_packages(resp$versions))
   df_list <- make_col_compatible(df_list)
   res <- do.call("rbind", df_list)
 
