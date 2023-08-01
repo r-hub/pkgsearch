@@ -2,7 +2,7 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles: {}
-last_built: 2023-07-31T08:02Z
+last_built: 2023-08-01T13:47Z
 urls:
   reference: https://r-hub.github.io/pkgsearch/reference
   article: https://r-hub.github.io/pkgsearch/articles
