@@ -10,7 +10,6 @@ on_failure(is_package_name) <- function(call, env) {
 
 is_package_version <- function(string) {
   assert_that(is_string(string))
-  grepl("^[0-9a-zA-Z._]*$", string)
 }
 
 on_failure(is_package_version) <- function(call, env) {
