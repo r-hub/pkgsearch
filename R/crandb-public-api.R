@@ -20,7 +20,7 @@ cran_package <- function(name, version = NULL) {
   )
 
   ept <- name
-  if (! is.null(version)) ept <- paste0(ept, "/", version)
+  if (! is.null(version)) ept <- paste0(ept, "/", utils::URLencode(version, reserved = TRUE))
   rst <- crandb_query(ept)
   crst <- remove_special(rst)
   add_class(crst, "cran_package")
