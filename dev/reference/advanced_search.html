@@ -112,7 +112,7 @@ here.</p></dd>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># All orphaned packages</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Maintainer <span class="op">=</span> <span class="st">"ORPHANED"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 3 packages in 0.001 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 3 packages in 0.002 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package   version  by         @ title                                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  100 udunits2  0.13.2.1 ORPHANED  2y Udunits-2 Bindings for R               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  2  100 fastclime 1.4.1.1  ORPHANED  6M A Fast Solver for Parameterized LP P...</span>
@@ -120,7 +120,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with both Hester and Wickham as authors</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, Author <span class="op">=</span> <span class="st">"Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 20 packages in 0.003 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 20 packages in 0.002 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by                  @ title                        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 mockery     0.4.4   Hadley Wickham    23d Mocking Library for R        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  96 pkgbuild    1.4.2   Gábor Csárdi       4M Find Tools Needed to Build...</span>
@@ -163,7 +163,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with Hester as an Author, and Wickham in any field</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, <span class="st">"Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 20 packages in 0.008 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 20 packages in 0.007 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by               @ title                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 mockery     0.4.4   Hadley Wickham 23d Mocking Library for R           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  95 odbc        1.3.5   Hadley Wickham  4M Connect to ODBC Compatible Da...</span>
@@ -178,7 +178,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with Hester as an Author and Wickham nowhere in the metadata</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, <span class="st">"NOT Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 27 packages in 0.007 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 27 packages in 0.005 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version by                        @ title               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 types          1.0.0   Jim Hester               7y Type Annotations    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 knitrBootstrap 1.0.2   Jim Hester               5y 'knitr' Bootstrap...</span>
@@ -193,7 +193,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages for permutation tests and permissive licenses</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"permutation test AND NOT License: GPL OR GNU"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 467 packages in 0.045 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 467 packages in 0.019 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package       version by                         @ title               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 phd           0.2     Jesse Hemerik             2y Permutation Testi...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  92 confSAM       0.2     Jesse Hemerik             6y Estimates and Bou...</span>
@@ -208,7 +208,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages that have a certain field</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"_exists_"</span> <span class="op">=</span> <span class="st">"URL"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ------------------------- 11761 packages in 0.002 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ------------------------- 11761 packages in 0.001 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by                            @ title              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 ascii       2.4     Mark Clements                3y Export R Objects...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 acss        0.2.5   Henrik Singmann              9y Algorithmic Comp...</span>
@@ -223,7 +223,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages that do not have a certain field:</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"NOT _exists_: URL"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 9432 packages in 0.003 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 9432 packages in 0.005 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package      version  by                     @ title                   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 BANOVA       1.2.1    Chen Dong             1y Hierarchical Bayesian...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 agriTutorial 0.1.5    Rodney Edmondson      4y Tutorial Analysis of ...</span>
@@ -249,7 +249,7 @@ here.</p></dd>
 <span class="r-in"><span><span class="st">}</span></span></span>
 <span class="r-in"><span><span class="st">}'</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>json <span class="op">=</span> <span class="va">query</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 9432 packages in 0.001 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 9432 packages in 0.003 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package      version  by                     @ title                   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 BANOVA       1.2.1    Chen Dong             1y Hierarchical Bayesian...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 agriTutorial 0.1.5    Rodney Edmondson      4y Tutorial Analysis of ...</span>
@@ -264,7 +264,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Regular expressions</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"/Joh?nathan/"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 249 packages in 0.012 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 249 packages in 0.008 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package      version by                           @ title              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 texPreview   2.0.0   Jonathan Sidi               2y Compile and Prev...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 Sample.Size  1.0     Wei Jiang&lt;wjiang@kumc.edu&gt; 10y Sample size calc...</span>
@@ -279,7 +279,7 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fuzzy search</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Johnathan~1"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 251 packages in 0.011 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 251 packages in 0.04 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package    version by                           @ title                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 mlmi       1.1.2   Jonathan Bartlett           5M Maximum Likelihood...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  98 lda        1.4.2   Jonathan Chang              8y Collapsed Gibbs Sa...</span>
