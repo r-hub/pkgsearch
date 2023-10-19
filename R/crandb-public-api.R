@@ -16,7 +16,7 @@ cran_package <- function(name, version = NULL) {
 
   assert_that(
     is_package_name(name),
-    is.null(version) || is_package_version(version)
+    is.null(version) || is_package_version(version) || (is_string(version) && version == "all")
   )
 
   ept <- name
