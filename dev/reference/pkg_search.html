@@ -146,75 +146,65 @@ from the RStudio CRAN mirror.</p></li>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example</span></span></span>
 <span class="r-in"><span><span class="fu">ps</span><span class="op">(</span><span class="st">"survival"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "survival" ---------------------------------- 1067 packages in 0.01 seconds -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package         version   by                        @ title            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 survival        3.5.7     Terry M Therneau         2M Survival Analysis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2   7 KMsurv          0.1.5     Jun Yan                 11y Data sets from...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3   6 rpart           4.1.21    Beth Atkinson            9d Recursive Part...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4   6 timereg         2.0.5     Thomas Scheike           9M Flexible Regre...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5   6 randomForestSRC 3.2.2     Udaya B. Kogalur         5M Fast Unified R...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6   5 pec             2023.4.12 Thomas A. Gerds          6M Prediction Err...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7   5 muhaz           1.2.6.4   David Winsemius          2y Hazard Functio...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8   4 survC1          1.0.3     Hajime Uno               3y C-Statistics f...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9   4 survivalROC     1.0.3.1   Paramita Saha-Chaudhuri 11M Time-Dependent...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10   4 flexsurv        2.2.2     Christopher Jackson      9M Flexible Param...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "survival" ---------------------------------- 1079 packages in 0.01 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package         version   by                      @ title              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 survival        3.5.7     Terry M Therneau       3M Survival Analysis  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  11 survminer       0.4.9     Alboukadel Kassambara  3y Drawing Survival...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  10 flexsurv        2.2.2     Christopher Jackson   10M Flexible Paramet...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4   7 rstpm2          1.6.2     Mark Clements          9M Smooth Survival ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5   6 randomForestSRC 3.2.2     Udaya B. Kogalur       6M Fast Unified Ran...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6   5 muhaz           1.2.6.4   David Winsemius        3y Hazard Function ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7   5 pec             2023.4.12 Thomas A. Gerds        7M Prediction Error...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8   5 relsurv         2.2.9     Damjan Manevski       11M Relative Survival  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9   5 timereg         2.0.5     Thomas Scheike        10M Flexible Regress...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10   4 survRM2         1.0.4     Hajime Uno             1y Comparing Restri...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pagination</span></span></span>
 <span class="r-in"><span><span class="fu">ps</span><span class="op">(</span><span class="st">"networks"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "networks" ---------------------------------- 913 packages in 0.009 seconds -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version   by                   @ title                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 igraph         1.5.1     Kirill Müller       2M Network Analysis and...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  67 RCurl          1.98.1.12 CRAN Team           7M General Network (HTT...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  62 network        1.18.1    Carter T. Butts     9M Classes for Relation...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  49 nnet           7.3.19    Brian Ripley        6M Feed-Forward Neural ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  34 sna            2.7.1     Carter T. Butts     9M Tools for Social Net...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  29 snow           0.4.4     Luke Tierney        2y Simple Network of Wo...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  24 ergm           4.5.0     Pavel N. Krivitsky  5M Fit, Simulate and Di...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  19 networkDynamic 0.11.3    Skye Bender-deMoll  8M Dynamic Extensions f...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  16 diagram        1.6.5     Karline Soetaert    3y Functions for Visual...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  15 RSNNS          0.4.16    Christoph Bergmeir  5M Neural Networks usin...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "networks" ---------------------------------- 920 packages in 0.009 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package    version   by                    @ title                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 igraph     1.5.1     Kirill Müller        3M Network Analysis and Vi...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  48 network    1.18.1    Carter T. Butts     10M Classes for Relational ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  38 nnet       7.3.19    Brian Ripley         7M Feed-Forward Neural Net...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  33 DiagrammeR 1.0.10    Richard Iannone      6M Graph/Network Visualiza...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  31 RCurl      1.98.1.13 CRAN Team           18d General Network (HTTP/F...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  29 ggraph     2.1.0     Thomas Lin Pedersen  1y An Implementation of Gr...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  26 visNetwork 2.1.2     Benoit Thieurmel     1y Network Visualization u...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  25 sna        2.7.1     Carter T. Butts     10M Tools for Social Networ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  21 snow       0.4.4     Luke Tierney         2y Simple Network of Works...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  20 neuralnet  1.44.2    Marvin N. Wright     5y Training of Neural Netw...</span>
 <span class="r-in"><span><span class="fu">more</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "networks" ---------------------------------- 913 packages in 0.009 seconds -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   #    package    version by                     @ title                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  11 14 neuralnet  1.44.2  Marvin N. Wright      5y Training of Neural Networks </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  12 12 gRain      1.3.14  Søren Højsgaard       2M Graphical Independence Ne...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  13 12 latentnet  2.10.6  Pavel N. Krivitsky    1y Latent Position and Clust...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  14 11 snowFT     1.6.1   Hana Sevcikova       28d Fault Tolerant Simple Net...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  15 10 GeneNet    1.2.16  Korbinian Strimmer    2y Modeling and Inferring Ge...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  16 10 ndtv       0.13.3  Skye Bender-deMoll   11M Network Dynamic Temporal ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  17 10 qrnn       2.1     Alex J. Cannon        6M Quantile Regression Neura...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18 10 WGCNA      1.72.1  Peter Langfelder      9M Weighted Correlation Netw...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  19  9 GISSB      1.1     Sindre Mikael Haugen  9M Network Analysis on the N...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  20  9 igraphdata 1.0.1   Gabor Csardi          8y A Collection of Network D...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "networks" ----------------------------------- 920 packages in 0.01 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   #    package        version by                    @ title                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  11 16 ergm           4.5.0   Pavel N. Krivitsky   6M Fit, Simulate and Diag...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  12 15 networkD3      0.4     Christopher Gandrud  7y D3 JavaScript Network ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13 15 torch          0.11.0  Daniel Falbel        6M Tensors and Neural Net...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  14 15 bnlearn        4.9     Marco Scutari        2M Bayesian Network Struc...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  15 13 WGCNA          1.72.1  Peter Langfelder    10M Weighted Correlation N...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  16 13 intergraph     2.0.3   Michał Bojanowski    3M Coercion Routines for ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  17 12 RSNNS          0.4.16  Christoph Bergmeir   7M Neural Networks using ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18 12 diagram        1.6.5   Karline Soetaert     3y Functions for Visualis...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  19 11 networkDynamic 0.11.3  Skye Bender-deMoll   9M Dynamic Extensions for...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  20 10 bipartite      2.18    Carsten F. Dormann   1y Visualising Bipartite ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Details</span></span></span>
 <span class="r-in"><span><span class="fu">ps</span><span class="op">(</span><span class="st">"visualization"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "visualization" ----------------------------- 1616 packages in 0.01 seconds -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package  version by                    @ title                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 ggplot2  3.4.4   Thomas Lin Pedersen  7d Create Elegant Data Visuali...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  91 igraph   1.5.1   Kirill Müller        2M Network Analysis and Visual...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  85 rgl      1.2.1   Duncan Murdoch       4M 3D Visualization Using OpenGL </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  55 scales   1.2.1   Hadley Wickham       1y Scale Functions for Visuali...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  45 vcd      1.4.11  David Meyer          9M Visualizing Categorical Data  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  35 ROCR     1.0.11  Felix G.M. Ernst     3y Visualizing the Performance...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  25 klaR     1.7.2   Uwe Ligges           7M Classification and Visualiz...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  20 ggmap    3.0.2   David Kahle          7M Spatial Visualization with ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  20 lattice  0.21.9  Deepayan Sarkar     18d Trellis Graphics for R        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  18 corrplot 0.92    Taiyun Wei           2y Visualization of a Correlat...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "visualization" ---------------------------- 1629 packages in 0.011 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package    version by                    @ title                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 igraph     1.5.1   Kirill Müller        3M Network Analysis and Visu...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  99 scales     1.2.1   Hadley Wickham       1y Scale Functions for Visua...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  54 rgl        1.2.1   Duncan Murdoch       5M 3D Visualization Using Op...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  49 ggplot2    3.4.4   Thomas Lin Pedersen  1M Create Elegant Data Visua...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  31 DiagrammeR 1.0.10  Richard Iannone      6M Graph/Network Visualization </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  29 circlize   0.4.15  Zuguang Gu           2y Circular Visualization      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  29 corrplot   0.92    Taiyun Wei           2y Visualization of a Correl...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  27 visNetwork 2.1.2   Benoit Thieurmel     1y Network Visualization usi...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  25 ROCR       1.0.11  Felix G.M. Ernst     4y Visualizing the Performan...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  25 vcd        1.4.11  David Meyer         10M Visualizing Categorical Data</span>
 <span class="r-in"><span><span class="fu">ps</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "visualization" ----------------------------- 1616 packages in 0.01 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "visualization" ---------------------------- 1629 packages in 0.011 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 ggplot2 @ 3.4.4                               Thomas Lin Pedersen, 7 days ago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   # Create Elegant Data Visualisations Using the Grammar of Graphics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   A system for 'declaratively' creating graphics, based on "The Grammar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   of Graphics". You provide the data, tell 'ggplot2' how to map</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   variables to aesthetics, what graphical primitives to use, and it</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   takes care of the details.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://ggplot2.tidyverse.org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/tidyverse/ggplot2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 igraph @ 1.5.1                                    Kirill Müller, 2 months ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 igraph @ 1.5.1                                    Kirill Müller, 3 months ago</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ----------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   # Network Analysis and Visualization</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Routines for simple graphs and network analysis. It can handle large</span>
@@ -225,7 +215,15 @@ from the RStudio CRAN mirror.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   https://igraph.org/</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   https://igraph.discourse.group/</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 rgl @ 1.2.1                                      Duncan Murdoch, 4 months ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 scales @ 1.2.1                               Hadley Wickham, about a year ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # Scale Functions for Visualization</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Graphical scales map data to aesthetics, and provide methods for</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   automatically determining breaks and labels for axes and legends.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://scales.r-lib.org</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/r-lib/scales</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 rgl @ 1.2.1                                      Duncan Murdoch, 5 months ago</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   # 3D Visualization Using OpenGL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Provides medium to high level functions for 3D interactive graphics,</span>
@@ -237,26 +235,61 @@ from the RStudio CRAN mirror.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/dmurdoch/rgl</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   https://dmurdoch.github.io/rgl/</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 scales @ 1.2.1                               Hadley Wickham, about a year ago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   # Scale Functions for Visualization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Graphical scales map data to aesthetics, and provide methods for</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   automatically determining breaks and labels for axes and legends.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://scales.r-lib.org</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/r-lib/scales</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 ggplot2 @ 3.4.4                        Thomas Lin Pedersen, about a month ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # Create Elegant Data Visualisations Using the Grammar of Graphics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   A system for 'declaratively' creating graphics, based on "The Grammar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   of Graphics". You provide the data, tell 'ggplot2' how to map</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   variables to aesthetics, what graphical primitives to use, and it</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   takes care of the details.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://ggplot2.tidyverse.org</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/tidyverse/ggplot2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 vcd @ 1.4.11                                        David Meyer, 9 months ago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   # Visualizing Categorical Data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Visualization techniques, data sets, summary and inference procedures</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   aimed particularly at categorical data. Special emphasis is given to</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   highly extensible grid graphics. The package was package was</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   originally inspired by the book "Visualizing Categorical Data" by</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Michael Friendly and is now the main support package for a new book,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "Discrete Data Analysis with R" by Michael Friendly and David Meyer</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   (2015).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 DiagrammeR @ 1.0.10                             Richard Iannone, 6 months ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # Graph/Network Visualization</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Build graph/network structures using functions for stepwise addition</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   and deletion of nodes and edges. Work with data available in tables</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   for bulk addition of nodes, edges, and associated metadata. Use graph</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   selections and traversals to apply changes to specific nodes or</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   edges. A wide selection of graph algorithms allow for the analysis of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   graphs. Visualize the graphs and take advantage of any aesthetic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   properties assigned to nodes and edges.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/rich-iannone/DiagrammeR</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 ROCR @ 1.0.11                                   Felix G.M. Ernst, 3 years ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 circlize @ 0.4.15                                     Zuguang Gu, 2 years ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # Circular Visualization</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Circular layout is an efficient way for the visualization of huge</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   amounts of information. Here this package provides an implementation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   of circular layout generation in R as well as an enhancement of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   available software. The flexibility of the package is based on the</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   usage of low-level graphics functions such that self-defined</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   high-level graphics can be easily implemented by users for specific</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   purposes. Together with the seamless connection between the powerful</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   computational and visual environment in R, it gives users more</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   convenience and freedom to design figures for better understanding</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   complex patterns behind multiple dimensional data. The package is</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   described in Gu et al. 2014 &lt;doi:10.1093/bioinformatics/btu393&gt;.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/jokergoo/circlize</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://jokergoo.github.io/circlize_book/book/</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 corrplot @ 0.92                                       Taiyun Wei, 2 years ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # Visualization of a Correlation Matrix</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Provides a visual exploratory tool on correlation matrix that</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   supports automatic variable reordering to help detect hidden patterns</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   among variables.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/taiyun/corrplot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8 visNetwork @ 2.1.2                         Benoit Thieurmel, about a year ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # Network Visualization using 'vis.js' Library</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Provides an R interface to the 'vis.js' JavaScript charting library.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   It allows an interactive visualization of networks.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   https://datastorm-open.github.io/visNetwork/</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9 ROCR @ 1.0.11                                   Felix G.M. Ernst, 4 years ago</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   # Visualizing the Performance of Scoring Classifiers</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ROC graphs, sensitivity/specificity curves, lift charts, and</span>
@@ -276,74 +309,45 @@ from the RStudio CRAN mirror.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   reasonable default values for all optional parameters.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   http://ipa-tys.github.io/ROCR/</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 klaR @ 1.7.2                                         Uwe Ligges, 7 months ago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   # Classification and Visualization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Miscellaneous functions for classification and visualization, e.g.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   regularized discriminant analysis, sknn() kernel-density naive Bayes,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   an interface to 'svmlight' and stepclass() wrapper variable selection</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   for supervised classification, partimat() visualization of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   classification rules and shardsplot() of cluster results as well as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   kmodes() clustering for categorical data, corclust() variable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   clustering, variable extraction from different variable clustering</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   models and weight of evidence preprocessing.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://statistik.tu-dortmund.de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 ggmap @ 3.0.2                                       David Kahle, 7 months ago</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 vcd @ 1.4.11                                      David Meyer, 10 months ago</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   # Spatial Visualization with ggplot2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   A collection of functions to visualize spatial data and models on top</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   of static maps from various online sources (e.g Google Maps and</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Stamen Maps). It includes tools common to those tasks, including</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   functions for geolocation and routing.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/dkahle/ggmap</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 lattice @ 0.21.9                                 Deepayan Sarkar, 18 days ago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   # Trellis Graphics for R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   A powerful and elegant high-level data visualization system inspired</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   by Trellis graphics, with an emphasis on multivariate data. Lattice</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   is sufficient for typical graphics needs, and is also flexible enough</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   to handle most nonstandard requirements. See ?Lattice for an</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   introduction.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://lattice.r-forge.r-project.org/</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 corrplot @ 0.92                                      Taiyun Wei, 2 years ago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   # Visualization of a Correlation Matrix</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Provides a visual exploratory tool on correlation matrix that</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   supports automatic variable reordering to help detect hidden patterns</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   among variables.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   https://github.com/taiyun/corrplot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # Visualizing Categorical Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Visualization techniques, data sets, summary and inference procedures</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   aimed particularly at categorical data. Special emphasis is given to</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   highly extensible grid graphics. The package was package was</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   originally inspired by the book "Visualizing Categorical Data" by</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Michael Friendly and is now the main support package for a new book,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "Discrete Data Analysis with R" by Michael Friendly and David Meyer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   (2015).</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># See the underlying data frame</span></span></span>
 <span class="r-in"><span><span class="fu">ps</span><span class="op">(</span><span class="st">"ropensci"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "ropensci" ---------------------------------- 259 packages in 0.009 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "ropensci" ---------------------------------- 260 packages in 0.009 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package         version by                       @ title               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 rfisheries      0.2     Karthik Ram             8y 'Programmatic Int...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  95 mcbette         1.15.2  Richèl J.C. Bilderbeek 22d Model Comparison ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  82 chromer         0.6     Karl W Broman          28d Interface to Chro...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  76 workloopR       1.1.4   Vikram B. Baliga        2y Analysis of Work ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  68 opentripplanner 0.5.1   Malcolm Morgan          9M Setup and connect...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  56 hydroscoper     1.4.1   Konstantinos Vantas     2y Interface to the ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  55 unifir          0.2.3   Michael Mahoney        11M A Unifying API fo...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  55 spiro           0.2.1   Simon Nolte             2M Manage Data from ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  54 terrainr        0.7.5   Michael Mahoney        15d Landscape Visuali...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  53 dittodb         0.1.7   Jonathan Keane          2M A Test Environmen...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 vcr             1.2.2   Scott Chamberlain       5M Record 'HTTP' Cal...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  82 RSelenium       1.7.9   Ju Yeong Kim            1y R Bindings for 'S...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  77 webmockr        0.9.0   Scott Chamberlain       9M Stubbing and Sett...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  55 rfisheries      0.2     Karthik Ram             8y 'Programmatic Int...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  51 mcbette         1.15.2  Richèl J.C. Bilderbeek  2M Model Comparison ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  51 jsonld          2.2     Jeroen Ooms             3y JSON for Linking ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  51 taxize          0.9.100 Zachary Foster          2y Taxonomic Informa...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  50 charlatan       0.5.1   Roel M. Hogervorst      2M Make Fake Data      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  48 googleLanguageR 0.3.0   Mark Edmondson          4y Call Google's 'Na...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  47 fastMatMR       1.2.5   Rohit Goswami          17d High-Performance ...</span>
 <span class="r-in"><span><span class="fu">ps</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 10 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    score package   version title description date                maintainer_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;pckg_&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  383. rfisheri… 0.2     <span style="color: #949494;">"</span>'Pr… <span style="color: #949494;">"</span>A program… 2016-02-19 <span style="color: #949494;">08:50:03</span> Karthik Ram    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  364. mcbette   1.15.2  <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>'BEAST2' … 2023-09-27 <span style="color: #949494;">08:00:02</span> Richèl J.C. Bi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  312. chromer   0.6     <span style="color: #949494;">"</span>Int… <span style="color: #949494;">"</span>A program… 2023-09-21 <span style="color: #949494;">12:00:02</span> Karl W Broman  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  292. workloopR 1.1.4   <span style="color: #949494;">"</span>Ana… <span style="color: #949494;">"</span>Functions… 2021-05-06 <span style="color: #949494;">07:10:02</span> Vikram B. Bali…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  260. opentrip… 0.5.1   <span style="color: #949494;">"</span>Set… <span style="color: #949494;">"</span>Setup and… 2023-02-02 <span style="color: #949494;">16:30:02</span> Malcolm Morgan </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  213. hydrosco… 1.4.1   <span style="color: #949494;">"</span>Int… <span style="color: #949494;">"</span>R interfa… 2021-05-14 <span style="color: #949494;">15:30:03</span> Konstantinos V…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  212. unifir    0.2.3   <span style="color: #949494;">"</span>A U… <span style="color: #949494;">"</span>Functions… 2022-12-02 <span style="color: #949494;">17:20:02</span> Michael Mahoney</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  209. spiro     0.2.1   <span style="color: #949494;">"</span>Man… <span style="color: #949494;">"</span>Import, p… 2023-08-14 <span style="color: #949494;">09:30:06</span> Simon Nolte    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  208. terrainr  0.7.5   <span style="color: #949494;">"</span>Lan… <span style="color: #949494;">"</span>Functions… 2023-10-04 <span style="color: #949494;">12:10:02</span> Michael Mahoney</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  204. dittodb   0.1.7   <span style="color: #949494;">"</span>A T… <span style="color: #949494;">"</span>Testing a… 2023-08-13 <span style="color: #949494;">13:20:06</span> Jonathan Keane </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  705. vcr       1.2.2   <span style="color: #949494;">"</span>Rec… <span style="color: #949494;">"</span>Record te… 2023-06-25 <span style="color: #949494;">11:30:02</span> Scott Chamberl…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  580. RSelenium 1.7.9   <span style="color: #949494;">"</span>R B… <span style="color: #949494;">"</span>Provides … 2022-09-02 <span style="color: #949494;">07:10:11</span> Ju Yeong Kim   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  545. webmockr  0.9.0   <span style="color: #949494;">"</span>Stu… <span style="color: #949494;">"</span>Stubbing … 2023-02-28 <span style="color: #949494;">14:20:02</span> Scott Chamberl…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  387. rfisheri… 0.2     <span style="color: #949494;">"</span>'Pr… <span style="color: #949494;">"</span>A program… 2016-02-19 <span style="color: #949494;">08:50:03</span> Karthik Ram    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  361. mcbette   1.15.2  <span style="color: #949494;">"</span>Mod… <span style="color: #949494;">"</span>'BEAST2' … 2023-09-27 <span style="color: #949494;">08:00:02</span> Richèl J.C. Bi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  360. jsonld    2.2     <span style="color: #949494;">"</span>JSO… <span style="color: #949494;">"</span>JSON-LD i… 2020-05-27 <span style="color: #949494;">06:20:03</span> Jeroen Ooms    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  356. taxize    0.9.100 <span style="color: #949494;">"</span>Tax… <span style="color: #949494;">"</span>Interacts… 2022-04-22 <span style="color: #949494;">07:30:02</span> Zachary Foster </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  354. charlatan 0.5.1   <span style="color: #949494;">"</span>Mak… <span style="color: #949494;">"</span>Make fake… 2023-09-13 <span style="color: #949494;">12:40:02</span> Roel M. Hogerv…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  341. googleLa… 0.3.0   <span style="color: #949494;">"</span>Cal… <span style="color: #949494;">"</span>Call 'Goo… 2020-04-19 <span style="color: #949494;">12:40:02</span> Mark Edmondson </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  332. fastMatMR 1.2.5   <span style="color: #949494;">"</span>Hig… <span style="color: #949494;">"</span>An interf… 2023-11-03 <span style="color: #949494;">21:00:06</span> Rohit Goswami  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 more variables: maintainer_email &lt;chr&gt;, revdeps &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   downloads_last_month &lt;int&gt;, license &lt;chr&gt;, url &lt;chr&gt;, bugreports &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   package_data &lt;I&lt;list&gt;&gt;</span></span>
