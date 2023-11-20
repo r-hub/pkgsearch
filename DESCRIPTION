@@ -17,8 +17,7 @@ BugReports: https://github.com/r-hub/pkgsearch/issues
 Imports:
     curl,
     jsonlite,
-    parsedate (>= 1.3.0),
-    prettyunits
+    parsedate (>= 1.3.0)
 Suggests:
     mockery,
     covr,

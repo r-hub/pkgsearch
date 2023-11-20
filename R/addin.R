@@ -714,7 +714,7 @@ format_pkg <- function(record, id, num, from) {
     ", by ",
     record$maintainer_name,
     ", ",
-    time_ago(record$date)
+    format_time_ago$time_ago(record$date)
   )
   urls <- find_urls(record$url)
   shiny::p(
