@@ -173,7 +173,6 @@ cran_top_downloaded <- function() {
 #' @return Data frame of package descriptions.
 #'
 #' @export
-#' @importFrom parsedate format_iso_8601
 #' @examplesIf identical(Sys.getenv("IN_PKGDOWN"), "true")
 #' # Last week
 #' cran_new("last-week")

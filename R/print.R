@@ -154,11 +154,10 @@ summary.cran_event_list <- function(object, ...) {
 #' @rdname cran_events
 #' @param x Object to print.
 #' @param ... Additional arguments are ignored currently.
-#' @importFrom parsedate parse_date
 
 print.cran_event_list <- function(x, ...) {
   cat_fill("CRAN events (" %+% attr(x, "mode") %+% ")")
-  when <- format_time_ago$time_ago(format = "short", parse_date(sapply(x, "[[", "date")))
+  when <- format_time_ago$time_ago(format = "short", parse_iso_8601(sapply(x, "[[", "date")))
   pkgs <- data.frame(
     stringsAsFactors = FALSE, check.names = FALSE,
     "." = ifelse(sapply(x, "[[", "event") == "released", "+", "-"),
