@@ -1,6 +1,3 @@
-
-context("utils")
-
 test_that("meta", {
   foo <- 42
   expect_identical(meta(foo), NULL)

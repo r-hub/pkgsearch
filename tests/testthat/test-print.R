@@ -1,6 +1,3 @@
-
-context("print")
-
 test_that("short", {
   skip_if_offline()
 

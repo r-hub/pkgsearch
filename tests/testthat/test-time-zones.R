@@ -1,6 +1,3 @@
-
-context("time zones")
-
 test_that("output time zone is always UTC", {
   expect_equal(
     attr(parse_iso_8601("2010-07-01"), "tzone"),

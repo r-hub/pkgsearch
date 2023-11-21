@@ -27,9 +27,10 @@ Suggests:
     shiny,
     shinyjs,
     shinyWidgets,
-    testthat (>= 2.1.0),
+    testthat (>= 3.0.0),
     whoami,
     withr
 Encoding: UTF-8
 RoxygenNote: 7.2.0.9000
 Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3

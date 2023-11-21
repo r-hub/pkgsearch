@@ -1,6 +1,3 @@
-
-context("Public API")
-
 test_that("cran_package() works", {
 
   skip_if_offline()

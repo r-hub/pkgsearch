@@ -1,6 +1,3 @@
-
-context("search")
-
 test_that("search", {
   skip_if_offline()
 

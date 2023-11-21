@@ -1,6 +1,3 @@
-
-context("ISO 8601 moment.js")
-
 ## http://momentjs.com/docs/#/parsing/string/
 ## Slightly modified, because it is _not_ allowed to
 ## have whitespace before the final Z.
@@ -50,8 +47,6 @@ test_that("Examples from moment.js", {
   })
 
 })
-
-context("ISO 8601 Pelago")
 
 ## http://www.pelagodesign.com/blog/2009/05/20/
 ## iso-8601-date-validation-that-doesnt-suck/
@@ -107,8 +102,6 @@ test_that("Pelago examples", {
 
 })
 
-context("ISO 8601 Pelago non-matching")
-
 test_that("Pelago non-matching", {
 
   tests <- read.table(stringsAsFactors = FALSE, header = FALSE,
@@ -145,8 +138,6 @@ test_that("Pelago non-matching", {
   })
 
 })
-
-context("ISO week dates")
 
 test_that("Exotic ISO week dates are OK", {
 
