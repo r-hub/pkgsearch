@@ -28,7 +28,8 @@ Suggests:
     shinyjs,
     shinyWidgets,
     testthat (>= 2.1.0),
-    whoami
+    whoami,
+    withr
 Encoding: UTF-8
 RoxygenNote: 7.2.0.9000
 Roxygen: list(markdown = TRUE)
