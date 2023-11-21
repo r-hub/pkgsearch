@@ -5,7 +5,7 @@
 [![R build status](https://github.com/r-hub/pkgsearch/workflows/R-CMD-check/badge.svg)](https://github.com/r-hub/pkgsearch/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/pkgsearch)](https://cran.r-project.org/package=pkgsearch)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/pkgsearch)](https://www.r-pkg.org/pkg/pkgsearch)
-[![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/master/graph/badge.svg)](https://app.codecov.io/github/r-hub/pkgsearch?branch=master)
+[![Coverage status](https://codecov.io/gh/r-hub/pkgsearch/branch/main/graph/badge.svg)](https://app.codecov.io/github/r-hub/pkgsearch?branch=main)
 <!-- badges: end -->
 
 `pkgsearch` uses R-hub web services that munge CRAN metadata and let you
@@ -75,7 +75,7 @@ For the search mentioned above, and other points of entry to CRAN
 metadata, you can use pkgsearch RStudio add-in!
 
 [![Addin
-screencast](https://raw.githubusercontent.com/r-hub/pkgsearch/master/gifs/addin.gif)](https://vimeo.com/375618736)
+screencast](https://raw.githubusercontent.com/r-hub/pkgsearch/main/gifs/addin.gif)](https://vimeo.com/375618736)
 
 Select the “CRAN package search” addin from the menu, or start it with
 `pkg_search_addin()`.
