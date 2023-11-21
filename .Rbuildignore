@@ -15,3 +15,4 @@
 ^gifs$
 ^\.github$
 ^codecov\.yml$
+^LICENSE\.md$
