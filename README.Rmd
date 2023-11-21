@@ -29,6 +29,12 @@ Install the latest pkgsearch release from CRAN:
 install.packages("pkgsearch")
 ```
 
+The development version is on GitHub:
+
+```r
+pak::pak("r-hub/pkgsearch")
+```
+
 ## Usage
 
 ### Search relevant packages
