@@ -177,7 +177,10 @@ make_query <- function(query) {
     )
   )
 
-  tojson$write_str(query_object)
+  tojson$write_str(
+    query_object,
+    opts = list(auto_unbox = TRUE, pretty = TRUE)
+  )
 }
 
 do_query <- function(query, server, port, from, size) {

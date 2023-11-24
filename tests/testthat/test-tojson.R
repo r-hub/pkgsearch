@@ -101,3 +101,193 @@ test_that("write_file", {
   lns <- tojson$write_lines(mtcars)
   expect_equal(readLines(tmp), lns)
 })
+
+test_that("auto-unbox", {
+  # scalars
+  expect_snapshot({
+    tojson$write_str(list(1), opts = list(auto_unbox = TRUE))
+    tojson$write_str(1L, opts = list(auto_unbox = TRUE))
+    tojson$write_str(1.0, opts = list(auto_unbox = TRUE))
+    tojson$write_str("foo", opts = list(auto_unbox = TRUE))
+    tojson$write_str(TRUE, opts = list(auto_unbox = TRUE))
+  })
+
+  # NA in vectors
+  expect_snapshot({
+    tojson$write_str(NA_integer_, opts = list(auto_unbox = TRUE))
+    tojson$write_str(NA_real_, opts = list(auto_unbox = TRUE))
+    tojson$write_str(NA_character_, opts = list(auto_unbox = TRUE))
+    tojson$write_str(NA, opts = list(auto_unbox = TRUE))
+  })
+
+  # embedded lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(list(1, 2, 3), list(4, 5, 6), list(7, 8, 9)),
+      opts = list(auto_unbox = TRUE)
+    ))
+  })
+
+  # named lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(a = 1, b = 2),
+      opts = list(auto_unbox = TRUE)
+    ))
+  })
+
+  # nested named lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(
+        a = list(a1 = 1, a2 = 2),
+        b = list(b1 = 3, b2 = 4)
+      ),
+      opts = list(auto_unbox = TRUE)
+    ))
+  })
+
+  # mixing scalars and vectors
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(list(1, 2:3, 4), list(4:5, 6, 7:8), list(9:10, 11, 12)),
+      opts = list(auto_unbox = TRUE)
+    ))
+  })
+
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(a = 1:3, b = 4),
+      opts = list(auto_unbox = TRUE)
+    ))
+  })
+
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(
+        a = list(a1 = 1, a2 = 2:3),
+        b = list(b1 = 4:6, b2 = 7)
+      ),
+      opts = list(auto_unbox = TRUE)
+    ))
+  })
+})
+
+test_that("unbox", {
+  # scalars
+  expect_snapshot({
+    tojson$write_str(list(tojson$unbox(1)))
+    tojson$write_str(tojson$unbox(1L))
+    tojson$write_str(tojson$unbox(1.0))
+    tojson$write_str(tojson$unbox("foo"))
+    tojson$write_str(tojson$unbox(TRUE))
+  })
+
+  # NA in vectors
+  expect_snapshot({
+    tojson$write_str(tojson$unbox(NA_integer_))
+    tojson$write_str(tojson$unbox(NA_real_))
+    tojson$write_str(tojson$unbox(NA_character_))
+    tojson$write_str(tojson$unbox(NA))
+  })
+
+  # embedded lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(
+        list(1, tojson$unbox(2), 3),
+        list(tojson$unbox(4), 5, 6),
+        list(7, 8, 9)
+      )
+    ))
+  })
+
+  # named lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(a = 1, b = tojson$unbox(2))
+    ))
+  })
+
+  # nested named lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(
+        a = list(a1 = tojson$unbox(1), a2 = 2),
+        b = list(b1 = 3, b2 = tojson$unbox(4))
+      )
+    ))
+  })
+
+  expect_snapshot(error = TRUE, {
+    tojson$unbox(list())
+    tojson$unbox(1:2)
+    tojson$unbox(double(2))
+    tojson$unbox(character(2))
+    tojson$unbox(logical(2))
+  })
+})
+
+test_that("pretty", {
+  # vectors
+  expect_snapshot({
+    tojson$write_str(1:5, opts = list(pretty = TRUE))
+    tojson$write_str(1:5/2, opts = list(pretty = TRUE))
+    tojson$write_str(letters[1:5], opts = list(pretty = TRUE))
+    tojson$write_str(1:5 %% 2 == 0, opts = list(pretty = TRUE))
+  })
+
+  # lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(
+        list(1, tojson$unbox(2), 3),
+        list(tojson$unbox(4), 5, 6),
+        list(7, 8, 9)
+      ),
+      opts = list(pretty = TRUE)
+    ))
+  })
+
+  # named lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(a = 1, b = tojson$unbox(2)),
+      opts = list(pretty = TRUE)
+    ))
+  })
+
+  # nested named lists
+  expect_snapshot({
+    cat(tojson$write_str(
+      list(
+        a = list(a1 = tojson$unbox(1), a2 = 2),
+        b = list(b1 = 3, b2 = tojson$unbox(4))
+      ),
+      opts = list(pretty = TRUE)
+    ))
+  })
+})
+
+test_that("data frames", {
+  # easy
+  df <- mtcars[1:3, 1:3]
+  expect_snapshot({
+    tojson$write_str(df)
+    cat(tojson$write_str(df, opts = list(pretty = TRUE)))
+  })
+
+  # NAs
+  df[1, 1] <- df[2, 3] <- NA
+  expect_snapshot({
+    tojson$write_str(df)
+    cat(tojson$write_str(df, opts = list(pretty = TRUE)))
+  })
+
+  # list columns
+  df$list <- I(list(1:2, 5, letters[1:3]))
+  expect_snapshot({
+    tojson$write_str(df)
+    cat(tojson$write_str(df, opts = list(pretty = TRUE)))
+  })
+})

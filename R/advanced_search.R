@@ -86,7 +86,7 @@ advanced_search <- function(..., json = NULL, format = c("short", "long"),
           default_field = "*"
         )
       )
-    ))
+    ), opts = list(auto_unbox = TRUE, pretty = TRUE))
 
   } else {
     qstr <- json
