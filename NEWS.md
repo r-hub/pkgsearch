@@ -1,5 +1,7 @@
 # pkgsearch (development version)
 
+* No user visible changes.
+
 # pkgsearch 3.1.2
 
 * `cran_new()` works again.
@@ -52,7 +54,7 @@
 
 * New `cran_events()` function to list recent CRAN events, new, updated
   or archived packages.
-    
+
 * New `cran_top_downloaded()` function to query packages with the most
   downloads.
 
