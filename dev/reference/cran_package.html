@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pkgsearch</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.2.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.3.9000</span>
       </span>
     </div>
 
@@ -90,13 +90,13 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Search and Query CRAN R Packages"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Version</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3.1.2"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3.1.3"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`Authors@R`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c(\nperson(\"Gábor\", \"Csárdi\",, \"csardi.gabor@gmail.com\", c(\"aut\", \"cre\")),\nperson(\"Maëlle\", \"Salmon\", role = \"aut\",\ncomment = c(ORCID = \"0000-0002-2815-0399\")),\nperson(\"R Consortium\", role = c(\"fnd\")))"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "c(\nperson(\"Gábor\", \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")),\nperson(\"Maëlle\", \"Salmon\", role = \"aut\",\ncomment = c(ORCID = \"0000-0002-2815-0399\")),\nperson(\"R Consortium\", role = \"fnd\")\n)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Search CRAN metadata about packages by keyword, popularity,\nrecent activity, package name and more. Uses the 'R-hub' search server,\nsee &lt;https://r-pkg.org&gt; and the CRAN metadata database, that\ncontains information about CRAN packages. Note that this is _not_\na CRAN project."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Search CRAN metadata about packages by keyword, popularity,\nrecent activity, package name and more. Uses the 'R-hub' search\nserver, see &lt;https://r-pkg.org&gt; and the CRAN metadata database, that\ncontains information about CRAN packages. Note that this is _not_ a\nCRAN project."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $License</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MIT + file LICENSE"</span>
@@ -114,21 +114,15 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$jsonlite</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$parsedate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&gt;= 1.3.0"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Imports$prettyunits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$mockery</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$covr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$memoise</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$mockery</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$pillar</span>
@@ -150,11 +144,17 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$testthat</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&gt;= 2.1.0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&gt;= 3.0.0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$whoami</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $Suggests$withr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`Config/testthat/edition`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Encoding</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "UTF-8"</span>
@@ -166,7 +166,7 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "no"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Packaged</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-10-26 08:31:50 UTC; gaborcsardi"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-12-10 13:34:02 UTC; gaborcsardi"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Author</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Gábor Csárdi [aut, cre],\nMaëlle Salmon [aut] (&lt;https://orcid.org/0000-0002-2815-0399&gt;),\nR Consortium [fnd]"</span>
@@ -178,16 +178,16 @@ version if returned.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "CRAN"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`Date/Publication`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-10-26 09:02:36 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-12-10 14:00:03 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $crandb_file_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-10-26 10:38:33"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-12-10 15:15:22"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $MD5sum</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "67ef985e6ffc55c27d0b8575cf7b1566"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "5506c33a6c44075c92b56d27eb68aabf"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-10-26T08:02:36+00:00"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-12-10T13:00:03+00:00"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $releases</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> list()</span>
