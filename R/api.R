@@ -69,10 +69,8 @@ pkg_search <- function(query = NULL, format = c("short", "long"),
   if (is.null(query)) return(pkg_search_again())
   format <- match.arg(format)
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "https://search.r-pkg.org")
-  # timeout for the curl's connect phase (in seconds)
-  timeout <- getOption("timeout", 60)
 
-  make_pkg_search(query, format, from, size, server, timeout)
+  make_pkg_search(query, format, from, size, server)
 }
 
 #' @rdname pkg_search
@@ -80,11 +78,10 @@ pkg_search <- function(query = NULL, format = c("short", "long"),
 
 ps <- pkg_search
 
-make_pkg_search <- function(query, format, from, size, server, timeout) {
+make_pkg_search <- function(query, format, from, size, server) {
 
   qry <- make_query(query = query)
-  rsp <- do_query(qry, server = server, from = from, size = size,
-                  timeout = timeout)
+  rsp <- do_query(qry, server = server, from = from, size = size)
   rst <- format_result(rsp, query = query, format = format, from = from,
                        size = size, server = server)
 
@@ -183,10 +180,13 @@ make_query <- function(query) {
   )
 }
 
-do_query <- function(query, server, from, size, timeout) {
+do_query <- function(query, server, from, size) {
 
   check_count(from)
   check_count(size)
+
+  # timeout for the curl's connect phase (in seconds)
+  timeout <- getOption("timeout", 60)
 
   url <- server %+% "/package/_search?from=" %+%
     as.character(from - 1) %+% "&size=" %+% as.character(size)
