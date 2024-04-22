@@ -185,11 +185,15 @@ do_query <- function(query, server, from, size) {
   check_count(from)
   check_count(size)
 
+  # timeout for the curl's connect phase (in seconds)
+  timeout <- getOption("timeout", 60)
+
   url <- server %+% "/package/_search?from=" %+%
     as.character(from - 1) %+% "&size=" %+% as.character(size)
   result <- http_post(
     url, body = query,
-    headers = c("Content-Type" = "application/json"))
+    headers = c("Content-Type" = "application/json"),
+    options = list(timeout = timeout))
   chain_error(
     http_stop_for_status(result),
     new_query_error(result, "search server failure")
