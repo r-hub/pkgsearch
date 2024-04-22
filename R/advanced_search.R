@@ -94,7 +94,7 @@ advanced_search <- function(..., json = NULL, format = c("short", "long"),
 
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "https://search.r-pkg.org")
   # timeout for the curl's connect phase (in seconds)
-  timeout <- getOption("timeout", 10)
+  timeout <- getOption("timeout", 60)
 
   resp <- do_query(qstr, server, from, size, timeout)
 
