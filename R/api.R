@@ -69,8 +69,10 @@ pkg_search <- function(query = NULL, format = c("short", "long"),
   if (is.null(query)) return(pkg_search_again())
   format <- match.arg(format)
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "https://search.r-pkg.org")
+  # timeout for the curl's connect phase (in seconds)
+  timeout <- as.integer(Sys.getenv("R_PKG_SEARCH_TIMEOUT", "10"))
 
-  make_pkg_search(query, format, from, size, server)
+  make_pkg_search(query, format, from, size, server, timeout)
 }
 
 #' @rdname pkg_search
@@ -78,10 +80,11 @@ pkg_search <- function(query = NULL, format = c("short", "long"),
 
 ps <- pkg_search
 
-make_pkg_search <- function(query, format, from, size, server) {
+make_pkg_search <- function(query, format, from, size, server, timeout) {
 
   qry <- make_query(query = query)
-  rsp <- do_query(qry, server = server, from = from, size = size)
+  rsp <- do_query(qry, server = server, from = from, size = size,
+                  timeout = timeout)
   rst <- format_result(rsp, query = query, format = format, from = from,
                        size = size, server = server)
 
@@ -180,7 +183,7 @@ make_query <- function(query) {
   )
 }
 
-do_query <- function(query, server, from, size) {
+do_query <- function(query, server, from, size, timeout) {
 
   check_count(from)
   check_count(size)
@@ -189,7 +192,8 @@ do_query <- function(query, server, from, size) {
     as.character(from - 1) %+% "&size=" %+% as.character(size)
   result <- http_post(
     url, body = query,
-    headers = c("Content-Type" = "application/json"))
+    headers = c("Content-Type" = "application/json"),
+    options = list(timeout = timeout))
   chain_error(
     http_stop_for_status(result),
     new_query_error(result, "search server failure")
