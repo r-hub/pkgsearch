@@ -70,7 +70,7 @@ pkg_search <- function(query = NULL, format = c("short", "long"),
   format <- match.arg(format)
   server <- Sys.getenv("R_PKG_SEARCH_SERVER", "https://search.r-pkg.org")
   # timeout for the curl's connect phase (in seconds)
-  timeout <- as.integer(Sys.getenv("R_PKG_SEARCH_TIMEOUT", "10"))
+  timeout <- getOption("timeout", 10)
 
   make_pkg_search(query, format, from, size, server, timeout)
 }
