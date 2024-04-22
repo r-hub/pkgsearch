@@ -186,6 +186,15 @@ ps("gabor", size = 5)
 ps("Gábor", size = 5)
 ```
 
+## Configuration
+
+### Options
+
+* `timeout`: pkgsearch follows the `timeout` options for HTTP requests
+  (i.e. for `pkg_search()` and `advanced_search()`. `timeout` is the limit
+  for the total time of the HTTP request, and it is in seconds. See
+  `?options` for details.
+
 ## More info
 
 See the [complete documentation](https://r-hub.github.io/pkgsearch/).
