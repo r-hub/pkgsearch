@@ -3,7 +3,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav"><li>
   <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
-     
+
   </a>
 </li>
 <li>
@@ -37,20 +37,20 @@
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/r-hub/pkgsearch" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>New CRAN packages</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-hub/pkgsearch/blob/HEAD/R/crandb-public-api.R" class="external-link"><code>R/crandb-public-api.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-hub/pkgsearch/blob/main/R/crandb-public-api.R" class="external-link"><code>R/crandb-public-api.R</code></a></small>
     <div class="hidden name"><code>cran_new.Rd</code></div>
     </div>
 
@@ -64,7 +64,9 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>from</dt>
+
+
+<dl><dt id="arg-from">from<a class="anchor" aria-label="anchor" href="#arg-from"></a></dt>
 <dd><p>Start of the time interval to query. Possible values:</p><ul><li><p><code>"last-week"</code></p></li>
 <li><p><code>"last-month"</code></p></li>
 <li><p>A <a href="https://rdrr.io/r/base/Dates.html" class="external-link">Date</a> object to be used as a start date.</p></li>
@@ -76,125 +78,113 @@
 </ul></dd>
 
 
-<dt>to</dt>
+<dt id="arg-to">to<a class="anchor" aria-label="anchor" href="#arg-to"></a></dt>
 <dd><p>End of the time interval to query. It accepts the same kinds
 of values as <code>from</code>, and additionally it can also be the string <code>"now"</code>,
 to specify the current date and time.</p></dd>
 
 
-<dt>last</dt>
+<dt id="arg-last">last<a class="anchor" aria-label="anchor" href="#arg-last"></a></dt>
 <dd><p>Integer to limit the number of returned packages.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>Data frame of package descriptions.</p>
+    <p>Data frame of package descriptions.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Last week</span></span></span>
 <span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-week"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 36 × 33</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package Title Version `Authors@R` Description License</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-04-19 10:53:02 UTC RbyExa… <span style="color: #949494;">"</span>Dat… 0.0.100 <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Data for … GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-04-19 10:22:51 UTC citmre  <span style="color: #949494;">"</span>Col… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Downloads… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-04-19 10:22:46 UTC puremoe <span style="color: #949494;">"</span>Pub… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Access a … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-04-18 19:42:49 UTC CirceR  <span style="color: #949494;">"</span>Con… 1.3.3   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Wraps the… Apache…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-04-18 19:42:45 UTC WordLi… <span style="color: #949494;">"</span>Mul… 0.2.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Applicati… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-04-18 19:32:51 UTC ARUtoo… <span style="color: #949494;">"</span>Man… 0.6.2   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Parse Aut… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-04-18 19:32:48 UTC login   <span style="color: #949494;">"</span>'sh… 0.9.3   <span style="color: #949494;">"</span>person(\"… <span style="color: #949494;">"</span>Framework… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-04-18 19:23:01 UTC ADLP    <span style="color: #949494;">"</span>Acc… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Loss rese… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-04-18 19:22:58 UTC geonod… <span style="color: #949494;">"</span>Int… 0.1     <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Provides … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-04-18 19:13:03 UTC InterNL <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Intervent… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 26 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 26 more variables: Maintainer &lt;chr&gt;, Encoding &lt;chr&gt;, RoxygenNote &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, URL &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 52 × 34</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package    Type  Title Version `Authors@R` Maintainer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-09-23 14:10:02 UTC optRF      Pack… <span style="color: #949494;">"</span>Opt… 1.0.1   <span style="color: #949494;">"</span>c(person(… Thomas Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-09-23 13:40:58 UTC GPTreeO    Pack… <span style="color: #949494;">"</span>Div… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… Timo Brau…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-09-23 13:40:43 UTC SurvMA     <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Mod… 1.6.8   <span style="color: #949494;">"</span>c(\nperso… Mengyu Li…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-09-23 13:40:04 UTC rtabulator Pack… <span style="color: #949494;">"</span>R B… 0.1.2   <span style="color: #949494;">"</span>c(\nperso… Stefan Ku…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-09-23 13:30:55 UTC coxphm     Pack… <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… Yunro Chu…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-09-23 13:10:04 UTC maxent.ot  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Per… 1.0.0   <span style="color: #949494;">"</span>c(person(… Connor Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-09-23 13:02:06 UTC AnimalSeq… Pack… <span style="color: #949494;">"</span>Ana… 0.2.0   <span style="color: #949494;">"</span>person(\"… Alex Miel…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-09-23 13:02:01 UTC GPCsign    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Gau… 0.1.0   <span style="color: #949494;">"</span>c(person(… Morgane M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-09-23 13:01:53 UTC NPCDTools  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>The… 1.0     <span style="color: #949494;">"</span>c(\nperso… Weixuan X…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-09-23 13:00:06 UTC shinycron… <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>'sh… 1.0.0   <span style="color: #949494;">"</span>person(gi… Harmen va…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 42 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 27 more variables: Description &lt;chr&gt;, License &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Author &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, Type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Date &lt;chr&gt;, SystemRequirements &lt;chr&gt;, Language &lt;chr&gt;, Collate &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, VignetteBuilder &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   URL &lt;chr&gt;, Date &lt;chr&gt;, BugReports &lt;chr&gt;, `Config/Needs/website` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, ByteCompile &lt;chr&gt;, RdMacros &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Last month</span></span></span>
 <span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span><span class="st">"last-month"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 144 × 43</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package Title Version `Authors@R` Description License</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-04-19 10:53:02 UTC RbyExa… <span style="color: #949494;">"</span>Dat… 0.0.100 <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Data for … GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-04-19 10:22:51 UTC citmre  <span style="color: #949494;">"</span>Col… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Downloads… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-04-19 10:22:46 UTC puremoe <span style="color: #949494;">"</span>Pub… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Access a … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-04-18 19:42:49 UTC CirceR  <span style="color: #949494;">"</span>Con… 1.3.3   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Wraps the… Apache…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-04-18 19:42:45 UTC WordLi… <span style="color: #949494;">"</span>Mul… 0.2.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Applicati… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-04-18 19:32:51 UTC ARUtoo… <span style="color: #949494;">"</span>Man… 0.6.2   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Parse Aut… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-04-18 19:32:48 UTC login   <span style="color: #949494;">"</span>'sh… 0.9.3   <span style="color: #949494;">"</span>person(\"… <span style="color: #949494;">"</span>Framework… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-04-18 19:23:01 UTC ADLP    <span style="color: #949494;">"</span>Acc… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Loss rese… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-04-18 19:22:58 UTC geonod… <span style="color: #949494;">"</span>Int… 0.1     <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Provides … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-04-18 19:13:03 UTC InterNL <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Intervent… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 134 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 36 more variables: Maintainer &lt;chr&gt;, Encoding &lt;chr&gt;, RoxygenNote &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, URL &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 249 × 42</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package    Type  Title Version `Authors@R` Maintainer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-09-23 14:10:02 UTC optRF      Pack… <span style="color: #949494;">"</span>Opt… 1.0.1   <span style="color: #949494;">"</span>c(person(… Thomas Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-09-23 13:40:58 UTC GPTreeO    Pack… <span style="color: #949494;">"</span>Div… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… Timo Brau…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-09-23 13:40:43 UTC SurvMA     <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Mod… 1.6.8   <span style="color: #949494;">"</span>c(\nperso… Mengyu Li…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-09-23 13:40:04 UTC rtabulator Pack… <span style="color: #949494;">"</span>R B… 0.1.2   <span style="color: #949494;">"</span>c(\nperso… Stefan Ku…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-09-23 13:30:55 UTC coxphm     Pack… <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… Yunro Chu…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-09-23 13:10:04 UTC maxent.ot  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Per… 1.0.0   <span style="color: #949494;">"</span>c(person(… Connor Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-09-23 13:02:06 UTC AnimalSeq… Pack… <span style="color: #949494;">"</span>Ana… 0.2.0   <span style="color: #949494;">"</span>person(\"… Alex Miel…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-09-23 13:02:01 UTC GPCsign    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Gau… 0.1.0   <span style="color: #949494;">"</span>c(person(… Morgane M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-09-23 13:01:53 UTC NPCDTools  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>The… 1.0     <span style="color: #949494;">"</span>c(\nperso… Weixuan X…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-09-23 13:00:06 UTC shinycron… <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>'sh… 1.0.0   <span style="color: #949494;">"</span>person(gi… Harmen va…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 239 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 35 more variables: Description &lt;chr&gt;, License &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Author &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, Type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Date &lt;chr&gt;, SystemRequirements &lt;chr&gt;, Language &lt;chr&gt;, Collate &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, VignetteBuilder &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   URL &lt;chr&gt;, Date &lt;chr&gt;, BugReports &lt;chr&gt;, `Config/Needs/website` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, ByteCompile &lt;chr&gt;, RdMacros &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Last 5 days</span></span></span>
 <span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 19 × 31</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package Title Version `Authors@R` Description License</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-04-19 10:53:02 UTC RbyExa… <span style="color: #949494;">"</span>Dat… 0.0.100 <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Data for … GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-04-19 10:22:51 UTC citmre  <span style="color: #949494;">"</span>Col… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Downloads… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-04-19 10:22:46 UTC puremoe <span style="color: #949494;">"</span>Pub… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Access a … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-04-18 19:42:49 UTC CirceR  <span style="color: #949494;">"</span>Con… 1.3.3   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Wraps the… Apache…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-04-18 19:42:45 UTC WordLi… <span style="color: #949494;">"</span>Mul… 0.2.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Applicati… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-04-18 19:32:51 UTC ARUtoo… <span style="color: #949494;">"</span>Man… 0.6.2   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Parse Aut… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-04-18 19:32:48 UTC login   <span style="color: #949494;">"</span>'sh… 0.9.3   <span style="color: #949494;">"</span>person(\"… <span style="color: #949494;">"</span>Framework… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-04-18 19:23:01 UTC ADLP    <span style="color: #949494;">"</span>Acc… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Loss rese… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-04-18 19:22:58 UTC geonod… <span style="color: #949494;">"</span>Int… 0.1     <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Provides … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-04-18 19:13:03 UTC InterNL <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Intervent… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> 2024-04-18 19:03:14 UTC DyMEP   <span style="color: #949494;">"</span>Dyn… 0.1.0    <span style="color: #BB0000;">NA</span>         <span style="color: #949494;">"</span>Mechanist… LGPL (…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 2024-04-18 18:50:02 UTC xlchar… <span style="color: #949494;">"</span>Cre… 0.0.1   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>An R inte… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> 2024-04-18 18:42:34 UTC future… <span style="color: #949494;">"</span>A '… 0.2.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Implement… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> 2024-04-18 14:32:48 UTC sphere… <span style="color: #949494;">"</span>Pie… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Fitting a… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> 2024-04-18 14:12:43 UTC MethEv… <span style="color: #949494;">"</span>Sim… 0.1     <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>DNA methy… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> 2024-04-18 14:02:55 UTC CropWa… <span style="color: #949494;">"</span>Cli… 0.2.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Calculate… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> 2024-04-18 14:02:52 UTC MCCM    <span style="color: #949494;">"</span>Mix… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>The IRLS … GPL    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> 2024-04-18 14:02:48 UTC bagyo   <span style="color: #949494;">"</span>Phi… 0.1.1   <span style="color: #949494;">"</span>person(gi… <span style="color: #949494;">"</span>The Phili… CC0    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> 2024-04-18 14:02:44 UTC ipeapl… <span style="color: #949494;">"</span>Add… 0.3.1   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Convenien… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 24 more variables: Maintainer &lt;chr&gt;, Encoding &lt;chr&gt;, RoxygenNote &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, URL &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 26 × 30</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package    Type  Title Version `Authors@R` Maintainer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-09-23 14:10:02 UTC optRF      Pack… <span style="color: #949494;">"</span>Opt… 1.0.1   <span style="color: #949494;">"</span>c(person(… Thomas Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-09-23 13:40:58 UTC GPTreeO    Pack… <span style="color: #949494;">"</span>Div… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… Timo Brau…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-09-23 13:40:43 UTC SurvMA     <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Mod… 1.6.8   <span style="color: #949494;">"</span>c(\nperso… Mengyu Li…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-09-23 13:40:04 UTC rtabulator Pack… <span style="color: #949494;">"</span>R B… 0.1.2   <span style="color: #949494;">"</span>c(\nperso… Stefan Ku…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-09-23 13:30:55 UTC coxphm     Pack… <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… Yunro Chu…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-09-23 13:10:04 UTC maxent.ot  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Per… 1.0.0   <span style="color: #949494;">"</span>c(person(… Connor Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-09-23 13:02:06 UTC AnimalSeq… Pack… <span style="color: #949494;">"</span>Ana… 0.2.0   <span style="color: #949494;">"</span>person(\"… Alex Miel…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-09-23 13:02:01 UTC GPCsign    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Gau… 0.1.0   <span style="color: #949494;">"</span>c(person(… Morgane M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-09-23 13:01:53 UTC NPCDTools  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>The… 1.0     <span style="color: #949494;">"</span>c(\nperso… Weixuan X…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-09-23 13:00:06 UTC shinycron… <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>'sh… 1.0.0   <span style="color: #949494;">"</span>person(gi… Harmen va…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 23 more variables: Description &lt;chr&gt;, License &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Author &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, Type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Date &lt;chr&gt;, SystemRequirements &lt;chr&gt;, Language &lt;chr&gt;, Collate &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyLoad &lt;chr&gt;, `Config/reticulate` &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, VignetteBuilder &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   URL &lt;chr&gt;, Date &lt;chr&gt;, BugReports &lt;chr&gt;, `Config/Needs/website` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, ByteCompile &lt;chr&gt;, RdMacros &lt;chr&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># From a given date, but at most 10</span></span></span>
 <span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2021-04-06"</span>, last <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 10 × 29</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package Title Version `Authors@R` Description License</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-04-19 10:53:02 UTC RbyExa… <span style="color: #949494;">"</span>Dat… 0.0.100 <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Data for … GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-04-19 10:22:51 UTC citmre  <span style="color: #949494;">"</span>Col… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Downloads… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-04-19 10:22:46 UTC puremoe <span style="color: #949494;">"</span>Pub… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Access a … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-04-18 19:42:49 UTC CirceR  <span style="color: #949494;">"</span>Con… 1.3.3   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Wraps the… Apache…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-04-18 19:42:45 UTC WordLi… <span style="color: #949494;">"</span>Mul… 0.2.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Applicati… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-04-18 19:32:51 UTC ARUtoo… <span style="color: #949494;">"</span>Man… 0.6.2   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Parse Aut… MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-04-18 19:32:48 UTC login   <span style="color: #949494;">"</span>'sh… 0.9.3   <span style="color: #949494;">"</span>person(\"… <span style="color: #949494;">"</span>Framework… GPL (&gt;…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-04-18 19:23:01 UTC ADLP    <span style="color: #949494;">"</span>Acc… 0.1.0   <span style="color: #949494;">"</span>c(\nperso… <span style="color: #949494;">"</span>Loss rese… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-04-18 19:22:58 UTC geonod… <span style="color: #949494;">"</span>Int… 0.1     <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Provides … MIT + …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-04-18 19:13:03 UTC InterNL <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… <span style="color: #949494;">"</span>Intervent… GPL-3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 22 more variables: Maintainer &lt;chr&gt;, Encoding &lt;chr&gt;, RoxygenNote &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, URL &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A data frame: 10 × 28</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Date/Publication`      Package    Type  Title Version `Authors@R` Maintainer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-09-23 14:10:02 UTC optRF      Pack… <span style="color: #949494;">"</span>Opt… 1.0.1   <span style="color: #949494;">"</span>c(person(… Thomas Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-09-23 13:40:58 UTC GPTreeO    Pack… <span style="color: #949494;">"</span>Div… 1.0.0   <span style="color: #949494;">"</span>c(\nperso… Timo Brau…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-09-23 13:40:43 UTC SurvMA     <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Mod… 1.6.8   <span style="color: #949494;">"</span>c(\nperso… Mengyu Li…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-09-23 13:40:04 UTC rtabulator Pack… <span style="color: #949494;">"</span>R B… 0.1.2   <span style="color: #949494;">"</span>c(\nperso… Stefan Ku…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-09-23 13:30:55 UTC coxphm     Pack… <span style="color: #949494;">"</span>Tim… 0.1.0   <span style="color: #949494;">"</span>c(person(… Yunro Chu…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-09-23 13:10:04 UTC maxent.ot  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Per… 1.0.0   <span style="color: #949494;">"</span>c(person(… Connor Ma…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-09-23 13:02:06 UTC AnimalSeq… Pack… <span style="color: #949494;">"</span>Ana… 0.2.0   <span style="color: #949494;">"</span>person(\"… Alex Miel…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-09-23 13:02:01 UTC GPCsign    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>Gau… 0.1.0   <span style="color: #949494;">"</span>c(person(… Morgane M…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-09-23 13:01:53 UTC NPCDTools  <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>The… 1.0     <span style="color: #949494;">"</span>c(\nperso… Weixuan X…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-09-23 13:00:06 UTC shinycron… <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">"</span>'sh… 1.0.0   <span style="color: #949494;">"</span>person(gi… Harmen va…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more variables: Description &lt;chr&gt;, License &lt;chr&gt;, Encoding &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyData &lt;chr&gt;, RoxygenNote &lt;chr&gt;, NeedsCompilation &lt;chr&gt;, Packaged &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Author &lt;chr&gt;, Repository &lt;chr&gt;, crandb_file_date &lt;chr&gt;, MD5sum &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, Type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, VignetteBuilder &lt;chr&gt;, BugReports &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Date &lt;chr&gt;, SystemRequirements &lt;chr&gt;, Language &lt;chr&gt;, Collate &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LazyLoad &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   date &lt;chr&gt;, dependencies &lt;list&gt;, VignetteBuilder &lt;chr&gt;, Language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   URL &lt;chr&gt;, Date &lt;chr&gt;, BugReports &lt;chr&gt;, `Config/Needs/website` &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Config/testthat/edition` &lt;chr&gt;, ByteCompile &lt;chr&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># March of 2021</span></span></span>
 <span class="r-in"><span><span class="fu">cran_new</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2021-03-01"</span>, to <span class="op">=</span> <span class="st">"2021-04-01"</span><span class="op">)</span></span></span>
@@ -232,15 +222,15 @@ to specify the current date and time.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
