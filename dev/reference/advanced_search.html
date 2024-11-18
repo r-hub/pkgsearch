@@ -112,96 +112,96 @@ here.</p></dd>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># All orphaned packages</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Maintainer <span class="op">=</span> <span class="st">"ORPHANED"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 4 packages in 0.001 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 4 packages in 0.022 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package   version   by         @ title                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1  100 udunits2  0.13.2.1  ORPHANED  3y Udunits-2 Bindings for R              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  2  100 shipunov  1.17.1    ORPHANED  2y Miscellaneous Functions from Alexey...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3  100 fastclime 1.4.1.1   ORPHANED  1y A Fast Solver for Parameterized LP ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4  100 taxize    0.9.100.1 ORPHANED 29d Taxonomic Information from Around t...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1  100 fastclime 1.4.1.1   ORPHANED  2y A Fast Solver for Parameterized LP ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2  100 udunits2  0.13.2.1  ORPHANED  3y Udunits-2 Bindings for R              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3  100 taxize    0.9.100.1 ORPHANED  3M Taxonomic Information from Around t...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4  100 shipunov  1.17.1    ORPHANED  2y Miscellaneous Functions from Alexey...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with both Hester and Wickham as authors</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, Author <span class="op">=</span> <span class="st">"Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 23 packages in 0.002 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 23 packages in 0.049 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by                  @ title                        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 mockery     0.4.4   Hadley Wickham     1y Mocking Library for R        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  95 pkgbuild    1.4.4   Gábor Csárdi       6M Find Tools Needed to Build...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  86 memoise     2.0.1   Winston Chang      3y 'Memoisation' of Functions   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  80 devtools    2.4.5   Jennifer Bryan     2y Tools to Make Developing R...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  80 sessioninfo 1.2.2   Gábor Csárdi       3y R Session Information        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  77 xml2        1.3.6   Hadley Wickham    10M Parse XML                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  77 odbc        1.5.0   Hadley Wickham     4M Connect to ODBC Compatible...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  73 meltr       1.0.2   Duncan Garmonsway  9M Read Non-Rectangular Text ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  71 remotes     2.5.0   Gábor Csárdi       6M R Package Installation fro...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  69 fs          1.6.4   Gábor Csárdi       5M Cross-Platform File System...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  95 pkgbuild    1.4.5   Gábor Csárdi      21d Find Tools Needed to Build...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  85 memoise     2.0.1   Winston Chang      3y 'Memoisation' of Functions   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  79 devtools    2.4.5   Jennifer Bryan     2y Tools to Make Developing R...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  79 sessioninfo 1.2.2   Gábor Csárdi       3y R Session Information        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  76 xml2        1.3.6   Hadley Wickham     1y Parse XML                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  76 odbc        1.5.0   Hadley Wickham     6M Connect to ODBC Compatible...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  73 meltr       1.0.2   Duncan Garmonsway 10M Read Non-Rectangular Text ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  70 remotes     2.5.0   Gábor Csárdi       8M R Package Installation fro...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  68 fs          1.6.5   Gábor Csárdi      19d Cross-Platform File System...</span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"Author: Hester AND Author: Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 23 packages in 0.005 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 23 packages in 0.003 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by                  @ title                        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 mockery     0.4.4   Hadley Wickham     1y Mocking Library for R        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  95 pkgbuild    1.4.4   Gábor Csárdi       6M Find Tools Needed to Build...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  86 memoise     2.0.1   Winston Chang      3y 'Memoisation' of Functions   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  80 devtools    2.4.5   Jennifer Bryan     2y Tools to Make Developing R...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  80 sessioninfo 1.2.2   Gábor Csárdi       3y R Session Information        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  77 xml2        1.3.6   Hadley Wickham    10M Parse XML                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  77 odbc        1.5.0   Hadley Wickham     4M Connect to ODBC Compatible...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  73 meltr       1.0.2   Duncan Garmonsway  9M Read Non-Rectangular Text ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  71 remotes     2.5.0   Gábor Csárdi       6M R Package Installation fro...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  69 fs          1.6.4   Gábor Csárdi       5M Cross-Platform File System...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  95 pkgbuild    1.4.5   Gábor Csárdi      21d Find Tools Needed to Build...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  85 memoise     2.0.1   Winston Chang      3y 'Memoisation' of Functions   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  79 devtools    2.4.5   Jennifer Bryan     2y Tools to Make Developing R...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  79 sessioninfo 1.2.2   Gábor Csárdi       3y R Session Information        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  76 xml2        1.3.6   Hadley Wickham     1y Parse XML                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  76 odbc        1.5.0   Hadley Wickham     6M Connect to ODBC Compatible...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  73 meltr       1.0.2   Duncan Garmonsway 10M Read Non-Rectangular Text ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  70 remotes     2.5.0   Gábor Csárdi       8M R Package Installation fro...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  68 fs          1.6.5   Gábor Csárdi      19d Cross-Platform File System...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with Hester but not Wickham as author</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester AND NOT Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 25 packages in 0.004 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 26 packages in 0.119 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version by                        @ title               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 knitrBootstrap 1.0.3   Jim Hester               8M 'knitr' Bootstrap...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  93 types          1.0.0   Jim Hester               8y Type Annotations    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  83 primerTree     1.0.6   Matt Cannon              2y Visually Assessin...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  76 rex            1.2.1   Kevin Ushey              3y Friendly Regular ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  71 gmailr         2.0.0   Jennifer Bryan           1y Access the 'Gmail...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  69 spelling       2.3.0   Jeroen Ooms              7M Tools for Spell C...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  67 roger          1.5.1   Vincent Goulet           1y Automated Grading...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  64 available      1.1.0   Gábor Csárdi             2y Check if the Titl...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  62 bench          1.1.3   Davis Vaughan            1y High Precision Ti...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  62 tidycode       0.1.1   Lucy D'Agostino McGowan  5y Analyze Lines of ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 knitrBootstrap 1.0.3   Jim Hester              10M 'knitr' Bootstrap...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  92 types          1.0.0   Jim Hester               8y Type Annotations    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  83 primerTree     1.0.6   Matt Cannon              3y Visually Assessin...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  75 rex            1.2.1   Kevin Ushey              3y Friendly Regular ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  70 gmailr         2.0.0   Jennifer Bryan           1y Access the 'Gmail...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  68 spelling       2.3.1   Jeroen Ooms              1M Tools for Spell C...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  66 roger          1.5.1   Vincent Goulet           1y Automated Grading...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  63 available      1.1.0   Gábor Csárdi             2y Check if the Titl...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  61 tidycode       0.1.1   Lucy D'Agostino McGowan  5y Analyze Lines of ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  61 bench          1.1.3   Davis Vaughan            2y High Precision Ti...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with Hester as an Author, and Wickham in any field</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, <span class="st">"Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 23 packages in 0.006 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 23 packages in 0.014 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package     version by                  @ title                        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 mockery     0.4.4   Hadley Wickham     1y Mocking Library for R        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  88 xml2        1.3.6   Hadley Wickham    10M Parse XML                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  88 odbc        1.5.0   Hadley Wickham     4M Connect to ODBC Compatible...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  87 pkgbuild    1.4.4   Gábor Csárdi       6M Find Tools Needed to Build...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  78 memoise     2.0.1   Winston Chang      3y 'Memoisation' of Functions   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  76 devtools    2.4.5   Jennifer Bryan     2y Tools to Make Developing R...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  75 S7          0.1.1   Hadley Wickham     1y An Object Oriented System ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  73 sessioninfo 1.2.2   Gábor Csárdi       3y R Session Information        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  67 remotes     2.5.0   Gábor Csárdi       6M R Package Installation fro...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  67 meltr       1.0.2   Duncan Garmonsway  9M Read Non-Rectangular Text ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  88 xml2        1.3.6   Hadley Wickham     1y Parse XML                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  88 odbc        1.5.0   Hadley Wickham     6M Connect to ODBC Compatible...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  88 pkgbuild    1.4.5   Gábor Csárdi      21d Find Tools Needed to Build...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  77 memoise     2.0.1   Winston Chang      3y 'Memoisation' of Functions   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  75 devtools    2.4.5   Jennifer Bryan     2y Tools to Make Developing R...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  75 S7          0.2.0   Hadley Wickham    11d An Object Oriented System ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  72 sessioninfo 1.2.2   Gábor Csárdi       3y R Session Information        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  67 remotes     2.5.0   Gábor Csárdi       8M R Package Installation fro...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  66 meltr       1.0.2   Duncan Garmonsway 10M Read Non-Rectangular Text ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages with Hester as an Author and Wickham nowhere in the metadata</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Hester"</span>, <span class="st">"NOT Wickham"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 25 packages in 0.004 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ---------------------------- 26 packages in 0.022 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version by                        @ title               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 knitrBootstrap 1.0.3   Jim Hester               8M 'knitr' Bootstrap...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2  93 types          1.0.0   Jim Hester               8y Type Annotations    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3  83 primerTree     1.0.6   Matt Cannon              2y Visually Assessin...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4  76 rex            1.2.1   Kevin Ushey              3y Friendly Regular ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  71 gmailr         2.0.0   Jennifer Bryan           1y Access the 'Gmail...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  69 spelling       2.3.0   Jeroen Ooms              7M Tools for Spell C...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7  67 roger          1.5.1   Vincent Goulet           1y Automated Grading...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  64 available      1.1.0   Gábor Csárdi             2y Check if the Titl...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  62 bench          1.1.3   Davis Vaughan            1y High Precision Ti...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  62 tidycode       0.1.1   Lucy D'Agostino McGowan  5y Analyze Lines of ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 knitrBootstrap 1.0.3   Jim Hester              10M 'knitr' Bootstrap...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2  92 types          1.0.0   Jim Hester               8y Type Annotations    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3  83 primerTree     1.0.6   Matt Cannon              3y Visually Assessin...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4  75 rex            1.2.1   Kevin Ushey              3y Friendly Regular ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  70 gmailr         2.0.0   Jennifer Bryan           1y Access the 'Gmail...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  68 spelling       2.3.1   Jeroen Ooms              1M Tools for Spell C...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7  66 roger          1.5.1   Vincent Goulet           1y Automated Grading...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  63 available      1.1.0   Gábor Csárdi             2y Check if the Titl...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  61 tidycode       0.1.1   Lucy D'Agostino McGowan  5y Analyze Lines of ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  61 bench          1.1.3   Davis Vaughan            2y High Precision Ti...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages for permutation tests and permissive licenses</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"permutation test AND NOT License: GPL OR GNU"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 538 packages in 0.014 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 551 packages in 0.129 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package       version by                         @ title               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 phd           0.2     Jesse Hemerik             3y Permutation Testi...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2  94 confSAM       0.2     Jesse Hemerik             7y Estimates and Bou...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   3  87 permutes      2.8     Cesko C. Voeten           1y Permutation Tests...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4  78 BurStMisc     1.1     Pat Burns                 8y Burns Statistics ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5  75 resample      0.6     Tim Hesterberg            2y Resampling Functions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6  74 IMEC          0.2.0   Maximilian Maier          4y Ising Model of Ex...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5  76 IMEC          0.2.0   Maximilian Maier          4y Ising Model of Ex...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6  75 resample      0.6     Tim Hesterberg            2y Resampling Functions</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   7  74 USP           0.1.2   Thomas B. Berrett         4y U-Statistic Permu...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   8  72 packager      1.15.2  Andreas Dominik Cullmann  1y Create, Build and...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   9  69 fdrci         2.4     Joshua Millstein          2y Permutation-Based...</span>
@@ -209,33 +209,33 @@ here.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages that have a certain field</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"_exists_"</span> <span class="op">=</span> <span class="st">"URL"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ------------------------- 10000 packages in 0.003 seconds -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package                version   by                          @ title   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 LSTS                   2.1       Mauricio Vargas            3y Local...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 meteoForecast          0.56      Oscar Perpinan Lamigueiro  2y Numer...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3 100 bmstdr                 0.7.9     Sujit K. Sahu              9M Bayes...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4 100 BurStFin               1.3       Pat Burns                  2y Burns...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5 100 PeakSegOptimal         2024.1.24 Toby Dylan Hocking         8M Optim...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6 100 flacco                 1.8       Pascal Kerschke            4y Featu...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7 100 mixKernel              0.9.1     Nathalie Vialaneix         8M Omics...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8 100 AquaticLifeHistory     1.0.5     Jonathan Smart            10M Life ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9 100 image.textlinedetector 0.2.3     Jan Wijffels              11M Segme...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10 100 GeoThinneR             1.0.0     Jorge Mestre-Tomás        22d Simpl...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ------------------------- 10000 packages in 0.047 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version by                    @ title                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 pmparser       1.0.20  Jake Hughey         10M Create and Maintain a...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 prettifyAddins 2.6.1   Stéphane Laurent     1y 'RStudio' Addins to P...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3 100 future.tests   0.7.0   Henrik Bengtsson     1y Test Suite for 'Futur...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4 100 UNF            2.0.8   Thomas J. Leeper     3y Tools for Creating Un...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5 100 rapbase        1.24.2  Are Edvardsen        1y Base Functions and Re...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6 100 dccvalidator   0.3.0   Nicole Kauer         4y Metadata Validation f...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7 100 RGISTools      1.0.2   U Perez - Goya       4y Handling Multiplatfor...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8 100 cort           0.3.2   Oskar Laverny        4y Some Empiric and Nonp...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9 100 Rpvt           0.1.1   Farshad Tabasinejad  5y Estimate the PVT Prop...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10 100 sknifedatar    0.1.2   Rafael Zambrano      3y Swiss Knife of Data     </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Packages that do not have a certain field:</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span><span class="st">"NOT _exists_: URL"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 9993 packages in 0.028 seconds -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version     by                       @ title            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 NaN DGEobj.utils   1.0.6       Connie Brett            2y Differential G...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2 NaN harmonicmeanp  3.0.1       Daniel Wilson           8M Harmonic Mean ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3 NaN MCS            0.1.3       Leopoldo Catania        7y Model Confiden...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4 NaN kappaSize      1.2         Michael A Rotondi       6y Sample Size Es...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5 NaN CALF           1.0.17      John Ford               3y Coarse Approxi...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6 NaN SenSrivastava  2015.6.25.1 Kjetil B Halvorsen     10M Datasets from ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7 NaN GWRM           2.1.0.4     Silverio Vilchez-Lopez  3y Generalized Wa...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8 NaN disaggregation 0.3.0       Tim Lucas              11M Disaggregation...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9 NaN IntNMF         1.2.0       Prabhakar Chalise       6y Integrative Cl...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10 NaN bivpois        1.0         Michail Tsagris         1y Bivariate Pois...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 10000 packages in 0.05 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package         version by                           @ title           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 NaN forams          2.0.6   Rodrigo Aluizio             1y Foraminifera ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2 NaN mldr.resampling 0.2.3   Miguel Ángel Dávila         1y Resampling Al...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3 NaN MonteCarloSEM   0.0.8   Fatih Orcan                 8M Monte Carlo D...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4 NaN hkevp           1.1.5   Leo Belzile                 2y Spatial Extre...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5 NaN perfectphyloR   0.2.1   Charith Karunarathna        4y Reconstruct P...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6 NaN xpose.nlmixr    0.3.0   Justin Wilkins              2y Graphical Dia...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7 NaN WLinfer         1.2.0   Sungbum Kim                 2y Statistical I...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8 NaN intePareto      0.1.2   Yingying Cao                3y Integrative A...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9 NaN ROCS            1.3     Tianwei Yu&lt;tyu8@emory.edu&gt;  8y Receiver Oper...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10 NaN MobileTrigger   0.0.31  Kenith Grey                 6y Run Reports, ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># The same but as JSON query</span></span></span>
 <span class="r-in"><span><span class="va">query</span> <span class="op">&lt;-</span> <span class="st">'{</span></span></span>
@@ -250,37 +250,37 @@ here.</p></dd>
 <span class="r-in"><span><span class="st">}</span></span></span>
 <span class="r-in"><span><span class="st">}'</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>json <span class="op">=</span> <span class="va">query</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" -------------------------- 9993 packages in 0.005 seconds -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package        version     by                       @ title            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1 NaN DGEobj.utils   1.0.6       Connie Brett            2y Differential G...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2 NaN harmonicmeanp  3.0.1       Daniel Wilson           8M Harmonic Mean ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3 NaN MCS            0.1.3       Leopoldo Catania        7y Model Confiden...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4 NaN kappaSize      1.2         Michael A Rotondi       6y Sample Size Es...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5 NaN CALF           1.0.17      John Ford               3y Coarse Approxi...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6 NaN SenSrivastava  2015.6.25.1 Kjetil B Halvorsen     10M Datasets from ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7 NaN GWRM           2.1.0.4     Silverio Vilchez-Lopez  3y Generalized Wa...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8 NaN disaggregation 0.3.0       Tim Lucas              11M Disaggregation...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9 NaN IntNMF         1.2.0       Prabhakar Chalise       6y Integrative Cl...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10 NaN bivpois        1.0         Michail Tsagris         1y Bivariate Pois...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ------------------------- 10000 packages in 0.041 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   #     package         version by                           @ title           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1 NaN forams          2.0.6   Rodrigo Aluizio             1y Foraminifera ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2 NaN mldr.resampling 0.2.3   Miguel Ángel Dávila         1y Resampling Al...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3 NaN MonteCarloSEM   0.0.8   Fatih Orcan                 8M Monte Carlo D...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4 NaN hkevp           1.1.5   Leo Belzile                 2y Spatial Extre...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5 NaN perfectphyloR   0.2.1   Charith Karunarathna        4y Reconstruct P...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6 NaN xpose.nlmixr    0.3.0   Justin Wilkins              2y Graphical Dia...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7 NaN WLinfer         1.2.0   Sungbum Kim                 2y Statistical I...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8 NaN intePareto      0.1.2   Yingying Cao                3y Integrative A...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9 NaN ROCS            1.3     Tianwei Yu&lt;tyu8@emory.edu&gt;  8y Receiver Oper...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10 NaN MobileTrigger   0.0.31  Kenith Grey                 6y Run Reports, ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Regular expressions</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"/Joh?nathan/"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 0 packages in 0.002 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" ----------------------------- 0 packages in 0.162 seconds -</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fuzzy search</span></span></span>
 <span class="r-in"><span><span class="fu">advanced_search</span><span class="op">(</span>Author <span class="op">=</span> <span class="st">"Johnathan~1"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 273 packages in 0.008 seconds -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> - "advanced search" --------------------------- 274 packages in 0.187 seconds -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   #     package    version by                                        @ title   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1 100 bootImpute 1.2.1   Jonathan Bartlett                        1y Boots...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 mlmi       1.1.2   Jonathan Bartlett                        1y Maxim...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3 100 chords     0.95.4  Jonathan Rosenblatt                      8y Estim...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4 100 rSHAPE     0.3.2   Jonathan Dench                           5y Simul...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5 100 handyplots 1.1.3   Jonathan Schwartz                        6y Handy...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6 100 UnitCircle 0.1.3   Jonathan Berrisch                        6y Check...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7 100 lda        1.5.2   Santiago Olivella                        5M Colla...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8  96 ClamR      2.1.3   Jonathan M. Lees&lt;jonathan.lees@unc.edu&gt;  1y Time ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9  96 RSeed      0.1.60  Claus Jonathan Fritzemeier               8y Boren...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10  93 comradesOO 0.1.1   Jonathan Price                          11M Analy...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2 100 rSHAPE     0.3.2   Jonathan Dench                           5y Simul...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3 100 handyplots 1.1.3   Jonathan Schwartz                        6y Handy...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4 100 UnitCircle 0.1.3   Jonathan Berrisch                        6y Check...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5 100 lda        1.5.2   Santiago Olivella                        7M Colla...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   6 100 mlmi       1.1.2   Jonathan Bartlett                        1y Maxim...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   7 100 chords     0.95.4  Jonathan Rosenblatt                      8y Estim...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   8  96 RSeed      0.1.60  Claus Jonathan Fritzemeier               8y Boren...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   9  96 ClamR      2.1.3   Jonathan M. Lees&lt;jonathan.lees@unc.edu&gt;  1y Time ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10  92 comradesOO 0.1.1   Jonathan Price                           1y Analy...</span>
 </code></pre></div>
     </div>
   </div>
