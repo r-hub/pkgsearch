@@ -48,7 +48,7 @@ library("pillar") # nicer data frame printing
 pkg_search("permutation test")
 ```
 
-pkgsearch uses an [R-hub](https://docs.r-hub.io) web service and a careful
+pkgsearch uses an [R-hub](https://github.com/r-hub) web service and a careful
 ranking that puts popular packages before less frequently used ones.
 
 ### Do it all *clicking*
@@ -203,4 +203,4 @@ See the [complete documentation](https://r-hub.github.io/pkgsearch/).
 
 MIT @ [Gábor Csárdi](https://github.com/gaborcsardi),
 [RStudio](https://github.com/rstudio),
-[R Consortium](https://www.r-consortium.org/).
+[R Consortium](https://r-consortium.org/).
