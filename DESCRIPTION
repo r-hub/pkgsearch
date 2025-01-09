@@ -1,6 +1,6 @@
 Package: pkgsearch
 Title: Search and Query CRAN R Packages
-Version: 3.1.4
+Version: 3.1.4.9000
 Authors@R: c(
     person("Gábor", "Csárdi", , "csardi.gabor@gmail.com", role = c("aut", "cre")),
     person("Maëlle", "Salmon", role = "aut",

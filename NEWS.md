@@ -1,3 +1,5 @@
+# pkgsearch (development version)
+
 # pkgsearch 3.1.4
 
 * pkgsearch now uses the `timeout` option to set the limit for the total
