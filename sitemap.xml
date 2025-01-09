@@ -1,63 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/404.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/header.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/advanced_search.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/cran_events.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/cran_new.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/cran_package.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/cran_package_history.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/cran_packages.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/cran_top_downloaded.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/cran_trending.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/pkg_search.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/pkg_search_addin.html</loc>
-  </url>
-  <url>
-    <loc>https://r-hub.github.io/pkgsearch/reference/pkgsearch-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://r-hub.github.io/pkgsearch/404.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/LICENSE-text.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/LICENSE.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/authors.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/header.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/index.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/news/index.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/advanced_search.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/cran_events.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/cran_new.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/cran_package.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/cran_package_history.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/cran_packages.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/cran_top_downloaded.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/cran_trending.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/index.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/pkg_search.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/pkg_search_addin.html</loc></url>
+<url><loc>https://r-hub.github.io/pkgsearch/reference/pkgsearch-package.html</loc></url>
 </urlset>
+
