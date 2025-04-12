@@ -1,4 +1,4 @@
-# pkgsearch (development version)
+# pkgsearch 3.1.5
 
 * `cran_new()` works correctly again.
 
